@@ -20,6 +20,15 @@ void user::set_Password(QString in_Pass)
     }
     Password =in_Pass ;
 }
+
+void user::set_Firstname(QString in_firstname)
+{
+    Firstname = in_firstname;
+}
+void user::set_Lastname(QString in_lastname)
+{
+    Lastname = in_lastname;
+}
 void user::set_BirthDate(QString in_BirthDate)
 {
     BirthDate = in_BirthDate ;
@@ -43,6 +52,15 @@ QString user::get_UserName()
 QString user::get_Password()
 {
     return Password ;
+}
+
+QString user::get_firstname()
+{
+    return Firstname;
+}
+QString user::get_lastname()
+{
+    return Lastname;
 }
 QString user::get_PhoneNumber()
 {
