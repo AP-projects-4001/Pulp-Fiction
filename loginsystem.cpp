@@ -30,41 +30,30 @@ LoginSystem::~LoginSystem()
 
 void LoginSystem::on_loginButton_clicked()
 {
-//    this->loggedIn = Login(ui->usernameBox->text(), ui->passwordBox->text());
+    this->loggedIn = Login(ui->usernameBox->text(), ui->passwordBox->text());
 
-//    if(this->loggedIn)
-//    {
-//        this->username = ui->usernameBox->text();
-//        this->password = ui->passwordBox->text();
+    if(this->loggedIn)
+    {
+        this->username = ui->usernameBox->text();
+        this->password = ui->passwordBox->text();
 
-//        ui->loginLabel->setText("");
-//        ui->winStack->setCurrentIndex(2);
-//    }
-//    else
-//    {
-//        ui->loginLabel->setText("Login failed: Invalid credentials!");
-//    }
+
+        ui->loginLabel->setText("");
+        ui->winStack->setCurrentIndex(2);
+    }
+    else
+    {
+        ui->loginLabel->setText("Login failed: Invalid credentials!");
+    }
 }
 
 bool LoginSystem::Login(QString u, QString p)
 {
-
-//    ui->adminButton->setVisible(false);
-
-//    bool exists = false;
-
-//    QSqlQuery checkQuery(db.db);
-//    checkQuery.prepare("select * from users where username='"+u+"' and password='"+p+"'");
-
-//    if (checkQuery.exec())
-//    {
-//        if (checkQuery.next())
-//        {
-//            exists = true;
-//        }
-//    }
-
-//    return exists;
+    inneruser.set_UserName(u);
+    inneruser.set_Password(p);
+    if(maindatabase::Find_user(inneruser))
+        return true;
+    return false;
 }
 
 
@@ -77,15 +66,15 @@ void LoginSystem::on_regButton_clicked()
 
 void LoginSystem::on_logoutButton_clicked()
 {
-//    if(QMessageBox::Yes == QMessageBox(QMessageBox::Question,
-//                                       "Login System", "Are you sure you want to logout?",
-//                                       QMessageBox::Yes|QMessageBox::No).exec())
-//    {
-//        this->loggedIn = false;
-//        ui->passwordBox->setText("");
-//        ui->loginLabel->setText("You signed out!");
-//        ui->winStack->setCurrentIndex(0);
-//    }
+    if(QMessageBox::Yes == QMessageBox(QMessageBox::Question,
+                                       "Login System", "Are you sure you want to logout?",
+                                       QMessageBox::Yes|QMessageBox::No).exec())
+    {
+        this->loggedIn = false;
+        ui->passwordBox->setText("");
+        ui->loginLabel->setText("You signed out!");
+        ui->winStack->setCurrentIndex(0);
+    }
 }
 
 void LoginSystem::on_completeRegButton_clicked()
@@ -193,7 +182,7 @@ void LoginSystem::on_completeRegButton_clicked()
         if(!maindatabase::Check_PhoneNumber(phone))
         {
             QMessageBox::warning(this,"Duplicate phone", "Oh no! We have your phone in our database choose another one please!");
-            ui->emailRegister->clear();
+            ui->phoneRegister->clear();
         }
         bool username1, password1, phone1, email1;
         username1 = ui->usernameRegister->text().size();
@@ -203,16 +192,17 @@ void LoginSystem::on_completeRegButton_clicked()
 
         if(username1 && password1 && phone1 && email1)
         {
-            inneruser.set_ID(maindatabase::Creat_ID());
-            inneruser.set_UserName(username);
-            inneruser.set_Password(password);
-            inneruser.set_EmailAddress(email);
-            inneruser.set_Firstname(firstnamee);
-            inneruser.set_Lastname(lastname);
-            inneruser.set_BirthDate(birthdate);
-            inneruser.set_PhoneNumber(phone);
+            user userRegister;
+            userRegister.set_ID(maindatabase::Creat_ID());
+            userRegister.set_UserName(username);
+            userRegister.set_Password(password);
+            userRegister.set_EmailAddress(email);
+            userRegister.set_Firstname(firstnamee);
+            userRegister.set_Lastname(lastname);
+            userRegister.set_BirthDate(birthdate);
+            userRegister.set_PhoneNumber(phone);
 
-            database->Add_user(inneruser);
+            database->Add_user(userRegister);
 //            if (this->picName != "")
 //            {
 //                QString to = this->picDir+"/"+ui->usernameRegister->text();

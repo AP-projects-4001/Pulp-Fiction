@@ -2287,6 +2287,13 @@ color: #fefefe;</string>
                <property name="layoutDirection">
                 <enum>Qt::LeftToRight</enum>
                </property>
+               <property name="styleSheet">
+                <string notr="true">padding-left: 20px;
+padding-right: 20px;
+border-radius: 20px;
+background-color: rgb(59, 63, 70);
+color: #fefefe;</string>
+               </property>
                <property name="text">
                 <string>Show passwords</string>
                </property>
