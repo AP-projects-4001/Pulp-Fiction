@@ -13,12 +13,13 @@ LoginSystem::LoginSystem(QWidget *parent) :
     ui(new Ui::LoginSystem)
 {
     ui->setupUi(this);
+    database = new maindatabase();
 //    db.dbstate = db.Connect("C:\\Users\\tejarat pooya\\Pictures\\Desktop\\AP project\\Login-System\\database\\users_login_register.db");
     ui->winStack->setCurrentIndex(0);
     ui->stackedWidget->setCurrentIndex(1);
 
     ui->passwordBox->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
-    ui->passBox->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
+    ui->passwordRegister->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
     ui->pBox_2->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
 }
 
@@ -47,6 +48,7 @@ void LoginSystem::on_loginButton_clicked()
 
 bool LoginSystem::Login(QString u, QString p)
 {
+
 //    ui->adminButton->setVisible(false);
 
 //    bool exists = false;
@@ -68,9 +70,8 @@ bool LoginSystem::Login(QString u, QString p)
 
 void LoginSystem::on_regButton_clicked()
 {
-    ui->uBox->setText(ui->usernameBox->text());
-    ui->passBox->setText(ui->passwordBox->text());
-//    ui->phoneBox->setInputMask("+99 99 99 99 99;_");
+    ui->usernameRegister->setText(ui->usernameBox->text());
+    ui->passwordRegister->setText(ui->passwordBox->text());
     ui->winStack->setCurrentIndex(1);
 }
 
@@ -89,124 +90,153 @@ void LoginSystem::on_logoutButton_clicked()
 
 void LoginSystem::on_completeRegButton_clicked()
 {
-//    QSqlQuery idquery(db.db);
-//    QString id;
-//    idquery.prepare("select * from users where id = (SELECT MAX(id)");
-//    int id_2 = id.toInt() + 1;
-//    qDebug() << id_2;
-//    QString new_id = QString::number(id_2);
-//    bool halt = false;
-//    QString username, password, firstnamee, lastname, phone, email;
-
-//    if(ui->uBox->text() == "")
-//    {
-//        ui->uBox->setPlaceholderText("Username EMPTY!");
-//        halt = true;
-//    }
-
-//    if(ui->passBox->text() == "")
-//    {
-//        ui->passBox->setPlaceholderText("Password EMPTY!");
-//        halt = true;
-//    }
-
-//    if(ui->eBox->text() == "")
-//    {
-//        ui->eBox->setPlaceholderText("E-mail EMPTY!");
-//        halt = true;
-//    }
-
-//    if(ui->fBox->text() == "")
-//    {
-//        ui->fBox->setPlaceholderText("First Name EMPTY!");
-//        halt = true;
-//    }
-
-//    if(ui->phoneBox->text() == "")
-//    {
-//        ui->phoneBox->setPlaceholderText("Phone is EMPTY!");
-//        halt = true;
-//    }
-
-//    if(ui->lBox->text() == "")
-//    {
-//        ui->lBox->setPlaceholderText("Last Name EMPTY!");
-//        halt = true;
-//    }
-
-//    QSqlQuery cQuery(db.db);
-//    cQuery.prepare("SELECT username FROM users WHERE username = (:un)");
-//    cQuery.bindValue(":un", ui->uBox->text());
-
-//    if(cQuery.exec())
-//    {
-//        if(cQuery.next())
-//        {
-//            ui->uBox->setText("");
-//            ui->uBox->setPlaceholderText("Choose a different Username!");
-//            halt = true;
-//        }
-//    }
-
-//    QSqlQuery cQuery2(db.db);
-//    cQuery2.prepare("SELECT email FROM users WHERE email = (:em)");
-//    cQuery2.bindValue(":em", ui->eBox->text());
-
-//    if(cQuery2.exec())
-//    {
-//        if(cQuery2.next())
-//        {
-//            ui->eBox->setText("");
-//            ui->eBox->setPlaceholderText("Use another E-mail!");
-//            halt = true;
-//        }
-//    }
+    bool halt = false;
 
 
-//    if(halt)
-//    {
-//        ui->regLabel->setText("Please correct your mistakes.");
-//    }
-//    else
-//    {
-//        if (this->picName != "")
-//        {
-//            QString to = this->picDir+"/"+ui->uBox->text();
+    if(ui->usernameRegister->text() == "")
+    {
+        ui->usernameRegister->setPlaceholderText("Username EMPTY!");
+        halt = true;
+    }
 
-//            if (QFile::exists(to))
+    if(ui->passwordRegister->text() == "")
+    {
+        ui->passwordRegister->setPlaceholderText("Password EMPTY!");
+        halt = true;
+    }
+    if(ui->passwordRegister_2->text() == "")
+    {
+        ui->passwordRegister_2->setPlaceholderText("Second Password EMPTY!");
+        halt = true;
+    }
+
+    if(ui->emailRegister->text() == "")
+    {
+        ui->emailRegister->setPlaceholderText("E-mail EMPTY!");
+        halt = true;
+    }
+
+    if(ui->firstnameRegister->text() == "")
+    {
+        ui->firstnameRegister->setPlaceholderText("First Name EMPTY!");
+        halt = true;
+    }
+
+    if(ui->phoneRegister->text() == "")
+    {
+        ui->phoneRegister->setPlaceholderText("Phone is EMPTY!");
+        halt = true;
+    }
+
+    if(ui->lastnameRegister->text() == "")
+    {
+        ui->lastnameRegister->setPlaceholderText("Last Name EMPTY!");
+        halt = true;
+    }
+
+
+    if(halt)
+    {
+        ui->regLabel->setText("Please correct your mistakes.");
+    }
+    else
+    {
+        QString username, password, firstnamee, lastname, phone, email, birthdate;
+        username = ui->usernameRegister->text();
+        password = ui->passwordRegister->text();
+        firstnamee = ui->firstnameRegister->text();
+        lastname = ui->lastnameRegister->text();
+        phone = ui->phoneRegister->text();
+        email = ui->emailRegister->text();
+        birthdate = ui->birthdateRegister->text();
+
+        if(password.size() < 4)
+        {
+            ui->passwordRegister->clear();
+            QMessageBox::warning(this, "Warnning", "password must have at least 4 characters");
+        }
+        bool hasUppercase = false;
+        bool hasNumber = false;
+        for (int x = 0; x < password.length(); x++)
+        {
+            if (password[x] >= 'A' && password[x] < 'Z')
+            {
+                hasUppercase = true;
+            }
+            if (password[x] >= '0' && password[x] < '9')
+            {
+                hasNumber = true;
+            }
+        }
+        // condition to check if password met the 2 requirements for including an uppercase letter and a number
+        if (!hasNumber || !hasUppercase)
+        {
+            QMessageBox::warning(this,"Warning", "Password must include atleast 1 uppercase letter and atleast 1 number");
+            ui->passwordBox->clear();
+        }
+        if(ui->passwordRegister_2->text()!= password)
+        {
+            QMessageBox::warning(this, "Not same", "Passwords are not the same!");
+            ui->passwordRegister->clear();
+            ui->passwordRegister_2->clear();
+        }
+        if(!maindatabase::Check_username(username))
+        {
+            QMessageBox::warning(this,"Duplicate username", "Oh no! We have your username in our database choose another one please!");
+            ui->usernameRegister->clear();
+        }
+        if(!maindatabase::Check_EmailAddress(email))
+        {
+            QMessageBox::warning(this,"Duplicate email", "Oh no! We have your email in our database choose another one please!");
+            ui->emailRegister->clear();
+        }
+        if(!maindatabase::Check_PhoneNumber(phone))
+        {
+            QMessageBox::warning(this,"Duplicate phone", "Oh no! We have your phone in our database choose another one please!");
+            ui->emailRegister->clear();
+        }
+        bool username1, password1, phone1, email1;
+        username1 = ui->usernameRegister->text().size();
+        password1 = ui->passwordRegister->text().size();
+        phone1 = ui->phoneRegister->text().size();
+        email1 = ui->emailRegister->text().size();
+
+        if(username1 && password1 && phone1 && email1)
+        {
+            inneruser.set_ID(maindatabase::Creat_ID());
+            inneruser.set_UserName(username);
+            inneruser.set_Password(password);
+            inneruser.set_EmailAddress(email);
+            inneruser.set_Firstname(firstnamee);
+            inneruser.set_Lastname(lastname);
+            inneruser.set_BirthDate(birthdate);
+            inneruser.set_PhoneNumber(phone);
+
+            database->Add_user(inneruser);
+//            if (this->picName != "")
 //            {
-//                QFile::remove(to);
+//                QString to = this->picDir+"/"+ui->usernameRegister->text();
+
+//                if (QFile::exists(to))
+//                {
+//                    QFile::remove(to);
+//                }
+
+//                QFile::copy(this->picName, to);
+//                this->picName = "";
 //            }
 
-//            QFile::copy(this->picName, to);
-//            this->picName = "";
-//        }
-
-//        ui->regLabel->setText("");
-//        QSqlQuery iQuery(db.db);
-//        iQuery.prepare("INSERT INTO users(id, username, password, fname, lname, phone,  email, birthdate)"\
-//                       "VALUES(:un, :pw, :fn, :mn, :ln, :em)");
-//        iQuery.bindValue(":un", ui->uBox->text());
-//        iQuery.bindValue(":pw", ui->passBox->text());
-//        iQuery.bindValue(":fn", ui->fBox->text());
-////        iQuery.bindValue(":mn", ui->mBox->text());
-//        iQuery.bindValue(":ln", ui->lBox->text());
-//        iQuery.bindValue(":em", ui->eBox->text());
-
-//        if(iQuery.exec())
-//        {
-//            ui->uBox->setText("");
-//            ui->passBox->setText("");
-//            ui->eBox->setText("");
-//            ui->fBox->setText("");
-////            ui->mBox->setText("");
-//            ui->lBox->setText("");
-//            ui->rpLabel->setText("<img src=\":user.png\" />");
-//            ui->loginLabel->setText("Registration Successful! You can now login.");
-//            ui->winStack->setCurrentIndex(0);
-//        }
-
-//    }
+            ui->regLabel->setText("");
+            ui->usernameRegister->setText("");
+            ui->passwordRegister->setText("");
+            ui->emailRegister->setText("");
+            ui->firstnameRegister->setText("");
+            ui->lastnameRegister->setText("");
+            ui->rpLabel->setText("<img src=\":/img/img/user.png\" />");
+            ui->loginLabel->setText("Registration Successful! You can now login.");
+            ui->winStack->setCurrentIndex(0);
+        }
+    }
 }
 
 void LoginSystem::on_backButton_clicked()
@@ -220,6 +250,7 @@ void LoginSystem::on_backButton_2_clicked()
 {
     ui->winStack->setCurrentIndex(2);
 }
+
 
 void LoginSystem::on_editButton_clicked()
 {
@@ -463,21 +494,21 @@ void LoginSystem::on_pageButton_clicked()
 
 void LoginSystem::on_editedButton_2_clicked()
 {
-    if(this->tblMdl->submitAll())
-    {
-        this->tblMdl->database().commit();
-        ui->adminLabel->setText("Saved to database!");
-    }
-    else
-    {
-        this->tblMdl->database().rollback();
-    }
+//    if(this->tblMdl->submitAll())
+//    {
+//        this->tblMdl->database().commit();
+//        ui->adminLabel->setText("Saved to database!");
+//    }
+//    else
+//    {
+//        this->tblMdl->database().rollback();
+//    }
 }
 
 void LoginSystem::on_backButton_5_clicked()
 {
-    this->tblMdl->revertAll();
-    this->tblMdl->database().rollback();
+//    this->tblMdl->revertAll();
+//    this->tblMdl->database().rollback();
 }
 
 void LoginSystem::on_userBrowse_clicked()
@@ -554,5 +585,21 @@ void LoginSystem::on_checkBox_showpass_stateChanged(int arg1)
         ui->passwordBox->setEchoMode(QLineEdit::Normal);
     else
         ui->passwordBox->setEchoMode(QLineEdit::Password);
+}
+
+
+void LoginSystem::on_checkBox_stateChanged(int arg1)
+{
+    if(arg1)
+    {
+        ui->passwordRegister->setEchoMode(QLineEdit::Normal);
+        ui->passwordRegister_2->setEchoMode(QLineEdit::Normal);
+    }
+
+    else
+    {
+        ui->passwordRegister_2->setEchoMode(QLineEdit::Password);
+        ui->passwordRegister->setEchoMode(QLineEdit::Password);
+    }
 }
 

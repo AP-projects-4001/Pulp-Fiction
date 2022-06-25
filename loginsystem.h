@@ -5,6 +5,8 @@
 #include <QMainWindow>
 #include <QCoreApplication>
 #include <QSqlTableModel>
+#include "user.h"
+#include "maindatabase.h"
 
 namespace Ui {
 class LoginSystem;
@@ -21,7 +23,7 @@ public:
     bool loggedIn;
     QString picName;
     QString picDir = QCoreApplication::applicationDirPath()+"/../../LogSys/users/avatar";
-    QSqlTableModel* tblMdl;
+//    QSqlTableModel* tblMdl;
 
 private slots:
     void on_loginButton_clicked();
@@ -68,10 +70,15 @@ private slots:
 
     void on_checkBox_showpass_stateChanged(int arg1);
 
+    void on_checkBox_stateChanged(int arg1);
+
 private:
     Ui::LoginSystem *ui;
+    user inneruser;
+    maindatabase *database;
     QString username;
     QString password;
+
 };
 
 #endif // LOGINSYSTEM_H
