@@ -27,6 +27,7 @@ void maindatabase::Add_user(user in_user)
     QJsonObject Newuser ;
     Newuser.insert("ID", Creat_ID() ) ;
     Newuser.insert("UserName", in_user.get_UserName()) ;
+    qDebug() << in_user.get_Password();
     Newuser.insert("Password", in_user.get_Password() ) ;
     Newuser.insert("PhoneNumber", in_user.get_PhoneNumber()) ;
     Newuser.insert("EmailAddress", in_user.get_EmailAddress()) ;
@@ -163,7 +164,7 @@ bool maindatabase::Find_user( user &in_user)
 
         }
     }
-    qDebug() << " not found current user" ;
+    qDebug() << " Not found current user" ;
     return false ;
 }
 int maindatabase::Creat_ID()

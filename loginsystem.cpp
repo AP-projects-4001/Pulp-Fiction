@@ -184,6 +184,7 @@ void LoginSystem::on_completeRegButton_clicked()
             QMessageBox::warning(this,"Duplicate phone", "Oh no! We have your phone in our database choose another one please!");
             ui->phoneRegister->clear();
         }
+
         bool username1, password1, phone1, email1;
         username1 = ui->usernameRegister->text().size();
         password1 = ui->passwordRegister->text().size();
@@ -196,6 +197,7 @@ void LoginSystem::on_completeRegButton_clicked()
             userRegister.set_ID(maindatabase::Creat_ID());
             userRegister.set_UserName(username);
             userRegister.set_Password(password);
+            qDebug() << password;
             userRegister.set_EmailAddress(email);
             userRegister.set_Firstname(firstnamee);
             userRegister.set_Lastname(lastname);
@@ -203,6 +205,7 @@ void LoginSystem::on_completeRegButton_clicked()
             userRegister.set_PhoneNumber(phone);
 
             database->Add_user(userRegister);
+
 //            if (this->picName != "")
 //            {
 //                QString to = this->picDir+"/"+ui->usernameRegister->text();
@@ -219,9 +222,12 @@ void LoginSystem::on_completeRegButton_clicked()
             ui->regLabel->setText("");
             ui->usernameRegister->setText("");
             ui->passwordRegister->setText("");
+            ui->passwordRegister_2->setText("");
             ui->emailRegister->setText("");
             ui->firstnameRegister->setText("");
             ui->lastnameRegister->setText("");
+            ui->checkBox_showpass->setChecked(false);
+            ui->phoneRegister->setText("");
             ui->rpLabel->setText("<img src=\":/img/img/user.png\" />");
             ui->loginLabel->setText("Registration Successful! You can now login.");
             ui->winStack->setCurrentIndex(0);
