@@ -2522,7 +2522,7 @@ color: #fefefe;</string>
               </widget>
              </item>
              <item row="4" column="0">
-              <widget class="QCheckBox" name="checkBox">
+              <widget class="QCheckBox" name="showpassforsignup">
                <property name="layoutDirection">
                 <enum>Qt::LeftToRight</enum>
                </property>
@@ -4704,7 +4704,7 @@ Color: #fefefe;</string>
  <tabstops>
   <tabstop>usernameRegister</tabstop>
   <tabstop>passwordRegister_2</tabstop>
-  <tabstop>checkBox</tabstop>
+  <tabstop>showpassforsignup</tabstop>
   <tabstop>passwordBox</tabstop>
   <tabstop>editedButton</tabstop>
   <tabstop>completeRegButton</tabstop>

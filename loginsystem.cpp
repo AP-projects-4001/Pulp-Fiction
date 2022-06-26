@@ -61,6 +61,7 @@ void LoginSystem::on_regButton_clicked()
 {
     ui->usernameRegister->setText(ui->usernameBox->text());
     ui->passwordRegister->setText(ui->passwordBox->text());
+    ui->showpassforsignup->setChecked(false);
     ui->winStack->setCurrentIndex(1);
 }
 
@@ -228,7 +229,6 @@ void LoginSystem::on_completeRegButton_clicked()
             ui->emailRegister->setText("");
             ui->firstnameRegister->setText("");
             ui->lastnameRegister->setText("");
-            ui->checkBox_showpass->setChecked(false);
             ui->phoneRegister->setText("");
             ui->rpLabel->setText("<img src=\":/img/img/user.png\" />");
             ui->loginLabel->setText("Registration Successful! You can now login.");
