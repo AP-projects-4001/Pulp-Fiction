@@ -198,11 +198,13 @@ void LoginSystem::on_completeRegButton_clicked()
             userRegister.set_UserName(username);
             userRegister.set_Password(password);
             qDebug() << password;
+            qDebug() << userRegister.get_Password();
             userRegister.set_EmailAddress(email);
             userRegister.set_Firstname(firstnamee);
             userRegister.set_Lastname(lastname);
             userRegister.set_BirthDate(birthdate);
             userRegister.set_PhoneNumber(phone);
+
 
             database->Add_user(userRegister);
 

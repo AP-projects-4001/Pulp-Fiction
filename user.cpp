@@ -11,14 +11,10 @@ void user::set_UserName(QString in_UserName)
 {
     UserName = in_UserName ;
 }
+
 void user::set_Password(QString in_Pass)
 {
-    if( in_Pass.size() < 8 )
-    {
-        //temp //error dialog
-        return ;
-    }
-    Password =in_Pass ;
+    Password = in_Pass ;
 }
 
 void user::set_Firstname(QString in_firstname)
