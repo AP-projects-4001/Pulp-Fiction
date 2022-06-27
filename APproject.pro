@@ -40,4 +40,9 @@ RESOURCES += \
 DISTFILES += \
     APproject.pro.user \
     APproject.pro.user.913bdb2 \
-    README.md
+    README.md \
+    img/3d-fluency-bunch-of-keys.png \
+    img/icons8-chat-64.ico \
+    img/icons8-login-100.png \
+    img/icons8-password-window-66.png \
+    img/user.png

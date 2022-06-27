@@ -34,8 +34,6 @@ private slots:
 
     void on_regButton_clicked();
 
-    void on_backButton_2_clicked();
-
     void on_winStack_currentChanged(int arg1);
 
     void on_uplButton_clicked();
@@ -45,6 +43,8 @@ private slots:
     void on_showpassforsignup_stateChanged(int arg1);
 
     void on_forgetpassbtn_clicked();
+
+    void on_backtologinforgetpass_clicked();
 
 private:
     Ui::LoginSystem *ui;

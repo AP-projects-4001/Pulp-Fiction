@@ -187,18 +187,18 @@ void LoginSystem::on_completeRegButton_clicked()
 
             database->Add_user(userRegister);
 
-//            if (this->picName != "")
-//            {
-//                QString to = this->picDir+"/"+ui->usernameRegister->text();
+            if (this->picName != "")
+            {
+                QString to = this->picDir+"/"+ui->usernameRegister->text();
 
-//                if (QFile::exists(to))
-//                {
-//                    QFile::remove(to);
-//                }
+                if (QFile::exists(to))
+                {
+                    QFile::remove(to);
+                }
 
-//                QFile::copy(this->picName, to);
-//                this->picName = "";
-//            }
+                QFile::copy(this->picName, to);
+                this->picName = "";
+            }
 
             ui->regLabel->setText("");
             ui->usernameRegister->setText("");
@@ -219,12 +219,6 @@ void LoginSystem::on_completeRegButton_clicked()
 void LoginSystem::on_backButton_clicked()
 {
     ui->loginLabel->setText("");
-    ui->winStack->setCurrentIndex(0);
-}
-
-
-void LoginSystem::on_backButton_2_clicked()
-{
     ui->winStack->setCurrentIndex(0);
 }
 
@@ -258,7 +252,6 @@ void LoginSystem::on_showpassforsignup_stateChanged(int arg1)
         ui->passwordRegister->setEchoMode(QLineEdit::Normal);
         ui->passwordRegister_2->setEchoMode(QLineEdit::Normal);
     }
-
     else
     {
         ui->passwordRegister_2->setEchoMode(QLineEdit::Password);
@@ -268,6 +261,11 @@ void LoginSystem::on_showpassforsignup_stateChanged(int arg1)
 
 void LoginSystem::on_forgetpassbtn_clicked()
 {
-    ui->winStack->setCurrentIndex(3);
+    ui->winStack->setCurrentIndex(2);
+}
+
+void LoginSystem::on_backtologinforgetpass_clicked()
+{
+    ui->winStack->setCurrentIndex(0);
 }
 
