@@ -5,8 +5,8 @@
     <qresource prefix="/img">
         <file>img/icons8-login-100.png</file>
         <file>img/user.png</file>
-        <file>img/3d-fluency-bunch-of-keys.png</file>
         <file>img/icons8-password-window-66.png</file>
         <file>img/icons8-register-64.png</file>
+        <file>img/icons8-password-64.png</file>
     </qresource>
 </RCC>

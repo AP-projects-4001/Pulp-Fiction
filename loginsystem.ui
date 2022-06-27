@@ -33,7 +33,7 @@
    <string>Pulp chat</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="elements.qrc">
+   <iconset>
     <normaloff>:/icons/img/icons8-chat-64.ico</normaloff>:/icons/img/icons8-chat-64.ico</iconset>
   </property>
   <property name="iconSize">
@@ -101,7 +101,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="Login">
       <widget class="QFrame" name="frame_2">
@@ -736,8 +736,8 @@ color: #fefefe;</string>
            <property name="styleSheet">
             <string notr="true">Padding: 1px;
 Border-radius: 5px;
-Background: #393;
-color: #fefefe;</string>
+background-color: rgb(241, 182, 88);
+color: rgb(25, 69, 105);</string>
            </property>
            <property name="text">
             <string>Forgot password?</string>
@@ -748,7 +748,7 @@ color: #fefefe;</string>
        </widget>
       </widget>
      </widget>
-     <widget class="QWidget" name="page_2">
+     <widget class="QWidget" name="register_2">
       <property name="minimumSize">
        <size>
         <width>750</width>
@@ -2590,7 +2590,7 @@ Color: #fefefe;</string>
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="elements.qrc">:/img/img/user.png</pixmap>
+              <pixmap>:/img/img/user.png</pixmap>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -2601,7 +2601,7 @@ Color: #fefefe;</string>
          </widget>
         </item>
         <item row="1" column="0">
-         <widget class="QLabel" name="label_4">
+         <widget class="QLabel" name="piclabel">
           <property name="maximumSize">
            <size>
             <width>750</width>
@@ -2612,7 +2612,7 @@ Color: #fefefe;</string>
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap resource="elements.qrc">:/img/img/icons8-register-64.png</pixmap>
+           <pixmap>:/img/img/icons8-register-64.png</pixmap>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -2622,7 +2622,7 @@ Color: #fefefe;</string>
        </layout>
       </widget>
      </widget>
-     <widget class="QWidget" name="page">
+     <widget class="QWidget" name="forgetpass">
       <widget class="QFrame" name="frame_4">
        <property name="geometry">
         <rect>
@@ -2641,60 +2641,6 @@ Color: #fefefe;</string>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <widget class="QPushButton" name="backButton_3">
-        <property name="geometry">
-         <rect>
-          <x>280</x>
-          <y>580</y>
-          <width>171</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">Padding: 1px;
-Border-radius: 5px;
-Background: #933;
-Color: #fefefe;</string>
-        </property>
-        <property name="text">
-         <string>BACK TO MY PAGE</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="regLabel_3">
-        <property name="geometry">
-         <rect>
-          <x>300</x>
-          <y>290</y>
-          <width>601</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: #fefefe;</string>
-        </property>
-        <property name="text">
-         <string>Enter your Username and email</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="editedButton_2">
-        <property name="geometry">
-         <rect>
-          <x>780</x>
-          <y>580</y>
-          <width>171</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">Padding: 1px;
-Border-radius: 5px;
-Background: #393;
-Color: #fefefe;</string>
-        </property>
-        <property name="text">
-         <string>SUBMIT CHANGES</string>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_8">
         <property name="geometry">
          <rect>
@@ -2724,7 +2670,7 @@ font-family: 'Droid Sans';</string>
        <widget class="QGroupBox" name="groupBox_4">
         <property name="geometry">
          <rect>
-          <x>130</x>
+          <x>180</x>
           <y>140</y>
           <width>391</width>
           <height>211</height>
@@ -2733,7 +2679,7 @@ font-family: 'Droid Sans';</string>
         <property name="title">
          <string/>
         </property>
-        <widget class="QLineEdit" name="uBox_5">
+        <widget class="QLineEdit" name="usernameforforgetpass">
          <property name="geometry">
           <rect>
            <x>30</x>
@@ -2969,7 +2915,7 @@ color: #fefefe;</string>
           <string>Username</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="eBox_5">
+        <widget class="QLineEdit" name="emailforforgetpass">
          <property name="geometry">
           <rect>
            <x>30</x>
@@ -3214,30 +3160,36 @@ color: #fefefe;</string>
         <widget class="QLabel" name="statusforforgetpass_4">
          <property name="geometry">
           <rect>
-           <x>50</x>
+           <x>20</x>
            <y>170</y>
-           <width>171</width>
+           <width>351</width>
            <height>21</height>
           </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">padding-left: 20px;
+padding-right: 20px;
+border-radius: 20px;
+color: #fefefe;</string>
          </property>
          <property name="text">
           <string/>
          </property>
         </widget>
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="picforgetpass">
          <property name="geometry">
           <rect>
-           <x>270</x>
+           <x>240</x>
            <y>40</y>
-           <width>111</width>
-           <height>111</height>
+           <width>141</width>
+           <height>131</height>
           </rect>
          </property>
          <property name="text">
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap resource="elements.qrc">:/img/img/icons8-password-window-66.png</pixmap>
+          <pixmap>:/img/img/icons8-password-window-66.png</pixmap>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -3257,7 +3209,7 @@ color: #fefefe;</string>
          <string notr="true">color: #fefefe;</string>
         </property>
         <property name="text">
-         <string>Enter your Username and email</string>
+         <string>Enter your Username and E-mail</string>
         </property>
        </widget>
        <widget class="QPushButton" name="backtologinforgetpass">
@@ -3279,7 +3231,7 @@ Color: #fefefe;</string>
          <string>BACK TO LOGIN PAGE</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="editedButton_3">
+       <widget class="QPushButton" name="showpassforforgetpass">
         <property name="geometry">
          <rect>
           <x>540</x>
@@ -3306,15 +3258,31 @@ Color: #fefefe;</string>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
-  <tabstop>passwordBox</tabstop>
   <tabstop>usernameBox</tabstop>
-  <tabstop>birthdateRegister</tabstop>
-  <tabstop>checkBox_showpass</tabstop>
+  <tabstop>passwordBox</tabstop>
   <tabstop>regButton</tabstop>
   <tabstop>loginButton</tabstop>
+  <tabstop>forgetpassbtn</tabstop>
+  <tabstop>checkBox_showpass</tabstop>
+  <tabstop>usernameRegister</tabstop>
+  <tabstop>passwordRegister</tabstop>
+  <tabstop>completeRegButton</tabstop>
+  <tabstop>birthdateRegister</tabstop>
+  <tabstop>uplButton</tabstop>
+  <tabstop>lastnameRegister</tabstop>
+  <tabstop>phoneRegister</tabstop>
+  <tabstop>backButton</tabstop>
+  <tabstop>firstnameRegister</tabstop>
+  <tabstop>emailRegister</tabstop>
+  <tabstop>passwordRegister_2</tabstop>
+  <tabstop>uBox_3</tabstop>
+  <tabstop>eBox_3</tabstop>
+  <tabstop>backtologinforgetpass</tabstop>
+  <tabstop>showpassforforgetpass</tabstop>
+  <tabstop>showpassforsignup</tabstop>
+  <tabstop>usernameforforgetpass</tabstop>
+  <tabstop>emailforforgetpass</tabstop>
  </tabstops>
- <resources>
-  <include location="elements.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

@@ -3,7 +3,6 @@
 #include <QSqlRecord>
 #include <QFileDialog>
 #include <QMessageBox>
-#include <QDate>
 
 LoginSystem::LoginSystem(QWidget *parent) :
     QMainWindow(parent),
@@ -33,7 +32,7 @@ void LoginSystem::on_loginButton_clicked()
 
 
         ui->loginLabel->setText("");
-        ui->winStack->setCurrentIndex(2);
+        // Set homepage window here
     }
     else
     {
@@ -53,8 +52,6 @@ bool LoginSystem::Login(QString u, QString p)
 
 void LoginSystem::on_regButton_clicked()
 {
-    ui->usernameRegister->setText(ui->usernameBox->text());
-    ui->passwordRegister->setText(ui->passwordBox->text());
     ui->winStack->setCurrentIndex(1);
 }
 
@@ -267,5 +264,48 @@ void LoginSystem::on_forgetpassbtn_clicked()
 void LoginSystem::on_backtologinforgetpass_clicked()
 {
     ui->winStack->setCurrentIndex(0);
+}
+
+
+void LoginSystem::on_showpassforforgetpass_clicked()
+{
+    user forgetpass;
+    QString pass, pass1, email, usernam;
+    username = ui->usernameforforgetpass->text();
+    email = ui->emailforforgetpass->text();
+    forgetpass.set_UserName(username);
+    forgetpass.set_EmailAddress(email);
+    if(database->userpasswordForforgot(forgetpass, pass))
+    {
+
+        pass1 = "Your password is : " + pass;
+        ui->statusforforgetpass_4->setText(pass1);
+        QPixmap pixmap(":/img/img/icons8-password-64.png"); // Change the picture
+        ui->picforgetpass->setPixmap(pixmap);
+        ui->usernameBox->setText(username);
+        ui->passwordBox->setText(pass);
+        delay(2);
+        ui->usernameforforgetpass->setText("");
+        ui->emailforforgetpass->setText("");
+        ui->statusforforgetpass_4->setText("");
+        QPixmap pixmap1(":/img/img/icons8-password-window-66.png");
+        ui->picforgetpass->setPixmap(pixmap1);
+        on_backtologinforgetpass_clicked();
+    }
+    else
+    {
+        ui->statusforforgetpass_4->setText("Sorry, User not found");
+        delay(2);
+    }
+    ui->usernameforforgetpass->setText("");
+    ui->emailforforgetpass->setText("");
+    ui->statusforforgetpass_4->setText("");
+}
+
+void LoginSystem::delay(int sec)
+{
+    QTime dieTime= QTime::currentTime().addSecs(sec);
+    while (QTime::currentTime() < dieTime)
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
 }
 

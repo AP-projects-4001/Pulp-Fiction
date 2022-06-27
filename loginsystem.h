@@ -23,6 +23,7 @@ public:
     bool loggedIn;
     QString picName;
     QString picDir = QCoreApplication::applicationDirPath()+"/../../LogSys/users/avatar";
+    void delay(int);
 //    QSqlTableModel* tblMdl;
 
 private slots:
@@ -45,6 +46,8 @@ private slots:
     void on_forgetpassbtn_clicked();
 
     void on_backtologinforgetpass_clicked();
+
+    void on_showpassforforgetpass_clicked();
 
 private:
     Ui::LoginSystem *ui;
