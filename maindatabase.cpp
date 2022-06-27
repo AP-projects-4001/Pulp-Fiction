@@ -6,6 +6,7 @@
 #include <QJsonObject>
 #include "user.h"
 #include "QJsonParseError"
+#include <QMessageBox>
 
 maindatabase::maindatabase()
 {
@@ -27,11 +28,12 @@ void maindatabase::Add_user(user in_user)
     QJsonObject Newuser ;
     Newuser.insert("ID", Creat_ID() ) ;
     Newuser.insert("UserName", in_user.get_UserName()) ;
-    qDebug() << in_user.get_Password();
     Newuser.insert("Password", in_user.get_Password() ) ;
     Newuser.insert("PhoneNumber", in_user.get_PhoneNumber()) ;
     Newuser.insert("EmailAddress", in_user.get_EmailAddress()) ;
     Newuser.insert("BirthDate", in_user.get_BirthDate()) ;
+    Newuser.insert("FirsName", in_user.get_firstname());
+    Newuser.insert("LastName", in_user.get_lastname());
     QJsonParseError JsonParseError ;
     QJsonDocument JsonDoc = QJsonDocument::fromJson(Db.readAll(), &JsonParseError) ;
     Db.close() ;
@@ -156,6 +158,8 @@ bool maindatabase::Find_user( user &in_user)
             in_user.set_EmailAddress( TempObj["EmailAddress"].toString() ) ;
             in_user.set_PhoneNumber( TempObj["PhoneNumber"].toString() ) ;
             in_user.set_BirthDate( TempObj["BirthDate"].toString() ) ;
+            in_user.set_BirthDate( TempObj["FirstName"].toString() ) ;
+            in_user.set_BirthDate( TempObj["LastName"].toString() ) ;
             /*set PVchatsID
              GroupsID
              ChannelsID
@@ -167,6 +171,34 @@ bool maindatabase::Find_user( user &in_user)
     qDebug() << " Not found current user" ;
     return false ;
 }
+
+bool maindatabase::userpasswordForforgot(user in_user, QString &pass)
+{
+    QFile Db( "MainDatabase.json" ) ;
+    if( !Db.open(QIODevice::ReadOnly) )
+    {
+       qDebug() << "File open error";//temp// error dialog should be open here
+      return false ;
+    }
+    QJsonParseError JsonParseError ;
+    QJsonDocument JsonDoc = QJsonDocument::fromJson(Db.readAll(), &JsonParseError) ;
+    Db.close() ;
+    QJsonArray JsonArray = JsonDoc.object()["Users"].toArray() ;
+    for (int i=0; i < JsonArray.size(); i++)
+    {
+        QJsonObject TempObj =  JsonArray.at(i).toObject();
+        if( TempObj["UserName"].toString() == in_user.get_UserName() && TempObj["EmailAddress"].toString() == in_user.get_EmailAddress())
+        {
+            pass = TempObj["Password"].toString();
+            return true ;
+
+        }
+    }
+    qDebug() << " Not found current user" ;
+    return false ;
+
+}
+
 int maindatabase::Creat_ID()
 {
     QFile Db( "MainDatabase.json" ) ;

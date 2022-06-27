@@ -24,6 +24,7 @@ public:
     static void Push_UserChannelID() ;
     static void Push_UserFriendID() ;
     static void Delete_UserFriendID() ;
+    static bool userpasswordForforgot(user in_user, QString &pass);
 };
 
 #endif // MAINDATABASE_H

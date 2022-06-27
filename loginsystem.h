@@ -28,8 +28,6 @@ public:
 private slots:
     void on_loginButton_clicked();
 
-    void on_logoutButton_clicked();
-
     void on_completeRegButton_clicked();
 
     void on_backButton_clicked();
@@ -38,39 +36,15 @@ private slots:
 
     void on_backButton_2_clicked();
 
-    void on_editButton_clicked();
-
-    void on_delButton_clicked();
-
-    void on_editedButton_clicked();
-
     void on_winStack_currentChanged(int arg1);
 
     void on_uplButton_clicked();
 
-    void on_uplButton_2_clicked();
-
-    void on_adminButton_clicked();
-
-    void on_pageButton_clicked();
-
-    void on_editedButton_2_clicked();
-
-    void on_backButton_5_clicked();
-
-    void on_userBrowse_clicked();
-
-    void on_delUButton_clicked();
-
-    void on_stackedWidget_currentChanged(int arg1);
-
-    void on_adminBrowse_clicked();
-
-    void on_delAButton_clicked();
-
     void on_checkBox_showpass_stateChanged(int arg1);
 
-    void on_checkBox_stateChanged(int arg1);
+    void on_showpassforsignup_stateChanged(int arg1);
+
+    void on_forgetpassbtn_clicked();
 
 private:
     Ui::LoginSystem *ui;
@@ -78,7 +52,6 @@ private:
     maindatabase *database;
     QString username;
     QString password;
-
 };
 
 #endif // LOGINSYSTEM_H
