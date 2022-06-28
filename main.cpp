@@ -4,11 +4,10 @@
 #include"user.h"
 #include"pvchat.h"
 #include "loginsystem.h"
+#include "homepage.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-//    Pulp w;
-//    w.show();
     LoginSystem ls;
     ls.show();
     return a.exec();

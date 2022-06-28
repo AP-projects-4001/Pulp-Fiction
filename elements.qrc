@@ -8,5 +8,14 @@
         <file>img/icons8-password-window-66.png</file>
         <file>img/icons8-register-64.png</file>
         <file>img/icons8-password-64.png</file>
+        <file>img/icons8-contacts-40.png</file>
+        <file>img/icons8-omnichannel-40.png</file>
+        <file>img/icons8-people-40.png</file>
+        <file>img/icons8-setting-40.png</file>
+        <file>img/icons8-exit-100.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>img/chatbackground.jpg</file>
+        <file>img/icons8-menu-rounded-64.png</file>
     </qresource>
 </RCC>

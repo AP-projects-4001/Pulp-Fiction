@@ -5,6 +5,7 @@
 #include <QCoreApplication>
 #include "user.h"
 #include "maindatabase.h"
+#include "homepage.h"
 
 namespace Ui {
 class LoginSystem;
@@ -22,7 +23,6 @@ public:
     QString picName;
     QString picDir = QCoreApplication::applicationDirPath()+"/../../LogSys/users/avatar";
     void delay(int);
-//    QSqlTableModel* tblMdl;
 
 private slots:
     void on_loginButton_clicked();
@@ -49,6 +49,7 @@ private slots:
 
 private:
     Ui::LoginSystem *ui;
+    homepage *hmpg;
     user inneruser;
     maindatabase *database;
     QString username;

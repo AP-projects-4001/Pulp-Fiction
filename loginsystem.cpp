@@ -2,6 +2,7 @@
 #include "ui_loginsystem.h"
 #include <QFileDialog>
 #include <QMessageBox>
+#include <homepage.h>
 
 LoginSystem::LoginSystem(QWidget *parent) :
     QMainWindow(parent),
@@ -13,6 +14,8 @@ LoginSystem::LoginSystem(QWidget *parent) :
 
     ui->passwordBox->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
     ui->passwordRegister->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
+    QIntValidator* intValidator = new QIntValidator;
+    ui->phoneRegister->setValidator(intValidator);
 }
 
 LoginSystem::~LoginSystem()
@@ -31,7 +34,9 @@ void LoginSystem::on_loginButton_clicked()
 
 
         ui->loginLabel->setText("");
-        // Set homepage window here
+        LoginSystem::hide();
+        hmpg = new homepage;
+        hmpg->show();
     }
     else
     {
@@ -47,7 +52,6 @@ bool LoginSystem::Login(QString u, QString p)
         return true;
     return false;
 }
-
 
 void LoginSystem::on_regButton_clicked()
 {
