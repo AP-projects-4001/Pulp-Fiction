@@ -14,10 +14,12 @@ public:
     int get_ID() ;
     user get_Owner() ;
     QVector<QString> get_Messages() ;
+    void set_Messages(QVector<QString> in_Messages ) ;
     void set_ID(int in_ID ) ;
     void set_Owner(user in_Owner ) ;
     void add_Message(QString in_Message , QString FileName ) ;
-    virtual QString ExtractFileName( int ChatID ) ;
+    virtual QString ExtractFileName( int ChatID ) = 0 ;
+
 };
 
 #endif // CHAT_H

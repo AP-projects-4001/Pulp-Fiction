@@ -28,6 +28,10 @@ void chat::set_Owner(user in_Owner )
 {
     Owner = in_Owner ;
 }
+void chat::set_Messages(QVector<QString> in_Messages )
+{
+    Messages = in_Messages ;
+}
 void chat::add_Message(QString in_Message , QString FileName)
 {
     QFile CFile( FileName ) ;
@@ -48,9 +52,9 @@ void chat::add_Message(QString in_Message , QString FileName)
     CFile.write( JsonDoc.toJson() ) ;
     CFile.close() ;
 }
-QString chat::ExtractFileName( int ChatID )
+/*QString chat::ExtractFileName( int ChatID )
 {
     qDebug() << "In Virtual Function!!" ;
     return "WrongName"+QString::number( ChatID ) ;
     ////Error?
-}
+}*/

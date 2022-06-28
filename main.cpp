@@ -1,61 +1,56 @@
-#include "pulp.h"
 #include "maindatabase.h"
 #include <QApplication>
 #include"user.h"
 #include"pvchat.h"
+#include"group.h"
+#include"chat.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Pulp w;
-    w.show();
+    user owner  , second ;
+    QVector<int> fr{ 1 , 2 , 3 , 4} ;
+             owner.set_UserName("samin") ;
+             owner.set_ID( maindatabase::Creat_ID() ) ;
+             owner.set_PhoneNumber("093339234936") ;
+             owner.set_FriendsID( fr ) ;
+             maindatabase::Add_user( owner ) ;
+             second.set_UserName("ddddddddddddddddddddddddddd") ;
+             second.set_ID( maindatabase::Creat_ID() ) ;
+             second.set_PhoneNumber("09111111111") ;
+             maindatabase::Add_user( second ) ;
+             pvchat pvobj(owner , second ) ;
+             QString tmpstr = pvobj.ExtractFileName( maindatabase::Creat_PVChatID() );
+             pvobj.Make_NewPVChatFile( tmpstr ) ;
+             pvobj.add_Message("zahra:salam" , tmpstr) ;
+             pvobj.add_Message("Ali:salam" , tmpstr ) ;
+             pvobj.add_Message("zahra:khobi" , tmpstr) ;
+             maindatabase::Add_PVChat( pvobj ) ;
+     maindatabase::Push_UserFriendID( 110, owner ) ;
     return a.exec();
 }
-/*test main 1:
- *     user tmpuser ;
-    if ( maindatabase::Check_username("hasan")== true )
-    {
-        tmpuser.set_UserName("hasan") ;
-        tmpuser.set_ID( maindatabase::Creat_ID() ) ;
-        tmpuser.set_Password( "12345678" ) ;
-        tmpuser.set_PhoneNumber("111111111") ;
-        maindatabase::Add_user( tmpuser ) ;
-    }
-    else
-    {
-        qDebug() << "bad username" ;
-    }*/
-/*test main 2:
- *         user tmpuser ;
-        tmpuser.set_UserName("hasan") ;
-        tmpuser.set_ID( maindatabase::Creat_ID() ) ;
-        tmpuser.set_Password( "12345678" ) ;
-        tmpuser.set_PhoneNumber("111111111") ;
-        if(maindatabase::Find_user( tmpuser ) )
-        {
-            qDebug() << "found!" ;
-        }*/
-/*test main 3 :
- *     user owner  , second ;
-    owner.set_UserName("zahra") ;
-    owner.set_ID( maindatabase::Creat_ID() ) ;
-    owner.set_PhoneNumber("093339234936") ;
-    second.set_UserName("ali") ;
-    second.set_ID( maindatabase::Creat_ID() ) ;
-    second.set_PhoneNumber("09111111111") ;
-    pvchat pvobj(owner) ;
-    pvobj.Make_NewPVChatFile( pvobj.ExtractFileName(  maindatabase::Creat_PVChatID()) , second ) ;
-    pvobj.add_Message("zahra:salam" , "PVChat1000.json" ) ;
-    pvobj.add_Message("Ali:salam" , "PVChat1000.json" ) ;
-    pvobj.add_Message("zahra:khobi" , "PVChat1000.json" ) ;
-*/
-/*test main 4 :
- *
-    user owner  , second ;
+/*  testmain:
+
+user owner  , mem1 , mem2 , mem3 ;
         owner.set_UserName("zahra") ;
         owner.set_ID( maindatabase::Creat_ID() ) ;
         owner.set_PhoneNumber("093339234936") ;
-        second.set_UserName("ali") ;
-        second.set_ID( maindatabase::Creat_ID() ) ;
-        second.set_PhoneNumber("09111111111") ;
-        pvchat pvobj(owner , second ) ;
-        maindatabase::Add_PVChat( pvobj ) ;*/
+        mem1.set_ID(1) ;
+        mem1.set_PhoneNumber("123213321") ;
+        mem1.set_UserName("ali") ;
+        mem2.set_ID(2) ;
+        mem2.set_PhoneNumber("88888") ;
+        mem2.set_UserName("zahra") ;
+        mem3.set_ID(3) ;
+        mem3.set_PhoneNumber("776256") ;
+        mem3.set_UserName("sima") ;
+        Group gobj( owner , "iutgroup") ;
+        int tmp = maindatabase::Creat_GroupID() ;
+        QString name = gobj.ExtractFileName( tmp ) ;
+        //gobj.Make_NewGroupFile( name ) ;
+        gobj.add_Message("zahra:salam" ,name  ) ;
+        gobj.add_Message("sima:salam" ,name  ) ;
+        gobj.add_Message("mohammad:salam" ,name  ) ;
+        gobj.add_Member( mem1 , name ) ;
+        gobj.add_Member( mem2 , name ) ;
+        gobj.add_Member( mem3 , name ) ;
+        gobj = Group::read_Group(tmp ) ;*/
