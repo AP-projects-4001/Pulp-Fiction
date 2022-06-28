@@ -1,10 +1,8 @@
 #ifndef LOGINSYSTEM_H
 #define LOGINSYSTEM_H
 
-#include "QtSql/qsqltablemodel.h"
 #include <QMainWindow>
 #include <QCoreApplication>
-#include <QSqlTableModel>
 #include "user.h"
 #include "maindatabase.h"
 

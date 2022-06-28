@@ -1,6 +1,5 @@
 #include "loginsystem.h"
 #include "ui_loginsystem.h"
-#include <QSqlRecord>
 #include <QFileDialog>
 #include <QMessageBox>
 
@@ -100,11 +99,17 @@ void LoginSystem::on_completeRegButton_clicked()
         ui->lastnameRegister->setPlaceholderText("Last Name EMPTY!");
         halt = true;
     }
+    if(!ui->emailRegister->text().contains("@"))
+    {
+        ui->emailRegister->setText("");
+        ui->emailRegister->setPlaceholderText("Enter a valid E-mail!");
+        halt = true;
+    }
 
 
     if(halt)
     {
-        ui->regLabel->setText("Please correct your mistakes.");
+        ui->regLabel->setText("<b color:#33>Please correct your mistakes.</b>");
     }
     else
     {
@@ -270,7 +275,7 @@ void LoginSystem::on_backtologinforgetpass_clicked()
 void LoginSystem::on_showpassforforgetpass_clicked()
 {
     user forgetpass;
-    QString pass, pass1, email, usernam;
+    QString pass, pass1, email, username;
     username = ui->usernameforforgetpass->text();
     email = ui->emailforforgetpass->text();
     forgetpass.set_UserName(username);
