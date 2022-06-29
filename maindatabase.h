@@ -25,7 +25,9 @@ public:
     static void Push_UserGroupID(int in_GroupID , user in_user) ;
     static void Push_UserChannelID(int in_ChannelID , user in_user) ;
     static void Push_UserFriendID(int in_FriendID , user in_user) ;
-    static void Delete_UserFriendID() ;
+    static QVector<user> read_AllUsers() ;
+    static void Delete_UserFriendID(int in_FriendID , user in_user) ;
+    static void Modify_UserDetails( user in_user );
 
 };
 

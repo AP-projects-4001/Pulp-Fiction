@@ -183,6 +183,8 @@ bool maindatabase::Find_user( user &in_user)
             in_user.set_EmailAddress( TempObj["EmailAddress"].toString() ) ;
             in_user.set_PhoneNumber( TempObj["PhoneNumber"].toString() ) ;
             in_user.set_BirthDate( TempObj["BirthDate"].toString() ) ;
+            in_user.set_Firstname( TempObj["Firstname"].toString()) ;
+            in_user.set_Lastname( TempObj["Lastname"].toString() ) ;
             QVector<int> tmpv ;
             QJsonArray tmparr = TempObj["PVchatsID"].toArray() ;
             for( int i=0 ; i<tmparr.size() ; i++)
@@ -210,7 +212,7 @@ bool maindatabase::Find_user( user &in_user)
             {
                 tmpv4.push_back( tmparr4.at(i).toInt() ) ;
             }
-            in_user.set_ChannelsID( tmpv4 ) ;
+            in_user.set_FriendsID( tmpv4 ) ;
             return true ;
 
         }
@@ -453,7 +455,6 @@ void maindatabase::Push_UserChannelID(int in_ChannelID , user in_user)
     Db.write( JsonDoc.toJson() ) ;
     Db.close() ;
 }
-
 void maindatabase::Push_UserFriendID(int in_FriendID , user in_user)
 {
     QFile Db( "MainDatabase.json" ) ;
@@ -489,7 +490,142 @@ void maindatabase::Push_UserFriendID(int in_FriendID , user in_user)
     Db.write( JsonDoc.toJson() ) ;
     Db.close() ;
 }
-/*void maindatabase::Delete_UserFriendID()
+QVector<user> maindatabase::read_AllUsers()
 {
+    QVector<user> Usersvector ;
+    QFile Db( "MainDatabase.json" ) ;
+    if( !Db.open(QIODevice::ReadOnly) )
+    {
+       qDebug() << "File open error";//temp// error dialog should be open here
+       return  Usersvector;
+    }
+    QJsonParseError JsonParseError ;
+    QJsonDocument JsonDoc = QJsonDocument::fromJson(Db.readAll(), &JsonParseError) ;
+    Db.close() ;
+    QJsonArray UsersArray = JsonDoc.object()["Users"].toArray() ;
+    for (int i=0; i < UsersArray.size(); i++)
+    {
+        user tmpUser ;
+        QJsonObject currUser ;
+        currUser = UsersArray.at(i).toObject() ;
+        tmpUser.set_UserName( currUser["UserName"].toString() ) ;
+        tmpUser.set_Firstname( currUser["Firstname"].toString()) ;
+        tmpUser.set_Lastname( currUser["Lastname"].toString() ) ;
+        tmpUser.set_BirthDate( currUser["BirthDate"].toString() ) ;
+        tmpUser.set_ID( currUser["ID"].toInt() ) ;
+        tmpUser.set_Password( currUser["Password"].toString() ) ;
+        tmpUser.set_EmailAddress( currUser["EmailAddress"].toString() ) ;
+        tmpUser.set_PhoneNumber( currUser["PhoneNumber"].toString() ) ;
+        QVector<int> tmpv ;
+        QJsonArray tmparr = currUser["PVchatsID"].toArray() ;
+        for( int i=0 ; i<tmparr.size() ; i++)
+        {
+            tmpv.push_back( tmparr.at(i).toInt() ) ;
+        }
+        tmpUser.set_PVchatID( tmpv ) ;
+        QVector<int> tmpv2 ;
+        QJsonArray tmparr2 = currUser["GroupsID"].toArray() ;
+        for( int i=0 ; i<tmparr2.size() ; i++)
+        {
+            tmpv2.push_back( tmparr2.at(i).toInt() ) ;
+        }
+        tmpUser.set_GroupsID( tmpv2 ) ;
+        QVector<int> tmpv3 ;
+        QJsonArray tmparr3 = currUser["ChannelsID"].toArray() ;
+        for( int i=0 ; i<tmparr3.size() ; i++)
+        {
+            tmpv3.push_back( tmparr3.at(i).toInt() ) ;
+        }
+        tmpUser.set_ChannelsID( tmpv3 ) ;
+        QVector<int> tmpv4 ;
+        QJsonArray tmparr4 = currUser["FriendsID"].toArray() ;
+        for( int i=0 ; i<tmparr4.size() ; i++)
+        {
+            tmpv4.push_back( tmparr4.at(i).toInt() ) ;
+        }
+        tmpUser.set_FriendsID( tmpv4 ) ;
+        Usersvector.push_back( tmpUser ) ;
 
-}*/
+
+    }
+    return Usersvector ;
+}
+void maindatabase::Delete_UserFriendID(int in_FriendID , user in_user)
+{
+    QFile Db( "MainDatabase.json" ) ;
+    if( !Db.open(QIODevice::ReadOnly) )
+    {
+       qDebug() << "File open error";//temp// error dialog should be open here
+       return  ;
+    }
+    QJsonParseError JsonParseError ;
+    QJsonDocument JsonDoc = QJsonDocument::fromJson(Db.readAll(), &JsonParseError) ;
+    Db.close() ;
+    QJsonObject jobj = JsonDoc.object() ;
+    QJsonArray UsersArray = jobj["Users"].toArray() ;
+    for (int i=0; i < UsersArray.size(); i++)
+    {
+        QJsonObject TempObj =  UsersArray.at(i).toObject();
+
+        if( TempObj["UserName"].toString() == in_user.get_UserName() && TempObj["Password"].toString() == in_user.get_Password())
+        {
+            QJsonObject Newuser ;
+            Newuser = UsersArray.at(i).toObject() ;
+            QJsonArray Array = Newuser["FriendsID"].toArray() ;
+            for( int i=0 ; i<Array.count() ; i++ )
+            {
+                if( in_FriendID == Array.at(i).toInt() )
+                {
+                    Array.removeAt(i) ;
+                }
+            }
+            Newuser.insert( "FriendsID" , Array );
+            UsersArray.removeAt(i) ;
+            UsersArray.insert(i , Newuser ) ;
+            TempObj["FriendsID"] = Array ;
+        }
+    }
+    jobj.insert( "Users" , UsersArray ) ;
+    JsonDoc.setObject(jobj) ;
+    Db.open(QFile::WriteOnly | QFile::Text | QFile::Truncate);
+    Db.write( JsonDoc.toJson() ) ;
+    Db.close() ;
+}
+void maindatabase::Modify_UserDetails( user in_user )
+{
+    QFile Db( "MainDatabase.json" ) ;
+    if( !Db.open(QIODevice::ReadOnly) )
+    {
+       qDebug() << "File open error";//temp// error dialog should be open here
+       return  ;
+    }
+    QJsonParseError JsonParseError ;
+    QJsonDocument JsonDoc = QJsonDocument::fromJson(Db.readAll(), &JsonParseError) ;
+    Db.close() ;
+    QJsonObject jobj = JsonDoc.object() ;
+    QJsonArray UsersArray = jobj["Users"].toArray() ;
+    for (int i=0; i < UsersArray.size(); i++)
+    {
+        QJsonObject TempObj =  UsersArray.at(i).toObject();
+
+        if( in_user.get_ID() == TempObj["ID"].toInt() )
+        {
+            QJsonObject Newuser ;
+            Newuser = UsersArray.at(i).toObject() ;
+            Newuser["BirthDate"] = in_user.get_BirthDate() ;
+            Newuser["EmailAddress"] = in_user.get_EmailAddress() ;
+            Newuser["Password"] = in_user.get_Password() ;
+            Newuser["PhoneNumber"] = in_user.get_PhoneNumber() ;
+            Newuser["Firstname"] = in_user.get_firstname() ;
+            Newuser["Lastname"] = in_user.get_lastname() ;
+            Newuser["UserName"] = in_user.get_UserName() ;
+            UsersArray.removeAt(i) ;
+            UsersArray.insert(i , Newuser ) ;
+        }
+    }
+    jobj.insert( "Users" , UsersArray ) ;
+    JsonDoc.setObject(jobj) ;
+    Db.open(QFile::WriteOnly | QFile::Text | QFile::Truncate);
+    Db.write( JsonDoc.toJson() ) ;
+    Db.close() ;
+}

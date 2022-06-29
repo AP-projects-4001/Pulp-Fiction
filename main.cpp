@@ -7,25 +7,11 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    user owner  , second ;
-    QVector<int> fr{ 1 , 2 , 3 , 4} ;
-             owner.set_UserName("samin") ;
-             owner.set_ID( maindatabase::Creat_ID() ) ;
-             owner.set_PhoneNumber("093339234936") ;
-             owner.set_FriendsID( fr ) ;
-             maindatabase::Add_user( owner ) ;
-             second.set_UserName("ddddddddddddddddddddddddddd") ;
-             second.set_ID( maindatabase::Creat_ID() ) ;
-             second.set_PhoneNumber("09111111111") ;
-             maindatabase::Add_user( second ) ;
-             pvchat pvobj(owner , second ) ;
-             QString tmpstr = pvobj.ExtractFileName( maindatabase::Creat_PVChatID() );
-             pvobj.Make_NewPVChatFile( tmpstr ) ;
-             pvobj.add_Message("zahra:salam" , tmpstr) ;
-             pvobj.add_Message("Ali:salam" , tmpstr ) ;
-             pvobj.add_Message("zahra:khobi" , tmpstr) ;
-             maindatabase::Add_PVChat( pvobj ) ;
-     maindatabase::Push_UserFriendID( 110, owner ) ;
+    user u ;
+    u.set_UserName("homa") ;
+    u.set_Firstname("hooomaa") ;
+    u.set_ID(1007) ;
+    maindatabase::Modify_UserDetails( u ) ;
     return a.exec();
 }
 /*  testmain:
