@@ -3,6 +3,8 @@
 #include <QListWidgetItem>
 #include <QLabel>
 #include "maindatabase.h"
+
+
 QVector<chat*> vec;
 homepage::homepage(user me ,QWidget *parent) :
     QMainWindow(parent),
@@ -10,9 +12,11 @@ homepage::homepage(user me ,QWidget *parent) :
 {
     ui->setupUi(this);
     howAmI = me;
-//    ui->messagelineedit->hide();
-//    ui->infobtn->hide();
-//    ui->Sendbtn->hide();
+
+
+    ui->messagelineedit->hide();
+    ui->infobtn->hide();
+    ui->Sendbtn->hide();
 //    ui->messageslist->hide();
 
     //here i get all channels and chats and pvs and i make my list widget of chats;
@@ -176,6 +180,7 @@ void homepage::send_clicked()
        QString dir =  vec[index]->ExtractFileName(vec[index]->get_ID());/**save id each class to ID chat1;**/
        vec[index]->add_Message(mes , dir ) ;
     }
+    ui->messagelineedit->clear();
 
 }
 void homepage::info_clicked()
@@ -227,7 +232,7 @@ void homepage::vectroToList(QVector<QString> write)
 {
 
     ui->messageslist->show();
-    ui->messageslist->setStyleSheet("background-color : rgba(255,0,0,0%); color : white;");
+//    ui->messageslist->setStyleSheet("background-color : rgba(255,0,0,0%); color : white;");
     ui->messageslist->setFlow(QListView::LeftToRight);
     ui->messageslist->setGridSize(QSize(400, 50));
     ui->messageslist->setResizeMode(QListView::Adjust);
@@ -245,11 +250,11 @@ void homepage::vectroToList(QVector<QString> write)
         QByteArray ba = (*itt).toLocal8Bit();
         const char *c_str2 = ba.data();
         text->setText(c_str2);
-        text->setStyleSheet("QLabel { background-color : rgba(0,0,0,10%); color : black; }");
+//        text->setStyleSheet("QLabel { background-color : rgba(0,0,0,10%); color : black; }");
         text->setMinimumSize(200, 40);
         text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
         text->setWordWrap(true);
-        layout->addWidget(text);
+//        layout->addWidget(text);
 
         ui->messageslist->setItemWidget(item, text);
     }

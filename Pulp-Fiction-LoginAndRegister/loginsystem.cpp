@@ -81,7 +81,7 @@ void LoginSystem::on_loginButton_clicked()
 
         QPixmap pixmap1(":/img/img/icons8-login-64.png");
         ui->loginpic->setPixmap(pixmap1);
-        delay(2);
+        delay(1); // Delay window for setting new picture on label
         LoginSystem::hide();
         hmpg = new homepage(inneruser);
         hmpg->show();
@@ -243,15 +243,20 @@ void LoginSystem::on_completeRegButton_clicked()
 
             if (this->picName != "")
             {
-                QString to = this->picDir+"/"+ui->usernameRegister->text();
+//                QString to = this->picDir+"/"+ui->usernameRegister->text();
 
-                if (QFile::exists(to))
-                {
-                    QFile::remove(to);
-                }
+//                if (QFile::exists(to))
+//                {
+//                    QFile::remove(to);
+//                }
 
-                QFile::copy(this->picName, to);
-                this->picName = "";
+//                QFile::copy(this->picName, to);
+//                this->picName = "";
+                QString path = userRegister.get_UserName() + ".png";
+                qDebug() << path;
+                qDebug() << userRegister.get_UserName();
+                ui->rpLabel->grab().save(path);
+
             }
 
             ui->regLabel->setText("");
@@ -265,6 +270,8 @@ void LoginSystem::on_completeRegButton_clicked()
             ui->showpassforsignup->setChecked(false);
             ui->rpLabel->setText("<img src=\":/img/img/user.png\" />");
             ui->loginLabel->setText("Registration Successful! You can now login.");
+            ui->usernameBox->setText(inneruser.get_UserName());
+            ui->passwordBox->setText(inneruser.get_Password());
             ui->winStack->setCurrentIndex(0);
         }
     }
@@ -287,6 +294,7 @@ void LoginSystem::on_winStack_currentChanged(int arg1)
 void LoginSystem::on_uplButton_clicked()
 {
     this->picName = QFileDialog::getOpenFileName(this, tr("Open Image"), "/", tr("Image Files (*.png *.jpg *.bmp)"));
+    qDebug() << picName;
     ui->rpLabel->setText("<img src=\"file:///"+this->picName+"\" alt=\"Image read error!\" height=\"128\" width=\"128\" />");
 
 }

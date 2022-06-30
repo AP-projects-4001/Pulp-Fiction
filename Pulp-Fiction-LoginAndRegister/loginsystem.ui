@@ -109,8 +109,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>751</width>
-         <height>451</height>
+         <width>761</width>
+         <height>461</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -138,11 +138,18 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">text-align: center;
+         <string notr="true">QLabel#label {
+text-align: center;
 color: rgb(254, 208, 83);
 margin: 0 auto;
 font-size: 35px;
-font-family: 'Droid Sans';</string>
+font-family: 'Droid Sans';
+}
+
+QLabel#label:hover {
+	color: rgb(85, 255, 255);
+}
+</string>
         </property>
         <property name="text">
          <string>Login</string>
@@ -371,11 +378,28 @@ font-family: 'Droid Sans';</string>
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="styleSheet">
-         <string notr="true">padding-left: 20px;
+         <string notr="true">QLineEdit#usernameBox {
+padding-left: 20px;
 padding-right: 20px;
 border-radius: 20px;
 background: #333;
-color: #fefefe;</string>
+color: #fefefe;
+}
+
+QLineEdit#usernameBox:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	border-color: rgb(245, 179, 1);
+	color: rgb(241, 182, 88);
+}
+
+QLineEdit#usernameBox:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
         </property>
         <property name="text">
          <string/>
@@ -607,11 +631,28 @@ color: #fefefe;</string>
          <enum>Qt::LeftToRight</enum>
         </property>
         <property name="styleSheet">
-         <string notr="true">padding-left: 20px;
+         <string notr="true">QLineEdit#passwordBox {
+padding-left: 20px;
 padding-right: 20px;
 border-radius: 20px;
 background: #333;
-color: #fefefe;</string>
+color: #fefefe;
+}
+
+QLineEdit#passwordBox:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	border-color: rgb(245, 179, 1);
+	color: rgb(241, 182, 88);
+}
+
+QLineEdit#passwordBox:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
         </property>
         <property name="inputMethodHints">
          <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
@@ -740,6 +781,9 @@ border-width: 1px;
            <property name="text">
             <string>SIGN IN</string>
            </property>
+           <property name="default">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
         </layout>
@@ -749,7 +793,7 @@ border-width: 1px;
          <rect>
           <x>480</x>
           <y>310</y>
-          <width>129</width>
+          <width>135</width>
           <height>54</height>
          </rect>
         </property>
@@ -757,7 +801,19 @@ border-width: 1px;
          <item>
           <widget class="QCheckBox" name="checkBox_showpass">
            <property name="styleSheet">
-            <string notr="true">color: #fefefe;</string>
+            <string notr="true">QCheckBox#checkBox_showpass {
+padding-left: 10px;
+border-radius: 5px;
+color: #fefefe;
+}
+
+QCheckBox#checkBox_showpass:hover {
+	color: rgb(241, 182, 88);
+}
+
+QCheckBox#checkBox_showpass:pressed {
+	color: rgb(85, 255, 255);
+}</string>
            </property>
            <property name="text">
             <string>Show my password</string>
@@ -841,40 +897,7 @@ border-width: 1px;
         <enum>QFrame::Raised</enum>
        </property>
        <layout class="QGridLayout" name="gridLayout">
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_2">
-          <property name="font">
-           <font>
-            <family>Droid Sans</family>
-            <pointsize>-1</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">text-align: center;
-color: rgb(254, 208, 83);
-margin: 0 auto;
-font-size: 35px;
-font-family: 'Droid Sans';</string>
-          </property>
-          <property name="text">
-           <string>Register</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="regLabel">
-          <property name="styleSheet">
-           <string notr="true">color: #fefefe;</string>
-          </property>
-          <property name="text">
-           <string>Please fill the form correctly.</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="0">
+        <item row="8" column="0">
          <layout class="QHBoxLayout" name="horizontalLayout_4">
           <item>
            <widget class="QPushButton" name="backButton">
@@ -937,13 +960,72 @@ border-width: 1px;
           </item>
          </layout>
         </item>
-        <item row="4" column="0">
+        <item row="1" column="0">
+         <widget class="QLabel" name="piclabel">
+          <property name="maximumSize">
+           <size>
+            <width>750</width>
+            <height>450</height>
+           </size>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="pixmap">
+           <pixmap resource="elements.qrc">:/img/img/icons8-register-64.png</pixmap>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="font">
+           <font>
+            <family>Droid Sans</family>
+            <pointsize>-1</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel#label_2 {
+text-align: center;
+color: rgb(254, 208, 83);
+margin: 0 auto;
+font-size: 35px;
+font-family: 'Droid Sans';
+}
+
+QLabel#label_2:hover {
+	color: rgb(85, 255, 255);
+}
+</string>
+          </property>
+          <property name="text">
+           <string>Register</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="regLabel">
+          <property name="styleSheet">
+           <string notr="true">color: #fefefe;</string>
+          </property>
+          <property name="text">
+           <string>Please fill the form correctly.</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
          <widget class="QGroupBox" name="groupBox">
           <property name="title">
            <string/>
           </property>
           <layout class="QGridLayout" name="gridLayout_2">
-           <item row="14" column="0">
+           <item row="25" column="0">
             <widget class="QLineEdit" name="phoneRegister">
              <property name="palette">
               <palette>
@@ -1153,11 +1235,28 @@ border-width: 1px;
               <enum>Qt::LeftToRight</enum>
              </property>
              <property name="styleSheet">
-              <string notr="true">padding-left: 20px;
+              <string notr="true">QLineEdit#phoneRegister {
+padding-left: 20px;
 padding-right: 20px;
-border-radius: 20px;
+border-radius: 5px;
 background: #333;
-color: #fefefe;</string>
+color: #fefefe;
+}
+
+QLineEdit#phoneRegister:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+	border-color: rgb(245, 179, 1);
+}
+
+QLineEdit#phoneRegister:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
              </property>
              <property name="inputMethodHints">
               <set>Qt::ImhDigitsOnly</set>
@@ -1179,7 +1278,811 @@ color: #fefefe;</string>
              </property>
             </widget>
            </item>
-           <item row="7" column="0">
+           <item row="19" column="0">
+            <widget class="QLineEdit" name="firstnameRegister">
+             <property name="palette">
+              <palette>
+               <active>
+                <colorrole role="WindowText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Button">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Text">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="ButtonText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Base">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Window">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+               </active>
+               <inactive>
+                <colorrole role="WindowText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Button">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Text">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="ButtonText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Base">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Window">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+               </inactive>
+               <disabled>
+                <colorrole role="WindowText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Button">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Text">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="ButtonText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Base">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Window">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+               </disabled>
+              </palette>
+             </property>
+             <property name="font">
+              <font>
+               <kerning>true</kerning>
+              </font>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit#firstnameRegister {
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 5px;
+background: #333;
+color: #fefefe;
+}
+
+QLineEdit#firstnameRegister:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+	border-color: rgb(245, 179, 1);
+}
+
+QLineEdit#firstnameRegister:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+             </property>
+             <property name="inputMethodHints">
+              <set>Qt::ImhNone</set>
+             </property>
+             <property name="inputMask">
+              <string/>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="frame">
+              <bool>false</bool>
+             </property>
+             <property name="cursorPosition">
+              <number>0</number>
+             </property>
+             <property name="placeholderText">
+              <string>First Name</string>
+             </property>
+            </widget>
+           </item>
+           <item row="21" column="0">
+            <widget class="QLineEdit" name="emailRegister">
+             <property name="palette">
+              <palette>
+               <active>
+                <colorrole role="WindowText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Button">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Text">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="ButtonText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Base">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Window">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+               </active>
+               <inactive>
+                <colorrole role="WindowText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Button">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Text">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="ButtonText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Base">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Window">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+               </inactive>
+               <disabled>
+                <colorrole role="WindowText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Button">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Text">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="ButtonText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Base">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Window">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+               </disabled>
+              </palette>
+             </property>
+             <property name="font">
+              <font>
+               <kerning>true</kerning>
+              </font>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit#emailRegister {
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 5px;
+background: #333;
+color: #fefefe;
+}
+
+QLineEdit#emailRegister:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+	border-color: rgb(245, 179, 1);
+}
+
+QLineEdit#emailRegister:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+             </property>
+             <property name="inputMethodHints">
+              <set>Qt::ImhEmailCharactersOnly</set>
+             </property>
+             <property name="inputMask">
+              <string/>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="frame">
+              <bool>false</bool>
+             </property>
+             <property name="cursorPosition">
+              <number>0</number>
+             </property>
+             <property name="placeholderText">
+              <string>E-mail</string>
+             </property>
+            </widget>
+           </item>
+           <item row="17" column="0">
+            <widget class="QLineEdit" name="passwordRegister_2">
+             <property name="palette">
+              <palette>
+               <active>
+                <colorrole role="WindowText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Button">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Text">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="ButtonText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Base">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Window">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+               </active>
+               <inactive>
+                <colorrole role="WindowText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Button">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Text">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="ButtonText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Base">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Window">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+               </inactive>
+               <disabled>
+                <colorrole role="WindowText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Button">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Text">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="ButtonText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Base">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="Window">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>51</red>
+                   <green>51</green>
+                   <blue>51</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+                <colorrole role="PlaceholderText">
+                 <brush brushstyle="SolidPattern">
+                  <color alpha="255">
+                   <red>254</red>
+                   <green>254</green>
+                   <blue>254</blue>
+                  </color>
+                 </brush>
+                </colorrole>
+               </disabled>
+              </palette>
+             </property>
+             <property name="font">
+              <font>
+               <kerning>true</kerning>
+              </font>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit#passwordRegister_2 {
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 5px;
+background: #333;
+color: #fefefe;
+}
+
+QLineEdit#passwordRegister_2:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	border-color: rgb(245, 179, 1);
+	color: rgb(241, 182, 88);
+}
+
+QLineEdit#passwordRegister_2:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+             </property>
+             <property name="inputMethodHints">
+              <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
+             </property>
+             <property name="inputMask">
+              <string/>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="frame">
+              <bool>false</bool>
+             </property>
+             <property name="echoMode">
+              <enum>QLineEdit::Password</enum>
+             </property>
+             <property name="cursorPosition">
+              <number>0</number>
+             </property>
+             <property name="placeholderText">
+              <string>Enter your password again</string>
+             </property>
+            </widget>
+           </item>
+           <item row="29" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="QLabel" name="label_9">
+               <property name="styleSheet">
+                <string notr="true">
+color: #fefefe;</string>
+               </property>
+               <property name="text">
+                <string>Enter your birthdate :</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QDateEdit" name="birthdateRegister">
+               <property name="tabletTracking">
+                <bool>false</bool>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QDateEdit#birthdateRegister {
+	color: rgb(245, 179, 1);
+}
+
+QDateEdit#birthdateRegisterr:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+</string>
+               </property>
+               <property name="date">
+                <date>
+                 <year>2022</year>
+                 <month>6</month>
+                 <day>25</day>
+                </date>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="14" column="0">
             <widget class="QLineEdit" name="usernameRegister">
              <property name="palette">
               <palette>
@@ -1392,11 +2295,28 @@ color: #fefefe;</string>
               <enum>Qt::LeftToRight</enum>
              </property>
              <property name="styleSheet">
-              <string notr="true">padding-left: 20px;
+              <string notr="true">QLineEdit#usernameRegister {
+padding-left: 20px;
 padding-right: 20px;
-border-radius: 20px;
+border-radius: 5px;
 background: #333;
-color: #fefefe;</string>
+color: #fefefe;
+}
+
+QLineEdit#usernameRegister:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	border-color: rgb(245, 179, 1);
+	color: rgb(241, 182, 88);
+}
+
+QLineEdit#usernameRegister:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
              </property>
              <property name="text">
               <string/>
@@ -1415,7 +2335,35 @@ color: #fefefe;</string>
              </property>
             </widget>
            </item>
-           <item row="8" column="0">
+           <item row="13" column="1">
+            <widget class="QLabel" name="rpLabel">
+             <property name="minimumSize">
+              <size>
+               <width>110</width>
+               <height>110</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>110</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: #fefefe;</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="elements.qrc">:/img/img/user.png</pixmap>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="16" column="0">
             <widget class="QLineEdit" name="passwordRegister">
              <property name="palette">
               <palette>
@@ -1625,11 +2573,28 @@ color: #fefefe;</string>
               <enum>Qt::LeftToRight</enum>
              </property>
              <property name="styleSheet">
-              <string notr="true">padding-left: 20px;
+              <string notr="true">QLineEdit#passwordRegister {
+padding-left: 20px;
 padding-right: 20px;
-border-radius: 20px;
+border-radius: 5px;
 background: #333;
-color: #fefefe;</string>
+color: #fefefe;
+}
+
+QLineEdit#passwordRegister:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	border-color: rgb(245, 179, 1);
+	color: rgb(241, 182, 88);
+}
+
+QLineEdit#passwordRegister:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
              </property>
              <property name="inputMethodHints">
               <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
@@ -1654,246 +2619,61 @@ color: #fefefe;</string>
              </property>
             </widget>
            </item>
-           <item row="9" column="0">
-            <widget class="QLineEdit" name="passwordRegister_2">
-             <property name="palette">
-              <palette>
-               <active>
-                <colorrole role="WindowText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Button">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Text">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="ButtonText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Base">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Window">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-               </active>
-               <inactive>
-                <colorrole role="WindowText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Button">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Text">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="ButtonText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Base">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Window">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-               </inactive>
-               <disabled>
-                <colorrole role="WindowText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Button">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Text">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="ButtonText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Base">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Window">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-               </disabled>
-              </palette>
+           <item row="19" column="1">
+            <widget class="QPushButton" name="uplButton">
+             <property name="styleSheet">
+              <string notr="true">QPushButton#uplButton {
+Padding: 1px;
+Border-radius: 5px;
+Background: #339;
+Color: #fefefe;
+}
+
+QPushButton#uplButton:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#uplButton:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
              </property>
-             <property name="font">
-              <font>
-               <kerning>true</kerning>
-              </font>
+             <property name="text">
+              <string>UPLOAD PICTURE</string>
              </property>
+            </widget>
+           </item>
+           <item row="18" column="0">
+            <widget class="QCheckBox" name="showpassforsignup">
              <property name="layoutDirection">
               <enum>Qt::LeftToRight</enum>
              </property>
              <property name="styleSheet">
-              <string notr="true">padding-left: 20px;
-padding-right: 20px;
-border-radius: 20px;
-background: #333;
-color: #fefefe;</string>
-             </property>
-             <property name="inputMethodHints">
-              <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
-             </property>
-             <property name="inputMask">
-              <string/>
+              <string notr="true">QCheckBox#showpassforsignup {
+padding-left: 10px;
+border-radius: 5px;
+color: #fefefe;
+}
+
+QCheckBox#showpassforsignup:hover {
+	color: rgb(241, 182, 88);
+}
+
+QCheckBox#showpassforsignup:pressed {
+	color: rgb(85, 255, 255);
+}</string>
              </property>
              <property name="text">
-              <string/>
-             </property>
-             <property name="frame">
-              <bool>false</bool>
-             </property>
-             <property name="echoMode">
-              <enum>QLineEdit::Password</enum>
-             </property>
-             <property name="cursorPosition">
-              <number>0</number>
-             </property>
-             <property name="placeholderText">
-              <string>Enter your password again</string>
+              <string>Show passwords</string>
              </property>
             </widget>
            </item>
-           <item row="13" column="0">
+           <item row="20" column="0">
             <widget class="QLineEdit" name="lastnameRegister">
              <property name="palette">
               <palette>
@@ -2103,11 +2883,28 @@ color: #fefefe;</string>
               <enum>Qt::LeftToRight</enum>
              </property>
              <property name="styleSheet">
-              <string notr="true">padding-left: 20px;
+              <string notr="true">QLineEdit#lastnameRegister {
+padding-left: 20px;
 padding-right: 20px;
-border-radius: 20px;
+border-radius: 5px;
 background: #333;
-color: #fefefe;</string>
+color: #fefefe;
+}
+
+QLineEdit#lastnameRegister:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+	border-color: rgb(245, 179, 1);
+}
+
+QLineEdit#lastnameRegister:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
              </property>
              <property name="inputMethodHints">
               <set>Qt::ImhNone</set>
@@ -2129,592 +2926,7 @@ color: #fefefe;</string>
              </property>
             </widget>
            </item>
-           <item row="11" column="0">
-            <widget class="QLineEdit" name="emailRegister">
-             <property name="palette">
-              <palette>
-               <active>
-                <colorrole role="WindowText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Button">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Text">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="ButtonText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Base">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Window">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-               </active>
-               <inactive>
-                <colorrole role="WindowText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Button">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Text">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="ButtonText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Base">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Window">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-               </inactive>
-               <disabled>
-                <colorrole role="WindowText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Button">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Text">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="ButtonText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Base">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Window">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-               </disabled>
-              </palette>
-             </property>
-             <property name="font">
-              <font>
-               <kerning>true</kerning>
-              </font>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::LeftToRight</enum>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">padding-left: 20px;
-padding-right: 20px;
-border-radius: 20px;
-background: #333;
-color: #fefefe;</string>
-             </property>
-             <property name="inputMethodHints">
-              <set>Qt::ImhEmailCharactersOnly</set>
-             </property>
-             <property name="inputMask">
-              <string/>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="frame">
-              <bool>false</bool>
-             </property>
-             <property name="cursorPosition">
-              <number>0</number>
-             </property>
-             <property name="placeholderText">
-              <string>E-mail</string>
-             </property>
-            </widget>
-           </item>
-           <item row="15" column="0">
-            <layout class="QHBoxLayout" name="horizontalLayout_2">
-             <item>
-              <widget class="QLabel" name="label_9">
-               <property name="styleSheet">
-                <string notr="true">
-color: #fefefe;</string>
-               </property>
-               <property name="text">
-                <string>Enter your birthdate :</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QDateEdit" name="birthdateRegister">
-               <property name="tabletTracking">
-                <bool>false</bool>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(254, 208, 83);</string>
-               </property>
-               <property name="date">
-                <date>
-                 <year>2022</year>
-                 <month>6</month>
-                 <day>25</day>
-                </date>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item row="9" column="1">
-            <widget class="QCheckBox" name="showpassforsignup">
-             <property name="layoutDirection">
-              <enum>Qt::LeftToRight</enum>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">padding-left: 20px;
-padding-right: 20px;
-border-radius: 20px;
-background-color: rgb(59, 63, 70);
-color: #fefefe;</string>
-             </property>
-             <property name="text">
-              <string>Show passwords</string>
-             </property>
-            </widget>
-           </item>
-           <item row="12" column="0">
-            <widget class="QLineEdit" name="firstnameRegister">
-             <property name="palette">
-              <palette>
-               <active>
-                <colorrole role="WindowText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Button">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Text">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="ButtonText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Base">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Window">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-               </active>
-               <inactive>
-                <colorrole role="WindowText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Button">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Text">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="ButtonText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Base">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Window">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-               </inactive>
-               <disabled>
-                <colorrole role="WindowText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Button">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Text">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="ButtonText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Base">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="Window">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>51</red>
-                   <green>51</green>
-                   <blue>51</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-                <colorrole role="PlaceholderText">
-                 <brush brushstyle="SolidPattern">
-                  <color alpha="255">
-                   <red>254</red>
-                   <green>254</green>
-                   <blue>254</blue>
-                  </color>
-                 </brush>
-                </colorrole>
-               </disabled>
-              </palette>
-             </property>
-             <property name="font">
-              <font>
-               <kerning>true</kerning>
-              </font>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::LeftToRight</enum>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">padding-left: 20px;
-padding-right: 20px;
-border-radius: 20px;
-background: #333;
-color: #fefefe;</string>
-             </property>
-             <property name="inputMethodHints">
-              <set>Qt::ImhNone</set>
-             </property>
-             <property name="inputMask">
-              <string/>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="frame">
-              <bool>false</bool>
-             </property>
-             <property name="cursorPosition">
-              <number>0</number>
-             </property>
-             <property name="placeholderText">
-              <string>First Name</string>
-             </property>
-            </widget>
-           </item>
-           <item row="14" column="1">
-            <widget class="QPushButton" name="uplButton">
-             <property name="styleSheet">
-              <string notr="true">QPushButton#uplButton {
-Padding: 1px;
-Border-radius: 5px;
-Background: #339;
-Color: #fefefe;
-}
-
-QPushButton#uplButton:hover {
-	background-color: rgb(42, 46, 52);
-border-style: solid;
- border-width: 1px;
-	color: rgb(241, 182, 88);
-}
-
-QPushButton#uplButton:pressed {
-border-style: solid;
-border-width: 1px;
-	background-color: rgb(25, 69, 105);
-	color: rgb(85, 255, 255);
-}</string>
-             </property>
-             <property name="text">
-              <string>UPLOAD PICTURE</string>
-             </property>
-            </widget>
-           </item>
-           <item row="15" column="1">
-            <widget class="QLabel" name="rpLabel">
-             <property name="styleSheet">
-              <string notr="true">color: #fefefe;</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="pixmap">
-              <pixmap resource="elements.qrc">:/img/img/user.png</pixmap>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
           </layout>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="piclabel">
-          <property name="maximumSize">
-           <size>
-            <width>750</width>
-            <height>450</height>
-           </size>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="pixmap">
-           <pixmap resource="elements.qrc">:/img/img/icons8-register-64.png</pixmap>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
          </widget>
         </item>
        </layout>
@@ -2755,11 +2967,18 @@ border-width: 1px;
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">text-align: center;
+         <string notr="true">QLabel#label_8 {
+text-align: center;
 color: rgb(254, 208, 83);
 margin: 0 auto;
 font-size: 35px;
-font-family: 'Droid Sans';</string>
+font-family: 'Droid Sans';
+}
+
+QLabel#label_8:hover {
+	color: rgb(85, 255, 255);
+}
+</string>
         </property>
         <property name="text">
          <string>Forgot password</string>
@@ -2994,11 +3213,28 @@ font-family: 'Droid Sans';</string>
           <enum>Qt::LeftToRight</enum>
          </property>
          <property name="styleSheet">
-          <string notr="true">padding-left: 20px;
+          <string notr="true">QLineEdit#usernameforforgetpass {
+padding-left: 20px;
 padding-right: 20px;
 border-radius: 20px;
 background: #333;
-color: #fefefe;</string>
+color: #fefefe;
+}
+
+QLineEdit#usernameforforgetpass:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	border-color: rgb(245, 179, 1);
+	color: rgb(241, 182, 88);
+}
+
+QLineEdit#usernameforforgetpass:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
          </property>
          <property name="text">
           <string/>
@@ -3230,11 +3466,28 @@ color: #fefefe;</string>
           <enum>Qt::LeftToRight</enum>
          </property>
          <property name="styleSheet">
-          <string notr="true">padding-left: 20px;
+          <string notr="true">QLineEdit#emailforforgetpass {
+padding-left: 20px;
 padding-right: 20px;
 border-radius: 20px;
 background: #333;
-color: #fefefe;</string>
+color: #fefefe;
+}
+
+QLineEdit#emailforforgetpass:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	border-color: rgb(245, 179, 1);
+	color: rgb(241, 182, 88);
+}
+
+QLineEdit#emailforforgetpass:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
          </property>
          <property name="inputMethodHints">
           <set>Qt::ImhNone</set>
@@ -3395,21 +3648,12 @@ border-width: 1px;
   <tabstop>loginButton</tabstop>
   <tabstop>forgetpassbtn</tabstop>
   <tabstop>checkBox_showpass</tabstop>
-  <tabstop>usernameRegister</tabstop>
-  <tabstop>passwordRegister</tabstop>
   <tabstop>completeRegButton</tabstop>
   <tabstop>birthdateRegister</tabstop>
   <tabstop>usernameforforgetpass</tabstop>
-  <tabstop>lastnameRegister</tabstop>
-  <tabstop>phoneRegister</tabstop>
   <tabstop>backButton</tabstop>
-  <tabstop>firstnameRegister</tabstop>
-  <tabstop>emailRegister</tabstop>
-  <tabstop>passwordRegister_2</tabstop>
   <tabstop>backtologinforgetpass</tabstop>
   <tabstop>showpassforforgetpass</tabstop>
-  <tabstop>showpassforsignup</tabstop>
-  <tabstop>uplButton</tabstop>
   <tabstop>emailforforgetpass</tabstop>
  </tabstops>
  <resources>

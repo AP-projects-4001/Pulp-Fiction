@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     channelclass.cpp \
     chat.cpp \
+    customshadoweffect.cpp \
     groupclass.cpp \
     homepage.cpp \
     loginsystem.cpp \
@@ -23,6 +24,7 @@ SOURCES += \
 HEADERS += \
     channelclass.h \
     chat.h \
+    customshadoweffect.h \
     groupclass.h \
     homepage.h \
     loginsystem.h \

@@ -7,20 +7,8 @@
     <x>0</x>
     <y>0</y>
     <width>1000</width>
-    <height>750</height>
+    <height>771</height>
    </rect>
-  </property>
-  <property name="minimumSize">
-   <size>
-    <width>1000</width>
-    <height>750</height>
-   </size>
-  </property>
-  <property name="maximumSize">
-   <size>
-    <width>1000</width>
-    <height>750</height>
-   </size>
   </property>
   <property name="windowTitle">
    <string>Pulp chat</string>
@@ -51,40 +39,261 @@
      <height>750</height>
     </size>
    </property>
-   <property name="maximumSize">
-    <size>
-     <width>1000</width>
-     <height>750</height>
-    </size>
-   </property>
    <property name="sizeIncrement">
     <size>
      <width>900</width>
      <height>1200</height>
     </size>
    </property>
-   <widget class="QWidget" name="widget_2" native="true">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>-1</y>
-      <width>721</width>
-      <height>721</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="3" column="1">
-        <widget class="QPushButton" name="Sendbtn">
-         <property name="minimumSize">
-          <size>
-           <width>70</width>
-           <height>25</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton#Sendbtn {
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QWidget" name="widget" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>100</height>
+         </size>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QPushButton" name="contactsbtn">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Contacts&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton#contactsbtn {
+color: white;
+border-radius: 10px;
+background-color: rgb(25, 69, 105);
+	background-color: rgb(241, 182, 88);
+}
+
+QPushButton#contactsbtn:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#contactsbtn:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="elements.qrc">
+             <normaloff>:/img/img/icons8-contacts-40.png</normaloff>:/img/img/icons8-contacts-40.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>25</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="newgroupbtn">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;New Group&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton#newgroupbtn {
+color: white;
+border-radius: 10px;
+background-color: rgb(25, 69, 105);
+	background-color: rgb(0, 125, 125);
+}
+
+QPushButton#newgroupbtn:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#newgroupbtn:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="elements.qrc">
+             <normaloff>:/img/img/icons8-people-40.png</normaloff>:/img/img/icons8-people-40.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>25</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="newchannelbtn">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;New Channel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton#newchannelbtn {
+color: white;
+border-radius: 10px;
+	background-color: rgb(0, 88, 132);
+}
+
+QPushButton#newchannelbtn:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#newchannelbtn:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="elements.qrc">
+             <normaloff>:/img/img/icons8-omnichannel-40.png</normaloff>:/img/img/icons8-omnichannel-40.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>25</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="settingbtn">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Setting&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton#settingbtn {
+color: white;
+border-radius: 10px;
+border-color: rgb(68, 120, 232);
+	background-color: rgb(25, 69, 105);
+}
+
+QPushButton#settingbtn:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#settingbtn:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="elements.qrc">
+             <normaloff>:/img/img/icons8-setting-40.png</normaloff>:/img/img/icons8-setting-40.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>25</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QListWidget" name="listofusersgroupschanels">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>700</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>150</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QListWidget#listofusersgroupschanels:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+	border-color: rgb(245, 179, 1);
+ border-width: 1px;
+	color: rgb(25, 69, 105);
+selection-color: rgb(243, 179, 70);
+}
+
+</string>
+        </property>
+        <property name="horizontalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QWidget" name="widget_2" native="true">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="3" column="1">
+          <widget class="QPushButton" name="Sendbtn">
+           <property name="minimumSize">
+            <size>
+             <width>70</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton#Sendbtn {
 color: white;
 border-radius: 5px;
 border-color: rgb(68, 120, 232);
@@ -104,20 +313,20 @@ border-width: 1px;
 	background-color: rgb(25, 69, 105);
 	color: rgb(85, 255, 255);
 }</string>
-         </property>
-         <property name="text">
-          <string>Send</string>
-         </property>
-         <property name="icon">
-          <iconset resource="elements.qrc">
-           <normaloff>:/img/icons8-email-send-64.png</normaloff>:/img/icons8-email-send-64.png</iconset>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0" colspan="2">
-        <widget class="QListWidget" name="messageslist">
-         <property name="styleSheet">
-          <string notr="true">QListWidget#messageslist {
+           </property>
+           <property name="text">
+            <string>Send</string>
+           </property>
+           <property name="icon">
+            <iconset resource="elements.qrc">
+             <normaloff>:/img/icons8-email-send-64.png</normaloff>:/img/icons8-email-send-64.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <widget class="QListWidget" name="messageslist">
+           <property name="styleSheet">
+            <string notr="true">QListWidget#messageslist {
 color: white;
 border-radius: 10px;
 	background-color: rgb(42, 46, 52);
@@ -130,13 +339,13 @@ border-style: solid;
  border-width: 1px;
 	color: rgb(25, 69, 105);
 }</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0" colspan="2">
-        <widget class="QPushButton" name="infobtn">
-         <property name="styleSheet">
-          <string notr="true">QPushButton#infobtn {
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0" colspan="2">
+          <widget class="QPushButton" name="infobtn">
+           <property name="styleSheet">
+            <string notr="true">QPushButton#infobtn {
 color: white;
 border-radius: 10px;
 border-color: rgb(68, 120, 232);
@@ -156,32 +365,32 @@ border-width: 1px;
 	background-color: rgb(25, 69, 105);
 	color: rgb(85, 255, 255);
 }</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="elements.qrc">
-           <normaloff>:/icons/img/icons8-info-64.png</normaloff>:/icons/img/icons8-info-64.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>20</width>
-           <height>20</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0" alignment="Qt::AlignVCenter">
-        <widget class="QPlainTextEdit" name="messagelineedit">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPlainTextEdit#messagelineedit {
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="elements.qrc">
+             <normaloff>:/icons/img/icons8-info-64.png</normaloff>:/icons/img/icons8-info-64.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0" alignment="Qt::AlignVCenter">
+          <widget class="QPlainTextEdit" name="messagelineedit">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPlainTextEdit#messagelineedit {
 color: white;
 border-radius: 10px;
 	background-color: rgb(42, 46, 52);
@@ -202,242 +411,15 @@ border-width: 1px;
 	background-color: rgb(25, 69, 105);
 	color: rgb(85, 255, 255);
 }</string>
-         </property>
-        </widget>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>10</y>
-      <width>243</width>
-      <height>702</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QWidget" name="widget" native="true">
-       <property name="minimumSize">
-        <size>
-         <width>85</width>
-         <height>100</height>
-        </size>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout">
-        <item>
-         <widget class="QPushButton" name="contactsbtn">
-          <property name="styleSheet">
-           <string notr="true">QPushButton#contactsbtn {
-color: white;
-border-radius: 10px;
-background-color: rgb(25, 69, 105);
-	background-color: rgb(241, 182, 88);
-}
-
-QPushButton#contactsbtn:hover {
-	background-color: rgb(42, 46, 52);
-border-style: solid;
- border-width: 1px;
-	color: rgb(241, 182, 88);
-}
-
-QPushButton#contactsbtn:pressed {
-border-style: solid;
-border-width: 1px;
-	background-color: rgb(25, 69, 105);
-	color: rgb(85, 255, 255);
-}</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset resource="elements.qrc">
-            <normaloff>:/img/img/icons8-contacts-40.png</normaloff>:/img/img/icons8-contacts-40.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>25</width>
-            <height>40</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="newgroupbtn">
-          <property name="styleSheet">
-           <string notr="true">QPushButton#newgroupbtn {
-color: white;
-border-radius: 10px;
-background-color: rgb(25, 69, 105);
-	background-color: rgb(0, 125, 125);
-}
-
-QPushButton#newgroupbtn:hover {
-	background-color: rgb(42, 46, 52);
-border-style: solid;
- border-width: 1px;
-	color: rgb(241, 182, 88);
-}
-
-QPushButton#newgroupbtn:pressed {
-border-style: solid;
-border-width: 1px;
-	background-color: rgb(25, 69, 105);
-	color: rgb(85, 255, 255);
-}</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset resource="elements.qrc">
-            <normaloff>:/img/img/icons8-people-40.png</normaloff>:/img/img/icons8-people-40.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>25</width>
-            <height>40</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="newchannelbtn">
-          <property name="styleSheet">
-           <string notr="true">QPushButton#newchannelbtn {
-color: white;
-border-radius: 10px;
-	background-color: rgb(0, 88, 132);
-}
-
-QPushButton#newchannelbtn:hover {
-	background-color: rgb(42, 46, 52);
-border-style: solid;
- border-width: 1px;
-	color: rgb(241, 182, 88);
-}
-
-QPushButton#newchannelbtn:pressed {
-border-style: solid;
-border-width: 1px;
-	background-color: rgb(25, 69, 105);
-	color: rgb(85, 255, 255);
-}</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset resource="elements.qrc">
-            <normaloff>:/img/img/icons8-omnichannel-40.png</normaloff>:/img/img/icons8-omnichannel-40.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>25</width>
-            <height>40</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="verticalSpacer">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QPushButton" name="settingbtn">
-          <property name="styleSheet">
-           <string notr="true">QPushButton#settingbtn {
-color: white;
-border-radius: 10px;
-border-color: rgb(68, 120, 232);
-	background-color: rgb(25, 69, 105);
-}
-
-QPushButton#settingbtn:hover {
-	background-color: rgb(42, 46, 52);
-border-style: solid;
- border-width: 1px;
-	color: rgb(241, 182, 88);
-}
-
-QPushButton#settingbtn:pressed {
-border-style: solid;
-border-width: 1px;
-	background-color: rgb(25, 69, 105);
-	color: rgb(85, 255, 255);
-}</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="icon">
-           <iconset resource="elements.qrc">
-            <normaloff>:/img/img/icons8-setting-40.png</normaloff>:/img/img/icons8-setting-40.png</iconset>
-          </property>
-          <property name="iconSize">
-           <size>
-            <width>25</width>
-            <height>40</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item>
-      <widget class="QListWidget" name="listofusersgroupschanels">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>50</width>
-         <height>700</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>150</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QListWidget#listofusersgroupschanels:hover {
-	background-color: rgb(42, 46, 52);
-border-style: solid;
-	border-color: rgb(245, 179, 1);
- border-width: 1px;
-	color: rgb(25, 69, 105);
-selection-color: rgb(243, 179, 70);
-}
-
-</string>
-       </property>
-       <property name="horizontalScrollBarPolicy">
-        <enum>Qt::ScrollBarAlwaysOff</enum>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -464,7 +446,7 @@ selection-color: rgb(243, 179, 70);
     </property>
     <addaction name="actionContacts"/>
     <addaction name="actionNew_group"/>
-    <addaction name="actionNew_chnale"/>
+    <addaction name="actionNew_channel"/>
     <addaction name="actionSetting"/>
     <addaction name="separator"/>
     <addaction name="separator"/>
@@ -502,13 +484,13 @@ selection-color: rgb(243, 179, 70);
     </font>
    </property>
   </action>
-  <action name="actionNew_chnale">
+  <action name="actionNew_channel">
    <property name="icon">
     <iconset resource="elements.qrc">
      <normaloff>:/img/img/icons8-omnichannel-40.png</normaloff>:/img/img/icons8-omnichannel-40.png</iconset>
    </property>
    <property name="text">
-    <string>New chnel</string>
+    <string>New channel</string>
    </property>
    <property name="font">
     <font>
