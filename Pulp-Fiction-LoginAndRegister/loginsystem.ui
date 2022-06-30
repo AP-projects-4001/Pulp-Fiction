@@ -33,7 +33,7 @@
    <string>Pulp chat</string>
   </property>
   <property name="windowIcon">
-   <iconset>
+   <iconset resource="elements.qrc">
     <normaloff>:/icons/img/icons8-chat-64.ico</normaloff>:/icons/img/icons8-chat-64.ico</iconset>
   </property>
   <property name="iconSize">
@@ -651,7 +651,7 @@ color: #fefefe;</string>
          <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="label_7">
+       <widget class="QLabel" name="loginpic">
         <property name="geometry">
          <rect>
           <x>320</x>
@@ -661,11 +661,13 @@ color: #fefefe;</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-radius: 64px;
-background-image: url(:/img/img/icons8-login-100.png);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="elements.qrc">:/img/img/icons8-login-100.png</pixmap>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -684,11 +686,26 @@ background-image: url(:/img/img/icons8-login-100.png);</string>
          <item>
           <widget class="QPushButton" name="regButton">
            <property name="styleSheet">
-            <string notr="true">Padding: 1px;
-Border-radius: 5px;
+            <string notr="true">QPushButton#regButton {
+color: white;
+border-radius: 5px;
 Background: #933;
 color: #fefefe;
-</string>
+}
+
+QPushButton#regButton:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#regButton:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
            </property>
            <property name="text">
             <string>SIGN UP</string>
@@ -698,10 +715,27 @@ color: #fefefe;
          <item>
           <widget class="QPushButton" name="loginButton">
            <property name="styleSheet">
-            <string notr="true">Padding: 1px;
-Border-radius: 5px;
+            <string notr="true">
+QPushButton#loginButton {
+color: white;
+border-radius: 5px;
 Background: #393;
-color: #fefefe;</string>
+color: #fefefe;
+}
+
+QPushButton#loginButton:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#loginButton:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
            </property>
            <property name="text">
             <string>SIGN IN</string>
@@ -723,8 +757,7 @@ color: #fefefe;</string>
          <item>
           <widget class="QCheckBox" name="checkBox_showpass">
            <property name="styleSheet">
-            <string notr="true">color: #fefefe;
-</string>
+            <string notr="true">color: #fefefe;</string>
            </property>
            <property name="text">
             <string>Show my password</string>
@@ -734,10 +767,26 @@ color: #fefefe;</string>
          <item>
           <widget class="QPushButton" name="forgetpassbtn">
            <property name="styleSheet">
-            <string notr="true">Padding: 1px;
+            <string notr="true">QPushButton#forgetpassbtn {
+Padding: 1px;
 Border-radius: 5px;
 background-color: rgb(241, 182, 88);
-color: rgb(25, 69, 105);</string>
+color: rgb(25, 69, 105);
+}
+
+QPushButton#forgetpassbtn:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#forgetpassbtn:pressed {
+border-style: solid;
+border-width: 1px;
+	border-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
            </property>
            <property name="text">
             <string>Forgot password?</string>
@@ -830,10 +879,26 @@ font-family: 'Droid Sans';</string>
           <item>
            <widget class="QPushButton" name="backButton">
             <property name="styleSheet">
-             <string notr="true">Padding: 1px;
-Border-radius: 5px;
+             <string notr="true">QPushButton#backButton {
+color: white;
+border-radius: 5px;
 Background: #933;
-Color: #fefefe;</string>
+color: #fefefe;
+}
+
+QPushButton#backButton:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#backButton:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
             </property>
             <property name="text">
              <string>BACK TO LOGIN PAGE</string>
@@ -843,10 +908,27 @@ Color: #fefefe;</string>
           <item>
            <widget class="QPushButton" name="completeRegButton">
             <property name="styleSheet">
-             <string notr="true">Padding: 1px;
-Border-radius: 5px;
+             <string notr="true">
+QPushButton#completeRegButton {
+color: white;
+border-radius: 5px;
 Background: #393;
-Color: #fefefe;</string>
+color: #fefefe;
+}
+
+QPushButton#completeRegButton:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#completeRegButton:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
             </property>
             <property name="text">
              <string>COMPLETE REGISTRATION</string>
@@ -2571,10 +2653,26 @@ color: #fefefe;</string>
            <item row="14" column="1">
             <widget class="QPushButton" name="uplButton">
              <property name="styleSheet">
-              <string notr="true">Padding: 1px;
+              <string notr="true">QPushButton#uplButton {
+Padding: 1px;
 Border-radius: 5px;
 Background: #339;
-Color: #fefefe;</string>
+Color: #fefefe;
+}
+
+QPushButton#uplButton:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#uplButton:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
              </property>
              <property name="text">
               <string>UPLOAD PICTURE</string>
@@ -2590,7 +2688,7 @@ Color: #fefefe;</string>
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap>:/img/img/user.png</pixmap>
+              <pixmap resource="elements.qrc">:/img/img/user.png</pixmap>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -2612,7 +2710,7 @@ Color: #fefefe;</string>
            <string/>
           </property>
           <property name="pixmap">
-           <pixmap>:/img/img/icons8-register-64.png</pixmap>
+           <pixmap resource="elements.qrc">:/img/img/icons8-register-64.png</pixmap>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -3189,7 +3287,7 @@ color: #fefefe;</string>
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap>:/img/img/icons8-password-window-66.png</pixmap>
+          <pixmap resource="elements.qrc">:/img/img/icons8-password-window-66.png</pixmap>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -3222,10 +3320,26 @@ color: #fefefe;</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">Padding: 1px;
-Border-radius: 5px;
+         <string notr="true">QPushButton#backtologinforgetpass {
+color: white;
+border-radius: 5px;
 Background: #933;
-Color: #fefefe;</string>
+color: #fefefe;
+}
+
+QPushButton#backtologinforgetpass:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#backtologinforgetpass:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
         </property>
         <property name="text">
          <string>BACK TO LOGIN PAGE</string>
@@ -3241,10 +3355,27 @@ Color: #fefefe;</string>
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">Padding: 1px;
-Border-radius: 5px;
+         <string notr="true">
+QPushButton#showpassforforgetpass {
+color: white;
+border-radius: 5px;
 Background: #393;
-Color: #fefefe;</string>
+color: #fefefe;
+}
+
+QPushButton#showpassforforgetpass:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#showpassforforgetpass:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
         </property>
         <property name="text">
          <string>SHOW PASSWORD</string>
@@ -3275,14 +3406,14 @@ Color: #fefefe;</string>
   <tabstop>firstnameRegister</tabstop>
   <tabstop>emailRegister</tabstop>
   <tabstop>passwordRegister_2</tabstop>
-  <tabstop>uBox_3</tabstop>
-  <tabstop>eBox_3</tabstop>
   <tabstop>backtologinforgetpass</tabstop>
   <tabstop>showpassforforgetpass</tabstop>
   <tabstop>showpassforsignup</tabstop>
   <tabstop>uplButton</tabstop>
   <tabstop>emailforforgetpass</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="elements.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -33,7 +33,6 @@ void LoginSystem::on_loginButton_clicked()
         this->password = ui->passwordBox->text();
 
         ui->loginLabel->setText("");
-        LoginSystem::hide();
         user u;
         u.set_UserName("sara");
         pvchat ob(inneruser , u);
@@ -80,8 +79,10 @@ void LoginSystem::on_loginButton_clicked()
         g1.add_Admins(inneruser,g1.get_ChannelName());
         inneruser.add_ChannelID(i1);
 
-        //maindatabase::
-
+        QPixmap pixmap1(":/img/img/icons8-login-64.png");
+        ui->loginpic->setPixmap(pixmap1);
+        delay(2);
+        LoginSystem::hide();
         hmpg = new homepage(inneruser);
         hmpg->show();
     }

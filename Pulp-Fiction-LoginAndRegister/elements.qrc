@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/icons">
         <file>img/icons8-chat-64.ico</file>
+        <file>img/icons8-info-64.png</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/icons8-login-100.png</file>
@@ -13,9 +14,11 @@
         <file>img/icons8-people-40.png</file>
         <file>img/icons8-setting-40.png</file>
         <file>img/icons8-exit-100.png</file>
+        <file>img/icons8-login-64.png</file>
     </qresource>
     <qresource prefix="/">
         <file>img/chatbackground.jpg</file>
         <file>img/icons8-menu-rounded-64.png</file>
+        <file>img/icons8-email-send-64.png</file>
     </qresource>
 </RCC>

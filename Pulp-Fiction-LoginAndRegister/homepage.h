@@ -26,11 +26,10 @@ public:
 
 public slots:
     void clicked_list_item(QListWidgetItem* item);
-    void slidebar_clicked(QListWidgetItem* item);
     void send_clicked();
     void info_clicked();
 
-//    void on_actionExit_triggered();
+    void on_actionExit_triggered();
 
 //    void on_Sendbtn_clicked();
 

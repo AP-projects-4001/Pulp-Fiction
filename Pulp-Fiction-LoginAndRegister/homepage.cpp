@@ -10,21 +10,10 @@ homepage::homepage(user me ,QWidget *parent) :
 {
     ui->setupUi(this);
     howAmI = me;
-    ui->messagelineedit->hide();
-    ui->infobtn->hide();
-    ui->Sendbtn->hide();
-    ui->messageslist->hide();
-
-
-    QListWidgetItem* item = new QListWidgetItem;
-    QListWidgetItem* item1 = new QListWidgetItem;
-    QListWidgetItem* item2 = new QListWidgetItem;
-    item->setIcon(QIcon(":/img/img/icons8-people-40.png"));
-    item1->setIcon(QIcon(":/img/img/icons8-contacts-40.png"));
-    item2->setIcon(QIcon(":/img/img/icons8-setting-40.png"));
-    ui->sidebar->addItem(item);
-    ui->sidebar->addItem(item1);
-    ui->sidebar->addItem(item2);
+//    ui->messagelineedit->hide();
+//    ui->infobtn->hide();
+//    ui->Sendbtn->hide();
+//    ui->messageslist->hide();
 
     //here i get all channels and chats and pvs and i make my list widget of chats;
     QVector<int> StorePv = howAmI.get_PVchatsID();
@@ -97,8 +86,8 @@ homepage::homepage(user me ,QWidget *parent) :
 
     connect(ui->listofusersgroupschanels, SIGNAL(itemClicked(QListWidgetItem*)),
                 this, SLOT(clicked_list_item(QListWidgetItem*)));
-    connect(ui->sidebar, SIGNAL(slidebarClicked(QListWidgetItem*)),
-                this, SLOT(slidebar_clicked(QListWidgetItem*)));
+//    connect(ui->sidebar, SIGNAL(slidebarClicked(QListWidgetItem*)),
+//                this, SLOT(slidebar_clicked(QListWidgetItem*)));
     connect(ui->Sendbtn, &QPushButton::clicked,
          this, &homepage::send_clicked);
     connect(ui->infobtn, &QPushButton::clicked,
@@ -158,16 +147,6 @@ void homepage::clicked_list_item(QListWidgetItem* item)
         }
     }
 }
-void homepage::slidebar_clicked(QListWidgetItem* item)
-{
-    dialog->show();
-    for(int i = 0; i < ui->sidebar->count(); ++i)
-    {
-
-        //if(i==0)
-
-    }
-}
 void homepage::Display(bool isAd)
 {
     ui->messagelineedit->hide();
@@ -190,7 +169,8 @@ void homepage::Display(bool isAd)
 }
 void homepage::send_clicked()
 {
-    QString mes = ui->messagelineedit->text();
+    QString mes = ui->messagelineedit->toPlainText();
+    qDebug() << mes;
     if(!(mes.isEmpty()))
     {
        QString dir =  vec[index]->ExtractFileName(vec[index]->get_ID());/**save id each class to ID chat1;**/
@@ -275,10 +255,10 @@ void homepage::vectroToList(QVector<QString> write)
     }
 }
 
-//void homepage::on_actionExit_triggered()
-//{
-//    QApplication::quit();
-//}
+void homepage::on_actionExit_triggered()
+{
+    QApplication::quit();
+}
 
 
 
