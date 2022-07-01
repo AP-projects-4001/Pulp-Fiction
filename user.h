@@ -3,12 +3,14 @@
 
 #include<QString>
 #include<QVector>
+enum Access{ General , Friends , Nobody } ;
 class user
 {
 public:
     user();
 private:
     int ID ;
+    Access Accessibility ;
     QString UserName ;
     QString Password ;
     QString PhoneNumber ;
@@ -33,6 +35,7 @@ public:
     void set_GroupsID( QVector<int> in_GroupsID) ;
     void set_ChannelsID( QVector<int> in_ChannelsID) ;
     void set_FriendsID( QVector<int> in_FriendsID) ;
+    void set_Accessibility( int in_Accessibility ) ;
     void add_PVchatID(int in_chID) ;
     void add_GroupID(int in_gID) ;
     void add_ChannelID(int in_chID) ;
@@ -49,6 +52,7 @@ public:
     QVector<int> get_GroupsID() ;
     QVector<int> get_ChannelsID() ;
     QVector<int> get_FriendsID() ;
+    Access get_Accessibility() ;
 
 };
 #endif // USER_H

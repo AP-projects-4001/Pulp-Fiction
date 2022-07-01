@@ -1,7 +1,7 @@
 #include "user.h"
 user::user()
 {
-
+    Accessibility = General ;
 }
 void user::set_ID(int in_ID)
 {
@@ -101,4 +101,33 @@ QVector<int> user::get_ChannelsID()
 QVector<int> user::get_FriendsID()
 {
     return FriendsID ;
+}
+void user::add_PVchatID(int in_chID)
+{
+    ChannelsID.push_back( in_chID ) ;
+}
+void user::add_GroupID(int in_gID)
+{
+    GroupsID.push_back( in_gID ) ;
+}
+void user::add_ChannelID(int in_chID)
+{
+    ChannelsID.push_back( in_chID ) ;
+}
+void user::add_FriendID(int in_FID)
+{
+    FriendsID.push_back( in_FID ) ;
+}
+void user::set_Accessibility( int in_Accessibility )
+{
+    if( in_Accessibility == 1)
+        Accessibility = Friends ;
+    if( in_Accessibility == 2)
+        Accessibility = Nobody ;
+    else
+        Accessibility = General ;
+}
+Access user::get_Accessibility()
+{
+    return Accessibility ;
 }

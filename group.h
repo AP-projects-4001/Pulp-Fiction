@@ -13,7 +13,7 @@ public:
     QString get_GroupName();
     void set_GroupName(QString in_GroupName) ;
     void set_Members( QVector<user> in_Members ) ;
-    void add_Member(user in_Member , QString FileName) ;
+    void add_Member(user &in_Member , QString FileName) ;
     QVector<user> get_Member() ;
     QString ExtractFileName( int GroupID ) ;
     void Make_NewGroupFile( QString FileName  ) ;

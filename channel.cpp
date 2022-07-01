@@ -51,13 +51,14 @@ void channel::Make_NewChannelFile( QString FileName  )
     RootObject["Owner"] = OwnerObj ;
     RootObject["Messages"] = "" ;
     RootObject["Members"] = "" ;
-    RootObject["ChannelName"] = ChannelName ;
+    RootObject["ChannelNameChannelName"] = ChannelName ;
     JsonDoc.setObject( RootObject ) ;
     ChannelFile.write( JsonDoc.toJson() ) ;
     ChannelFile.close() ;
 }
-void channel::add_Member(user in_Member , QString FileName)
+void channel::add_Member(user &in_Member , QString FileName)
 {
+    Members.push_back(  in_Member ) ;
     QFile ChFile( FileName ) ;
     if( !ChFile.open(QIODevice::ReadOnly) )
     {
@@ -132,11 +133,12 @@ channel channel::read_channel( int in_ID )
     Cobj.set_Messages( tmpmess ) ;
     Cobj.set_ID( ReadObj.value("ID").toInt() ) ;
     Cobj.set_Owner( tmpOwner ) ;
-    Cobj.set_ChannelName( ReadObj.value("GroupName").toString() ) ;
+    Cobj.set_ChannelName( ReadObj.value("ChannelName").toString() ) ;
     return Cobj ;
 }
-void channel::add_Admins(user in_Admin , QString FileName)
+void channel::add_Admins(user &in_Admin , QString FileName)
 {
+    Admins.push_back(  in_Admin ) ;
     QFile ChFile( FileName ) ;
     if( !ChFile.open(QIODevice::ReadOnly) )
     {
@@ -168,3 +170,4 @@ void channel::set_Admins( QVector<user> in_Admins)
 {
     Admins = in_Admins ;
 }
+//void channel::

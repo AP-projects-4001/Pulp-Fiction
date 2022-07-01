@@ -23,8 +23,9 @@ void  Group::set_Members( QVector<user> in_Members )
 {
     Members = in_Members ;
 }
-void Group::add_Member(user in_Member , QString FileName)
+void Group::add_Member(user &in_Member , QString FileName)
 {
+    Members.push_back(  in_Member ) ;
     QFile GFile( FileName ) ;
     if( !GFile.open(QIODevice::ReadOnly) )
     {

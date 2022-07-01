@@ -31,6 +31,9 @@ void maindatabase::Add_user(user in_user)
     Newuser.insert("PhoneNumber", in_user.get_PhoneNumber()) ;
     Newuser.insert("EmailAddress", in_user.get_EmailAddress()) ;
     Newuser.insert("BirthDate", in_user.get_BirthDate()) ;
+    Newuser.insert( "Firstname" , in_user.get_firstname() ) ;
+    Newuser.insert( "Lastname" , in_user.get_lastname() ) ;
+    Newuser.insert("Accessibility", in_user.get_Accessibility() ) ;
     ///////////
     QJsonArray tmpArr ;
     for( int i=0 ; i<in_user.get_ChannelsID().count() ; i++)
@@ -185,6 +188,7 @@ bool maindatabase::Find_user( user &in_user)
             in_user.set_BirthDate( TempObj["BirthDate"].toString() ) ;
             in_user.set_Firstname( TempObj["Firstname"].toString()) ;
             in_user.set_Lastname( TempObj["Lastname"].toString() ) ;
+            in_user.set_Accessibility( TempObj["Accessibility"].toInt() ) ;
             QVector<int> tmpv ;
             QJsonArray tmparr = TempObj["PVchatsID"].toArray() ;
             for( int i=0 ; i<tmparr.size() ; i++)
@@ -336,7 +340,7 @@ void maindatabase::Add_Channel( channel in_Channel )
        return ;
     }
     QJsonObject NewChannel ;
-    NewChannel.insert( "ID" , Creat_GroupID() ) ;
+    NewChannel.insert( "ID" , Creat_ChannelID() ) ;
     NewChannel.insert( "ChannelName" , in_Channel.get_ChannelName() ) ;
     QJsonParseError JsonParseError ;
     QJsonDocument JsonDoc = QJsonDocument::fromJson(Db.readAll(), &JsonParseError) ;
@@ -344,7 +348,7 @@ void maindatabase::Add_Channel( channel in_Channel )
     QJsonObject RootObject = JsonDoc.object() ;
     QJsonArray ChannelArray = RootObject.value("Channels").toArray() ;
     ChannelArray.append( NewChannel ) ;
-    RootObject.insert("Groups", ChannelArray );
+    RootObject.insert("Channels", ChannelArray );
     JsonDoc.setObject(RootObject) ;
     Db.open(QFile::WriteOnly | QFile::Text | QFile::Truncate);
     Db.write( JsonDoc.toJson() ) ;
@@ -516,6 +520,7 @@ QVector<user> maindatabase::read_AllUsers()
         tmpUser.set_Password( currUser["Password"].toString() ) ;
         tmpUser.set_EmailAddress( currUser["EmailAddress"].toString() ) ;
         tmpUser.set_PhoneNumber( currUser["PhoneNumber"].toString() ) ;
+        tmpUser.set_Accessibility( currUser["Accessibility"].toInt() ) ;
         QVector<int> tmpv ;
         QJsonArray tmparr = currUser["PVchatsID"].toArray() ;
         for( int i=0 ; i<tmparr.size() ; i++)
@@ -619,6 +624,7 @@ void maindatabase::Modify_UserDetails( user in_user )
             Newuser["Firstname"] = in_user.get_firstname() ;
             Newuser["Lastname"] = in_user.get_lastname() ;
             Newuser["UserName"] = in_user.get_UserName() ;
+            Newuser["Accessibility"] = in_user.get_Accessibility() ;
             UsersArray.removeAt(i) ;
             UsersArray.insert(i , Newuser ) ;
         }
