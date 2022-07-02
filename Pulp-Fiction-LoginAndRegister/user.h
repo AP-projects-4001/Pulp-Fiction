@@ -3,12 +3,21 @@
 
 #include<QString>
 #include<QVector>
+enum Access{ General , Friends , Nobody } ;
 class user
 {
 public:
     user();
 private:
     int ID ;
+
+    Access nameAccessibility  = Friends;
+    Access phoneAccessibility = Friends;
+    Access photoAccessibility = Friends;
+    Access firstNameAccessibility  = Friends;
+    Access lastNameAccessibility   = Friends;
+    Access emailAccessibility = Friends;
+
     QString UserName ;
     QString Password ;
     QString PhoneNumber ;
@@ -33,6 +42,12 @@ public:
     void set_GroupsID( QVector<int> in_GroupsID) ;
     void set_ChannelsID( QVector<int> in_ChannelsID) ;
     void set_FriendsID( QVector<int> in_FriendsID) ;
+    void setNameAccessibility( int in_Accessibility ) ;
+    void setPhoneAccessibility( int in_Accessibility ) ;
+    void setPhotoAccessibility( int in_Accessibility ) ;
+    void setFirstNameAccessibility(int in_Accessibility) ;
+    void setLastNameAccessibility(int in_Accessibility) ;
+    void setEmailAccessibility(int in_Accessibility) ;
     void add_PVchatID(int in_chID) ;
     void add_GroupID(int in_gID) ;
     void add_ChannelID(int in_chID) ;
@@ -46,9 +61,17 @@ public:
     QString get_EmailAddress() ;
     QString get_BirthDate() ;
     QVector<int> get_PVchatsID() ;
-    QVector<int> get_GroupsID() ;
+    QVector<int> get_GroupsID()   ;
     QVector<int> get_ChannelsID() ;
-    QVector<int> get_FriendsID() ;
+    QVector<int> get_FriendsID()  ;
+    Access getNameAccessibility() ;
+    Access getPhoneAccessibility() ;
+    Access getPhotoAccessibility() ;
+    Access getFirstNameAccessibility() ;
+    Access getLastNameAccessibility() ;
+    Access getEmailAccessibility() ;
+
+
 
 };
 #endif // USER_H
