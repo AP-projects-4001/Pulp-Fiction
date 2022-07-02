@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     channelclass.cpp \
     chat.cpp \
+    contacts.cpp \
     customshadoweffect.cpp \
     groupclass.cpp \
     homepage.cpp \
@@ -19,11 +20,13 @@ SOURCES += \
     maindatabase.cpp \
     newgroup.cpp \
     pvchat.cpp \
+    setting.cpp \
     user.cpp
 
 HEADERS += \
     channelclass.h \
     chat.h \
+    contacts.h \
     customshadoweffect.h \
     groupclass.h \
     homepage.h \
@@ -31,12 +34,15 @@ HEADERS += \
     maindatabase.h \
     newgroup.h \
     pvchat.h \
+    setting.h \
     user.h
 
 FORMS += \
+    contacts.ui \
     homepage.ui \
     loginsystem.ui \
-    newgroup.ui
+    newgroup.ui \
+    setting.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

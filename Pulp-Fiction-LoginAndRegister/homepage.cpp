@@ -3,6 +3,7 @@
 #include <QListWidgetItem>
 #include <QLabel>
 #include "maindatabase.h"
+#include "contacts.h"
 
 
 QVector<chat*> vec;
@@ -17,7 +18,8 @@ homepage::homepage(user me ,QWidget *parent) :
     ui->messagelineedit->hide();
     ui->infobtn->hide();
     ui->Sendbtn->hide();
-//    ui->messageslist->hide();
+    ui->messageslist->hide();
+
 
     //here i get all channels and chats and pvs and i make my list widget of chats;
     QVector<int> StorePv = howAmI.get_PVchatsID();
@@ -117,6 +119,7 @@ void homepage::clicked_list_item(QListWidgetItem* item)
     //multi
     //thread t1(returnmes)
     //thread t2(send_clicked)
+    ui->loadingpic->hide();
     for(int i = 0; i < ui->listofusersgroupschanels->count(); ++i)
     {
         if(ui->listofusersgroupschanels->item(i) == item)
@@ -274,4 +277,21 @@ void homepage::on_actionExit_triggered()
 
 
 
+
+
+void homepage::on_contactsbtn_clicked()
+{
+    Contacts *contactsdialog;
+    contactsdialog = new Contacts(howAmI, this);
+    contactsdialog->show();
+
+}
+
+
+void homepage::on_settingbtn_clicked()
+{
+    Setting *settingdialog;
+    settingdialog = new Setting(howAmI, this);
+    settingdialog->show();
+}
 

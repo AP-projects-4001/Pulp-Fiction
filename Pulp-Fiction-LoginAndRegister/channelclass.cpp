@@ -29,7 +29,7 @@ QVector<user> channel::get_Members()
 }
 QString channel::ExtractFileName( int ChannelID )
 {
-    QString FileName = "Channe" + QString::number(ChannelID) + ".json" ;
+    QString FileName = "Channel" + QString::number(ChannelID) + ".json" ;
     return FileName ;
 }
 void channel::Make_NewChannelFile( QString FileName  )

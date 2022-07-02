@@ -11,6 +11,8 @@
 #include <QVBoxLayout>
 #include "user.h"
 #include "newgroup.h"
+#include "contacts.h"
+#include "setting.h"
 enum Mode { ChatMode, ChannnelMode, PvMode };
 namespace Ui {
 class homepage;
@@ -31,8 +33,6 @@ public slots:
 
     void on_actionExit_triggered();
 
-//    void on_Sendbtn_clicked();
-
 //    void on_listofusersgroupschanels_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
 
 //    void on_listofusersgroupschanels_itemClicked(QListWidgetItem *item);
@@ -41,6 +41,11 @@ public slots:
 signals:
    void itemClicked(QListWidgetItem*);
    void slidebarClicked(QListWidgetItem*);
+
+private slots:
+   void on_contactsbtn_clicked();
+
+   void on_settingbtn_clicked();
 
 private:
     Ui::homepage *ui;

@@ -101,7 +101,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="Login">
       <widget class="QFrame" name="frame_2">
@@ -2625,7 +2625,7 @@ border-width: 1px;
               <string notr="true">QPushButton#uplButton {
 Padding: 1px;
 Border-radius: 5px;
-Background: #339;
+	background-color: rgb(36, 108, 108);
 Color: #fefefe;
 }
 

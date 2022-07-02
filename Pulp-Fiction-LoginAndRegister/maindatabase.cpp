@@ -31,6 +31,8 @@ void maindatabase::Add_user(user in_user)
     Newuser.insert("PhoneNumber", in_user.get_PhoneNumber()) ;
     Newuser.insert("EmailAddress", in_user.get_EmailAddress()) ;
     Newuser.insert("BirthDate", in_user.get_BirthDate()) ;
+    Newuser.insert("FirsName", in_user.get_firstname());
+    Newuser.insert("LastName", in_user.get_lastname());
     ///////////
     QJsonArray tmpArr ;
     for( int i=0 ; i<in_user.get_ChannelsID().count() ; i++)
@@ -183,6 +185,8 @@ bool maindatabase::Find_user( user &in_user)
             in_user.set_EmailAddress( TempObj["EmailAddress"].toString() ) ;
             in_user.set_PhoneNumber( TempObj["PhoneNumber"].toString() ) ;
             in_user.set_BirthDate( TempObj["BirthDate"].toString() ) ;
+            in_user.set_Firstname( TempObj["FirstName"].toString() ) ;
+            in_user.set_Lastname( TempObj["LastName"].toString() ) ;
             QVector<int> tmpv ;
             QJsonArray tmparr = TempObj["PVchatsID"].toArray() ;
             for( int i=0 ; i<tmparr.size() ; i++)

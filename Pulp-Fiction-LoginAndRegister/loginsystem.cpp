@@ -4,6 +4,9 @@
 #include <QMessageBox>
 #include <homepage.h>
 #include <QDebug>
+
+#include "setting.h"
+
 LoginSystem::LoginSystem(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::LoginSystem)
@@ -85,6 +88,8 @@ void LoginSystem::on_loginButton_clicked()
         LoginSystem::hide();
         hmpg = new homepage(inneruser);
         hmpg->show();
+//        Setting *settingdialog = new Setting(inneruser, this);
+//        settingdialog->show();
     }
     else
     {

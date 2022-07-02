@@ -28,7 +28,6 @@ public:
     static void Delete_UserFriendID() ;
     static bool userpasswordForforgot(user in_user, QString &pass);
     static QVector<user> read_AllUsers() ;
-
 };
 
 #endif // MAINDATABASE_H

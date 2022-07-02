@@ -15,6 +15,12 @@
         <file>img/icons8-setting-40.png</file>
         <file>img/icons8-exit-100.png</file>
         <file>img/icons8-login-64.png</file>
+        <file>img/icons8-back-48.png</file>
+        <file>img/icons8-edit-profile-30.png</file>
+        <file>img/icons8-friends-64.png</file>
+        <file>img/icons8-setting-64 (1).png</file>
+        <file>img/icons8-filter-edit-64.png</file>
+        <file>img/icons8-save-64 (1).png</file>
     </qresource>
     <qresource prefix="/">
         <file>img/chatbackground.jpg</file>
