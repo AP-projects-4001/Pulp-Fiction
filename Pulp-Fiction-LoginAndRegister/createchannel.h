@@ -25,6 +25,10 @@ public:
 private slots:
     void on_submit_clicked();
 
+    void on_backbtn_5_clicked();
+
+    void on_backbtn_3_clicked();
+
 private:
     Ui::createchannel *ui;
     user howAmI;

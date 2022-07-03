@@ -15,6 +15,8 @@
 #include "channelinfo.h"
 #include "pvinfo.h"
 #include "mythread.h"
+#include "setting.h"
+#include "contacts.h"
 enum Mode { GroupMode, ChannnelMode, PvMode };
 namespace Ui {
 class homepage;
@@ -49,9 +51,15 @@ private slots:
 
    void on_infobtn_clicked();
 
-   void on_actionNew_chnale_triggered();
+   void on_contactsbtn_clicked();
 
+   void on_settingbtn_clicked();
 
+   void on_actionContacts_triggered();
+
+   void on_actionExit_triggered();
+
+   void on_actionNew_channel_triggered();
 
 private:
     Ui::homepage *ui;
@@ -75,6 +83,8 @@ private:
     groupInfo* infoGroup;
     channelInfo* infoChannel;
     PvInfo* infoPv;
+    Setting* settingDialog;
+    Contacts* contactDialog;
     MyThread * mythread;
 
     void Display(bool isAd);

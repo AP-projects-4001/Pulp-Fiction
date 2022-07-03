@@ -7,7 +7,7 @@ createchannel::createchannel(user me ,QWidget *parent) :
 {
     ui->setupUi(this);
     howAmI = me;
-    ui->setupUi(this);
+    ui->winstack->setCurrentIndex(0);
     write = maindatabase::read_AllUsers();
     for(int i = 0 ; i < write.count() ; i++)
     ui->userslist->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
@@ -51,6 +51,20 @@ createchannel::~createchannel()
 void createchannel::on_submit_clicked()
 {
     name = ui->channelname->text();
+    ui->winstack->setCurrentIndex(2);
 }
 int createchannel::getCount()
 {return ui->userslist->count();}
+
+void createchannel::on_backbtn_5_clicked()
+{
+    ui->winstack->setCurrentIndex(0);
+}
+
+
+void createchannel::on_backbtn_3_clicked()
+{
+
+    createchannel::hide();
+}
+
