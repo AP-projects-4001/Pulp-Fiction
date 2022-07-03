@@ -18,7 +18,6 @@ creategroup::creategroup(user me ,QWidget *parent) :
     ui->winstack->setGraphicsEffect(bodyShadow);
 
     write = maindatabase::read_AllUsers();
-    for(int i = 0 ; i < write.count() ; i++)
     ui->userslist->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
     ui->userslist->setFlow(QListView::LeftToRight);
     ui->userslist->setGridSize(QSize(200, 30));

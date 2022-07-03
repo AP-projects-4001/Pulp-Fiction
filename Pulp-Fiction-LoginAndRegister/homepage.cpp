@@ -104,7 +104,7 @@ homepage::~homepage()
 }
 void homepage::clicked_list_item(QListWidgetItem* item)
 {
-
+    ui->loadingpic->hide();
     for(int i = 0; i < ui->listofusersgroupschanels->count(); ++i)
     {
         if(ui->listofusersgroupschanels->item(i) == item)
@@ -260,7 +260,6 @@ void homepage::on_newgroupbtn_clicked()
                 gr.add_Member(creategroupdialog->selected[i] , gr.ExtractFileName(j));
                 maindatabase::Push_UserGroupID(j,creategroupdialog->selected[i]);
             }
-
         }
         Group obchat = Group::read_Group(j);
         QString s = obchat.get_GroupName();
@@ -477,7 +476,6 @@ void homepage::on_actionContacts_triggered()
 {
     on_contactsbtn_clicked();
 }
-
 
 void homepage::on_actionExit_triggered()
 {

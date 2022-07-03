@@ -33,12 +33,10 @@ void Contacts::on_searchcontact_textChanged(const QString &arg1)
 
 }
 
-
 void Contacts::on_backbtn_clicked()
 {
     ui->winstack->setCurrentIndex(0);
 }
-
 
 void Contacts::on_backtohomepage2_clicked()
 {

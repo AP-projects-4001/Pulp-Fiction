@@ -486,7 +486,10 @@ border-style: solid;
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="elements.qrc">:/icons/img/icons8-chat-64.ico</pixmap>
+       <pixmap resource="elements.qrc">:/splash/img/splash.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
