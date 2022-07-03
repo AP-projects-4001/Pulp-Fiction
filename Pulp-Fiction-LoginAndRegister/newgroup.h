@@ -8,6 +8,8 @@
 #include <QMainWindow>
 #include <QVector>
 #include "user.h"
+#include <QCheckBox>
+
 namespace Ui {
 class newGroup;
 }
@@ -21,13 +23,16 @@ public:
     ~newGroup();
     QVector<QCheckBox*> cheVec;
     QVector<user> write;
+    QVector<user> selected;
     int getCount()const;
+    int check = 0;
+    QString name;
 
-public slots:
-    void clickedMe();
+private slots:
+    void on_pushButton_2_clicked();
+
 private:
     Ui::newGroup *ui;
-
     user howAmI;
 
 };

@@ -10,11 +10,12 @@
 #include <QTextEdit>
 #include <QVBoxLayout>
 #include "user.h"
-#include "newgroup.h"
-#include "contacts.h"
-#include "setting.h"
 #include "createchannel.h"
-enum Mode { ChatMode, ChannnelMode, PvMode };
+#include "groupinfo.h"
+#include "channelinfo.h"
+#include "pvinfo.h"
+#include "mythread.h"
+enum Mode { GroupMode, ChannnelMode, PvMode };
 namespace Ui {
 class homepage;
 }
@@ -24,38 +25,42 @@ class homepage : public QMainWindow
 
 public:
     explicit homepage(user me , QWidget *parent = nullptr);
-    void vectroToList(QVector<QString> write);
+    void vectroToList();
     ~homepage();
 
 public slots:
     void clicked_list_item(QListWidgetItem* item);
     void send_clicked();
-    void info_clicked();
-
-    void on_actionExit_triggered();
-
-//    void on_listofusersgroupschanels_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
-
-//    void on_listofusersgroupschanels_itemClicked(QListWidgetItem *item);
+    void getMessage();
 
 
 signals:
    void itemClicked(QListWidgetItem*);
-   void slidebarClicked(QListWidgetItem*);
+
 
 private slots:
-   void on_contactsbtn_clicked();
+   void on_actionNew_group_triggered();
 
-   void on_settingbtn_clicked();
+   void on_newgroupbtn_clicked();
+
+   void on_newchannelbtn_clicked();
+
+   void on_actionSetting_triggered();
 
    void on_infobtn_clicked();
 
-   void on_newchannelbtn_clicked();
+   void on_actionNew_chnale_triggered();
+
+
 
 private:
     Ui::homepage *ui;
     QVector<QListWidgetItem*> list;
+    QVector<int> StorePv;
+    QVector<int> StoreGroup;
+    QVector<int> StoreChannel;
 
+    QVBoxLayout *layout;
 
     int index;
     user howAmI;
@@ -66,9 +71,15 @@ private:
     pvchat* pv;
 
     Mode currentMode ;
-    newGroup* dialog;
+    createchannel* dialog;
+    groupInfo* infoGroup;
+    channelInfo* infoChannel;
+    PvInfo* infoPv;
+    MyThread * mythread;
 
     void Display(bool isAd);
+    void whatIsNew();
+    bool isAdmin(user me);
 };
 
 #endif // HOMEPAGE_H

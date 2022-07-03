@@ -19,10 +19,13 @@ SOURCES += \
     loginsystem.cpp \
     main.cpp \
     maindatabase.cpp \
-    newgroup.cpp \
+    mythread.cpp \
     pvchat.cpp \
     setting.cpp \
-    user.cpp
+    user.cpp \
+    groupinfo.cpp \
+    channelinfo.cpp\
+    pvinfo.cpp
 
 HEADERS += \
     channelclass.h \
@@ -34,18 +37,23 @@ HEADERS += \
     homepage.h \
     loginsystem.h \
     maindatabase.h \
-    newgroup.h \
+    mythread.h \
     pvchat.h \
     setting.h \
-    user.h
+    user.h \
+    groupinfo.h \
+    channelinfo.h \
+    pvinfo.h
 
 FORMS += \
     contacts.ui \
     createchannel.ui \
     homepage.ui \
     loginsystem.ui \
-    newgroup.ui \
-    setting.ui
+    setting.ui \
+    groupinfo.ui \
+    channelinfo.ui \
+    pvinfo.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
