@@ -49,7 +49,7 @@ color: rgb(241, 182, 88);
 	border-color: rgb(45, 135, 135);
 }</string>
      </property>
-     <widget class="QWidget" name="stackedWidgetPage1" native="true">
+     <widget class="QWidget" name="stackedWidgetPage1">
       <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">
         <layout class="QVBoxLayout" name="verticalLayout_9">

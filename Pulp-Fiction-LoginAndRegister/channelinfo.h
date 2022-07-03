@@ -5,6 +5,7 @@
 #include <QCheckBox>
 #include <QWidget>
 #include "user.h"
+#include "customshadoweffect.h"
 namespace Ui {
 class channelInfo;
 }
@@ -23,6 +24,8 @@ private slots:
     void on_pushButton_2_clicked();
 
     void on_pushButton_3_clicked();
+
+    void on_backtohomepage_clicked();
 
 private:
     Ui::channelInfo *ui;

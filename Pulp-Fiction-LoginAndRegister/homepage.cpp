@@ -335,7 +335,7 @@ void homepage::on_infobtn_clicked()
     if(currentMode == GroupMode)
     {
         Group obchat = Group::read_Group(vec[index]->get_ID());
-        infoGroup = new groupInfo(howAmI , obchat.get_Member() , obchat.get_ID());
+        infoGroup = new groupInfo(howAmI , obchat.get_Member() , obchat.get_ID(), this);
         infoGroup->show();
 
     }
@@ -343,15 +343,15 @@ void homepage::on_infobtn_clicked()
     {
         channel obchat = channel::read_channel(vec[index]->get_ID());
         qDebug() << obchat.get_ID();
-        infoChannel = new channelInfo(howAmI , obchat.get_Members() ,obchat.get_Admins(), obchat.get_ID());
+        infoChannel = new channelInfo(howAmI , obchat.get_Members() ,obchat.get_Admins(), obchat.get_ID(), this);
         infoChannel->show();
     }
     if(currentMode == PvMode)
     {
-            pvchat obchat = pvchat::read_PVChat(vec[index]->get_ID());
-            qDebug() << obchat.get_ID();
-            infoPv = new PvInfo(howAmI , obchat.get_Addressee());
-            infoPv->show();
+        pvchat obchat = pvchat::read_PVChat(vec[index]->get_ID());
+        qDebug() << obchat.get_ID();
+        infoPv = new PvInfo(howAmI , obchat.get_Addressee(), this);
+        infoPv->show();
     }
 }
 
@@ -485,6 +485,3 @@ void homepage::on_actionExit_triggered()
 {
     QApplication::quit();
 }
-
-
-

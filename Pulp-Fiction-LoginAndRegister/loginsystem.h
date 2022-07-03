@@ -21,7 +21,8 @@ public:
     bool Login(QString u, QString p);
     bool loggedIn;
     QString picName;
-    QString picDir = QCoreApplication::applicationDirPath()+"/../../LogSys/users/avatar";
+//    QString picDir = QCoreApplication::applicationDirPath()+"/../../LogSys/users/avatar";
+    QString picDir = QCoreApplication::applicationDirPath()+"/../";
     void delay(int);
 
 private slots:

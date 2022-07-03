@@ -6,6 +6,7 @@
 #include <QWidget>
 #include <QCheckBox>
 #include "user.h"
+#include "customshadoweffect.h"
 namespace Ui {
 class groupInfo;
 }
@@ -20,6 +21,9 @@ public:
 public slots:
     void add_clicked();
     void ok_clicked();
+private slots:
+    void on_backtohomepage_clicked();
+
 private:
     Ui::groupInfo *ui;
     QVector<QListWidgetItem*> list;

@@ -8,10 +8,16 @@ Setting::Setting(user me ,QWidget *parent) :
     ui(new Ui::Setting)
 {
     ui->setupUi(this);
+    howAmI = me;
+
     ui->usernameeditprofile->setReadOnly(true);
     ui->phoneeditprofile->setReadOnly(true);
     ui->emaileditprofile->setReadOnly(true);
     ui->winstack->setCurrentIndex(0);
+    QString picDir = QCoreApplication::applicationDirPath()+"/../"+QString::number(howAmI.get_ID())+".png";
+    qDebug() << picDir;
+    qDebug() << howAmI.get_firstname();
+    ui->profilepicture_2->setPixmap(QPixmap(picDir));
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     CustomShadowEffect *bodyShadow = new CustomShadowEffect();
     bodyShadow->setBlurRadius(20.0);
@@ -22,7 +28,7 @@ Setting::Setting(user me ,QWidget *parent) :
     QIntValidator* intValidator = new QIntValidator;
     ui->phoneeditprofile->setValidator(intValidator);
 
-    howAmI = me;
+
 //    ui->profilepicture_2->setPixmap(QPixmap("file:///C://Users//tejarat pooya//Pictures//Desktop//AP project//build-APproject-Desktop_Qt_6_2_4_MinGW_64_bit-Debug//masih.png"));
 
 //    QString useridstr = "Your Id is: " + QString::number(me.get_ID());

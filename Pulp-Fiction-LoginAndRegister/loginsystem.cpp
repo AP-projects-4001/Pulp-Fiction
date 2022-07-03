@@ -15,6 +15,8 @@ LoginSystem::LoginSystem(QWidget *parent) :
     database = new maindatabase();
     ui->winStack->setCurrentIndex(0);
 
+    qDebug() << QCoreApplication::applicationDirPath();
+
     ui->passwordBox->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
     ui->passwordRegister->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
     QIntValidator* intValidator = new QIntValidator;
@@ -203,6 +205,7 @@ void LoginSystem::on_completeRegButton_clicked()
 
             if (this->picName != "")
             {
+
 //                QString to = this->picDir+"/"+ui->usernameRegister->text();
 
 //                if (QFile::exists(to))
@@ -212,9 +215,18 @@ void LoginSystem::on_completeRegButton_clicked()
 
 //                QFile::copy(this->picName, to);
 //                this->picName = "";
-                QString path = userRegister.get_UserName() + ".png";
-                qDebug() << path;
-                qDebug() << userRegister.get_UserName();
+                QString path;
+                if(this->picName.contains(".png"))
+                {
+                    path = QString::number(userRegister.get_ID()) + ".png";
+                }
+                else if(this->picName.contains(".jpg"))
+                {
+                    path = QString::number(userRegister.get_ID()) + ".jpg";
+                }
+                else
+                    path = QString::number(userRegister.get_ID()) + ".bmp";
+
                 ui->rpLabel->grab().save(path);
 
             }
@@ -253,9 +265,9 @@ void LoginSystem::on_winStack_currentChanged(int arg1)
 
 void LoginSystem::on_uplButton_clicked()
 {
-    this->picName = QFileDialog::getOpenFileName(this, tr("Open Image"), "/", tr("Image Files (*.png *.jpg *.bmp)"));
+    this->picName = QFileDialog::getOpenFileName(this, tr("Open Image"), "/", tr("Image Files (*.png)"));
     qDebug() << picName;
-    ui->rpLabel->setText("<img src=\"file:///"+this->picName+"\" alt=\"Image read error!\" height=\"128\" width=\"128\" />");
+    ui->rpLabel->setText("<img src=\"file:///"+this->picName+"\" alt=\"Image read error!\" height=\"110\" width=\"110\" />");
 
 }
 
