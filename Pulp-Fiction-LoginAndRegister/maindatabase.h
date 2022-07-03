@@ -2,6 +2,7 @@
 #define MAINDATABASE_H
 #include "user.h"
 #include"pvchat.h"
+#include<QMessageBox>
 #include "groupclass.h"
 #include "channelclass.h"
 class maindatabase
@@ -32,6 +33,7 @@ public:
     static void Delete_UserGroupID(int in_GroupID , user in_user) ;
     static void Modify_UserDetails( user in_user );
     bool userpasswordForforgot(user in_user, QString &pass) ;
+    static void Modify_UserAAccessibility( user in_user ) ;
 
 };
 
