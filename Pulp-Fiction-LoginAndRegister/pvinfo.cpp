@@ -14,12 +14,34 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
     bodyShadow->setColor(QColor(10, 5, 45, 80));
     ui->winstack->setGraphicsEffect(bodyShadow);
 
-    ui->username->hide();
-    ui->firstname->hide();
-    ui->lastname->hide();
-    ui->phonenumber->hide();
-    ui->email->hide();
-    ui->profilepicture->hide();
+//    ui->username->hide();
+//    ui->firstname->hide();
+//    ui->lastname->hide();
+//    ui->phonenumber->hide();
+//    ui->email->hide();
+//    ui->profilepicture->hide();
+
+        ui->usernamelineedit->setReadOnly(true);
+        ui->biolineedit->setReadOnly(true);
+        ui->firstnamelineedit->setReadOnly(true);
+        ui->phonenumberlineedit->setReadOnly(true);
+        ui->lastnamelineedit->setReadOnly(true);
+        ui->emaillineedit->setReadOnly(true);
+
+        ui->usernamelineedit->hide();
+        ui->biolineedit->hide();
+        ui->firstnamelineedit->hide();
+        ui->phonenumberlineedit->hide();
+        ui->lastnamelineedit->hide();
+        ui->emaillineedit->hide();
+
+//        ui->usernamelineedit->setPlaceholderText("You don't have permission to see");
+//        ui->biolineedit->setPlaceholderText("You don't have permission to see");
+//        ui->firstnamelineedit->setPlaceholderText("You don't have permission to see");
+//        ui->phonenumberlineedit->setPlaceholderText("You don't have permission to see");
+//        ui->lastnamelineedit->setPlaceholderText("You don't have permission to see");
+//        ui->emaillineedit->setPlaceholderText("You don't have permission to see");
+
     bool isFriend = false;
     QVector<int> :: iterator it;
     for(it = you.get_FriendsID().begin() ; it != you.get_FriendsID().end() ; it++)
@@ -34,7 +56,8 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
     {
         if(you.getNameAccessibility() != Nobody)
         {
-            ui->username->show();
+//            ui->username->show();
+            ui->usernamelineedit->show();
             QByteArray ba = you.get_UserName().toLocal8Bit();
             const char *c_str2 = ba.data();
             ui->usernamelineedit->setText(c_str2);
@@ -42,7 +65,8 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
         }
         if(you.getPhoneAccessibility() != Nobody)
         {
-            ui->phonenumber->show();
+//            ui->phonenumber->show();
+            ui->phonenumberlineedit->show();
             QByteArray ba = you.get_PhoneNumber().toLocal8Bit();
             const char *c_str2 = ba.data();
             ui->phonenumberlineedit->setText(c_str2);
@@ -50,7 +74,8 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
         }
         if(you.getEmailAccessibility() != Nobody)
         {
-            ui->email->show();
+//            ui->email->show();
+            ui->emaillineedit->show();
             QByteArray ba = you.get_EmailAddress().toLocal8Bit();
             const char *c_str2 = ba.data();
             ui->emaillineedit->setText(c_str2);
@@ -58,7 +83,8 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
         }
         if(you.getFirstNameAccessibility() != Nobody)
         {
-            ui->firstname->show();
+//            ui->firstname->show();
+            ui->firstnamelineedit->show();
             QByteArray ba = you.get_firstname().toLocal8Bit();
             const char *c_str2 = ba.data();
             ui->firstnamelineedit->setText(c_str2);
@@ -66,7 +92,8 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
         }
         if(you.getLastNameAccessibility() != Nobody)
         {
-            ui->lastname->show();
+//            ui->lastname->show();
+            ui->lastnamelineedit->show();
             QByteArray ba = you.get_lastname().toLocal8Bit();
             const char *c_str2 = ba.data();
             ui->lastnamelineedit->setText(c_str2);
@@ -77,7 +104,8 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
     {
         if(you.getNameAccessibility() != Nobody)
         {
-            ui->username->show();
+//            ui->username->show();
+            ui->usernamelineedit->show();
             QByteArray ba = you.get_UserName().toLocal8Bit();
             const char *c_str2 = ba.data();
             ui->usernamelineedit->setText(c_str2);
@@ -85,7 +113,8 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
         }
         if(you.getPhoneAccessibility() == General)
         {
-            ui->phonenumber->show();
+//            ui->phonenumber->show();
+            ui->phonenumberlineedit->show();
             QByteArray ba = you.get_PhoneNumber().toLocal8Bit();
             const char *c_str2 = ba.data();
             ui->phonenumberlineedit->setText(c_str2);
@@ -93,7 +122,8 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
         }
         if(you.getEmailAccessibility() == General)
         {
-            ui->email->show();
+//            ui->email->show();
+            ui->emaillineedit->show();
             QByteArray ba = you.get_EmailAddress().toLocal8Bit();
             const char *c_str2 = ba.data();
             ui->emaillineedit->setText(c_str2);
@@ -101,7 +131,8 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
         }
         if(you.getFirstNameAccessibility() == General)
         {
-            ui->firstname->show();
+//            ui->firstname->show();
+            ui->firstnamelineedit->show();
             QByteArray ba = you.get_firstname().toLocal8Bit();
             const char *c_str2 = ba.data();
             ui->firstnamelineedit->setText(c_str2);
@@ -109,7 +140,8 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
         }
         if(you.getLastNameAccessibility() == General)
         {
-            ui->lastname->show();
+//            ui->lastname->show();
+            ui->lastnamelineedit->show();
             QByteArray ba = you.get_lastname().toLocal8Bit();
             const char *c_str2 = ba.data();
             ui->lastnamelineedit->setText(c_str2);

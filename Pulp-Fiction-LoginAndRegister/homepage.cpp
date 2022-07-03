@@ -336,9 +336,6 @@ void homepage::on_infobtn_clicked()
     {
         Group obchat = Group::read_Group(vec[index]->get_ID());
         infoGroup = new groupInfo(howAmI , obchat.get_Member() , obchat.get_ID());
-        infoGroup->setStyleSheet("QWidget{\
-                                     background-color: white\
-                                     }");
         infoGroup->show();
 
     }
@@ -347,9 +344,6 @@ void homepage::on_infobtn_clicked()
         channel obchat = channel::read_channel(vec[index]->get_ID());
         qDebug() << obchat.get_ID();
         infoChannel = new channelInfo(howAmI , obchat.get_Members() ,obchat.get_Admins(), obchat.get_ID());
-        infoChannel->setStyleSheet("QWidget{\
-                                     background-color: white\
-                                     }");
         infoChannel->show();
     }
     if(currentMode == PvMode)
@@ -357,9 +351,6 @@ void homepage::on_infobtn_clicked()
             pvchat obchat = pvchat::read_PVChat(vec[index]->get_ID());
             qDebug() << obchat.get_ID();
             infoPv = new PvInfo(howAmI , obchat.get_Addressee());
-            infoPv->setStyleSheet("QWidget{\
-                                         background-color: white\
-                                         }");
             infoPv->show();
     }
 }
