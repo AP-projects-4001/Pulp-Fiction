@@ -1,6 +1,6 @@
 #include "channelclass.h"
-#include<QFile>
-#include<QDebug>
+#include <QFile>
+#include <QDebug>
 #include <QJsonDocument>
 #include <QJsonParseError>
 #include<QJsonObject>

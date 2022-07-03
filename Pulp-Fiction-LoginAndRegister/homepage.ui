@@ -201,6 +201,7 @@ border-width: 1px;
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton#graphbtn {
+	background-color: rgb(170, 127, 62);
 color: white;
 border-radius: 10px;
 border-color: rgb(68, 120, 232);

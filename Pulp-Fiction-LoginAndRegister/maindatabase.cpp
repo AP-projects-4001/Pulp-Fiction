@@ -190,7 +190,7 @@ bool maindatabase::Find_user( user &in_user)
             in_user.set_Firstname( TempObj["Firstname"].toString()) ;
             in_user.set_Lastname( TempObj["Lastname"].toString() ) ;
             in_user.set_Bio( TempObj["Bio"].toString() ) ;
-            //in_user.set_Accessibility( TempObj["Accessibility"].toInt() ) ;
+//            in_user.set_Accessibility( TempObj["Accessibility"].toInt() ) ;
             QVector<int> tmpv ;
             QJsonArray tmparr = TempObj["PVchatsID"].toArray() ;
             for( int i=0 ; i<tmparr.size() ; i++)

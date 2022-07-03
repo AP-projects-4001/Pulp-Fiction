@@ -137,28 +137,12 @@ void channelInfo::on_pushButton_2_clicked()
     }
 
 }
-//void groupInfo::ok_clicked()
-//{
-//      Group gr = Group::read_Group(idGroup);
-//      qDebug() << idGroup;
-//      for(int i = 0 ; i < ui->listWidget_2->count() ; i++)
-//      {
-//           if(cheVec[i]->isChecked())
-//           {
-//               gr.add_Member(selected[i] , gr.ExtractFileName(idGroup));
-//               maindatabase::Push_UserGroupID(idGroup,selected[i]);
-//               selected[i].add_GroupID(idGroup);
-//           }
-//      }
-//      groupInfo::hide();
-//}
 
 void channelInfo::on_pushButton_3_clicked()
 {
     if(currMode == AddMember)
     {
          channel gr = channel::read_channel(idChannel);
-              qDebug() << idChannel;
          for(int i = 0 ; i < ui->listWidget->count() ; i++)
          {
               if(cheVec[i]->isChecked())
@@ -173,11 +157,11 @@ void channelInfo::on_pushButton_3_clicked()
     else
     {
         channel gr = channel::read_channel(idChannel);
-             qDebug() << idChannel;
         for(int i = 0 ; i < ui->listWidget->count() ; i++)
         {
              if(cheVec[i]->isChecked())
              {
+                  gr.delete_Member(selected[i] , gr.ExtractFileName(idChannel)) ;
                   gr.add_Admins(selected[i] , gr.ExtractFileName(idChannel));
              }
         }
