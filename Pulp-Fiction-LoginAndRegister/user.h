@@ -76,9 +76,9 @@ public:
     void setNameAccessibility( int in_Accessibility ) ;
     void setPhoneAccessibility( int in_Accessibility ) ;
     void setPhotoAccessibility( int in_Accessibility ) ;
-//    void setFirstNameAccessibility(int in_Accessibility) ;
-//    void setLastNameAccessibility(int in_Accessibility) ;
-//    void setEmailAccessibility(int in_Accessibility) ;
+    void setFirstNameAccessibility(int in_Accessibility) ;
+    void setLastNameAccessibility(int in_Accessibility) ;
+    void setEmailAccessibility(int in_Accessibility) ;
 
 
 };

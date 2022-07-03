@@ -12,11 +12,10 @@ class MyThread :public QThread
 public:
     MyThread(QWidget* parent = 0);
     void run();
-    bool Stop = false;
 signals:
     void NumberChange();
 private:
-    QMutex mutex;
+
 };
 
 
