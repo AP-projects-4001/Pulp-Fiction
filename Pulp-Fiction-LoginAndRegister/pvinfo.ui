@@ -6,157 +6,436 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>350</width>
-    <height>400</height>
+    <width>450</width>
+    <height>550</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>350</width>
-    <height>350</height>
+    <width>450</width>
+    <height>550</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>350</width>
-    <height>400</height>
+    <width>450</width>
+    <height>550</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(30, 30, 30);</string>
+   <string notr="true">background-color: rgb(59, 63, 70);</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QStackedWidget" name="winstack">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>30</y>
-     <width>81</width>
-     <height>81</height>
+     <x>0</x>
+     <y>0</y>
+     <width>450</width>
+     <height>550</height>
     </rect>
    </property>
-   <property name="text">
-    <string>TextLabel</string>
+   <property name="minimumSize">
+    <size>
+     <width>450</width>
+     <height>550</height>
+    </size>
    </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>150</y>
-     <width>31</width>
-     <height>16</height>
-    </rect>
+   <property name="styleSheet">
+    <string notr="true">QStackedWidget#winstack {
+Padding: 1px;
+Border-radius: 7px;
+Color: #fefefe;
+background-color: rgb(59, 63, 70);
+border-style: solid;
+ border-width: 2px;
+}
+
+QStackedWidget#winstack:hover {
+background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 2px;
+color: rgb(241, 182, 88);
+	border-color: rgb(45, 135, 135);
+}</string>
    </property>
-   <property name="text">
-    <string>Name:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>200</y>
-     <width>81</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Phone number:</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>150</y>
-     <width>181</width>
-     <height>23</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>200</y>
-     <width>181</width>
-     <height>23</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>250</y>
-     <width>31</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Email:</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>250</y>
-     <width>181</width>
-     <height>23</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_5">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>300</y>
-     <width>51</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>first name:</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>300</y>
-     <width>181</width>
-     <height>23</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_6">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>350</y>
-     <width>51</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Last name:</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_5">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>350</y>
-     <width>181</width>
-     <height>23</height>
-    </rect>
-   </property>
+   <widget class="QWidget" name="stackedWidgetPage1" native="true">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout_9">
+       <item>
+        <layout class="QGridLayout" name="profilepicture_3">
+         <item row="0" column="0">
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="1" colspan="2">
+          <widget class="QLabel" name="profilepicture">
+           <property name="minimumSize">
+            <size>
+             <width>110</width>
+             <height>110</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>110</width>
+             <height>110</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel#profilepicture {
+Padding: 1px;
+Border-radius: 55px;
+Color: #fefefe;
+	border-color: rgb(45, 135, 135);
+border-style: solid;
+ border-width: 2px;
+}
+
+QLabel#profilepicture:hover {
+background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 2px;
+color: rgb(241, 182, 88);
+border-color: rgb(245, 179, 1);
+}
+</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="username">
+         <property name="title">
+          <string>Username</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QLineEdit" name="usernamelineedit">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit#usernamelineedit {
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 5px;
+background: #333;
+color: #fefefe;
+}
+
+QLineEdit#usernamelineedit:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	border-color: rgb(245, 179, 1);
+	color: rgb(241, 182, 88);
+}
+
+QLineEdit#usernamelineedit:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+            </property>
+            <property name="placeholderText">
+             <string>UserName</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="bio">
+         <property name="title">
+          <string>Bio</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QLineEdit" name="biolineedit">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit#biolineedit {
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 5px;
+background: #333;
+color: #fefefe;
+}
+
+QLineEdit#biolineedit:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	border-color: rgb(245, 179, 1);
+	color: rgb(241, 182, 88);
+}
+
+QLineEdit#biolineedit:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+            </property>
+            <property name="placeholderText">
+             <string>Bio</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="firstnameandlastname">
+         <item>
+          <widget class="QGroupBox" name="firstname">
+           <property name="title">
+            <string>Firstname</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_5">
+            <item>
+             <widget class="QLineEdit" name="firstnamelineedit">
+              <property name="styleSheet">
+               <string notr="true">QLineEdit#firstnamelineedit {
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 5px;
+background: #333;
+color: #fefefe;
+}
+
+QLineEdit#firstnamelineedit:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	border-color: rgb(245, 179, 1);
+	color: rgb(241, 182, 88);
+}
+
+QLineEdit#firstnamelineedit:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+              </property>
+              <property name="placeholderText">
+               <string>Firstname</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="lastname">
+           <property name="title">
+            <string>Lastname</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_8">
+            <item>
+             <widget class="QLineEdit" name="lastnamelineedit">
+              <property name="styleSheet">
+               <string notr="true">QLineEdit#lastnamelineedit {
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 5px;
+background: #333;
+color: #fefefe;
+}
+
+QLineEdit#lastnamelineedit:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	border-color: rgb(245, 179, 1);
+	color: rgb(241, 182, 88);
+}
+
+QLineEdit#lastnamelineedit:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+              </property>
+              <property name="placeholderText">
+               <string>Lastname</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="phonenumber">
+         <property name="title">
+          <string>Phonenumber</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <item>
+           <widget class="QLineEdit" name="phonenumberlineedit">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit#phonenumberlineedit {
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 5px;
+background: #333;
+color: #fefefe;
+}
+
+QLineEdit#phonenumberlineedit:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	border-color: rgb(245, 179, 1);
+	color: rgb(241, 182, 88);
+}
+
+QLineEdit#phonenumberlineedit:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+            </property>
+            <property name="placeholderText">
+             <string>Phonenumber</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="email">
+         <property name="title">
+          <string>E-mail</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <widget class="QLineEdit" name="emaillineedit">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit#emaillineedit {
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 5px;
+background: #333;
+color: #fefefe;
+}
+
+QLineEdit#emaillineedit:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	border-color: rgb(245, 179, 1);
+	color: rgb(241, 182, 88);
+}
+
+QLineEdit#emaillineedit:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+            </property>
+            <property name="placeholderText">
+             <string>E-mail</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="backtohomepage">
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>30</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Back to homepage&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton#backtohomepage {
+color: white;
+border-radius: 5px;
+Background: #933;
+color: #fefefe;
+}
+
+QPushButton#backtohomepage:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#backtohomepage:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+       </property>
+       <property name="text">
+        <string>Back</string>
+       </property>
+       <property name="icon">
+        <iconset resource="elements.qrc">
+         <normaloff>:/img/img/icons8-back-48.png</normaloff>:/img/img/icons8-back-48.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="elements.qrc"/>
+ </resources>
  <connections/>
 </ui>
