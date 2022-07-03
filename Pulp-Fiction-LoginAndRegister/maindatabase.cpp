@@ -21,7 +21,10 @@ void maindatabase::Add_user(user in_user)
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadWrite) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+       qDebug() << "File open error";
+       QMessageBox messageBox;
+       messageBox.critical(0,"Error","There is a problem in opening file");
+       messageBox.setFixedSize(500,200);
        return ;
     }
     QJsonObject Newuser ;
@@ -34,7 +37,13 @@ void maindatabase::Add_user(user in_user)
     Newuser.insert( "Firstname" , in_user.get_firstname() ) ;
     Newuser.insert( "Lastname" , in_user.get_lastname() ) ;
     Newuser.insert( "Bio" , in_user.get_Bio() ) ;
-    //Newuser.insert("Accessibility", in_user.get_Accessibility() ) ;
+    Newuser.insert("nameAccessibility" , in_user.getNameAccessibility() );
+    Newuser.insert("phoneAccessibility" , in_user.getPhoneAccessibility() );
+    Newuser.insert("photoAccessibility" , in_user.getPhotoAccessibility() );
+    Newuser.insert("firstNameAccessibility" , in_user.getFirstNameAccessibility() );
+    Newuser.insert("lastNameAccessibility" , in_user.getLastNameAccessibility() );
+    Newuser.insert("emailAccessibility" , in_user.getEmailAccessibility() );
+    Newuser.insert("BioAccessibility"  , in_user.getBioAccessibility() ) ;
     ///////////
     QJsonArray tmpArr ;
     for( int i=0 ; i<in_user.get_ChannelsID().count() ; i++)
@@ -190,7 +199,13 @@ bool maindatabase::Find_user( user &in_user)
             in_user.set_Firstname( TempObj["Firstname"].toString()) ;
             in_user.set_Lastname( TempObj["Lastname"].toString() ) ;
             in_user.set_Bio( TempObj["Bio"].toString() ) ;
-//            in_user.set_Accessibility( TempObj["Accessibility"].toInt() ) ;
+            in_user.setBioAccessibility( TempObj["BioAccessibility"].toInt() ) ;
+            in_user.setNameAccessibility( TempObj["nameAccessibility"].toInt() ) ;
+            in_user.setPhoneAccessibility( TempObj["phoneAccessibility"].toInt() ) ;
+            in_user.setPhotoAccessibility( TempObj["photoAccessibility"].toInt() ) ;
+            in_user.setFirstNameAccessibility( TempObj["firstNameAccessibility"].toInt() ) ;
+            in_user.setLastNameAccessibility( TempObj["lastNameAccessibility"].toInt() ) ;
+            in_user.setEmailAccessibility( TempObj["emailAccessibility"].toInt() ) ;
             QVector<int> tmpv ;
             QJsonArray tmparr = TempObj["PVchatsID"].toArray() ;
             for( int i=0 ; i<tmparr.size() ; i++)
@@ -523,7 +538,15 @@ QVector<user> maindatabase::read_AllUsers()
         tmpUser.set_EmailAddress( currUser["EmailAddress"].toString() ) ;
         tmpUser.set_PhoneNumber( currUser["PhoneNumber"].toString() ) ;
         tmpUser.set_Bio( currUser["Bio"].toString() ) ;
-        //tmpUser.set_Accessibility( currUser["Accessibility"].toInt() ) ;
+        ///
+        tmpUser.setBioAccessibility( currUser["BioAccessibility"].toInt() ) ;
+        tmpUser.setNameAccessibility( currUser["nameAccessibility"].toInt() ) ;
+        tmpUser.setPhoneAccessibility( currUser["phoneAccessibility"].toInt() ) ;
+        tmpUser.setPhotoAccessibility( currUser["photoAccessibility"].toInt() ) ;
+        tmpUser.setFirstNameAccessibility( currUser["firstNameAccessibility"].toInt() ) ;
+        tmpUser.setLastNameAccessibility( currUser["lastNameAccessibility"].toInt() ) ;
+        tmpUser.setEmailAccessibility( currUser["emailAccessibility"].toInt() ) ;
+        ///
         QVector<int> tmpv ;
         QJsonArray tmparr = currUser["PVchatsID"].toArray() ;
         for( int i=0 ; i<tmparr.size() ; i++)
@@ -790,4 +813,42 @@ bool maindatabase::userpasswordForforgot(user in_user, QString &pass)
     qDebug() << " Not found current user" ;
     return false ;
 
+}
+void maindatabase::Modify_UserAAccessibility( user in_user )
+{
+    QFile Db( "MainDatabase.json" ) ;
+    if( !Db.open(QIODevice::ReadOnly) )
+    {
+       qDebug() << "File open error";//temp// error dialog should be open here
+       return  ;
+    }
+    QJsonParseError JsonParseError ;
+    QJsonDocument JsonDoc = QJsonDocument::fromJson(Db.readAll(), &JsonParseError) ;
+    Db.close() ;
+    QJsonObject jobj = JsonDoc.object() ;
+    QJsonArray UsersArray = jobj["Users"].toArray() ;
+    for (int i=0; i < UsersArray.size(); i++)
+    {
+        QJsonObject TempObj =  UsersArray.at(i).toObject();
+
+        if( in_user.get_ID() == TempObj["ID"].toInt() )
+        {
+            QJsonObject Newuser ;
+            Newuser = UsersArray.at(i).toObject() ;
+            Newuser["nameAccessibility"] = in_user.getNameAccessibility() ;
+            Newuser["phoneAccessibility"] = in_user.getPhoneAccessibility() ;
+            Newuser["photoAccessibility"] = in_user.getPhotoAccessibility() ;
+            Newuser["firstNameAccessibility"] = in_user.getFirstNameAccessibility() ;
+            Newuser["lastNameAccessibility"] = in_user.getLastNameAccessibility() ;
+            Newuser["emailAccessibility"] = in_user.getEmailAccessibility() ;
+            Newuser["BioAccessibility"] = in_user.getBioAccessibility() ;
+            UsersArray.removeAt(i) ;
+            UsersArray.insert(i , Newuser ) ;
+        }
+    }
+    jobj.insert( "Users" , UsersArray ) ;
+    JsonDoc.setObject(jobj) ;
+    Db.open(QFile::WriteOnly | QFile::Text | QFile::Truncate);
+    Db.write( JsonDoc.toJson() ) ;
+    Db.close() ;
 }
