@@ -197,7 +197,7 @@ border-width: 1px;
          <item>
           <widget class="QPushButton" name="graphbtn">
            <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Setting&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Graph&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton#graphbtn {
@@ -208,7 +208,7 @@ border-color: rgb(68, 120, 232);
 }
 
 QPushButton#graphbtn:hover {
-	background-color: rgb(42, 46, 52);
+	background-color: rgb(36, 108, 108);
 border-style: solid;
  border-width: 1px;
 	color: rgb(241, 182, 88);
@@ -226,7 +226,7 @@ border-width: 1px;
            </property>
            <property name="icon">
             <iconset resource="elements.qrc">
-             <normaloff>:/img/img/icons8-setting-40.png</normaloff>:/img/img/icons8-setting-40.png</iconset>
+             <normaloff>:/img/img/icons8-graph-64.png</normaloff>:/img/img/icons8-graph-64.png</iconset>
            </property>
            <property name="iconSize">
             <size>
