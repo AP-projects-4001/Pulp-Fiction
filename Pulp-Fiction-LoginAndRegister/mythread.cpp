@@ -12,7 +12,7 @@ void MyThread::run()
         mutex.lock();
         if(this->Stop) break;
         mutex.unlock();
-        sleep(10);
+        sleep(5);
         emit NumberChange();
 
     }

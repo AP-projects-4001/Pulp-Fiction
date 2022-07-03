@@ -60,11 +60,8 @@ void createchannel::on_backbtn_5_clicked()
 {
     ui->winstack->setCurrentIndex(0);
 }
-
-
 void createchannel::on_backbtn_3_clicked()
 {
-
     createchannel::hide();
 }
 
