@@ -31,7 +31,7 @@ void maindatabase::Add_user(user in_user)
     Newuser.insert("PhoneNumber", in_user.get_PhoneNumber()) ;
     Newuser.insert("EmailAddress", in_user.get_EmailAddress()) ;
     Newuser.insert("BirthDate", in_user.get_BirthDate()) ;
-    Newuser.insert("FirsName", in_user.get_firstname());
+    Newuser.insert("FirstName", in_user.get_firstname());
     Newuser.insert("LastName", in_user.get_lastname());
     ///////////
     QJsonArray tmpArr ;
