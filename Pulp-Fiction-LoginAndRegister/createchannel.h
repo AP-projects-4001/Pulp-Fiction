@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "user.h"
 #include <QCheckBox>
+#include "customshadoweffect.h"
 
 namespace Ui {
 class createchannel;

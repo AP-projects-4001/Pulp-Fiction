@@ -269,239 +269,9 @@ border-width: 1px;
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="page_3">
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <item>
-        <widget class="QLabel" name="creatchanell_3">
-         <property name="styleSheet">
-          <string notr="true">QLabel#creatchanell_3 {
-text-align: center;
-color: rgb(254, 208, 83);
-margin: 0 auto;
-font-size: 20px;
-font-family: 'Droid Sans';
-}
-
-QLabel#creatchanell_3:hover {
-	color: rgb(0, 170, 255);
-}
-</string>
-         </property>
-         <property name="text">
-          <string>Creat Channel</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_6">
-         <item>
-          <widget class="QLabel" name="label_3">
-           <property name="maximumSize">
-            <size>
-             <width>90</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: #fefefe;</string>
-           </property>
-           <property name="text">
-            <string>ADMIN: </string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="channeladmin">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>30</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QLabel#channeladmin {
-padding-left: 20px;
-padding-right: 20px;
-border-radius: 5px;
-background: #333;
-	color: rgb(241, 182, 88);
-}
-
-QLabel#channeladmin:hover {
-	background-color: rgb(42, 46, 52);
-border-style: solid;
- border-width: 1px;
-	border-color: rgb(245, 179, 1);
-	color: rgb(241, 182, 88);
-}</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QListWidget" name="channelusers"/>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_7">
-         <item>
-          <widget class="QPushButton" name="cancelbtn">
-           <property name="minimumSize">
-            <size>
-             <width>110</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>110</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="toolTip">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Back to setting page&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton#cancelbtn{
-color: white;
-border-radius: 5px;
-Background: #933;
-color: #fefefe;
-}
-
-QPushButton#cancelbtn:hover {
-	background-color: rgb(42, 46, 52);
-border-style: solid;
- border-width: 1px;
-	color: rgb(241, 182, 88);
-}
-
-QPushButton#cancelbtn:pressed {
-border-style: solid;
-border-width: 1px;
-	background-color: rgb(25, 69, 105);
-	color: rgb(85, 255, 255);
-}</string>
-           </property>
-           <property name="text">
-            <string>Cancel</string>
-           </property>
-           <property name="icon">
-            <iconset resource="elements.qrc">
-             <normaloff>:/img/img/icons8-cancel-64 (3).png</normaloff>:/img/img/icons8-cancel-64 (3).png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>16</width>
-             <height>20</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QPushButton" name="complete">
-           <property name="minimumSize">
-            <size>
-             <width>110</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>110</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">
-QPushButton#complete{
-color: white;
-border-radius: 5px;
-Background: #393;
-color: #fefefe;
-}
-
-QPushButton#complete:hover {
-	background-color: rgb(42, 46, 52);
-border-style: solid;
- border-width: 1px;
-	color: rgb(241, 182, 88);
-}
-
-QPushButton#complete:pressed {
-border-style: solid;
-border-width: 1px;
-	background-color: rgb(25, 69, 105);
-	color: rgb(85, 255, 255);
-}</string>
-           </property>
-           <property name="text">
-            <string>Complete</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
      <widget class="QWidget" name="page_2">
       <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="0">
-        <widget class="QLabel" name="creatchanell_2">
-         <property name="styleSheet">
-          <string notr="true">QLabel#creatchanell_2{
-text-align: center;
-color: rgb(254, 208, 83);
-margin: 0 auto;
-font-size: 20px;
-font-family: 'Droid Sans';
-}
-
-QLabel#creatchanell_2:hover {
-	color: rgb(0, 170, 255);
-}
-</string>
-         </property>
-         <property name="text">
-          <string>Creat Channel</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <layout class="QHBoxLayout" name="horizontalLayout_3"/>
-       </item>
        <item row="2" column="0">
-        <widget class="QListWidget" name="userslist"/>
-       </item>
-       <item row="3" column="0">
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
           <widget class="QPushButton" name="backbtn_5">
@@ -605,7 +375,7 @@ border-width: 1px;
 }</string>
            </property>
            <property name="text">
-            <string>Submit</string>
+            <string>Complete</string>
            </property>
            <property name="icon">
             <iconset resource="elements.qrc">
@@ -620,6 +390,33 @@ border-width: 1px;
           </widget>
          </item>
         </layout>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="creatchanell_2">
+         <property name="styleSheet">
+          <string notr="true">QLabel#creatchanell_2{
+text-align: center;
+color: rgb(254, 208, 83);
+margin: 0 auto;
+font-size: 20px;
+font-family: 'Droid Sans';
+}
+
+QLabel#creatchanell_2:hover {
+	color: rgb(0, 170, 255);
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Creat Channel</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QListWidget" name="userslist"/>
        </item>
       </layout>
      </widget>

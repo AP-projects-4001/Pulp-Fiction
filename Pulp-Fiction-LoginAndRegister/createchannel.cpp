@@ -8,6 +8,14 @@ createchannel::createchannel(user me ,QWidget *parent) :
     ui->setupUi(this);
     howAmI = me;
     ui->winstack->setCurrentIndex(0);
+    // Sets UI and shadow for it
+    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    CustomShadowEffect *bodyShadow = new CustomShadowEffect();
+    bodyShadow->setBlurRadius(20.0);
+    bodyShadow->setDistance(4.0);
+    bodyShadow->setColor(QColor(10, 5, 45, 80));
+    ui->winstack->setGraphicsEffect(bodyShadow);
+
     write = maindatabase::read_AllUsers();
     for(int i = 0 ; i < write.count() ; i++)
     ui->userslist->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
@@ -51,7 +59,7 @@ createchannel::~createchannel()
 void createchannel::on_submit_clicked()
 {
     name = ui->channelname->text();
-    ui->winstack->setCurrentIndex(2);
+    ui->winstack->setCurrentIndex(1);
 }
 int createchannel::getCount()
 {return ui->userslist->count();}
