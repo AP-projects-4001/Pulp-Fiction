@@ -43,7 +43,6 @@ homepage::homepage(user me ,QWidget *parent) :
         vec.push_back(pv);
     }
     StoreGroup = howAmI.get_GroupsID();
-    qDebug() << "kfkfkfkfkkfkfk " << StoreGroup;
     QVector<int>::Iterator grid;
     for(grid = StoreGroup.begin() ; grid != StoreGroup.end() ; grid++)
     {
@@ -105,9 +104,7 @@ homepage::~homepage()
 }
 void homepage::clicked_list_item(QListWidgetItem* item)
 {
-    //multi
-    //thread t1(returnmes)
-    //thread t2(send_clicked)
+
     for(int i = 0; i < ui->listofusersgroupschanels->count(); ++i)
     {
         if(ui->listofusersgroupschanels->item(i) == item)
@@ -173,14 +170,12 @@ void homepage::send_clicked()
        QString dir =  vec[index]->ExtractFileName(vec[index]->get_ID());
        vec[index]->add_Message(mes , dir ) ;
        auto item = new QListWidgetItem("", ui->messageslist);
-       auto text = new QLabel;
+       auto text = new QTextEdit;
        QByteArray ba = mes.toLocal8Bit();
        const char *c_str2 = ba.data();
        text->setText(c_str2);
-       text->setStyleSheet("QLabel { background-color : rgba(255,180,0,100%); color : black; }");
-       text->setMinimumSize(200, 40);
-       text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
-       text->setWordWrap(true);
+       text->setStyleSheet("QTextEdit { background-color : rgba(255,180,0,100%); color : black; }");
+       text->setMinimumSize(200, 50);
        layout->addWidget(text);
        ui->messageslist->setItemWidget(item, text);
        ui->messagelineedit->clear();
@@ -213,7 +208,7 @@ void homepage::vectroToList()
     ui->messageslist->show();
     ui->messageslist->setStyleSheet("background-color : rgba(255,0,0,0%); color : white;");
     ui->messageslist->setFlow(QListView::LeftToRight);
-    ui->messageslist->setGridSize(QSize(400, 50));
+    ui->messageslist->setGridSize(QSize(400, 70));
     ui->messageslist->setResizeMode(QListView::Adjust);
     ui->messageslist->setViewMode(QListView::ListMode);
     ui->messageslist->setWrapping(true);
@@ -225,14 +220,12 @@ void homepage::vectroToList()
     QVector<QString>::iterator itt;
     for (itt = write.begin(); itt != write.end(); ++itt) {
         auto item = new QListWidgetItem("", ui->messageslist);
-        auto text = new QLabel;
+        auto text = new QTextEdit;
         QByteArray ba = (*itt).toLocal8Bit();
         const char *c_str2 = ba.data();
         text->setText(c_str2);
-        text->setStyleSheet("QLabel { background-color : rgba(255, 180,0,100%); color : black; }");
-        text->setMinimumSize(200, 40);
-        text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
-        text->setWordWrap(true);
+        text->setStyleSheet("QTextEdit { background-color : rgba(255, 180,0,100%); color : black; }");
+        text->setMinimumSize(200, 50);
         layout->addWidget(text);
 
         ui->messageslist->setItemWidget(item, text);
