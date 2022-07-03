@@ -35,60 +35,7 @@ void LoginSystem::on_loginButton_clicked()
         this->username = ui->usernameBox->text();
         this->password = ui->passwordBox->text();
 
-        ui->loginLabel->setText("");
-        user u;
-        u.set_UserName("sara");
-        pvchat ob(inneruser , u);
 
-        int t = maindatabase::Creat_PVChatID();
-        ob.set_ID(t);
-        ob.Make_NewPVChatFile(ob.ExtractFileName(t));
-        ob.add_Message("hello" , ob.ExtractFileName(t));
-        ob.add_Message("salam" , ob.ExtractFileName(t));
-        ob.add_Message("areyouok" , ob.ExtractFileName(t));
-        maindatabase::Push_UserPVChatID(ob.get_ID(),inneruser);
-        maindatabase::Add_PVChat(ob);
-
-        user u1;
-        u1.set_UserName("negar");
-        pvchat ob1(inneruser , u1);
-        int t1 = maindatabase::Creat_PVChatID();
-        ob1.set_ID(t1);
-        ob1.Make_NewPVChatFile(ob1.ExtractFileName(t1));
-        ob1.add_Message("bye" , ob1.ExtractFileName(t1));
-
-        maindatabase::Push_UserPVChatID(ob1.get_ID(),inneruser);
-        maindatabase::Add_PVChat(ob1);
-        /**group**/
-        int i = maindatabase::Creat_GroupID();
-        Group g(inneruser , "iut");
-        g.Make_NewGroupFile(g.ExtractFileName(i));
-        g.add_Member(u,g.get_GroupName());
-        maindatabase::Add_Group(g);
-        maindatabase::Push_UserGroupID(i,u);
-        maindatabase::Push_UserGroupID(i,inneruser);
-        g.add_Message("bye" , g.ExtractFileName(i));
-        g.add_Message("hello" , g.ExtractFileName(i));
-        /**channel**/
-        int i1 = maindatabase::Creat_ChannelID();
-        channel g1(inneruser , "channel");
-        g1.Make_NewChannelFile(g1.ExtractFileName(i1));
-        g1.add_Member(u,g1.get_ChannelName());
-        maindatabase::Add_Channel(g1);
-        maindatabase::Push_UserChannelID(i1,u);
-        maindatabase::Push_UserChannelID(i1,inneruser);
-        g1.add_Message("fjfjjfj" , g1.ExtractFileName(i1));
-        g1.add_Message("fjjfjfjfjfjfjjf" , g1.ExtractFileName(i1));
-        g1.add_Admins(inneruser,g1.get_ChannelName());
-        inneruser.add_ChannelID(i1);
-
-        QPixmap pixmap1(":/img/img/icons8-login-64.png");
-        ui->loginpic->setPixmap(pixmap1);
-        delay(1); // Delay window for setting new picture on label
-        LoginSystem::hide();
-        qDebug() << "First name is" <<inneruser.get_firstname();
-        hmpg = new homepage(inneruser);
-        hmpg->show();
 //        Setting *settingdialog = new Setting(inneruser, this);
 //        settingdialog->show();
     }
