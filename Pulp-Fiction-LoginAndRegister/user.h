@@ -11,12 +11,12 @@ public:
     user();
 private:
     int ID ;
-    Access nameAccessibility  = Friends;
-        Access phoneAccessibility = Friends;
-        Access photoAccessibility = Friends;
-        Access firstNameAccessibility  = Friends;
-        Access lastNameAccessibility   = Friends;
-        Access emailAccessibility = Friends;
+    Access nameAccessibility ;
+    Access phoneAccessibility ;
+    Access photoAccessibility ;
+    Access firstNameAccessibility  ;
+    Access lastNameAccessibility  ;
+    Access emailAccessibility ;
     //Access Accessibility ;
     QString Bio ;
     QString UserName ;
@@ -76,9 +76,9 @@ public:
     void setNameAccessibility( int in_Accessibility ) ;
     void setPhoneAccessibility( int in_Accessibility ) ;
     void setPhotoAccessibility( int in_Accessibility ) ;
-    void setFirstNameAccessibility(int in_Accessibility) ;
-    void setLastNameAccessibility(int in_Accessibility) ;
-    void setEmailAccessibility(int in_Accessibility) ;
+//    void setFirstNameAccessibility(int in_Accessibility) ;
+//    void setLastNameAccessibility(int in_Accessibility) ;
+//    void setEmailAccessibility(int in_Accessibility) ;
 
 
 };
