@@ -282,7 +282,7 @@ void homepage::on_actionExit_triggered()
 void homepage::on_contactsbtn_clicked()
 {
     Contacts *contactsdialog;
-    contactsdialog = new Contacts(howAmI, this);
+    contactsdialog = new Contacts(howAmI);
     contactsdialog->show();
 
 }
@@ -291,7 +291,20 @@ void homepage::on_contactsbtn_clicked()
 void homepage::on_settingbtn_clicked()
 {
     Setting *settingdialog;
-    settingdialog = new Setting(howAmI, this);
+    settingdialog = new Setting(howAmI);
     settingdialog->show();
+}
+
+
+void homepage::on_infobtn_clicked()
+{
+
+}
+
+
+void homepage::on_newchannelbtn_clicked()
+{
+    createchannel *channeldialog = new createchannel(howAmI);
+    channeldialog->show();
 }
 

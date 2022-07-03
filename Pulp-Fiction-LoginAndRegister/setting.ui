@@ -54,7 +54,7 @@ color: rgb(241, 182, 88);
 }</string>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="page">
       <property name="styleSheet">
@@ -3029,7 +3029,207 @@ border-style: solid;
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="page_4"/>
+     <widget class="QWidget" name="page_4">
+      <layout class="QVBoxLayout" name="verticalLayout_8">
+       <item>
+        <widget class="QWidget" name="widget_6" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>30</height>
+          </size>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_15">
+          <item>
+           <widget class="QPushButton" name="backbtn_3">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>15</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Back to setting page&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton#backbtn_3{
+color: white;
+border-radius: 5px;
+Background: #933;
+color: #fefefe;
+}
+
+QPushButton#backbtn_3:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#backbtn_3:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+            </property>
+            <property name="text">
+             <string>Back</string>
+            </property>
+            <property name="icon">
+             <iconset resource="elements.qrc">
+              <normaloff>:/img/img/icons8-back-48.png</normaloff>:/img/img/icons8-back-48.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="editfriendslbl">
+            <property name="styleSheet">
+             <string notr="true">QLabel#editfriendslbl {
+text-align: center;
+color: rgb(254, 208, 83);
+margin: 0 auto;
+font-size: 20px;
+font-family: 'Droid Sans';
+}
+
+QLabel#editfriendslbl:hover {
+	color: rgb(0, 170, 255);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Edit friends</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="savebtn_3">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>15</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>55</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="sizeIncrement">
+             <size>
+              <width>0</width>
+              <height>15</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">
+QPushButton#savebtn_3{
+color: white;
+border-radius: 5px;
+Background: #393;
+color: #fefefe;
+}
+
+QPushButton#savebtn_3:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#savebtn_3:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+            </property>
+            <property name="text">
+             <string>Save</string>
+            </property>
+            <property name="icon">
+             <iconset resource="elements.qrc">
+              <normaloff>:/img/img/icons8-save-64 (1).png</normaloff>:/img/img/icons8-save-64 (1).png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="listWidget"/>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_16">
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="deletefriend">
+           <property name="minimumSize">
+            <size>
+             <width>180</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton#deletefriend{
+color: white;
+border-radius: 5px;
+Background: #933;
+color: #fefefe;
+}
+
+QPushButton#deletefriend:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#deletefriend:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+           </property>
+           <property name="text">
+            <string>Delete</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
   </layout>

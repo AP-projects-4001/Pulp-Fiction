@@ -38,6 +38,10 @@ private slots:
 
     void on_resettodefault_clicked();
 
+    void on_editcontacts_clicked();
+
+    void on_backbtn_3_clicked();
+
 private:
     Ui::Setting *ui;
     user howAmI;

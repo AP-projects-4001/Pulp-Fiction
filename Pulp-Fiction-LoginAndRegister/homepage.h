@@ -13,6 +13,7 @@
 #include "newgroup.h"
 #include "contacts.h"
 #include "setting.h"
+#include "createchannel.h"
 enum Mode { ChatMode, ChannnelMode, PvMode };
 namespace Ui {
 class homepage;
@@ -46,6 +47,10 @@ private slots:
    void on_contactsbtn_clicked();
 
    void on_settingbtn_clicked();
+
+   void on_infobtn_clicked();
+
+   void on_newchannelbtn_clicked();
 
 private:
     Ui::homepage *ui;

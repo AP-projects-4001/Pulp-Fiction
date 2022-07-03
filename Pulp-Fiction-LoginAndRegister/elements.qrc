@@ -21,6 +21,15 @@
         <file>img/icons8-setting-64 (1).png</file>
         <file>img/icons8-filter-edit-64.png</file>
         <file>img/icons8-save-64 (1).png</file>
+        <file>img/icons8-find-64 (1).png</file>
+        <file>img/icons8-omnichannel-64.png</file>
+        <file>img/chatbackground.jpg</file>
+        <file>img/icons8-add-64.png</file>
+        <file>img/icons8-cancel-64 (3).png</file>
+        <file>img/icons8-chat-64.ico</file>
+        <file>img/icons8-email-send-64.png</file>
+        <file>img/icons8-info-64.png</file>
+        <file>img/icons8-menu-rounded-64.png</file>
     </qresource>
     <qresource prefix="/">
         <file>img/chatbackground.jpg</file>

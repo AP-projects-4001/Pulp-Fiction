@@ -12,6 +12,7 @@ SOURCES += \
     channelclass.cpp \
     chat.cpp \
     contacts.cpp \
+    createchannel.cpp \
     customshadoweffect.cpp \
     groupclass.cpp \
     homepage.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     channelclass.h \
     chat.h \
     contacts.h \
+    createchannel.h \
     customshadoweffect.h \
     groupclass.h \
     homepage.h \
@@ -39,6 +41,7 @@ HEADERS += \
 
 FORMS += \
     contacts.ui \
+    createchannel.ui \
     homepage.ui \
     loginsystem.ui \
     newgroup.ui \

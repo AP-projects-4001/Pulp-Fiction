@@ -280,3 +280,15 @@ void Setting::on_resettodefault_clicked()
     ui->showbirthdate_2->setCurrentIndex(0);
 }
 
+
+void Setting::on_editcontacts_clicked()
+{
+    ui->winstack->setCurrentIndex(3);
+}
+
+
+void Setting::on_backbtn_3_clicked()
+{
+    ui->winstack->setCurrentIndex(0);
+}
+

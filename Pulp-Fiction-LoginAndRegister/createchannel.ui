@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>createchannel</class>
+ <widget class="QDialog" name="createchannel">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>450</width>
+    <height>550</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>450</width>
+    <height>550</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>450</width>
+    <height>550</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(59, 63, 70);</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QStackedWidget" name="winstack">
+     <property name="styleSheet">
+      <string notr="true">QStackedWidget#winstack {
+Padding: 1px;
+Border-radius: 7px;
+Color: #fefefe;
+background-color: rgb(59, 63, 70);
+border-style: solid;
+ border-width: 2px;
+}
+
+QStackedWidget#winstack:hover {
+background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 2px;
+color: rgb(241, 182, 88);
+	border-color: rgb(45, 135, 135);
+}</string>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="page">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QWidget" name="widget_6" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>400</width>
+           <height>30</height>
+          </size>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QLabel" name="creatchanell">
+            <property name="styleSheet">
+             <string notr="true">QLabel#creatchanell {
+text-align: center;
+color: rgb(254, 208, 83);
+margin: 0 auto;
+font-size: 20px;
+font-family: 'Droid Sans';
+}
+
+QLabel#creatchanell:hover {
+	color: rgb(0, 170, 255);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Creat Channel</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="styleSheet">
+            <string notr="true">color: #fefefe;</string>
+           </property>
+           <property name="text">
+            <string>Name :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="channelname">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit#channelname {
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 5px;
+background: #333;
+color: #fefefe;
+}
+
+QLineEdit#channelname:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	border-color: rgb(245, 179, 1);
+	color: rgb(241, 182, 88);
+}
+
+QLineEdit#channelname:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+           </property>
+           <property name="placeholderText">
+            <string>Enter your channel name</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>180</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="elements.qrc">:/img/img/icons8-omnichannel-64.png</pixmap>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <widget class="QPushButton" name="backbtn_3">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>90</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Back to setting page&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton#backbtn_3{
+color: white;
+border-radius: 5px;
+Background: #933;
+color: #fefefe;
+}
+
+QPushButton#backbtn_3:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#backbtn_3:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+           </property>
+           <property name="text">
+            <string>Back</string>
+           </property>
+           <property name="icon">
+            <iconset resource="elements.qrc">
+             <normaloff>:/img/img/icons8-back-48.png</normaloff>:/img/img/icons8-back-48.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="submit">
+           <property name="minimumSize">
+            <size>
+             <width>110</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>110</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+QPushButton#submit{
+color: white;
+border-radius: 5px;
+Background: #393;
+color: #fefefe;
+}
+
+QPushButton#submit:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#ssubmit:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+           </property>
+           <property name="text">
+            <string>Submit</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_3">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QLabel" name="creatchanell_3">
+         <property name="styleSheet">
+          <string notr="true">QLabel#creatchanell_3 {
+text-align: center;
+color: rgb(254, 208, 83);
+margin: 0 auto;
+font-size: 20px;
+font-family: 'Droid Sans';
+}
+
+QLabel#creatchanell_3:hover {
+	color: rgb(0, 170, 255);
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Creat Channel</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="maximumSize">
+            <size>
+             <width>90</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: #fefefe;</string>
+           </property>
+           <property name="text">
+            <string>ADMIN: </string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="channeladmin">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel#channeladmin {
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 5px;
+background: #333;
+	color: rgb(241, 182, 88);
+}
+
+QLabel#channeladmin:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	border-color: rgb(245, 179, 1);
+	color: rgb(241, 182, 88);
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QListWidget" name="channelusers"/>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_7">
+         <item>
+          <widget class="QPushButton" name="cancelbtn">
+           <property name="minimumSize">
+            <size>
+             <width>110</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>110</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Back to setting page&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton#cancelbtn{
+color: white;
+border-radius: 5px;
+Background: #933;
+color: #fefefe;
+}
+
+QPushButton#cancelbtn:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#cancelbtn:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+           </property>
+           <property name="text">
+            <string>Cancel</string>
+           </property>
+           <property name="icon">
+            <iconset resource="elements.qrc">
+             <normaloff>:/img/img/icons8-cancel-64 (3).png</normaloff>:/img/img/icons8-cancel-64 (3).png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>16</width>
+             <height>20</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="complete">
+           <property name="minimumSize">
+            <size>
+             <width>110</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>110</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+QPushButton#complete{
+color: white;
+border-radius: 5px;
+Background: #393;
+color: #fefefe;
+}
+
+QPushButton#complete:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#complete:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+           </property>
+           <property name="text">
+            <string>Complete</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_2">
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="creatchanell_2">
+         <property name="styleSheet">
+          <string notr="true">QLabel#creatchanell_2{
+text-align: center;
+color: rgb(254, 208, 83);
+margin: 0 auto;
+font-size: 20px;
+font-family: 'Droid Sans';
+}
+
+QLabel#creatchanell_2:hover {
+	color: rgb(0, 170, 255);
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Creat Channel</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="styleSheet">
+            <string notr="true">color: #fefefe;</string>
+           </property>
+           <property name="text">
+            <string>Name :</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="searchlineedit">
+           <property name="styleSheet">
+            <string notr="true">QLineEdit#searchlineedit {
+padding-left: 20px;
+padding-right: 20px;
+border-radius: 5px;
+background: #333;
+color: #fefefe;
+}
+
+QLineEdit#searchlineedit:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	border-color: rgb(245, 179, 1);
+	color: rgb(241, 182, 88);
+}
+
+QLineEdit#searchlineedit:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+           </property>
+           <property name="placeholderText">
+            <string>Search for users</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="search">
+           <property name="minimumSize">
+            <size>
+             <width>85</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+QPushButton#search{
+color: white;
+border-radius: 5px;
+	background-color: rgb(170, 127, 62);
+color: #fefefe;
+}
+
+QPushButton#search:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#search:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+           </property>
+           <property name="text">
+            <string>Search</string>
+           </property>
+           <property name="icon">
+            <iconset resource="elements.qrc">
+             <normaloff>:/img/img/icons8-find-64 (1).png</normaloff>:/img/img/icons8-find-64 (1).png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>16</width>
+             <height>20</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="2" column="0">
+        <widget class="QListWidget" name="userslist"/>
+       </item>
+       <item row="3" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QPushButton" name="backbtn_5">
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>90</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Back to setting page&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton#backbtn_5{
+color: white;
+border-radius: 5px;
+Background: #933;
+color: #fefefe;
+}
+
+QPushButton#backbtn_5:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#backbtn_5:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+           </property>
+           <property name="text">
+            <string>Back</string>
+           </property>
+           <property name="icon">
+            <iconset resource="elements.qrc">
+             <normaloff>:/img/img/icons8-back-48.png</normaloff>:/img/img/icons8-back-48.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="addbtn">
+           <property name="minimumSize">
+            <size>
+             <width>70</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>90</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::RightToLeft</enum>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">
+QPushButton#addbtn{
+color: white;
+border-radius: 5px;
+Background: #393;
+color: #fefefe;
+}
+
+QPushButton#addbtn:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#addbtn:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+           </property>
+           <property name="text">
+            <string>Add</string>
+           </property>
+           <property name="icon">
+            <iconset resource="elements.qrc">
+             <normaloff>:/img/img/icons8-add-64.png</normaloff>:/img/img/icons8-add-64.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>30</width>
+             <height>20</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="elements.qrc"/>
+ </resources>
+ <connections/>
+</ui>
