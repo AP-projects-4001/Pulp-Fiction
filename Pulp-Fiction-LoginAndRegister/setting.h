@@ -32,6 +32,12 @@ private slots:
 
     void on_savebtn_clicked();
 
+    void on_setonlyfreindsbtn_clicked();
+
+    void on_settonoonebtn_clicked();
+
+    void on_resettodefault_clicked();
+
 private:
     Ui::Setting *ui;
     user howAmI;

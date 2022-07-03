@@ -244,3 +244,39 @@ void Setting::on_savebtn_clicked()
     }
 }
 
+
+void Setting::on_setonlyfreindsbtn_clicked()
+{
+    ui->showpicture_2->setCurrentIndex(1);
+    ui->showusername_2->setCurrentIndex(1);
+    ui->showphonenumber_2->setCurrentIndex(1);
+    ui->showemail_2->setCurrentIndex(1);
+    ui->showfirstname_2->setCurrentIndex(1);
+    ui->showlastname_2->setCurrentIndex(1);
+    ui->showbirthdate_2->setCurrentIndex(1);
+}
+
+
+void Setting::on_settonoonebtn_clicked()
+{
+    ui->showpicture_2->setCurrentIndex(2);
+    ui->showusername_2->setCurrentIndex(2);
+    ui->showphonenumber_2->setCurrentIndex(2);
+    ui->showemail_2->setCurrentIndex(2);
+    ui->showfirstname_2->setCurrentIndex(2);
+    ui->showlastname_2->setCurrentIndex(2);
+    ui->showbirthdate_2->setCurrentIndex(2);
+}
+
+
+void Setting::on_resettodefault_clicked()
+{
+    ui->showpicture_2->setCurrentIndex(0);
+    ui->showusername_2->setCurrentIndex(0);
+    ui->showphonenumber_2->setCurrentIndex(0);
+    ui->showemail_2->setCurrentIndex(0);
+    ui->showfirstname_2->setCurrentIndex(0);
+    ui->showlastname_2->setCurrentIndex(0);
+    ui->showbirthdate_2->setCurrentIndex(0);
+}
+

@@ -86,6 +86,7 @@ void LoginSystem::on_loginButton_clicked()
         ui->loginpic->setPixmap(pixmap1);
         delay(1); // Delay window for setting new picture on label
         LoginSystem::hide();
+        qDebug() << "First name is" <<inneruser.get_firstname();
         hmpg = new homepage(inneruser);
         hmpg->show();
 //        Setting *settingdialog = new Setting(inneruser, this);
@@ -239,6 +240,7 @@ void LoginSystem::on_completeRegButton_clicked()
             userRegister.set_Password(password);
             userRegister.set_EmailAddress(email);
             userRegister.set_Firstname(firstnamee);
+            qDebug() << userRegister.get_firstname();
             userRegister.set_Lastname(lastname);
             userRegister.set_BirthDate(birthdate);
             userRegister.set_PhoneNumber(phone);
