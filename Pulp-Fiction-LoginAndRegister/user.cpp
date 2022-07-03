@@ -1,7 +1,7 @@
 #include "user.h"
 user::user()
 {
-
+    //Accessibility = General ;
 }
 void user::set_ID(int in_ID)
 {
@@ -11,12 +11,10 @@ void user::set_UserName(QString in_UserName)
 {
     UserName = in_UserName ;
 }
-
 void user::set_Password(QString in_Pass)
 {
     Password = in_Pass ;
 }
-
 void user::set_Firstname(QString in_firstname)
 {
     Firstname = in_firstname;
@@ -37,6 +35,7 @@ void user::set_EmailAddress(QString in_EmailAddress)
 {
     EmailAddress = in_EmailAddress ;
 }
+
 int user::get_ID()
 {
     return ID ;
@@ -102,21 +101,83 @@ QVector<int> user::get_FriendsID()
 {
     return FriendsID ;
 }
-void user::add_ChannelID(int in_chID)
-{
-    ChannelsID.append( in_chID ) ;
-}
 void user::add_PVchatID(int in_chID)
 {
-    ChannelsID.append( in_chID ) ;
+    ChannelsID.push_back( in_chID ) ;
 }
 void user::add_GroupID(int in_gID)
 {
-    GroupsID.append( in_gID ) ;
+    GroupsID.push_back( in_gID ) ;
+}
+void user::add_ChannelID(int in_chID)
+{
+
+    ChannelsID.push_back( in_chID ) ;
 }
 void user::add_FriendID(int in_FID)
 {
-    FriendsID.append( in_FID ) ;
+    FriendsID.push_back( in_FID ) ;
+}
+//void user::set_Accessibility( int in_Accessibility )
+//{
+//    if( in_Accessibility == 1)
+//        Accessibility = Friends ;
+//    if( in_Accessibility == 2)
+//        Accessibility = Nobody ;
+//    else
+//        Accessibility = General ;
+//}
+//Access user::get_Accessibility()
+//{
+//    return Accessibility ;
+//}
+void user::delete_PVchatID(int in_chID)
+{
+    for(int i = 0 ; i<PVchatsID.size() ; i++ )
+    {
+        if( PVchatsID[i] == in_chID )
+        {
+            PVchatsID.removeAt(i) ;
+        }
+    }
+}
+void user::delete_GroupID(int in_gID)
+{
+    for(int i = 0 ; i<GroupsID.size() ; i++ )
+    {
+        if( GroupsID[i] == in_gID )
+        {
+            GroupsID.removeAt(i) ;
+        }
+    }
+}
+void user::delete_ChannelID(int in_chID)
+{
+    for(int i = 0 ; i<ChannelsID.size() ; i++ )
+    {
+        if( ChannelsID[i] == in_chID )
+        {
+            ChannelsID.removeAt(i) ;
+        }
+    }
+}
+void user::delete_FriendID(int in_FID)
+{
+    for(int i = 0 ; i<FriendsID.size() ; i++ )
+    {
+        if( FriendsID[i] == in_FID )
+        {
+            FriendsID.removeAt(i) ;
+        }
+    }
+}
+void user::set_Bio( QString in_Bio )
+{
+    Bio = in_Bio ;
+}
+QString user::get_Bio()
+{
+    return Bio ;
 }
 void user::setNameAccessibility( int in_Accessibility )
 {

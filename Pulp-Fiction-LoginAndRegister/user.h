@@ -3,6 +3,7 @@
 
 #include<QString>
 #include<QVector>
+#include<QDebug>
 enum Access{ General , Friends , Nobody } ;
 class user
 {
@@ -10,14 +11,14 @@ public:
     user();
 private:
     int ID ;
-
     Access nameAccessibility  = Friends;
-    Access phoneAccessibility = Friends;
-    Access photoAccessibility = Friends;
-    Access firstNameAccessibility  = Friends;
-    Access lastNameAccessibility   = Friends;
-    Access emailAccessibility = Friends;
-
+        Access phoneAccessibility = Friends;
+        Access photoAccessibility = Friends;
+        Access firstNameAccessibility  = Friends;
+        Access lastNameAccessibility   = Friends;
+        Access emailAccessibility = Friends;
+    //Access Accessibility ;
+    QString Bio ;
     QString UserName ;
     QString Password ;
     QString PhoneNumber ;
@@ -42,16 +43,16 @@ public:
     void set_GroupsID( QVector<int> in_GroupsID) ;
     void set_ChannelsID( QVector<int> in_ChannelsID) ;
     void set_FriendsID( QVector<int> in_FriendsID) ;
-    void setNameAccessibility( int in_Accessibility ) ;
-    void setPhoneAccessibility( int in_Accessibility ) ;
-    void setPhotoAccessibility( int in_Accessibility ) ;
-    void setFirstNameAccessibility(int in_Accessibility) ;
-    void setLastNameAccessibility(int in_Accessibility) ;
-    void setEmailAccessibility(int in_Accessibility) ;
+    void set_Bio( QString in_Bio ) ;
+    //void set_Accessibility( int in_Accessibility ) ;
     void add_PVchatID(int in_chID) ;
     void add_GroupID(int in_gID) ;
     void add_ChannelID(int in_chID) ;
     void add_FriendID(int in_FID) ;
+    void delete_PVchatID(int in_chID) ;
+    void delete_GroupID(int in_gID) ;
+    void delete_ChannelID(int in_chID) ;
+    void delete_FriendID(int in_FID) ;
     int get_ID() ;
     QString get_UserName() ;
     QString get_Password() ;
@@ -60,17 +61,24 @@ public:
     QString get_PhoneNumber() ;
     QString get_EmailAddress() ;
     QString get_BirthDate() ;
+    QString get_Bio() ;
     QVector<int> get_PVchatsID() ;
-    QVector<int> get_GroupsID()   ;
+    QVector<int> get_GroupsID() ;
     QVector<int> get_ChannelsID() ;
-    QVector<int> get_FriendsID()  ;
+    QVector<int> get_FriendsID() ;
+    //Access get_Accessibility() ;
     Access getNameAccessibility() ;
     Access getPhoneAccessibility() ;
     Access getPhotoAccessibility() ;
     Access getFirstNameAccessibility() ;
     Access getLastNameAccessibility() ;
     Access getEmailAccessibility() ;
-
+    void setNameAccessibility( int in_Accessibility ) ;
+    void setPhoneAccessibility( int in_Accessibility ) ;
+    void setPhotoAccessibility( int in_Accessibility ) ;
+    void setFirstNameAccessibility(int in_Accessibility) ;
+    void setLastNameAccessibility(int in_Accessibility) ;
+    void setEmailAccessibility(int in_Accessibility) ;
 
 
 };

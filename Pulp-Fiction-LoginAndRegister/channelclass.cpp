@@ -29,7 +29,7 @@ QVector<user> channel::get_Members()
 }
 QString channel::ExtractFileName( int ChannelID )
 {
-    QString FileName = "Channel" + QString::number(ChannelID) + ".json" ;
+    QString FileName = "Channe" + QString::number(ChannelID) + ".json" ;
     return FileName ;
 }
 void channel::Make_NewChannelFile( QString FileName  )
@@ -56,8 +56,9 @@ void channel::Make_NewChannelFile( QString FileName  )
     ChannelFile.write( JsonDoc.toJson() ) ;
     ChannelFile.close() ;
 }
-void channel::add_Member(user in_Member , QString FileName)
+void channel::add_Member(user &in_Member , QString FileName)
 {
+    Members.push_back(  in_Member ) ;
     QFile ChFile( FileName ) ;
     if( !ChFile.open(QIODevice::ReadOnly) )
     {
@@ -132,11 +133,12 @@ channel channel::read_channel( int in_ID )
     Cobj.set_Messages( tmpmess ) ;
     Cobj.set_ID( ReadObj.value("ID").toInt() ) ;
     Cobj.set_Owner( tmpOwner ) ;
-    Cobj.set_ChannelName( ReadObj.value("GroupName").toString() ) ;
+    Cobj.set_ChannelName( ReadObj.value("ChannelName").toString() ) ;
     return Cobj ;
 }
-void channel::add_Admins(user in_Admin , QString FileName)
+void channel::add_Admins(user &in_Admin , QString FileName)
 {
+    Admins.push_back(  in_Admin ) ;
     QFile ChFile( FileName ) ;
     if( !ChFile.open(QIODevice::ReadOnly) )
     {
@@ -167,4 +169,39 @@ QVector<user> channel::get_Admins()
 void channel::set_Admins( QVector<user> in_Admins)
 {
     Admins = in_Admins ;
+}
+void channel::delete_Member(user &in_Member , QString FileName)
+{
+    for(int i=0 ; i<Members.count() ; i++ )
+    {
+        if( Members[i].get_ID() == in_Member.get_ID() )
+        {
+            Members.removeAt(i) ;
+            in_Member.delete_ChannelID( ID ) ;
+        }
+
+    }
+    QFile ChFile( FileName ) ;
+    if( !ChFile.open(QIODevice::ReadOnly) )
+    {
+       qDebug() << "File open error";//temp// error dialog should be open here
+       return ;
+    }
+    QJsonParseError JsonParseError ;
+    QJsonDocument JsonDoc = QJsonDocument::fromJson(ChFile.readAll(), &JsonParseError) ;
+    ChFile.close() ;
+    QJsonObject RootObject = JsonDoc.object() ;
+    QJsonArray MembersArray = RootObject.value("Members").toArray() ;
+    for(int i=0 ; i<MembersArray.count() ; i++ )
+    {
+        if( MembersArray[i].toObject()["ID"] == in_Member.get_ID() )
+        {
+            MembersArray.removeAt(i) ;
+        }
+    }
+    RootObject.insert("Members", MembersArray );
+    JsonDoc.setObject(RootObject) ;
+    ChFile.open(QFile::WriteOnly | QFile::Text | QFile::Truncate);
+    ChFile.write( JsonDoc.toJson() ) ;
+    ChFile.close() ;
 }
