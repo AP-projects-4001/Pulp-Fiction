@@ -1,7 +1,13 @@
 #include "user.h"
 user::user()
 {
-    //Accessibility = General ;
+    nameAccessibility = General ;
+    phoneAccessibility = General ;
+    photoAccessibility = General ;
+    firstNameAccessibility = General ;
+    lastNameAccessibility = General ;
+    emailAccessibility = General ;
+    BioAccessibility = General ;
 }
 void user::set_ID(int in_ID)
 {
@@ -118,19 +124,7 @@ void user::add_FriendID(int in_FID)
 {
     FriendsID.push_back( in_FID ) ;
 }
-//void user::set_Accessibility( int in_Accessibility )
-//{
-//    if( in_Accessibility == 1)
-//        Accessibility = Friends ;
-//    if( in_Accessibility == 2)
-//        Accessibility = Nobody ;
-//    else
-//        Accessibility = General ;
-//}
-//Access user::get_Accessibility()
-//{
-//    return Accessibility ;
-//}
+
 void user::delete_PVchatID(int in_chID)
 {
     for(int i = 0 ; i<PVchatsID.size() ; i++ )
@@ -233,6 +227,15 @@ void user::setEmailAccessibility( int in_Accessibility )
     else
         photoAccessibility = General ;
 }
+void user::setBioAccessibility( int in_Accessibility )
+{
+    if( in_Accessibility == 1)
+        BioAccessibility = Friends ;
+    if( in_Accessibility == 2)
+        BioAccessibility = Nobody ;
+    else
+        BioAccessibility = General ;
+}
 Access user::getNameAccessibility()
 {
     return nameAccessibility ;
@@ -256,4 +259,8 @@ Access user::getLastNameAccessibility()
 Access user::getEmailAccessibility()
 {
     return photoAccessibility;
+}
+Access user::getBioAccessibility()
+{
+    return BioAccessibility;
 }
