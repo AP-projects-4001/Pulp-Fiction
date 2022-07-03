@@ -1,14 +1,14 @@
-#include "createchannel.h"
-#include "ui_createchannel.h"
-#include "maindatabase.h"
-createchannel::createchannel(user me ,QWidget *parent) :
+#include "creategroup.h"
+#include "ui_creategroup.h"
+
+creategroup::creategroup(user me ,QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::createchannel)
+    ui(new Ui::creategroup)
 {
     ui->setupUi(this);
     howAmI = me;
     ui->winstack->setCurrentIndex(0);
-    ui->channelname->clear();
+    ui->groupname->clear();
     // Sets UI and shadow for it
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     CustomShadowEffect *bodyShadow = new CustomShadowEffect();
@@ -49,29 +49,28 @@ createchannel::createchannel(user me ,QWidget *parent) :
         }
     }
     connect(ui->addbtn, &QPushButton::clicked,
-            this, &createchannel::accept);
+            this, &creategroup::accept);
 }
 
-createchannel::~createchannel()
+creategroup::~creategroup()
 {
     delete ui;
 }
 
-void createchannel::on_submit_clicked()
+void creategroup::on_submit_clicked()
 {
-    name = ui->channelname->text();
+    name = ui->groupname->text();
     ui->winstack->setCurrentIndex(1);
 }
-int createchannel::getCount()
+int creategroup::getCount()
 {return ui->userslist->count();}
 
-void createchannel::on_backbtn_5_clicked()
+void creategroup::on_backbtn_5_clicked()
 {
-    ui->channelname->clear();
+    ui->groupname->clear();
     ui->winstack->setCurrentIndex(0);
 }
-void createchannel::on_backbtn_3_clicked()
+void creategroup::on_backbtn_3_clicked()
 {
-    createchannel::hide();
+    creategroup::hide();
 }
-

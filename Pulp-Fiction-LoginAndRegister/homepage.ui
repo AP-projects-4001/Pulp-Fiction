@@ -195,6 +195,47 @@ border-width: 1px;
           </spacer>
          </item>
          <item>
+          <widget class="QPushButton" name="graphbtn">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Setting&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton#graphbtn {
+color: white;
+border-radius: 10px;
+border-color: rgb(68, 120, 232);
+}
+
+QPushButton#graphbtn:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#graphbtn:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="elements.qrc">
+             <normaloff>:/img/img/icons8-setting-40.png</normaloff>:/img/img/icons8-setting-40.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>25</width>
+             <height>40</height>
+            </size>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QPushButton" name="settingbtn">
            <property name="toolTip">
             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Setting&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -261,9 +302,17 @@ border-width: 1px;
         </property>
         <property name="styleSheet">
          <string notr="true">QListWidget#listofusersgroupschanels {
-background-color: rgb(42, 46, 52);
+	background-color: rgb(59, 63, 70);
 border-style: solid;
 border-color: rgb(44, 131, 131);
+ border-width: 1px;
+color: rgb(25, 69, 105);
+border-radius: 5px;
+}
+QListWidget#listofusersgroupschanels:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+	border-color: rgb(243, 179, 70);
  border-width: 1px;
 color: rgb(25, 69, 105);
 border-radius: 5px;

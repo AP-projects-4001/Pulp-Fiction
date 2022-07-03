@@ -17,6 +17,7 @@
 #include "mythread.h"
 #include "setting.h"
 #include "contacts.h"
+#include "creategroup.h"
 enum Mode { GroupMode, ChannnelMode, PvMode };
 namespace Ui {
 class homepage;
@@ -80,6 +81,7 @@ private:
 
     Mode currentMode ;
     createchannel* dialog;
+    creategroup *creategroupdialog;
     groupInfo* infoGroup;
     channelInfo* infoChannel;
     PvInfo* infoPv;

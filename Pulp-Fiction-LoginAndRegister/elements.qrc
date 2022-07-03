@@ -30,6 +30,7 @@
         <file>img/icons8-email-send-64.png</file>
         <file>img/icons8-info-64.png</file>
         <file>img/icons8-menu-rounded-64.png</file>
+        <file>img/icons8-complete-64.png</file>
     </qresource>
     <qresource prefix="/">
         <file>img/chatbackground.jpg</file>
