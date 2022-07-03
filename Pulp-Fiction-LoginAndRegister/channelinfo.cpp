@@ -59,23 +59,25 @@ void channelInfo::on_pushButton_clicked()
     ui->listWidget->clear();
     QVector<user> ::Iterator itt;
     QVector<user> ::Iterator itt1;
+    QVector<user> ::Iterator itt2;
     for (itt = everyBody.begin(); itt != everyBody.end(); ++itt) {
         int check = 0;
-        if(itt->get_ID() == Me.get_ID())
+        for(itt1 = Members.begin() ; itt1 != Members.end() ; itt1++)
         {
-            check = 1;
-        }
-        else
-        {
-            for(itt1 = Members.begin() ; itt1 != Members.end() ; itt1++)
+            if(itt->get_ID() == itt1->get_ID())
             {
-                if(itt->get_ID() == itt1->get_ID())
-                {
-                    check = 1;
-                    break;
-                }
-            }
-        }
+                  check = 1;
+                  break;
+             }
+         }
+        for(itt2 = Admins.begin() ; itt2 != Admins.end() ; itt2++)
+        {
+            if(itt->get_ID() == itt2->get_ID())
+            {
+                  check = 1;
+                  break;
+             }
+         }
         if(check == 0)
         {
             auto item = new QListWidgetItem("", ui->listWidget);
@@ -114,13 +116,6 @@ void channelInfo::on_pushButton_2_clicked()
     ui->listWidget->clear();
     QVector<user> ::Iterator itt;
     for (itt = Members.begin(); itt != Members.end(); ++itt) {
-        int check = 0;
-        if(itt->get_ID() == Me.get_ID())
-        {
-            check = 1;
-        }
-        if(check == 0)
-        {
             auto item = new QListWidgetItem("", ui->listWidget);
             auto text = new QCheckBox;
             QByteArray ba = (itt->get_UserName()).toLocal8Bit();
@@ -133,13 +128,14 @@ void channelInfo::on_pushButton_2_clicked()
             cheVec.push_back(text);
             selected.push_back(*itt);
             ui->listWidget->setItemWidget(item, text);
-        }
+
     }
 
 }
 
 void channelInfo::on_pushButton_3_clicked()
 {
+    qDebug() << "kkg";
     if(currMode == AddMember)
     {
          channel gr = channel::read_channel(idChannel);

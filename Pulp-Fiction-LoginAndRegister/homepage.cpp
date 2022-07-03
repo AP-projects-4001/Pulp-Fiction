@@ -245,7 +245,7 @@ void homepage::on_newgroupbtn_clicked()
     if(creategroupdialog->exec() == QDialog::Accepted)
     {
         int j = maindatabase::Creat_GroupID();
-        QByteArray ba1 = dialog->getName().toLocal8Bit();
+        QByteArray ba1 = creategroupdialog->getName().toLocal8Bit();
         const char *c_str21 = ba1.data();
         Group gr(howAmI , c_str21);
         gr.set_ID(j);
@@ -253,12 +253,12 @@ void homepage::on_newgroupbtn_clicked()
         maindatabase::Add_Group(gr);
         maindatabase::Push_UserGroupID(j,howAmI);
         gr.add_Member(howAmI , gr.ExtractFileName(j));
-        for(int i = 0 ; i < dialog->getCount() ; i++)
+        for(int i = 0 ; i < creategroupdialog->getCount() ; i++)
         {
-            if(dialog->cheVec[i]->isChecked())
+            if(creategroupdialog->cheVec[i]->isChecked())
             {
-                gr.add_Member(dialog->selected[i] , gr.ExtractFileName(j));
-                maindatabase::Push_UserGroupID(j,dialog->selected[i]);
+                gr.add_Member(creategroupdialog->selected[i] , gr.ExtractFileName(j));
+                maindatabase::Push_UserGroupID(j,creategroupdialog->selected[i]);
             }
 
         }

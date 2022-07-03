@@ -19,9 +19,9 @@ public:
     explicit creategroup(user me ,QWidget *parent = nullptr);
     ~creategroup();
     QString getName () const{return name;}
-    QVector<user> getWrite() const {return write;}
-    QVector<QCheckBox*> getCheVec() const {return cheVec;}
-    QVector<user> getSelected() const{return selected;}
+    QVector<user> write;
+    QVector<QCheckBox*> cheVec;
+    QVector<user> selected;
     int getCount();
 
 private slots:
@@ -36,9 +36,7 @@ private:
     Ui::creategroup *ui;
     user howAmI;
     QString name;
-    QVector<user> write;
-    QVector<QCheckBox*> cheVec;
-    QVector<user> selected;
+
 };
 
 #endif // CREATEGROUP_H
