@@ -241,45 +241,7 @@ void homepage::vectroToList()
 
 void homepage::on_actionNew_group_triggered()
 {
-    dialog = new createchannel(howAmI);
-    dialog->show();
-    if(dialog->exec() == QDialog::Accepted)
-    {
-        int j = maindatabase::Creat_GroupID();
-        QByteArray ba1 = dialog->getName().toLocal8Bit();
-        const char *c_str21 = ba1.data();
-        Group gr(howAmI , c_str21);
-        gr.set_ID(j);
-        gr.Make_NewGroupFile(gr.ExtractFileName(j));
-        maindatabase::Add_Group(gr);
-        gr.add_Member(howAmI , gr.ExtractFileName(j));
-        maindatabase::Push_UserGroupID(j,howAmI);
-        for(int i = 0 ; i < dialog->getCount() ; i++)
-        {
-            if(dialog->cheVec[i]->isChecked())
-            {
-                gr.add_Member(dialog->selected[i] , gr.ExtractFileName(j));
-                maindatabase::Push_UserGroupID(j,dialog->selected[i]);
-            }
-
-        }
-        Group obchat = Group::read_Group(j);
-        QString s = obchat.get_GroupName();
-        QByteArray ba = s.toLocal8Bit();
-        const char *c_str2 = ba.data();
-        QListWidgetItem* item = new QListWidgetItem;
-        item->setText(c_str2);
-        item->setForeground(Qt::white);
-        ui->listofusersgroupschanels->addItem(item);
-        list.push_back(item);
-        group = new Group (obchat.get_Owner() , obchat.get_GroupName());
-        group->setName    (obchat.get_GroupName());
-        group->set_Members(obchat.get_Member());
-        group->set_Messages(obchat.get_Messages());
-        StoreGroup.push_back(obchat.get_ID());
-        vec.push_back(group);
-        clicked_list_item(item);
-    }
+    on_newgroupbtn_clicked();
 }
 
 
@@ -541,47 +503,6 @@ void homepage::on_actionExit_triggered()
 /** this function **/
 void homepage::on_actionNew_channel_triggered()
 {
-    dialog = new createchannel(howAmI);
-    dialog->show();
-    if(dialog->exec() == QDialog::Accepted)
-    {
-        int j = maindatabase::Creat_ChannelID();
-        QByteArray ba1 = dialog->getName().toLocal8Bit();
-        const char *c_str21 = ba1.data();
-        channel gr(howAmI , c_str21);
-        gr.set_ID(j);
-        gr.Make_NewChannelFile(gr.ExtractFileName(j));
-        maindatabase::Add_Channel(gr);
-        gr.add_Admins(howAmI , gr.ExtractFileName(j));
-        maindatabase::Push_UserChannelID(j,howAmI);
-        for(int i = 0 ; i < dialog->getCount() ; i++)
-        {
-            if(dialog->cheVec[i]->isChecked())
-            {
-                gr.add_Member(dialog->selected[i] , gr.ExtractFileName(j));
-                maindatabase::Push_UserChannelID(j,dialog->selected[i]);
-            }
-
-        }
-        channel obchat = channel::read_channel(j);
-        QString s = obchat.get_ChannelName();
-        qDebug() << s;
-        QByteArray ba = s.toLocal8Bit();
-        const char *c_str2 = ba.data();
-        QListWidgetItem* item = new QListWidgetItem;
-        item->setText(c_str2);
-        item->setForeground(Qt::white);
-        ui->listofusersgroupschanels->addItem(item);
-        list.push_back(item);
-        channelOB = new channel (obchat.get_Owner() , obchat.get_ChannelName());
-        channelOB->setName    (obchat.get_ChannelName());
-        channelOB->set_Members(obchat.get_Members());
-        channelOB->set_Admins (obchat.get_Admins());
-        channelOB->set_Messages(obchat.get_Messages());
-        channelOB->set_ID(obchat.get_ID());
-        StoreChannel.push_back(obchat.get_ID());
-        vec.push_back(channelOB);
-        clicked_list_item(item);
-    }
+    on_newchannelbtn_clicked();
 }
 
