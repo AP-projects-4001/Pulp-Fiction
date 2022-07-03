@@ -17,7 +17,7 @@ private:
     Access firstNameAccessibility  ;
     Access lastNameAccessibility  ;
     Access emailAccessibility ;
-    //Access Accessibility ;
+    Access BioAccessibility ;
     QString Bio ;
     QString UserName ;
     QString Password ;
@@ -44,7 +44,6 @@ public:
     void set_ChannelsID( QVector<int> in_ChannelsID) ;
     void set_FriendsID( QVector<int> in_FriendsID) ;
     void set_Bio( QString in_Bio ) ;
-    //void set_Accessibility( int in_Accessibility ) ;
     void add_PVchatID(int in_chID) ;
     void add_GroupID(int in_gID) ;
     void add_ChannelID(int in_chID) ;
@@ -66,7 +65,7 @@ public:
     QVector<int> get_GroupsID() ;
     QVector<int> get_ChannelsID() ;
     QVector<int> get_FriendsID() ;
-    //Access get_Accessibility() ;
+    Access getBioAccessibility() ;
     Access getNameAccessibility() ;
     Access getPhoneAccessibility() ;
     Access getPhotoAccessibility() ;
@@ -79,6 +78,7 @@ public:
     void setFirstNameAccessibility(int in_Accessibility) ;
     void setLastNameAccessibility(int in_Accessibility) ;
     void setEmailAccessibility(int in_Accessibility) ;
+    void setBioAccessibility( int in_BioAccessibility ) ;
 
 
 };
