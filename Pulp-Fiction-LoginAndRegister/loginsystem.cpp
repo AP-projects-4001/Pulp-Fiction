@@ -35,7 +35,13 @@ void LoginSystem::on_loginButton_clicked()
         this->username = ui->usernameBox->text();
         this->password = ui->passwordBox->text();
 
-
+        QPixmap pixmap1(":/img/img/icons8-login-64.png");
+        ui->loginpic->setPixmap(pixmap1);
+        delay(1); // Delay window for setting new picture on label
+        LoginSystem::hide();
+        qDebug() << "First name is" <<inneruser.get_firstname();
+        hmpg = new homepage(inneruser);
+        hmpg->show();
 //        Setting *settingdialog = new Setting(inneruser, this);
 //        settingdialog->show();
     }
