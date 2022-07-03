@@ -93,6 +93,15 @@ homepage::homepage(user me ,QWidget *parent) :
                 this, SLOT(clicked_list_item(QListWidgetItem*)));
     connect(ui->Sendbtn, &QPushButton::clicked,
          this, &homepage::send_clicked);
+    ui->messageslist->setStyleSheet("background-color : rgba(255,0,0,0%); color : white;");
+    ui->messageslist->setFlow(QListView::LeftToRight);
+    ui->messageslist->setGridSize(QSize(400, 70));
+    ui->messageslist->setResizeMode(QListView::Adjust);
+    ui->messageslist->setViewMode(QListView::ListMode);
+    ui->messageslist->setWrapping(true);
+    layout = new QVBoxLayout;
+    layout->setSizeConstraint(QLayout::SetMinimumSize);
+    this->setLayout(layout);
     mythread->start();
 }
 
@@ -206,15 +215,6 @@ void homepage::vectroToList()
     }
 
     ui->messageslist->show();
-    ui->messageslist->setStyleSheet("background-color : rgba(255,0,0,0%); color : white;");
-    ui->messageslist->setFlow(QListView::LeftToRight);
-    ui->messageslist->setGridSize(QSize(400, 70));
-    ui->messageslist->setResizeMode(QListView::Adjust);
-    ui->messageslist->setViewMode(QListView::ListMode);
-    ui->messageslist->setWrapping(true);
-    layout = new QVBoxLayout;
-    layout->setSizeConstraint(QLayout::SetMinimumSize);
-    this->setLayout(layout);
     ui->messageslist->clear();
 
     QVector<QString>::iterator itt;
@@ -280,8 +280,10 @@ void homepage::on_newgroupbtn_clicked()
         clicked_list_item(item);
     }
 }
-
-
+void homepage::on_actionNew_channel_triggered()
+{
+    on_newchannelbtn_clicked();
+}
 void homepage::on_newchannelbtn_clicked()
 {
     dialog = new createchannel(howAmI, this);
@@ -306,7 +308,6 @@ void homepage::on_newchannelbtn_clicked()
             }
 
         }
-        /** pay attention**/
         channel obchat = channel::read_channel(j);
         QString s = obchat.get_ChannelName();
         QByteArray ba = s.toLocal8Bit();
@@ -353,7 +354,7 @@ void homepage::on_infobtn_clicked()
             infoPv->show();
     }
 }
-/** this function **/
+
 void homepage::whatIsNew()
 {
     maindatabase::Find_user(howAmI);
@@ -441,11 +442,15 @@ void homepage::whatIsNew()
 }
 void homepage::getMessage()
 {
-    vectroToList();
+    maindatabase::Find_user(howAmI);
+    Display(isAdmin(howAmI));
     whatIsNew();
 }
 bool homepage::isAdmin(user me)
 {
+    channel* ptr2 = dynamic_cast<channel*>(vec[index]);
+    if(ptr2 == nullptr)
+        return true;
     channel obchat = channel::read_channel(vec[index]->get_ID());
     QVector<user> Ad = obchat.get_Admins();
     QVector<user>::iterator it;
@@ -471,7 +476,6 @@ void homepage::on_actionSetting_triggered()
 {
     on_settingbtn_clicked();
 }
-
 void homepage::on_actionContacts_triggered()
 {
     on_contactsbtn_clicked();
@@ -482,9 +486,5 @@ void homepage::on_actionExit_triggered()
     QApplication::quit();
 }
 
-/** this function **/
-void homepage::on_actionNew_channel_triggered()
-{
-    on_newchannelbtn_clicked();
-}
+
 

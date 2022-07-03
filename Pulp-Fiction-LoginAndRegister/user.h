@@ -11,12 +11,12 @@ public:
     user();
 private:
     int ID ;
-    Access nameAccessibility  = Friends;
-        Access phoneAccessibility = Friends;
-        Access photoAccessibility = Friends;
-        Access firstNameAccessibility  = Friends;
-        Access lastNameAccessibility   = Friends;
-        Access emailAccessibility = Friends;
+    Access nameAccessibility ;
+    Access phoneAccessibility ;
+    Access photoAccessibility ;
+    Access firstNameAccessibility  ;
+    Access lastNameAccessibility  ;
+    Access emailAccessibility ;
     //Access Accessibility ;
     QString Bio ;
     QString UserName ;
