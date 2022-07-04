@@ -113,11 +113,14 @@ homepage::~homepage()
 void homepage::clicked_list_item(QListWidgetItem* item)
 {
     checkThread = 2;
+    qDebug() << "in function";
     for(int i = 0; i < ui->listofusersgroupschanels->count(); ++i)
     {
         if(ui->listofusersgroupschanels->item(i) == item)
         {
+            qDebug() << i;
             index=i;
+            qDebug() << index;
             ptr = vec[i];
             Group* ptr1 = dynamic_cast<Group*>(ptr);
 
@@ -150,10 +153,15 @@ void homepage::Display(bool isAd)
 {
     if(checkThread == 2)
     {
+        ui->infobtn->hide();
+        ui->Sendbtn->hide();
+        ui->messagelineedit->hide();
         ui->messageslist->show();
         ui->loadingpic->hide();
+        qDebug()<< vec[index]->getName();
         if(isAd)
         {
+            qDebug()<< vec[index]->getName();
             ui->messagelineedit->show();
             ui->Sendbtn->show();
             QString name = vec[index]->getName();
@@ -359,9 +367,6 @@ void homepage::whatIsNew()
     QVector<int> TemChannel = howAmI.get_ChannelsID();
     int i1 = TemChannel.size();
     int j1 = StoreChannel.size();
-    qDebug() << TemChannel;
-
-    qDebug() << "j1" << j1;
     if(i1 > j1)
     {
         for(int it1 = j1 ; it1 != i1 ; it1++ )
@@ -386,7 +391,7 @@ void homepage::whatIsNew()
             StoreChannel.push_back(TemChannel[it1]);
 
         }
-        checkThread =1;
+        checkThread = 1;
     }
 
     QVector<int> TemGroup = howAmI.get_GroupsID();
@@ -449,6 +454,7 @@ void homepage::whatIsNew()
 }
 void homepage::getMessage()
 {
+    qDebug() << index;
     whatIsNew();
     if(checkThread == 0)
         return;
@@ -457,6 +463,7 @@ void homepage::getMessage()
 }
 bool homepage::isAdmin(user me)
 {
+    qDebug() << index;
     channel* ptr2 = dynamic_cast<channel*>(vec[index]);
     if(ptr2 == nullptr)
         return true;
