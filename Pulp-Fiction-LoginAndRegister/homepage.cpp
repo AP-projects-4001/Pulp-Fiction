@@ -92,7 +92,11 @@ homepage::homepage(user me ,QWidget *parent) :
                 this, SLOT(clicked_list_item(QListWidgetItem*)));
     connect(ui->Sendbtn, &QPushButton::clicked,
          this, &homepage::send_clicked);
-    ui->messageslist->setStyleSheet("background-color : rgba(255,0,0,0%); color : white;");
+//    ui->messageslist->setStyleSheet("background-color : rgba(255,0,0,0%); color : white;");
+    ui->messageslist->setStyleSheet("QListWidget#messageslist "
+                                    "{color: white;border-radius: 10px;background-color: rgb(42, 46, 52);"
+                                    "padding-left: 10px;padding-top: 10px; "
+                                    "border-style: solid;border-color: rgb(53, 159, 159);border-width: 1px;}");
     ui->messageslist->setFlow(QListView::LeftToRight);
     ui->messageslist->setGridSize(QSize(400, 70));
     ui->messageslist->setResizeMode(QListView::Adjust);
@@ -189,12 +193,19 @@ void homepage::send_clicked()
        QByteArray ba = mes.toLocal8Bit();
        const char *c_str2 = ba.data();
        text->setText(c_str2);
-       text->setStyleSheet("QTextEdit { background-color : rgba(255,180,0,100%); color : black; }");
+//       text->setStyleSheet("QTextEdit { background-color : rgba(255,180,0,100%); color : black; }");
+       text->setStyleSheet("QTextEdit "
+                           "{color: black;border-radius: 10px;background-color: rgb(154,123,8);padding-left: 10px;}"
+                           " QTextEdit:hover "
+                           "{background-color: rgb(42, 46, 52);border-style: solid;border-color: rgb(53, 159, 159);"
+                           "border-width: 1px;color: rgb(241, 182, 88);}");
        text->setMinimumSize(200, 50);
+       text->setReadOnly(true);
        layout->addWidget(text);
        ui->messageslist->setItemWidget(item, text);
        ui->messagelineedit->clear();
        ui->messagelineedit->setFocus(Qt::OtherFocusReason);
+       ui->messageslist->scrollToBottom();
     }
 
 }
@@ -230,10 +241,16 @@ void homepage::vectroToList()
         QByteArray ba = (*itt).toLocal8Bit();
         const char *c_str2 = ba.data();
         text->setText(c_str2);
-        text->setStyleSheet("QTextEdit { background-color : rgba(255, 180,0,100%); color : black; }");
+//        text->setStyleSheet("QTextEdit { background-color : rgba(255, 180,0,100%); color : black; }");
+        text->setStyleSheet("QTextEdit "
+                            "{color: black;border-radius: 10px;background-color: rgb(177,141,9);padding-left: 10px;} "
+                            "QTextEdit:hover "
+                            "{background-color: rgb(42, 46, 52);border-style: solid;border-color: rgb(53, 159, 159);"
+                            "border-width: 1px;color: rgb(241, 182, 88);}");
+        text->setReadOnly(true);
         text->setMinimumSize(200, 50);
         layout->addWidget(text);
-
+        ui->messageslist->scrollToBottom();
         ui->messageslist->setItemWidget(item, text);
     }
 }

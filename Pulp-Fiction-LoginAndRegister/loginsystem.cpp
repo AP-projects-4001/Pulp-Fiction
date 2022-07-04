@@ -4,7 +4,7 @@
 #include <QMessageBox>
 #include <homepage.h>
 #include <QDebug>
-
+#include <QShortcut>
 #include "setting.h"
 
 LoginSystem::LoginSystem(QWidget *parent) :
@@ -14,6 +14,9 @@ LoginSystem::LoginSystem(QWidget *parent) :
     ui->setupUi(this);
     database = new maindatabase();
     ui->winStack->setCurrentIndex(0);
+
+    QShortcut *returnShortcut = new QShortcut(QKeySequence("Return"), ui->winStack);
+    QObject::connect(returnShortcut, SIGNAL(activated()), ui->loginButton, SLOT(click()));
 
     qDebug() << QCoreApplication::applicationDirPath();
 
@@ -205,16 +208,6 @@ void LoginSystem::on_completeRegButton_clicked()
 
             if (this->picName != "")
             {
-
-//                QString to = this->picDir+"/"+ui->usernameRegister->text();
-
-//                if (QFile::exists(to))
-//                {
-//                    QFile::remove(to);
-//                }
-
-//                QFile::copy(this->picName, to);
-//                this->picName = "";
                 QString path;
                 if(this->picName.contains(".png"))
                 {
@@ -228,7 +221,6 @@ void LoginSystem::on_completeRegButton_clicked()
                     path = QString::number(userRegister.get_ID()) + ".bmp";
 
                 ui->rpLabel->grab().save(path);
-
             }
 
             ui->regLabel->setText("");
