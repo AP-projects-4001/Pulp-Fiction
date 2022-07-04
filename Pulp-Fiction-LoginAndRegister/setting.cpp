@@ -392,7 +392,7 @@ void Setting::on_searchcontact_textChanged(const QString &arg1)
     ui->friendslistwidget->setResizeMode(QListView::Adjust);
     ui->friendslistwidget->setViewMode(QListView::ListMode);
     ui->friendslistwidget->setWrapping(true);
-    QVBoxLayout *layout = new QHBoxLayout;
+    QHBoxLayout *layout = new QHBoxLayout;
     layout->setSizeConstraint(QLayout::SetMinimumSize);
     ui->friendslistwidget->setLayout(layout);
     ui->friendslistwidget->clear();

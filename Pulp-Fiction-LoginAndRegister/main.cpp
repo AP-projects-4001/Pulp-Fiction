@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     QSplashScreen *splash = new QSplashScreen;
-    splash->setPixmap(QPixmap(":/splash/img/splash.png").scaled(850, 550));
+    splash->setPixmap(QPixmap(":/splash/img/splash.png").scaled(750, 450));
     splash->show();
 
     LoginSystem ls;

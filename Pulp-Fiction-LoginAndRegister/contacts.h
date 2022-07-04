@@ -5,6 +5,7 @@
 #include "user.h"
 #include "maindatabase.h"
 #include "customshadoweffect.h"
+#include <QListWidgetItem>
 
 namespace Ui {
 class Contacts;
@@ -34,11 +35,18 @@ private slots:
 
     void on_addbtn_clicked();
 
+    void on_alluserslist_itemClicked(QListWidgetItem *item);
+
+signals:
+
+    void itemsclicked(QListWidgetItem *item);
 private:
     Ui::Contacts *ui;
 
     user howAmI;
     QString name;
+
+    void showfriendsonlistwidget();
 };
 
 #endif // CONTACTS_H

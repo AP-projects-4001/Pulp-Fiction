@@ -1,6 +1,7 @@
 #include "contacts.h"
 #include "ui_contacts.h"
 #include "QCheckBox"
+#include <QRadioButton>
 
 Contacts::Contacts(user me ,QWidget *parent) :
     QDialog(parent),
@@ -98,6 +99,8 @@ void Contacts::on_searchcontact_textChanged(const QString &arg1)
 void Contacts::on_backbtn_clicked()
 {
     ui->winstack->setCurrentIndex(0);
+
+
 }
 
 void Contacts::on_backtohomepage2_clicked()
@@ -108,7 +111,89 @@ void Contacts::on_backtohomepage2_clicked()
 
 void Contacts::on_addbtn_clicked()
 {
+    for (int i = 0; i< cheVec.size(); i++) {
+        if(cheVec[i]->isChecked())
+        {
+            maindatabase::Push_UserFriendID(selected[i].get_ID(), howAmI);
+        }
+    }
+    maindatabase::Find_user(howAmI);
+    on_backbtn_clicked();
+}
 
 
+void Contacts::on_alluserslist_itemClicked(QListWidgetItem *item)
+{
+//    maindatabase::Find_user(howAmI);
+
+//    ui->alluserslist->clear();
+//    write = maindatabase::read_AllUsers();
+//    ui->alluserslist->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
+//    ui->alluserslist->setFlow(QListView::LeftToRight);
+//    ui->alluserslist->setGridSize(QSize(200, 30));
+//    ui->alluserslist->setResizeMode(QListView::Adjust);
+//    ui->alluserslist->setViewMode(QListView::ListMode);
+//    ui->alluserslist->setWrapping(true);
+//    QVBoxLayout *layout = new QVBoxLayout;
+//    layout->setSizeConstraint(QLayout::SetMinimumSize);
+//    setLayout(layout);
+//    ui->alluserslist->clear();
+
+//    QVector<user>::iterator itt;
+//    for (itt = write.begin(); itt != write.end(); ++itt) {
+//        if((itt->get_UserName().contains(arg1) || itt->get_PhoneNumber().contains(arg1) || itt->get_EmailAddress().contains(arg1) || itt->get_firstname().contains(arg1)) && itt->get_ID() != howAmI.get_ID())
+//        {
+//            auto item = new QListWidgetItem("", ui->alluserslist);
+//            auto text = new QCheckBox;
+//            QByteArray ba = (itt->get_UserName()).toLocal8Bit();
+//            const char *c_str2 = ba.data();
+//            text->setText(c_str2);
+//            text->setStyleSheet("QCheckBox { background-color : rgba(0,0,0,0%); color : white; }");
+//            text->setMinimumSize(100, 20);
+//            text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
+//            layout->addWidget(text);
+//            selected.push_back(*itt);
+//            cheVec.push_back(text);
+//            ui->alluserslist->setItemWidget(item, text);
+//        }
+//    }
+}
+
+void Contacts::showfriendsonlistwidget()
+{
+//    maindatabase::Find_user(howAmI);
+//    ui->alluserslist->clear();
+//    write = maindatabase::read_AllUsers();
+//    ui->alluserslist->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
+//    ui->alluserslist->setFlow(QListView::LeftToRight);
+//    ui->alluserslist->setGridSize(QSize(200, 30));
+//    ui->alluserslist->setResizeMode(QListView::Adjust);
+//    ui->alluserslist->setViewMode(QListView::ListMode);
+//    ui->alluserslist->setWrapping(true);
+//    QVBoxLayout *layout = new QVBoxLayout;
+//    layout->setSizeConstraint(QLayout::SetMinimumSize);
+//    setLayout(layout);
+//    ui->alluserslist->clear();
+
+
+//    QVector<int> friendsids = howAmI.get_FriendsID();
+//    QVector<int>::iterator itt;
+//    for (itt = write.begin(); itt != write.end(); ++itt) {
+//        if(howAmI.get_FriendsID().contains())
+//        {
+//            auto item = new QListWidgetItem("", ui->alluserslist);
+//            auto text = new QRadioButton;
+//            QByteArray ba = (itt->get_UserName()).toLocal8Bit();
+//            const char *c_str2 = ba.data();
+//            text->setText(c_str2);
+//            text->setStyleSheet("QCheckBox { background-color : rgba(0,0,0,0%); color : white; }");
+//            text->setMinimumSize(100, 20);
+//            text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
+//            layout->addWidget(text);
+//            selected.push_back(*itt);
+//            cheVec.push_back(text);
+//            ui->alluserslist->setItemWidget(item, text);
+//        }
+//    }
 }
 

@@ -470,6 +470,12 @@ border-style: solid;
     </item>
     <item alignment="Qt::AlignHCenter">
      <widget class="QLabel" name="loadingpic">
+      <property name="minimumSize">
+       <size>
+        <width>700</width>
+        <height>500</height>
+       </size>
+      </property>
       <property name="maximumSize">
        <size>
         <width>700</width>
@@ -486,7 +492,7 @@ border-style: solid;
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap resource="elements.qrc">:/splash/img/splash.png</pixmap>
+       <pixmap resource="elements.qrc">:/img/img/chatbackground.jpg</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
