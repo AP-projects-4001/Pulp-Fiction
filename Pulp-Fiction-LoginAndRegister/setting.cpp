@@ -241,6 +241,38 @@ void Setting::on_resettodefault_clicked()
 void Setting::on_editcontacts_clicked()
 {
     ui->winstack->setCurrentIndex(3);
+
+    ui->friendslistwidget->clear();
+    write = maindatabase::read_AllUsers();
+    ui->friendslistwidget->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
+    ui->friendslistwidget->setFlow(QListView::LeftToRight);
+    ui->friendslistwidget->setGridSize(QSize(200, 30));
+    ui->friendslistwidget->setResizeMode(QListView::Adjust);
+    ui->friendslistwidget->setViewMode(QListView::ListMode);
+    ui->friendslistwidget->setWrapping(true);
+    QVBoxLayout *layout = new QVBoxLayout;
+    layout->setSizeConstraint(QLayout::SetMinimumSize);
+    setLayout(layout);
+    ui->friendslistwidget->clear();
+
+    QVector<user>::iterator itt;
+    for (itt = write.begin(); itt != write.end(); ++itt) {
+        if(itt->get_ID() != howAmI.get_ID() && itt->get_FriendsID().contains(howAmI.get_ID()))
+        {
+                auto item = new QListWidgetItem("", ui->friendslistwidget);
+                auto text = new QCheckBox;
+                QByteArray ba = (itt->get_UserName()).toLocal8Bit();
+                const char *c_str2 = ba.data();
+                text->setText(c_str2);
+                text->setStyleSheet("QCheckBox { background-color : rgba(0,0,0,0%); color : white; }");
+                text->setMinimumSize(100, 20);
+                text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
+                layout->addWidget(text);
+                selected.push_back(*itt);
+                cheVec.push_back(text);
+                ui->friendslistwidget->setItemWidget(item, text);
+        }
+    }
 }
 
 
@@ -347,5 +379,44 @@ void Setting::on_saveeditprivacy_clicked()
 
     maindatabase::Modify_UserAAccessibility(howAmI);
     on_backbtn_2_clicked();
+}
+
+
+void Setting::on_searchcontact_textChanged(const QString &arg1)
+{
+    ui->friendslistwidget->clear();
+    write = maindatabase::read_AllUsers();
+    ui->friendslistwidget->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
+    ui->friendslistwidget->setFlow(QListView::LeftToRight);
+    ui->friendslistwidget->setGridSize(QSize(200, 30));
+    ui->friendslistwidget->setResizeMode(QListView::Adjust);
+    ui->friendslistwidget->setViewMode(QListView::ListMode);
+    ui->friendslistwidget->setWrapping(true);
+    QVBoxLayout *layout = new QHBoxLayout;
+    layout->setSizeConstraint(QLayout::SetMinimumSize);
+    ui->friendslistwidget->setLayout(layout);
+    ui->friendslistwidget->clear();
+
+    QVector<user>::iterator itt;
+    for (itt = write.begin(); itt != write.end(); ++itt) {
+        if(itt->get_ID() != howAmI.get_ID() && itt->get_FriendsID().contains(howAmI.get_ID()))
+        {
+            if((itt->get_UserName().contains(arg1) || itt->get_PhoneNumber().contains(arg1) || itt->get_EmailAddress().contains(arg1) || itt->get_firstname().contains(arg1)) && itt->get_ID() != howAmI.get_ID())
+            {
+                auto item = new QListWidgetItem("", ui->friendslistwidget);
+                auto text = new QCheckBox;
+                QByteArray ba = (itt->get_UserName()).toLocal8Bit();
+                const char *c_str2 = ba.data();
+                text->setText(c_str2);
+                text->setStyleSheet("QCheckBox { background-color : rgba(0,0,0,0%); color : white; }");
+                text->setMinimumSize(100, 20);
+                text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
+                layout->addWidget(text);
+                selected.push_back(*itt);
+                cheVec.push_back(text);
+                ui->friendslistwidget->setItemWidget(item, text);
+            }
+        }
+    }
 }
 

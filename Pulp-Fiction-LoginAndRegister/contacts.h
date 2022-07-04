@@ -17,6 +17,11 @@ class Contacts : public QDialog
 public:
     explicit Contacts(user me ,QWidget *parent = nullptr);
     ~Contacts();
+    QString getName () const{return name;}
+    QVector<user> write;
+    QVector<QCheckBox*> cheVec;
+    QVector<user> selected;
+    int getCount();
 
 private slots:
     void on_newcontact_clicked();
@@ -27,10 +32,13 @@ private slots:
 
     void on_backtohomepage2_clicked();
 
+    void on_addbtn_clicked();
+
 private:
     Ui::Contacts *ui;
 
     user howAmI;
+    QString name;
 };
 
 #endif // CONTACTS_H

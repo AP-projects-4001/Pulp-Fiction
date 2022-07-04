@@ -469,6 +469,47 @@ void homepage::on_contactsbtn_clicked()
 {
     contactDialog = new Contacts(howAmI, this);
     contactDialog->show();
+
+//    if(contactDialog->exec() == QDialog::Accepted)
+//    {
+//        int j = maindatabase::Creat_PVChatID();
+//        QByteArray ba1 = dialog->getName().toLocal8Bit();
+//        const char *c_str21 = ba1.data();
+//        channel gr(howAmI , c_str21);
+//        gr.set_ID(j);
+//        gr.Make_NewChannelFile(gr.ExtractFileName(j));
+//        maindatabase::Add_Channel(gr);
+//        gr.add_Admins(howAmI , gr.ExtractFileName(j));
+//        maindatabase::Push_UserChannelID(j,howAmI);
+//        for(int i = 0 ; i < dialog->getCount() ; i++)
+//        {
+//            if(dialog->cheVec[i]->isChecked())
+//            {
+//                gr.add_Member(dialog->selected[i] , gr.ExtractFileName(j));
+//                maindatabase::Push_UserChannelID(j,dialog->selected[i]);
+//            }
+
+//        }
+//        channel obchat = channel::read_channel(j);
+//        QString s = obchat.get_ChannelName();
+//        QByteArray ba = s.toLocal8Bit();
+//        const char *c_str2 = ba.data();
+//        QListWidgetItem* item = new QListWidgetItem;
+//        item->setText(c_str2);
+//        item->setForeground(Qt::white);
+//        ui->listofusersgroupschanels->addItem(item);
+//        list.push_back(item);
+//        channelOB = new channel (obchat.get_Owner() , obchat.get_ChannelName());
+//        channelOB->setName    (obchat.get_ChannelName());
+//        channelOB->set_Members(obchat.get_Members());
+//        channelOB->set_Admins (obchat.get_Admins());
+//        channelOB->set_Messages(obchat.get_Messages());
+//        channelOB->set_ID(obchat.get_ID());
+//        StoreChannel.push_back(obchat.get_ID());
+//        vec.push_back(channelOB);
+//        clicked_list_item(item);
+//    }
+
 }
 void homepage::on_settingbtn_clicked()
 {

@@ -17,6 +17,11 @@ class Setting : public QDialog
 public:
     explicit Setting(user me ,QWidget *parent = nullptr);
     ~Setting();
+    QString getName () const{return name;}
+    QVector<user> write;
+    QVector<QCheckBox*> cheVec;
+    QVector<user> selected;
+    int getCount();
 
 private slots:
     void on_editprofile_clicked();
@@ -47,9 +52,12 @@ private slots:
 
     void on_saveeditprivacy_clicked();
 
+    void on_searchcontact_textChanged(const QString &arg1);
+
 private:
     Ui::Setting *ui;
     user howAmI;
+    QString name;
 
     QString picName_1, picName_2;
     QString picDir = QCoreApplication::applicationDirPath()+"/../";
