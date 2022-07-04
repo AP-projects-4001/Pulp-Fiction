@@ -9,7 +9,7 @@ void MyThread::run()
 {
     for(;;)
     {
-        sleep(10);
+        sleep(5);
         emit NumberChange();
     }
 }

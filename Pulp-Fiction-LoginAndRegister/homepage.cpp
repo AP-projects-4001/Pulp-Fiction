@@ -63,7 +63,6 @@ homepage::homepage(user me ,QWidget *parent) :
         vec.push_back(group);
     }
     StoreChannel = howAmI.get_ChannelsID();
-    qDebug() << "kfkfkfkfkkfkfk " << howAmI.get_ChannelsID();
     QVector<int>::Iterator chid;
     for(chid = StoreChannel.begin() ; chid != StoreChannel.end() ; chid++)
     {
@@ -113,6 +112,7 @@ homepage::~homepage()
 }
 void homepage::clicked_list_item(QListWidgetItem* item)
 {
+    checkThread = 1;
     ui->loadingpic->hide();
     for(int i = 0; i < ui->listofusersgroupschanels->count(); ++i)
     {
@@ -149,7 +149,8 @@ void homepage::clicked_list_item(QListWidgetItem* item)
 }
 void homepage::Display(bool isAd)
 {
-
+    if(checkThread == 0)
+        return;
     ui->messagelineedit->hide();
     ui->Sendbtn->hide();
     ui->infobtn->hide();
@@ -442,6 +443,8 @@ void homepage::whatIsNew()
 }
 void homepage::getMessage()
 {
+    if(checkThread == 0)
+        return;
     maindatabase::Find_user(howAmI);
     Display(isAdmin(howAmI));
     whatIsNew();

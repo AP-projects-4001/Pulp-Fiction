@@ -6,6 +6,8 @@
 #include <QWidget>
 #include "user.h"
 #include "customshadoweffect.h"
+#include <QListWidgetItem>
+#include "pvinfo.h"
 namespace Ui {
 class channelInfo;
 }
@@ -19,13 +21,18 @@ public:
     ~channelInfo();
 
 private slots:
-    void on_pushButton_clicked();
-
-    void on_pushButton_2_clicked();
-
-    void on_pushButton_3_clicked();
 
     void on_backtohomepage_clicked();
+
+    void on_adminslistwidget_itemClicked(QListWidgetItem *item);
+
+    void on_addadminbtn_clicked();
+
+    void on_addmemberbtn_clicked();
+
+    void on_memberslistwidget_itemClicked(QListWidgetItem *item);
+
+    void on_completebtn_clicked();
 
 private:
     Ui::channelInfo *ui;
@@ -36,6 +43,8 @@ private:
     QVector<user> Admins;
     QVector<user> selected;
     QVector<user> newAdmins;
+    QVector<user> selectesList;
+    PvInfo* infopv;
 
     ModeInfo currMode;
     user Me;

@@ -71,6 +71,7 @@ private:
 
     QVBoxLayout *layout;
 
+    int checkThread;
     int index;
     user howAmI;
 
