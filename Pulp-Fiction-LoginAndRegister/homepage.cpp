@@ -583,6 +583,10 @@ void homepage::on_settingbtn_clicked()
 {
     settingDialog = new Setting(howAmI, this);
     settingDialog->show();
+    if(settingDialog->exec() == QDialog::Accepted)
+    {
+        homepage::close();
+    }
 }
 void homepage::on_actionSetting_triggered()
 {

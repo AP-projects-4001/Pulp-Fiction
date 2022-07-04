@@ -18,6 +18,7 @@
 #include "setting.h"
 #include "contacts.h"
 #include "creategroup.h"
+
 enum Mode { GroupMode, ChannnelMode, PvMode };
 namespace Ui {
 class homepage;

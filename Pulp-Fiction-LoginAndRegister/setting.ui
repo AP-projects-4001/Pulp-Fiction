@@ -32,8 +32,8 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(59, 63, 70);</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_4">
-   <item>
+  <layout class="QGridLayout" name="gridLayout_3">
+   <item row="0" column="0">
     <widget class="QStackedWidget" name="winstack">
      <property name="styleSheet">
       <string notr="true">QStackedWidget#winstack {
@@ -54,7 +54,7 @@ color: rgb(241, 182, 88);
 }</string>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="page">
       <property name="styleSheet">
@@ -108,6 +108,58 @@ QLabel#settinglbl:hover {
        </item>
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="logoutbtn">
+             <property name="minimumSize">
+              <size>
+               <width>90</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton#logoutbtn {
+color: white;
+border-radius: 5px;
+Background: #933;
+color: #fefefe;
+}
+
+QPushButton#logoutbtn:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#logoutbtn:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+             </property>
+             <property name="text">
+              <string>LOG OUT</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
          <item>
           <spacer name="verticalSpacer">
            <property name="orientation">

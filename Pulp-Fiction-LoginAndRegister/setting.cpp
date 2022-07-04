@@ -25,6 +25,9 @@ Setting::Setting(user me ,QWidget *parent) :
     bodyShadow->setColor(QColor(10, 5, 45, 80));
     ui->winstack->setGraphicsEffect(bodyShadow);
 
+    connect(ui->logoutbtn, &QPushButton::clicked,
+            this, &Setting::accept);
+
 
 }
 
