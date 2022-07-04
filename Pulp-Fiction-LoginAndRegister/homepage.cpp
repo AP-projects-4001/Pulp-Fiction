@@ -149,13 +149,10 @@ void homepage::clicked_list_item(QListWidgetItem* item)
 }
 void homepage::Display(bool isAd)
 {
-    if(checkThread == 0)
-        return;
     ui->messagelineedit->hide();
     ui->Sendbtn->hide();
     ui->infobtn->hide();
     ui->messageslist->show();
-    ui->messagelineedit->clear();
     if(isAd)
     {
         ui->messagelineedit->show();
@@ -364,6 +361,7 @@ void homepage::whatIsNew()
     int j1 = StoreChannel.size();
     if(i1 > j1)
     {
+        checkThread =1;
         for(int it1 = j1 ; it1 != i1 ; it1++ )
         {
             channel obchat = channel::read_channel(TemChannel[it1]);
@@ -392,6 +390,7 @@ void homepage::whatIsNew()
     int j = StoreGroup.size();
     if(i > j)
     {
+        checkThread=1;
        for(int it = j ; it != i ; it++ )
        {
             Group obchat = Group::read_Group(TemGroup[it]);
@@ -418,6 +417,7 @@ void homepage::whatIsNew()
     int j2 = StorePv.size();
     if(i2 > j2)
     {
+        checkThread=1;
         for(int it2 = j2 ; it2 != i2 ; it2++ )
         {
             pvchat obchat = pvchat::read_PVChat(TemPv[it2]);
@@ -443,11 +443,11 @@ void homepage::whatIsNew()
 }
 void homepage::getMessage()
 {
+    whatIsNew();
     if(checkThread == 0)
         return;
     maindatabase::Find_user(howAmI);
     Display(isAdmin(howAmI));
-    whatIsNew();
 }
 bool homepage::isAdmin(user me)
 {
