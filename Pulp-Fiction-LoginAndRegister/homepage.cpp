@@ -112,13 +112,15 @@ homepage::~homepage()
 }
 void homepage::clicked_list_item(QListWidgetItem* item)
 {
-    checkThread = 1;
-    ui->loadingpic->hide();
+    checkThread = 2;
+    qDebug() << "in function";
     for(int i = 0; i < ui->listofusersgroupschanels->count(); ++i)
     {
         if(ui->listofusersgroupschanels->item(i) == item)
         {
+            qDebug() << i;
             index=i;
+            qDebug() << index;
             ptr = vec[i];
             Group* ptr1 = dynamic_cast<Group*>(ptr);
 
@@ -149,22 +151,28 @@ void homepage::clicked_list_item(QListWidgetItem* item)
 }
 void homepage::Display(bool isAd)
 {
-    ui->messagelineedit->hide();
-    ui->Sendbtn->hide();
-    ui->infobtn->hide();
-    ui->messageslist->show();
-    if(isAd)
+    if(checkThread == 2)
     {
-        ui->messagelineedit->show();
-        ui->Sendbtn->show();
-        QString name = vec[index]->getName();
-        QByteArray ba = name.toLocal8Bit();
-        const char *c_str2 = ba.data();
-        ui->infobtn->setText(c_str2);
-        ui->infobtn->show();
-        ui->messagelineedit->setFocus(Qt::OtherFocusReason);
+        ui->infobtn->hide();
+        ui->Sendbtn->hide();
+        ui->messagelineedit->hide();
+        ui->messageslist->show();
+        ui->loadingpic->hide();
+        qDebug()<< vec[index]->getName();
+        if(isAd)
+        {
+            qDebug()<< vec[index]->getName();
+            ui->messagelineedit->show();
+            ui->Sendbtn->show();
+            QString name = vec[index]->getName();
+            QByteArray ba = name.toLocal8Bit();
+            const char *c_str2 = ba.data();
+            ui->infobtn->setText(c_str2);
+            ui->infobtn->show();
+            ui->messagelineedit->setFocus(Qt::OtherFocusReason);
+        }
+        vectroToList();
     }
-    vectroToList();
 
 }
 void homepage::send_clicked()
@@ -361,7 +369,6 @@ void homepage::whatIsNew()
     int j1 = StoreChannel.size();
     if(i1 > j1)
     {
-        checkThread =1;
         for(int it1 = j1 ; it1 != i1 ; it1++ )
         {
             channel obchat = channel::read_channel(TemChannel[it1]);
@@ -382,7 +389,9 @@ void homepage::whatIsNew()
             channelOB->set_Owner   (obchat.get_Owner());
             vec.push_back(channelOB);
             StoreChannel.push_back(TemChannel[it1]);
+
         }
+        checkThread = 1;
     }
 
     QVector<int> TemGroup = howAmI.get_GroupsID();
@@ -390,7 +399,6 @@ void homepage::whatIsNew()
     int j = StoreGroup.size();
     if(i > j)
     {
-        checkThread=1;
        for(int it = j ; it != i ; it++ )
        {
             Group obchat = Group::read_Group(TemGroup[it]);
@@ -410,14 +418,15 @@ void homepage::whatIsNew()
             group->set_Owner   (obchat.get_Owner());
             vec.push_back(group);
             StoreGroup.push_back(obchat.get_ID());
+
         }
+        checkThread=1;
     }
     QVector<int> TemPv = howAmI.get_PVchatsID();
     int i2 = TemPv.size();
     int j2 = StorePv.size();
     if(i2 > j2)
     {
-        checkThread=1;
         for(int it2 = j2 ; it2 != i2 ; it2++ )
         {
             pvchat obchat = pvchat::read_PVChat(TemPv[it2]);
@@ -438,11 +447,14 @@ void homepage::whatIsNew()
             pv->set_ID(obchat.get_ID());
             vec.push_back(pv);
             StorePv.push_back(TemPv[it2]);
+
         }
+        checkThread=1;
     }
 }
 void homepage::getMessage()
 {
+    qDebug() << index;
     whatIsNew();
     if(checkThread == 0)
         return;
@@ -451,6 +463,7 @@ void homepage::getMessage()
 }
 bool homepage::isAdmin(user me)
 {
+    qDebug() << index;
     channel* ptr2 = dynamic_cast<channel*>(vec[index]);
     if(ptr2 == nullptr)
         return true;
