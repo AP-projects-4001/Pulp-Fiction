@@ -72,7 +72,7 @@ private:
     QVBoxLayout *layout;
 
     int checkThread = 0;
-    int index;
+    int index = 0;
     user howAmI;
 
     chat* ptr;
