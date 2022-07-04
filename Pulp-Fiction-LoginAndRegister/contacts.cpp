@@ -80,18 +80,25 @@ void Contacts::on_searchcontact_textChanged(const QString &arg1)
     for (itt = write.begin(); itt != write.end(); ++itt) {
         if((itt->get_UserName().contains(arg1) || itt->get_PhoneNumber().contains(arg1) || itt->get_EmailAddress().contains(arg1) || itt->get_firstname().contains(arg1)) && itt->get_ID() != howAmI.get_ID())
         {
-            auto item = new QListWidgetItem("", ui->alluserslist);
-            auto text = new QCheckBox;
-            QByteArray ba = (itt->get_UserName()).toLocal8Bit();
-            const char *c_str2 = ba.data();
-            text->setText(c_str2);
-            text->setStyleSheet("QCheckBox { background-color : rgba(0,0,0,0%); color : white; }");
-            text->setMinimumSize(100, 20);
-            text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
-            layout->addWidget(text);
-            selected.push_back(*itt);
-            cheVec.push_back(text);
-            ui->alluserslist->setItemWidget(item, text);
+            if(itt->get_FriendsID().contains(howAmI.get_ID()))
+            {
+                qDebug() << "Have this friend before";
+            }
+            else
+            {
+                auto item = new QListWidgetItem("", ui->alluserslist);
+                auto text = new QCheckBox;
+                QByteArray ba = (itt->get_UserName()).toLocal8Bit();
+                const char *c_str2 = ba.data();
+                text->setText(c_str2);
+                text->setStyleSheet("QCheckBox { background-color : rgba(0,0,0,0%); color : white; }");
+                text->setMinimumSize(100, 20);
+                text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
+                layout->addWidget(text);
+                selected.push_back(*itt);
+                cheVec.push_back(text);
+                ui->alluserslist->setItemWidget(item, text);
+            }
         }
     }
 }
@@ -114,7 +121,14 @@ void Contacts::on_addbtn_clicked()
     for (int i = 0; i< cheVec.size(); i++) {
         if(cheVec[i]->isChecked())
         {
-            maindatabase::Push_UserFriendID(selected[i].get_ID(), howAmI);
+            if(howAmI.get_FriendsID().contains(selected[i].get_ID()))
+            {
+                qDebug() << "Have this friend before";
+            }
+            else
+            {
+                maindatabase::Push_UserFriendID(selected[i].get_ID(), howAmI);
+            }
         }
     }
     maindatabase::Find_user(howAmI);

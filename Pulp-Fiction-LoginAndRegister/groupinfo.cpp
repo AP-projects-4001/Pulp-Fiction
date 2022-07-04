@@ -20,6 +20,8 @@ groupInfo::groupInfo(user me ,QVector<user> members,int id , QWidget *parent) :
     bodyShadow->setDistance(4.0);
     bodyShadow->setColor(QColor(10, 5, 45, 80));
     ui->winstack->setGraphicsEffect(bodyShadow);
+    ui->paticipantscount->setText(QString::number(members.size()));
+
 
 
     ui->memberslistwidget->setStyleSheet("background-color : rgba(0,0,0,50%); color : with;");

@@ -20,6 +20,8 @@ channelInfo::channelInfo(user me , QVector<user> member,QVector<user> admin, int
     bodyShadow->setDistance(4.0);
     bodyShadow->setColor(QColor(10, 5, 45, 80));
     ui->winstack->setGraphicsEffect(bodyShadow);
+    int participants = member.size() + admin.size();
+    ui->paticipantscount->setText(QString::number(participants));
 
     ui->memberslistwidget->clear();
     if(Members.size() != 0)
