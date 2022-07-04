@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "maindatabase.h"
+#include <QCoreApplication>
 #include "user.h"
 
 namespace Ui {
@@ -42,9 +43,14 @@ private slots:
 
     void on_backbtn_3_clicked();
 
+    void on_uplButton_clicked();
+
 private:
     Ui::Setting *ui;
     user howAmI;
+
+    QString picName_1, picName_2;
+    QString picDir = QCoreApplication::applicationDirPath()+"/../";
 };
 
 #endif // SETTING_H

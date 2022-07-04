@@ -2,6 +2,7 @@
 #include "ui_setting.h"
 #include "customshadoweffect.h"
 #include <QMessageBox>
+#include <QFileDialog>
 
 Setting::Setting(user me ,QWidget *parent) :
     QDialog(parent),
@@ -14,9 +15,8 @@ Setting::Setting(user me ,QWidget *parent) :
     ui->phoneeditprofile->setReadOnly(true);
     ui->emaileditprofile->setReadOnly(true);
     ui->winstack->setCurrentIndex(0);
-    QString picDir = QCoreApplication::applicationDirPath()+"/../"+QString::number(howAmI.get_ID())+".png";
-    qDebug() << picDir;
-    qDebug() << howAmI.get_firstname();
+    ui->userusernameforsettinglbl->setText(howAmI.get_UserName());
+    picDir = QCoreApplication::applicationDirPath()+"/../"+QString::number(howAmI.get_ID())+".png";
     ui->profilepicture_2->setPixmap(QPixmap(picDir));
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     CustomShadowEffect *bodyShadow = new CustomShadowEffect();
@@ -25,24 +25,7 @@ Setting::Setting(user me ,QWidget *parent) :
     bodyShadow->setColor(QColor(10, 5, 45, 80));
     ui->winstack->setGraphicsEffect(bodyShadow);
 
-    QIntValidator* intValidator = new QIntValidator;
-    ui->phoneeditprofile->setValidator(intValidator);
 
-
-//    ui->profilepicture_2->setPixmap(QPixmap("file:///C://Users//tejarat pooya//Pictures//Desktop//AP project//build-APproject-Desktop_Qt_6_2_4_MinGW_64_bit-Debug//masih.png"));
-
-//    QString useridstr = "Your Id is: " + QString::number(me.get_ID());
-    ui->userideditprofile->setText(QString::number(howAmI.get_ID()));
-    ui->userusernameforsettinglbl->setText(howAmI.get_UserName());
-    ui->firstnameeditprofile->setText(howAmI.get_firstname()); // Not working ??
-    ui->passwordeditprofile->setText(howAmI.get_Password());
-    ui->usernameeditprofile->setText(howAmI.get_UserName());
-    ui->lastnameeditprofile->setText(howAmI.get_lastname()); // Not working ??
-    ui->phoneeditprofile->setText(howAmI.get_PhoneNumber());
-    ui->emaileditprofile->setText(howAmI.get_EmailAddress());
-    QDate Date = QDate::fromString(howAmI.get_BirthDate(),"M/d/yyyy");
-    qDebug() << Date;
-    ui->birthdateeditprofile->setDate(Date);
 }
 
 Setting::~Setting()
@@ -54,6 +37,24 @@ Setting::~Setting()
 void Setting::on_editprofile_clicked()
 {
     ui->winstack->setCurrentIndex(1);
+    ui->Status->clear();
+
+    QIntValidator* intValidator = new QIntValidator;
+    ui->phoneeditprofile->setValidator(intValidator);
+
+
+    ui->profilepictureeditprofile->setPixmap(QPixmap(picDir));
+    ui->userideditprofile->setText(QString::number(howAmI.get_ID()));
+    ui->firstnameeditprofile->setText(howAmI.get_firstname());
+    ui->bioeditprofile->setText(howAmI.get_Bio());
+    ui->passwordeditprofile->setText(howAmI.get_Password());
+    ui->usernameeditprofile->setText(howAmI.get_UserName());
+    ui->lastnameeditprofile->setText(howAmI.get_lastname());
+    ui->phoneeditprofile->setText(howAmI.get_PhoneNumber());
+    ui->emaileditprofile->setText(howAmI.get_EmailAddress());
+    QDate Date = QDate::fromString(howAmI.get_BirthDate(),"M/d/yyyy");
+    qDebug() << Date;
+    ui->birthdateeditprofile->setDate(Date);
 }
 
 
@@ -95,21 +96,9 @@ void Setting::on_savebtn_clicked()
     bool halt = false;
 
 
-    if(ui->usernameeditprofile->text() == "")
-    {
-        ui->usernameeditprofile->setPlaceholderText("Username EMPTY!");
-        halt = true;
-    }
-
     if(ui->passwordeditprofile->text() == "")
     {
         ui->passwordeditprofile->setPlaceholderText("Password EMPTY!");
-        halt = true;
-    }
-
-    if(ui->emaileditprofile->text() == "")
-    {
-        ui->emaileditprofile->setPlaceholderText("E-mail EMPTY!");
         halt = true;
     }
 
@@ -119,21 +108,9 @@ void Setting::on_savebtn_clicked()
         halt = true;
     }
 
-    if(ui->phoneeditprofile->text() == "")
-    {
-        ui->phoneeditprofile->setPlaceholderText("Phone is EMPTY!");
-        halt = true;
-    }
-
     if(ui->lastnameeditprofile->text() == "")
     {
         ui->lastnameeditprofile->setPlaceholderText("Last Name EMPTY!");
-        halt = true;
-    }
-    if(!ui->emaileditprofile->text().contains("@"))
-    {
-        ui->emaileditprofile->setText("");
-        ui->emaileditprofile->setPlaceholderText("Enter a valid E-mail!");
         halt = true;
     }
 
@@ -144,13 +121,11 @@ void Setting::on_savebtn_clicked()
     }
     else
     {
-        QString username, password, firstnamee, lastname, phone, email, birthdate;
-        username = ui->usernameeditprofile->text();
+        QString password, firstname, lastname, bio, birthdate;
         password = ui->passwordeditprofile->text();
-        firstnamee = ui->firstnameeditprofile->text();
+        firstname = ui->firstnameeditprofile->text();
         lastname = ui->lastnameeditprofile->text();
-        phone = ui->phoneeditprofile->text();
-        email = ui->emaileditprofile->text();
+        bio = ui->bioeditprofile->text();
         birthdate = ui->birthdateeditprofile->text();
 
         if(password.size() < 4)
@@ -177,75 +152,42 @@ void Setting::on_savebtn_clicked()
             QMessageBox::warning(this,"Warning", "Password must include atleast 1 uppercase letter and atleast 1 number");
             ui->passwordeditprofile->clear();
         }
-        if(!maindatabase::Check_username(username))
-        {
-            QMessageBox::warning(this,"Duplicate username", "Oh no! We have your username in our database choose another one please!");
-            ui->usernameeditprofile->clear();
-        }
-        if(!maindatabase::Check_EmailAddress(email))
-        {
-            QMessageBox::warning(this,"Duplicate email", "Oh no! We have your email in our database choose another one please!");
-            ui->emaileditprofile->clear();
-        }
-        if(!maindatabase::Check_PhoneNumber(phone))
-        {
-            QMessageBox::warning(this,"Duplicate phone", "Oh no! We have your phone in our database choose another one please!");
-            ui->phoneeditprofile->clear();
-        }
 
-        bool username1, password1, phone1, email1;
-        username1 = ui->usernameeditprofile->text().size();
+        bool password1;
         password1 = ui->passwordeditprofile->text().size();
-        phone1 = ui->phoneeditprofile->text().size();
-        email1 = ui->emaileditprofile->text().size();
 
-        if(username1 && password1 && phone1 && email1)
+        if(password1)
         {
-            user userRegister;
-            userRegister.set_ID(maindatabase::Creat_ID());
-            userRegister.set_UserName(username);
-            userRegister.set_Password(password);
-            userRegister.set_EmailAddress(email);
-            userRegister.set_Firstname(firstnamee);
-            userRegister.set_Lastname(lastname);
-            userRegister.set_BirthDate(birthdate);
-            userRegister.set_PhoneNumber(phone);
+            howAmI.set_Password(password);
+            howAmI.set_Firstname(firstname);
+            howAmI.set_Lastname(lastname);
+            howAmI.set_Bio(bio);
+            howAmI.set_BirthDate(birthdate);
+
+            maindatabase::Modify_UserDetails(howAmI);
 
 
-//            database->Add_user(userRegister);
+            if (this->picName_2 != "")
+            {
+                QString to = picDir;
 
-//            if (this->picName != "")
-//            {
-////                QString to = this->picDir+"/"+ui->usernameRegister->text();
+                if (QFile::exists(to))
+                {
+                    QFile::remove(to);
+                }
+                QString path = QString::number(howAmI.get_ID()) + ".png";
+                ui->profilepictureeditprofile->grab().save(path);
+                ui->profilepicture_2->setText("<img src=\"file:///"+this->picName_2+"\" alt=\"Image read error!\" height=\"110\" width=\"110\" />");
+            }
 
-////                if (QFile::exists(to))
-////                {
-////                    QFile::remove(to);
-////                }
+            ui->Status->setText("Edited successfully");
 
-////                QFile::copy(this->picName, to);
-////                this->picName = "";
-//                QString path = userRegister.get_UserName() + ".png";
-//                qDebug() << path;
-//                qDebug() << userRegister.get_UserName();
-//                ui->rpLabel->grab().save(path);
+            QTime dieTime= QTime::currentTime().addSecs(2);
+            while (QTime::currentTime() < dieTime)
+                QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
 
-//            }
+            on_backbtn_clicked();
 
-//            ui->regLabel->setText("");
-//            ui->usernameRegister->setText("");
-//            ui->passwordRegister->setText("");
-//            ui->passwordRegister_2->setText("");
-//            ui->emailRegister->setText("");
-//            ui->firstnameRegister->setText("");
-//            ui->lastnameRegister->setText("");
-//            ui->phoneRegister->setText("");
-//            ui->showpassforsignup->setChecked(false);
-//            ui->rpLabel->setText("<img src=\":/img/img/user.png\" />");
-//            ui->loginLabel->setText("Registration Successful! You can now login.");
-//            ui->usernameBox->setText(inneruser.get_UserName());
-//            ui->passwordBox->setText(inneruser.get_Password());
-//            ui->winStack->setCurrentIndex(0);
         }
     }
 }
@@ -259,7 +201,7 @@ void Setting::on_setonlyfreindsbtn_clicked()
     ui->showemail_2->setCurrentIndex(1);
     ui->showfirstname_2->setCurrentIndex(1);
     ui->showlastname_2->setCurrentIndex(1);
-    ui->showbirthdate_2->setCurrentIndex(1);
+    ui->showbio_2->setCurrentIndex(1);
 }
 
 
@@ -271,7 +213,7 @@ void Setting::on_settonoonebtn_clicked()
     ui->showemail_2->setCurrentIndex(2);
     ui->showfirstname_2->setCurrentIndex(2);
     ui->showlastname_2->setCurrentIndex(2);
-    ui->showbirthdate_2->setCurrentIndex(2);
+    ui->showbio_2->setCurrentIndex(2);
 }
 
 
@@ -283,7 +225,7 @@ void Setting::on_resettodefault_clicked()
     ui->showemail_2->setCurrentIndex(0);
     ui->showfirstname_2->setCurrentIndex(0);
     ui->showlastname_2->setCurrentIndex(0);
-    ui->showbirthdate_2->setCurrentIndex(0);
+    ui->showbio_2->setCurrentIndex(0);
 }
 
 
@@ -296,5 +238,15 @@ void Setting::on_editcontacts_clicked()
 void Setting::on_backbtn_3_clicked()
 {
     ui->winstack->setCurrentIndex(0);
+}
+
+
+void Setting::on_uplButton_clicked()
+{
+    this->picName_2 = QFileDialog::getOpenFileName(this, tr("Open Image"), "/", tr("Image Files (*.png)"));
+    if(this->picName_2 != "")
+    {
+        ui->profilepictureeditprofile->setText("<img src=\"file:///"+this->picName_2+"\" alt=\"Image read error!\" height=\"110\" width=\"110\" />");
+    }
 }
 
