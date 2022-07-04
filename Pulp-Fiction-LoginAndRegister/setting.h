@@ -45,6 +45,8 @@ private slots:
 
     void on_uplButton_clicked();
 
+    void on_saveeditprivacy_clicked();
+
 private:
     Ui::Setting *ui;
     user howAmI;

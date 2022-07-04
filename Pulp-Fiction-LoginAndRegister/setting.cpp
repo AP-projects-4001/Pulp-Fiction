@@ -73,6 +73,15 @@ void Setting::on_backbtn_clicked()
 void Setting::on_editprivacy_clicked()
 {
     ui->winstack->setCurrentIndex(2);
+
+
+    ui->showusername_2->setCurrentIndex(howAmI.getNameAccessibility());
+    ui->showpicture_2->setCurrentIndex(howAmI.getPhotoAccessibility());
+    ui->showemail_2->setCurrentIndex(howAmI.getEmailAccessibility());
+    ui->showphonenumber_2->setCurrentIndex(howAmI.getPhoneAccessibility());
+    ui->showfirstname_2->setCurrentIndex(howAmI.getFirstNameAccessibility());
+    ui->showlastname_2->setCurrentIndex(howAmI.getLastNameAccessibility());
+    ui->showbio_2->setCurrentIndex(howAmI.getBioAccessibility());
 }
 
 
@@ -248,5 +257,95 @@ void Setting::on_uplButton_clicked()
     {
         ui->profilepictureeditprofile->setText("<img src=\"file:///"+this->picName_2+"\" alt=\"Image read error!\" height=\"110\" width=\"110\" />");
     }
+}
+
+
+void Setting::on_saveeditprivacy_clicked()
+{
+    switch (ui->showpicture_2->currentIndex()) {
+    case 1:
+        howAmI.setPhotoAccessibility(1);
+        break;
+    case 2:
+        howAmI.setPhotoAccessibility(2);
+        break;
+    default:
+        break;
+    }
+
+    switch (ui->showusername_2->currentIndex()) {
+    case 1:
+        howAmI.setNameAccessibility(1);
+        break;
+    case 2:
+        howAmI.setNameAccessibility(2);
+        break;
+    default:
+        howAmI.setNameAccessibility(0);
+        break;
+    }
+
+    switch (ui->showemail_2->currentIndex()) {
+    case 1:
+        howAmI.setEmailAccessibility(1);
+        break;
+    case 2:
+        howAmI.setEmailAccessibility(2);
+        break;
+    default:
+        howAmI.setEmailAccessibility(0);
+        break;
+    }
+
+    switch (ui->showphonenumber_2->currentIndex()) {
+    case 1:
+        howAmI.setPhoneAccessibility(1);
+        break;
+    case 2:
+        howAmI.setPhoneAccessibility(2);
+        break;
+    default:
+        howAmI.setPhoneAccessibility(0);
+        break;
+    }
+
+    switch (ui->showfirstname_2->currentIndex()) {
+    case 1:
+        howAmI.setFirstNameAccessibility(1);
+        break;
+    case 2:
+        howAmI.setFirstNameAccessibility(2);
+        break;
+    default:
+        howAmI.setFirstNameAccessibility(0);
+        break;
+    }
+
+    switch (ui->showlastname_2->currentIndex()) {
+    case 1:
+        howAmI.setLastNameAccessibility(1);
+        break;
+    case 2:
+        howAmI.setLastNameAccessibility(2);
+        break;
+    default:
+        howAmI.setLastNameAccessibility(0);
+        break;
+    }
+
+    switch (ui->showbio_2->currentIndex()) {
+    case 1:
+        howAmI.setBioAccessibility(1);
+        break;
+    case 2:
+        howAmI.setBioAccessibility(2);
+        break;
+    default:
+        howAmI.setBioAccessibility(0);
+        break;
+    }
+
+    maindatabase::Modify_UserAAccessibility(howAmI);
+    on_backbtn_2_clicked();
 }
 

@@ -236,31 +236,31 @@ void user::setBioAccessibility( int in_Accessibility )
     else
         BioAccessibility = General ;
 }
-Access user::getNameAccessibility()
+int user::getNameAccessibility()
 {
     return nameAccessibility ;
 }
-Access user::getPhoneAccessibility()
+int user::getPhoneAccessibility()
 {
     return phoneAccessibility;
 }
-Access user::getPhotoAccessibility()
+int user::getPhotoAccessibility()
 {
     return photoAccessibility;
 }
-Access user::getFirstNameAccessibility()
+int user::getFirstNameAccessibility()
 {
     return nameAccessibility ;
 }
-Access user::getLastNameAccessibility()
+int user::getLastNameAccessibility()
 {
     return phoneAccessibility;
 }
-Access user::getEmailAccessibility()
+int user::getEmailAccessibility()
 {
     return photoAccessibility;
 }
-Access user::getBioAccessibility()
+int user::getBioAccessibility()
 {
     return BioAccessibility;
 }

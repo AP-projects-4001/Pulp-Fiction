@@ -14,19 +14,20 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
     bodyShadow->setColor(QColor(10, 5, 45, 80));
     ui->winstack->setGraphicsEffect(bodyShadow);
 
-        ui->usernamelineedit->setReadOnly(true);
-        ui->biolineedit->setReadOnly(true);
-        ui->firstnamelineedit->setReadOnly(true);
-        ui->phonenumberlineedit->setReadOnly(true);
-        ui->lastnamelineedit->setReadOnly(true);
-        ui->emaillineedit->setReadOnly(true);
 
-        ui->usernamelineedit->hide();
-        ui->biolineedit->hide();
-        ui->firstnamelineedit->hide();
-        ui->phonenumberlineedit->hide();
-        ui->lastnamelineedit->hide();
-        ui->emaillineedit->hide();
+
+    ui->usernamelineedit->setReadOnly(true);
+    ui->biolineedit->setReadOnly(true);
+    ui->firstnamelineedit->setReadOnly(true);
+    ui->phonenumberlineedit->setReadOnly(true);
+    ui->lastnamelineedit->setReadOnly(true);
+    ui->emaillineedit->setReadOnly(true);
+    ui->usernamelineedit->hide();
+    ui->biolineedit->hide();
+    ui->firstnamelineedit->hide();
+    ui->phonenumberlineedit->hide();
+    ui->lastnamelineedit->hide();
+    ui->emaillineedit->hide();
 
     bool isFriend = false;
     QVector<int> :: iterator it;
@@ -122,6 +123,11 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
             const char *c_str2 = ba.data();
             ui->lastnamelineedit->setText(c_str2);
             ui->lastnamelineedit->setReadOnly(true);
+        }
+        if(you.getPhotoAccessibility() == General)
+        {
+            QString picDir = QCoreApplication::applicationDirPath()+"/../"+QString::number(you.get_ID())+".png";
+            ui->profilepicture->setPixmap(QPixmap(picDir));
         }
     }
 }
