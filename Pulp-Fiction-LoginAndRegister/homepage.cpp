@@ -4,6 +4,7 @@
 #include <QLabel>
 #include "maindatabase.h"
 #include "mythread.h"
+#include <QScrollBar>
 QVector<chat*> vec;
 homepage::homepage(user me ,QWidget *parent) :
     QMainWindow(parent),
@@ -97,13 +98,50 @@ homepage::homepage(user me ,QWidget *parent) :
                                     "{color: white;border-radius: 10px;background-color: rgb(42, 46, 52);"
                                     "padding-left: 10px;padding-top: 10px; "
                                     "border-style: solid;border-color: rgb(53, 159, 159);border-width: 1px;}");
+
+    // Try to add style sheet for scrollbar
+
+    QString css_string = "QScrollBar:vertical {"
+            "border: 2px solid grey;"
+            "background-color: rgb(42, 46, 52);border-radius: 20px;"
+            "width: 15px; padding-right: 10px"
+            "margin: 22px 0 22px 0;}"
+        "QScrollBar::handle:vertical {"
+            "background: white;"
+            "min-height: 20px;}"
+        "QScrollBar::add-line:vertical {"
+            "border: 2px solid grey;"
+            "background: #32CC99;"
+            "height: 20px;"
+            "subcontrol-position: bottom;"
+            "subcontrol-origin: margin;}"
+
+        "QScrollBar::sub-line:vertical {"
+            "border: 2px solid grey;border-radius: 10px;"
+            "background: #32CC99;"
+            "height: 20px;"
+            "subcontrol-position: top;"
+            "subcontrol-origin: margin;}"
+        "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {"
+            "border: 2px solid grey;"
+            "width: 3px;"
+            "height: 3px;"
+            "background: white;}"
+
+        "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {"
+            "background: none;}";
+
+    QScrollBar *vbar = ui->messageslist->verticalScrollBar();
+    vbar->setStyleSheet(css_string);
+
     ui->messageslist->setFlow(QListView::LeftToRight);
-    ui->messageslist->setGridSize(QSize(400, 70));
+    ui->messageslist->setGridSize(QSize(600, 70));
     ui->messageslist->setResizeMode(QListView::Adjust);
     ui->messageslist->setViewMode(QListView::ListMode);
     ui->messageslist->setWrapping(true);
     layout = new QVBoxLayout;
     layout->setSizeConstraint(QLayout::SetMinimumSize);
+    ui->messageslist->setLayout(layout);
     this->setLayout(layout);
     mythread->start();
 }
