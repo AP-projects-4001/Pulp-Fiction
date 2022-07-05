@@ -581,6 +581,78 @@ QVector<user> maindatabase::read_AllUsers()
     }
     return Usersvector ;
 }
+
+user maindatabase::getUserdetails(int userid)
+{
+    user mainUser;
+    QFile Db( "MainDatabase.json" ) ;
+    if( !Db.open(QIODevice::ReadOnly) )
+    {
+       qDebug() << "File open error";//temp// error dialog should be open here
+       return  mainUser;
+    }
+    QJsonParseError JsonParseError ;
+    QJsonDocument JsonDoc = QJsonDocument::fromJson(Db.readAll(), &JsonParseError) ;
+    Db.close() ;
+    QJsonArray UsersArray = JsonDoc.object()["Users"].toArray() ;
+    for (int i=0; i < UsersArray.size(); i++)
+    {
+        QJsonObject currUser ;
+        currUser = UsersArray.at(i).toObject() ;
+        if(currUser["ID"].toInt() == userid)
+        {
+            mainUser.set_UserName( currUser["UserName"].toString() ) ;
+            mainUser.set_Firstname( currUser["Firstname"].toString()) ;
+            mainUser.set_Lastname( currUser["Lastname"].toString() ) ;
+            mainUser.set_BirthDate( currUser["BirthDate"].toString() ) ;
+            mainUser.set_ID( currUser["ID"].toInt() ) ;
+            mainUser.set_Password( currUser["Password"].toString() ) ;
+            mainUser.set_EmailAddress( currUser["EmailAddress"].toString() ) ;
+            mainUser.set_PhoneNumber( currUser["PhoneNumber"].toString() ) ;
+            mainUser.set_Bio( currUser["Bio"].toString() ) ;
+            ///
+            mainUser.setBioAccessibility( currUser["BioAccessibility"].toInt() ) ;
+            mainUser.setNameAccessibility( currUser["nameAccessibility"].toInt() ) ;
+            mainUser.setPhoneAccessibility( currUser["phoneAccessibility"].toInt() ) ;
+            mainUser.setPhotoAccessibility( currUser["photoAccessibility"].toInt() ) ;
+            mainUser.setFirstNameAccessibility( currUser["firstNameAccessibility"].toInt() ) ;
+            mainUser.setLastNameAccessibility( currUser["lastNameAccessibility"].toInt() ) ;
+            mainUser.setEmailAccessibility( currUser["emailAccessibility"].toInt() ) ;
+            ///
+            QVector<int> tmpv ;
+            QJsonArray tmparr = currUser["PVchatsID"].toArray() ;
+            for( int i=0 ; i<tmparr.size() ; i++)
+            {
+                tmpv.push_back( tmparr.at(i).toInt() ) ;
+            }
+            mainUser.set_PVchatID( tmpv ) ;
+            QVector<int> tmpv2 ;
+            QJsonArray tmparr2 = currUser["GroupsID"].toArray() ;
+            for( int i=0 ; i<tmparr2.size() ; i++)
+            {
+                tmpv2.push_back( tmparr2.at(i).toInt() ) ;
+            }
+            mainUser.set_GroupsID( tmpv2 ) ;
+            QVector<int> tmpv3 ;
+            QJsonArray tmparr3 = currUser["ChannelsID"].toArray() ;
+            for( int i=0 ; i<tmparr3.size() ; i++)
+            {
+                tmpv3.push_back( tmparr3.at(i).toInt() ) ;
+            }
+            mainUser.set_ChannelsID( tmpv3 ) ;
+            QVector<int> tmpv4 ;
+            QJsonArray tmparr4 = currUser["FriendsID"].toArray() ;
+            for( int i=0 ; i<tmparr4.size() ; i++)
+            {
+                tmpv4.push_back( tmparr4.at(i).toInt() ) ;
+            }
+            mainUser.set_FriendsID( tmpv4 ) ;
+
+            break;
+        }
+    }
+    return mainUser;
+}
 void maindatabase::Delete_UserFriendID(int in_FriendID , user &in_user)
 {
     in_user.delete_FriendID(in_FriendID) ;
