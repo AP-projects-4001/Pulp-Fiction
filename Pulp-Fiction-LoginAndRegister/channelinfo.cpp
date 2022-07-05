@@ -87,6 +87,7 @@ void channelInfo::on_addadminbtn_clicked()
 {
         ui->userslistwidget->show();
         ui->completebtn->show();
+        ui->addmemberbtn->hide();
 
         currMode = AddAdmin;
 
@@ -99,9 +100,9 @@ void channelInfo::on_addadminbtn_clicked()
             QCheckBox* text = writeCheckBox(ui->userslistwidget , layout , itt->get_UserName() );
             cheVec.push_back(text);
             selected.push_back(*itt);
-
         }
-        ui->completebtn->show();
+
+
 }
 
 
@@ -109,6 +110,7 @@ void channelInfo::on_addmemberbtn_clicked()
 {
         ui->userslistwidget->show();
         ui->completebtn->show();
+        ui->addmemberbtn->hide();
 
         currMode = AddMember;
 
@@ -146,7 +148,6 @@ void channelInfo::on_addmemberbtn_clicked()
                 selected.push_back(*itt);
             }
         }
-        ui->completebtn->show();
 }
 
 void channelInfo::on_completebtn_clicked()

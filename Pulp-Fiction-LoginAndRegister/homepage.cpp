@@ -27,6 +27,7 @@ homepage::homepage(user me ,QWidget *parent) :
     ui->infobtn->hide();
     ui->Sendbtn->hide();
     ui->messageslist->hide();
+    ui->widget_2->hide();
 
 
     //here i get all channels , groups and pvs and i make a list widget of chats;
@@ -178,6 +179,7 @@ void homepage::Display(bool isAd)
 {
     if(checkThread == 2)
     {
+        ui->widget_2->show();
         ui->infobtn->hide();
         ui->Sendbtn->hide();
         ui->messagelineedit->hide();
