@@ -11,11 +11,22 @@ homepage::homepage(user me ,QWidget *parent) :
     ui(new Ui::homepage)
 {
     ui->setupUi(this);
+    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    CustomShadowEffect *bodyShadow = new CustomShadowEffect();
+    bodyShadow->setBlurRadius(20.0);
+    bodyShadow->setDistance(4.0);
+    bodyShadow->setColor(QColor(10, 5, 45, 80));
+    ui->centralwidget->setGraphicsEffect(bodyShadow);
+
+
+
     howAmI = me;
     ui->messagelineedit->hide();
     ui->infobtn->hide();
     ui->Sendbtn->hide();
     ui->messageslist->hide();
+
+
 
     mythread = new MyThread(this);
     connect(mythread , SIGNAL(NumberChange()) , this , SLOT(getMessage()));

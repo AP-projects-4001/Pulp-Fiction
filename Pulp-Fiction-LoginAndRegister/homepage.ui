@@ -21,7 +21,20 @@
    <enum>Qt::LeftToRight</enum>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(59, 63, 70);</string>
+   <string notr="true">QWidget{
+	background-color: rgb(59, 63, 70);
+Border-radius: 15px;
+border-style: solid;
+	border-color: rgb(25, 69, 105);
+ border-width: 1px;
+}
+QWidget#centralwidget:hover{
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+	border-color: rgb(245, 179, 1);
+ border-width: 1px;
+	color: rgb(25, 69, 105);
+}</string>
   </property>
   <property name="iconSize">
    <size>
@@ -372,7 +385,7 @@ border-width: 1px;
            </property>
           </widget>
          </item>
-         <item row="5" column="1">
+         <item row="6" column="1">
           <widget class="QPushButton" name="Sendbtn">
            <property name="minimumSize">
             <size>
@@ -411,7 +424,26 @@ border-width: 1px;
            </property>
           </widget>
          </item>
-         <item row="5" column="0" alignment="Qt::AlignVCenter">
+         <item row="3" column="0" colspan="2">
+          <widget class="QListWidget" name="messageslist">
+           <property name="styleSheet">
+            <string notr="true">QListWidget#messageslist {
+color: white;
+border-radius: 10px;
+	background-color: rgb(42, 46, 52);
+padding-left: 10px;
+}
+QListWidget#messageslist:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+	border-color: rgb(245, 179, 1);
+ border-width: 1px;
+	color: rgb(25, 69, 105);
+}</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0" alignment="Qt::AlignVCenter">
           <widget class="QPlainTextEdit" name="messagelineedit">
            <property name="maximumSize">
             <size>
@@ -444,31 +476,12 @@ border-width: 1px;
            </property>
           </widget>
          </item>
-         <item row="3" column="0" colspan="2">
-          <widget class="QListWidget" name="messageslist">
-           <property name="styleSheet">
-            <string notr="true">QListWidget#messageslist {
-color: white;
-border-radius: 10px;
-	background-color: rgb(42, 46, 52);
-padding-left: 10px;
-}
-QListWidget#messageslist:hover {
-	background-color: rgb(42, 46, 52);
-border-style: solid;
-	border-color: rgb(245, 179, 1);
- border-width: 1px;
-	color: rgb(25, 69, 105);
-}</string>
-           </property>
-          </widget>
-         </item>
         </layout>
        </item>
       </layout>
      </widget>
     </item>
-    <item alignment="Qt::AlignHCenter">
+    <item>
      <widget class="QLabel" name="loadingpic">
       <property name="minimumSize">
        <size>
@@ -488,11 +501,28 @@ border-style: solid;
         <height>500</height>
        </size>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel#loadingpic {
+	border-image: url(:/splash/img/splash.png);
+Padding: 1px;
+Border-radius: 55px;
+Color: #fefefe;
+	border-color: rgb(45, 135, 135);
+border-style: solid;
+ border-width: 2px;
+}
+
+QLabel#loadingpic:hover {
+background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 2px;
+color: rgb(241, 182, 88);
+border-color: rgb(245, 179, 1);
+}
+</string>
+      </property>
       <property name="text">
        <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap resource="elements.qrc">:/img/img/chatbackground.jpg</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -507,7 +537,7 @@ border-style: solid;
      <x>0</x>
      <y>0</y>
      <width>1000</width>
-     <height>21</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuMenu">
