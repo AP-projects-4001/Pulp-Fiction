@@ -9,6 +9,7 @@ createchannel::createchannel(user me ,QWidget *parent) :
     howAmI = me;
     ui->winstack->setCurrentIndex(0);
     ui->channelname->clear();
+
     // Sets UI and shadow for it
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     CustomShadowEffect *bodyShadow = new CustomShadowEffect();
