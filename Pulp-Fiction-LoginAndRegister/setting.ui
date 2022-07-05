@@ -3419,58 +3419,6 @@ QLabel#editfriendslbl:hover {
             </property>
            </widget>
           </item>
-          <item>
-           <widget class="QPushButton" name="saveeditfriends">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>15</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>55</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="sizeIncrement">
-             <size>
-              <width>0</width>
-              <height>15</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">
-QPushButton#saveeditfriends{
-color: white;
-border-radius: 5px;
-Background: #393;
-color: #fefefe;
-}
-
-QPushButton#saveeditfriends:hover {
-	background-color: rgb(42, 46, 52);
-border-style: solid;
- border-width: 1px;
-	color: rgb(241, 182, 88);
-}
-
-QPushButton#saveeditfriends:pressed {
-border-style: solid;
-border-width: 1px;
-	background-color: rgb(25, 69, 105);
-	color: rgb(85, 255, 255);
-}</string>
-            </property>
-            <property name="text">
-             <string>Save</string>
-            </property>
-            <property name="icon">
-             <iconset resource="elements.qrc">
-              <normaloff>:/img/img/icons8-save-64 (1).png</normaloff>:/img/img/icons8-save-64 (1).png</iconset>
-            </property>
-           </widget>
-          </item>
          </layout>
         </widget>
        </item>
@@ -3478,19 +3426,6 @@ border-width: 1px;
         <layout class="QVBoxLayout" name="verticalLayout_8">
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_17">
-           <item>
-            <widget class="QLabel" name="label_2">
-             <property name="styleSheet">
-              <string notr="true">color: #fefefe;</string>
-             </property>
-             <property name="text">
-              <string>Search for:</string>
-             </property>
-             <property name="buddy">
-              <cstring>searchcontact</cstring>
-             </property>
-            </widget>
-           </item>
            <item>
             <widget class="QLineEdit" name="searchcontact">
              <property name="styleSheet">
@@ -3522,6 +3457,22 @@ color: rgb(85, 255, 255);
              </property>
             </widget>
            </item>
+           <item>
+            <widget class="QLabel" name="label_2">
+             <property name="styleSheet">
+              <string notr="true">color: #fefefe;</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="pixmap">
+              <pixmap resource="elements.qrc">:/img/img/icons8-find-64 (1).png</pixmap>
+             </property>
+             <property name="buddy">
+              <cstring>searchcontact</cstring>
+             </property>
+            </widget>
+           </item>
           </layout>
          </item>
          <item>
@@ -3548,9 +3499,12 @@ color: rgb(85, 255, 255);
           <widget class="QPushButton" name="deletefriend">
            <property name="minimumSize">
             <size>
-             <width>180</width>
-             <height>0</height>
+             <width>120</width>
+             <height>20</height>
             </size>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::RightToLeft</enum>
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton#deletefriend{
@@ -3564,7 +3518,7 @@ QPushButton#deletefriend:hover {
 	background-color: rgb(42, 46, 52);
 border-style: solid;
  border-width: 1px;
-	color: rgb(241, 182, 88);
+	color: #933;
 }
 
 QPushButton#deletefriend:pressed {
@@ -3575,7 +3529,17 @@ border-width: 1px;
 }</string>
            </property>
            <property name="text">
-            <string>Delete</string>
+            <string>Delete  </string>
+           </property>
+           <property name="icon">
+            <iconset resource="elements.qrc">
+             <normaloff>:/img/img/icons8-delete-64.png</normaloff>:/img/img/icons8-delete-64.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>16</width>
+             <height>16</height>
+            </size>
            </property>
           </widget>
          </item>

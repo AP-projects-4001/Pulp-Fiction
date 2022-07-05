@@ -32,6 +32,7 @@
         <file>img/icons8-menu-rounded-64.png</file>
         <file>img/icons8-complete-64.png</file>
         <file>img/icons8-graph-64.png</file>
+        <file>img/icons8-delete-64.png</file>
     </qresource>
     <qresource prefix="/">
         <file>img/chatbackground.jpg</file>

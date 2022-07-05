@@ -304,6 +304,7 @@ void Setting::on_saveeditprivacy_clicked()
     switch (ui->showpicture_2->currentIndex()) {
     case 1:
         howAmI.setPhotoAccessibility(1);
+        qDebug() << "In only friends privacy";
         break;
     case 2:
         howAmI.setPhotoAccessibility(2);
@@ -433,9 +434,9 @@ void Setting::on_deletefriend_clicked()
     for (int i = 0; i< cheVec.size(); i++) {
         if(cheVec[i]->isChecked())
         {
-            auto item = new QListWidgetItem("", ui->friendslistwidget);
-            auto text = cheVec[i];
-            ui->friendslistwidget->setItemWidget(item, text);
+//            auto item = new QListWidgetItem("", ui->friendslistwidget);
+//            auto text = cheVec[i];
+//            ui->friendslistwidget->setItemWidget(item, text);
             maindatabase::Delete_UserFriendID(selected[i].get_ID(), howAmI);
         }
     }

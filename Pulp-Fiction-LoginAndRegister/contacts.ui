@@ -56,7 +56,7 @@ color: rgb(241, 182, 88);
 }</string>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <widget class="QWidget" name="page1">
         <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -210,19 +210,6 @@ border-width: 1px;
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_2">
              <item>
-              <widget class="QLabel" name="label">
-               <property name="styleSheet">
-                <string notr="true">color: #fefefe;</string>
-               </property>
-               <property name="text">
-                <string>Search for:</string>
-               </property>
-               <property name="buddy">
-                <cstring>searchcontact</cstring>
-               </property>
-              </widget>
-             </item>
-             <item>
               <widget class="QLineEdit" name="searchcontact">
                <property name="styleSheet">
                 <string notr="true">QLineEdit#searchcontact {
@@ -253,6 +240,34 @@ color: rgb(85, 255, 255);
                </property>
               </widget>
              </item>
+             <item>
+              <widget class="QLabel" name="label">
+               <property name="minimumSize">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>60</width>
+                 <height>60</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: #fefefe;</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="pixmap">
+                <pixmap resource="elements.qrc">:/img/img/icons8-find-64 (1).png</pixmap>
+               </property>
+               <property name="buddy">
+                <cstring>searchcontact</cstring>
+               </property>
+              </widget>
+             </item>
             </layout>
            </item>
            <item>
@@ -275,7 +290,7 @@ QPushButton#backbtn:hover {
 	background-color: rgb(42, 46, 52);
 border-style: solid;
  border-width: 1px;
-	color: rgb(241, 182, 88);
+	color: #933;
 }
 
 QPushButton#backbtn:pressed {
@@ -305,7 +320,7 @@ QPushButton#addbtn:hover {
 	background-color: rgb(42, 46, 52);
 border-style: solid;
  border-width: 1px;
-	color: rgb(241, 182, 88);
+	color: #393;
 }
 
 QPushButton#addbtn:pressed {

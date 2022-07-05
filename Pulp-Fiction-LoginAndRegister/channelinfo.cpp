@@ -181,10 +181,6 @@ void channelInfo::on_addmemberbtn_clicked()
         ui->completebtn->show();
 }
 
-
-
-
-
 void channelInfo::on_completebtn_clicked()
 {
     if(currMode == AddMember)
