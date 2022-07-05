@@ -40,11 +40,11 @@ Registered users can use these options .
 
 •	Friendship relations with other users .
 
-## Installation
+# Installation
 
-## License
+# License
 
-## Contacts
+# Contacts
 
 ArefehPourmohammadi : 
 
