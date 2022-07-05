@@ -6,6 +6,7 @@
 #include "maindatabase.h"
 #include "customshadoweffect.h"
 #include <QListWidgetItem>
+#include <QRadioButton>
 
 namespace Ui {
 class Contacts;
@@ -21,6 +22,7 @@ public:
     QString getName () const{return name;}
     QVector<user> write;
     QVector<QCheckBox*> cheVec;
+    QVector<QRadioButton*> radVec;
     QVector<user> selected;
     int getCount();
 
@@ -36,6 +38,8 @@ private slots:
     void on_addbtn_clicked();
 
     void on_alluserslist_itemClicked(QListWidgetItem *item);
+
+    void on_startchat_clicked();
 
 signals:
 
