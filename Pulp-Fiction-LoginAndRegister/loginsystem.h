@@ -48,6 +48,8 @@ private slots:
 
     void on_showpassforforgetpass_clicked();
 
+    void on_closebtn_clicked();
+
 private:
     Ui::LoginSystem *ui;
     homepage *hmpg;

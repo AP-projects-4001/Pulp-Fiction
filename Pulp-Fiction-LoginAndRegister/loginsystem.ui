@@ -73,6 +73,25 @@
     <property name="autoFillBackground">
      <bool>false</bool>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame#frame {
+Padding: 1px;
+Border-radius: 7px;
+Color: #fefefe;
+background-color: rgb(42, 46, 52);
+border-style: none solid solid solid ;
+ border-width: 2px;
+	border-color: rgb(25, 69, 105);
+}
+
+QFrame#frame:hover {
+background-color: rgb(42, 46, 52);
+border-style: none solid solid solid ;
+ border-width: 2px;
+color: rgb(241, 182, 88);
+	border-color: rgb(32, 88, 134);
+}</string>
+    </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
     </property>
@@ -850,6 +869,50 @@ border-width: 1px;
           </widget>
          </item>
         </layout>
+       </widget>
+       <widget class="QToolButton" name="closebtn">
+        <property name="geometry">
+         <rect>
+          <x>710</x>
+          <y>10</y>
+          <width>31</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QToolButton#closebtn {
+color: white;
+color: #fefefe;
+border-radius: 20px;
+}
+
+QToolButton#closebtn:hover {
+border-style: solid;
+ border-width: 2px;
+	border-color: rgb(153, 51, 51);
+border-radius: 15px;
+}
+
+QToolButton#closebtn:pressed {
+border-style: solid;
+border-width: 3.5px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="elements.qrc">
+          <normaloff>:/img/img/icons8-close-64 (1).png</normaloff>:/img/img/icons8-close-64 (1).png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
        </widget>
       </widget>
      </widget>

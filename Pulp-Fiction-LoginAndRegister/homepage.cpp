@@ -11,12 +11,13 @@ homepage::homepage(user me ,QWidget *parent) :
     ui(new Ui::homepage)
 {
     ui->setupUi(this);
-    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+
+
     CustomShadowEffect *bodyShadow = new CustomShadowEffect();
     bodyShadow->setBlurRadius(20.0);
     bodyShadow->setDistance(4.0);
     bodyShadow->setColor(QColor(10, 5, 45, 80));
-    ui->centralwidget->setGraphicsEffect(bodyShadow);
+    ui->widget->setGraphicsEffect(bodyShadow);
 
 
 
@@ -106,44 +107,45 @@ homepage::homepage(user me ,QWidget *parent) :
          this, &homepage::send_clicked);
 //    ui->messageslist->setStyleSheet("background-color : rgba(255,0,0,0%); color : white;");
     ui->messageslist->setStyleSheet("QListWidget#messageslist "
-                                    "{color: white;border-radius: 10px;background-color: rgb(42, 46, 52);"
+                                    "{border-image: url(:/img/img/chatbackground.jpg);color: white;border-radius: 10px;background-color: rgb(42, 46, 52);"
                                     "padding-left: 10px;padding-top: 10px; "
-                                    "border-style: solid;border-color: rgb(53, 159, 159);border-width: 1px;}");
+                                    "border-style: solid;border-color: rgb(53, 159, 159);border-width: 1px;}"
+                                    "QListWidget#messageslist:hover{background-color: rgb(42, 46, 52);"
+                                    "border-style: solid;border-color: rgb(53, 159, 159)}");
 
-    // Try to add style sheet for scrollbar
+/////// Try to add style sheet for scrollbar ////////
+//    QString css_string = "QScrollBar:vertical {"
+//            "border: 2px solid grey;"
+//            "background-color: rgb(42, 46, 52);border-radius: 20px;"
+//            "width: 15px; padding-right: 10px"
+//            "margin: 22px 0 22px 0;}"
+//        "QScrollBar::handle:vertical {"
+//            "background: white;"
+//            "min-height: 20px;}"
+//        "QScrollBar::add-line:vertical {"
+//            "border: 2px solid grey;"
+//            "background: #32CC99;"
+//            "height: 20px;"
+//            "subcontrol-position: bottom;"
+//            "subcontrol-origin: margin;}"
 
-    QString css_string = "QScrollBar:vertical {"
-            "border: 2px solid grey;"
-            "background-color: rgb(42, 46, 52);border-radius: 20px;"
-            "width: 15px; padding-right: 10px"
-            "margin: 22px 0 22px 0;}"
-        "QScrollBar::handle:vertical {"
-            "background: white;"
-            "min-height: 20px;}"
-        "QScrollBar::add-line:vertical {"
-            "border: 2px solid grey;"
-            "background: #32CC99;"
-            "height: 20px;"
-            "subcontrol-position: bottom;"
-            "subcontrol-origin: margin;}"
+//        "QScrollBar::sub-line:vertical {"
+//            "border: 2px solid grey;border-radius: 10px;"
+//            "background: #32CC99;"
+//            "height: 20px;"
+//            "subcontrol-position: top;"
+//            "subcontrol-origin: margin;}"
+//        "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {"
+//            "border: 2px solid grey;"
+//            "width: 3px;"
+//            "height: 3px;"
+//            "background: white;}"
 
-        "QScrollBar::sub-line:vertical {"
-            "border: 2px solid grey;border-radius: 10px;"
-            "background: #32CC99;"
-            "height: 20px;"
-            "subcontrol-position: top;"
-            "subcontrol-origin: margin;}"
-        "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {"
-            "border: 2px solid grey;"
-            "width: 3px;"
-            "height: 3px;"
-            "background: white;}"
+//        "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {"
+//            "background: none;}";
 
-        "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {"
-            "background: none;}";
-
-    QScrollBar *vbar = ui->messageslist->verticalScrollBar();
-    vbar->setStyleSheet(css_string);
+//    QScrollBar *vbar = ui->messageslist->verticalScrollBar();
+//    vbar->setStyleSheet(css_string);
 
     ui->messageslist->setFlow(QListView::LeftToRight);
     ui->messageslist->setGridSize(QSize(600, 70));

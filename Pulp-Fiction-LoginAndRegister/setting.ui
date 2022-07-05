@@ -188,29 +188,11 @@ border-width: 1px;
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">QLabel#profilepicture_2 {
-Padding: 1px;
-Border-radius: 55px;
-Color: #fefefe;
-	border-color: rgb(45, 135, 135);
-border-style: solid;
- border-width: 2px;
-}
-
-QLabel#profilepicture_2:hover {
-background-color: rgb(42, 46, 52);
-border-style: solid;
- border-width: 2px;
-color: rgb(241, 182, 88);
-border-color: rgb(245, 179, 1);
-}
+            <string notr="true">
 </string>
            </property>
            <property name="text">
             <string/>
-           </property>
-           <property name="pixmap">
-            <pixmap resource="elements.qrc">:/img/img/icons8-login-100.png</pixmap>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -585,7 +567,7 @@ QPushButton#savebtn:hover {
 	background-color: rgb(42, 46, 52);
 border-style: solid;
  border-width: 1px;
-	color: rgb(241, 182, 88);
+	color: #393;
 }
 
 QPushButton#savebtn:pressed {
@@ -646,23 +628,7 @@ border-width: 1px;
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">QLabel#profilepicture {
-Padding: 1px;
-Border-radius: 55px;
-Color: #fefefe;
-	border-color: rgb(45, 135, 135);
-border-style: solid;
- border-width: 2px;
-}
-
-QLabel#profilepicture:hover {
-background-color: rgb(42, 46, 52);
-border-style: solid;
- border-width: 2px;
-color: rgb(241, 182, 88);
-border-color: rgb(245, 179, 1);
-}
-</string>
+              <string notr="true"/>
              </property>
              <property name="text">
               <string/>
@@ -3332,102 +3298,15 @@ border-style: solid;
      </widget>
      <widget class="QWidget" name="page_4">
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0">
-        <widget class="QWidget" name="widget_6" native="true">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>40</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>30</height>
-          </size>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_15">
-          <item>
-           <widget class="QPushButton" name="backbtn_3">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>15</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>50</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Back to setting page&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton#backbtn_3{
-color: white;
-border-radius: 5px;
-Background: #933;
-color: #fefefe;
-}
-
-QPushButton#backbtn_3:hover {
-	background-color: rgb(42, 46, 52);
-border-style: solid;
- border-width: 1px;
-	color: rgb(241, 182, 88);
-}
-
-QPushButton#backbtn_3:pressed {
-border-style: solid;
-border-width: 1px;
-	background-color: rgb(25, 69, 105);
-	color: rgb(85, 255, 255);
-}</string>
-            </property>
-            <property name="text">
-             <string>Back</string>
-            </property>
-            <property name="icon">
-             <iconset resource="elements.qrc">
-              <normaloff>:/img/img/icons8-back-48.png</normaloff>:/img/img/icons8-back-48.png</iconset>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="editfriendslbl">
-            <property name="styleSheet">
-             <string notr="true">QLabel#editfriendslbl {
-text-align: center;
-color: rgb(254, 208, 83);
-margin: 0 auto;
-font-size: 20px;
-font-family: 'Droid Sans';
-}
-
-QLabel#editfriendslbl:hover {
-	color: rgb(0, 170, 255);
-}
-</string>
-            </property>
-            <property name="text">
-             <string>Edit friends</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="1" column="0">
+       <item row="2" column="0">
         <layout class="QVBoxLayout" name="verticalLayout_8">
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_17">
            <item>
             <widget class="QLineEdit" name="searchcontact">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Search for a friend&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="styleSheet">
               <string notr="true">QLineEdit#searchcontact {
 padding-left: 10px;
@@ -3458,9 +3337,10 @@ color: rgb(85, 255, 255);
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_2">
+            <widget class="QLabel" name="searchlabel">
              <property name="styleSheet">
-              <string notr="true">color: #fefefe;</string>
+              <string notr="true">
+</string>
              </property>
              <property name="text">
               <string/>
@@ -3480,7 +3360,49 @@ color: rgb(85, 255, 255);
          </item>
         </layout>
        </item>
-       <item row="2" column="0">
+       <item row="1" column="0">
+        <widget class="QWidget" name="widget_6" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>30</height>
+          </size>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_15">
+          <item>
+           <widget class="QLabel" name="editfriendslbl">
+            <property name="styleSheet">
+             <string notr="true">QLabel#editfriendslbl {
+text-align: center;
+color: rgb(254, 208, 83);
+margin: 0 auto;
+font-size: 20px;
+font-family: 'Droid Sans';
+}
+
+QLabel#editfriendslbl:hover {
+	color: rgb(0, 170, 255);
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Edit friends</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="3" column="0">
         <layout class="QHBoxLayout" name="horizontalLayout_16">
          <item>
           <spacer name="horizontalSpacer">
@@ -3544,6 +3466,54 @@ border-width: 1px;
           </widget>
          </item>
         </layout>
+       </item>
+       <item row="0" column="0">
+        <widget class="QPushButton" name="backbtn_3">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>15</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Back to setting page&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton#backbtn_3{
+color: white;
+border-radius: 5px;
+Background: #933;
+color: #fefefe;
+}
+
+QPushButton#backbtn_3:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+QPushButton#backbtn_3:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+         </property>
+         <property name="text">
+          <string>Back</string>
+         </property>
+         <property name="icon">
+          <iconset resource="elements.qrc">
+           <normaloff>:/img/img/icons8-back-48.png</normaloff>:/img/img/icons8-back-48.png</iconset>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>

@@ -63,6 +63,7 @@ private:
 
     QString picName_1, picName_2;
     QString picDir = QCoreApplication::applicationDirPath()+"/../";
+    QString createprofileandstylesheet(QString picDir);
 };
 
 #endif // SETTING_H

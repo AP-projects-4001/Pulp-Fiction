@@ -127,7 +127,22 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
         if(you.getPhotoAccessibility() == General)
         {
             QString picDir = QCoreApplication::applicationDirPath()+"/../"+QString::number(you.get_ID())+".png";
-            ui->profilepicture->setPixmap(QPixmap(picDir));
+            QString borderpic = "border-image: url(" + picDir + ");";
+            QString styleSheet = "QLabel{" + borderpic +
+                    "Padding: 1px;"
+                    "Border-radius: 55px;"
+                    "Color: #fefefe;"
+                        "border-color: rgb(45, 135, 135);"
+                    "border-style: solid;"
+                     "border-width: 2px;}"
+
+                    "QLabel:hover {"
+                    "background-color: rgb(42, 46, 52);"
+                    "border-style: solid;"
+                     "border-width: 2px;"
+                    "color: rgb(241, 182, 88);"
+                    "border-color: rgb(245, 179, 1);}";
+            ui->profilepicture->setStyleSheet(styleSheet);
         }
     }
 }

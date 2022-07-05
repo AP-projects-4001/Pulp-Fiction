@@ -17,7 +17,8 @@ Setting::Setting(user me ,QWidget *parent) :
     ui->winstack->setCurrentIndex(0);
     ui->userusernameforsettinglbl->setText(howAmI.get_UserName());
     picDir = QCoreApplication::applicationDirPath()+"/../"+QString::number(howAmI.get_ID())+".png";
-    ui->profilepicture_2->setPixmap(QPixmap(picDir));
+    QString styleSheet = createprofileandstylesheet(picDir);
+    ui->profilepicture_2->setStyleSheet(styleSheet);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     CustomShadowEffect *bodyShadow = new CustomShadowEffect();
     bodyShadow->setBlurRadius(20.0);
@@ -46,7 +47,9 @@ void Setting::on_editprofile_clicked()
     ui->phoneeditprofile->setValidator(intValidator);
 
 
-    ui->profilepictureeditprofile->setPixmap(QPixmap(picDir));
+    QString styleSheet = createprofileandstylesheet(picDir);
+    ui->profilepictureeditprofile->setStyleSheet(styleSheet);
+
     ui->userideditprofile->setText(QString::number(howAmI.get_ID()));
     ui->firstnameeditprofile->setText(howAmI.get_firstname());
     ui->bioeditprofile->setText(howAmI.get_Bio());
@@ -442,5 +445,25 @@ void Setting::on_deletefriend_clicked()
     }
     maindatabase::Find_user(howAmI);
     on_backbtn_clicked();
+}
+
+QString Setting::createprofileandstylesheet(QString picDir)
+{
+    QString borderpic = "border-image: url(" + picDir + ");";
+    QString styleSheet = "QLabel{" + borderpic +
+            "Padding: 1px;"
+            "Border-radius: 55px;"
+            "Color: #fefefe;"
+                "border-color: rgb(45, 135, 135);"
+            "border-style: solid;"
+             "border-width: 2px;}"
+
+            "QLabel:hover {"
+            "background-color: rgb(42, 46, 52);"
+            "border-style: solid;"
+             "border-width: 2px;"
+            "color: rgb(241, 182, 88);"
+            "border-color: rgb(245, 179, 1);}";
+    return styleSheet;
 }
 

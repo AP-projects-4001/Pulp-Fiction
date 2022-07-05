@@ -5,7 +5,6 @@
 #include <homepage.h>
 #include <QDebug>
 #include <QShortcut>
-#include "setting.h"
 
 LoginSystem::LoginSystem(QWidget *parent) :
     QMainWindow(parent),
@@ -14,6 +13,13 @@ LoginSystem::LoginSystem(QWidget *parent) :
     ui->setupUi(this);
     database = new maindatabase();
     ui->winStack->setCurrentIndex(0);
+
+    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    CustomShadowEffect *bodyShadow = new CustomShadowEffect();
+    bodyShadow->setBlurRadius(20.0);
+    bodyShadow->setDistance(4.0);
+    bodyShadow->setColor(QColor(10, 5, 45, 80));
+    ui->centralWidget->setGraphicsEffect(bodyShadow);
 
     QShortcut *returnShortcut = new QShortcut(QKeySequence("Return"), ui->winStack);
     QObject::connect(returnShortcut, SIGNAL(activated()), ui->loginButton, SLOT(click()));
@@ -336,5 +342,11 @@ void LoginSystem::delay(int sec)
     QTime dieTime= QTime::currentTime().addSecs(sec);
     while (QTime::currentTime() < dieTime)
         QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+}
+
+
+void LoginSystem::on_closebtn_clicked()
+{
+    LoginSystem::close();
 }
 
