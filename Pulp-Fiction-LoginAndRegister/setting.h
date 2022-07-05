@@ -54,6 +54,8 @@ private slots:
 
     void on_searchcontact_textChanged(const QString &arg1);
 
+    void on_deletefriend_clicked();
+
 private:
     Ui::Setting *ui;
     user howAmI;
