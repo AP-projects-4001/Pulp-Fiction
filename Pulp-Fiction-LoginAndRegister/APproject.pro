@@ -15,6 +15,7 @@ SOURCES += \
     createchannel.cpp \
     creategroup.cpp \
     customshadoweffect.cpp \
+    graph.cpp \
     groupclass.cpp \
     homepage.cpp \
     loginsystem.cpp \
@@ -36,6 +37,7 @@ HEADERS += \
     createchannel.h \
     creategroup.h \
     customshadoweffect.h \
+    graph.h \
     groupclass.h \
     homepage.h \
     loginsystem.h \
