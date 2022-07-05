@@ -12,7 +12,6 @@ SOURCES += \
     channelclass.cpp \
     chat.cpp \
     contacts.cpp \
-    countleesCalledfunctions.cpp \
     createchannel.cpp \
     creategroup.cpp \
     customshadoweffect.cpp \
