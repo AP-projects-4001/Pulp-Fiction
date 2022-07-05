@@ -29,12 +29,14 @@ class homepage : public QMainWindow
 
 public:
     explicit homepage(user me , QWidget *parent = nullptr);
+
     void vectroToList();
+
     ~homepage();
 
 public slots:
     void clicked_list_item(QListWidgetItem* item);
-    void send_clicked();
+
     void getMessage();
 
 
@@ -63,6 +65,8 @@ private slots:
 
    void on_actionNew_channel_triggered();
 
+   void on_Sendbtn_clicked();
+
 private:
     Ui::homepage *ui;
     QVector<QListWidgetItem*> list;
@@ -70,26 +74,27 @@ private:
     QVector<int> StoreGroup;
     QVector<int> StoreChannel;
 
-    QVBoxLayout *layout;
 
-    int checkThread = 0;
-    int index = 0;
+    int  checkThread = 0;
+    int  index = 0;
     user howAmI;
 
-    chat* ptr;
-    channel* channelOB;
-    Group* group;
-    pvchat* pv;
+    QVBoxLayout* layout;
 
-    Mode currentMode ;
-    createchannel* dialog;
-    creategroup *creategroupdialog;
-    groupInfo* infoGroup;
-    channelInfo* infoChannel;
-    PvInfo* infoPv;
-    Setting* settingDialog;
-    Contacts* contactDialog;
-    MyThread * mythread;
+    chat   * ptr;
+    channel* channelOB;
+    Group  * group;
+    pvchat * pv;
+
+    Mode           currentMode ;
+    createchannel * dialog;
+    creategroup   * creategroupdialog;
+    groupInfo     * infoGroup;
+    channelInfo   * infoChannel;
+    PvInfo        * infoPv;
+    Setting       * settingDialog;
+    Contacts      * contactDialog;
+    MyThread      * mythread;
 
     void Display(bool isAd);
     void whatIsNew();

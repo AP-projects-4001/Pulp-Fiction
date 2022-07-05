@@ -11,6 +11,17 @@ channel::channel(user in_Owner , QString in_ChannelName)
     Owner = in_Owner ;
     ChannelName = in_ChannelName ;
 }
+
+channel::channel(channel &copyChannel)
+{
+    Owner       = copyChannel.get_Owner() ;
+    setName     (copyChannel.get_ChannelName());
+    set_Messages(copyChannel.get_Messages());
+    set_Admins  (copyChannel.get_Admins());
+    set_Members (copyChannel.get_Members());
+    set_ID      (copyChannel.get_ID());
+    set_Owner   (copyChannel.get_Owner());
+}
 void channel::set_ChannelName(QString in_ChannelName)
 {
     ChannelName = in_ChannelName ;

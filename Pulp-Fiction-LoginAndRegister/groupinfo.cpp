@@ -2,6 +2,7 @@
 #include "ui_groupinfo.h"
 #include "groupclass.h"
 #include "maindatabase.h"
+#include "countlessCalledFunctions.h"
 groupInfo::groupInfo(user me ,QVector<user> members,int id , QWidget *parent) :
     QDialog(parent),
     ui(new Ui::groupInfo)
@@ -26,14 +27,10 @@ groupInfo::groupInfo(user me ,QVector<user> members,int id , QWidget *parent) :
 
     ui->memberslistwidget->setStyleSheet("background-color : rgba(0,0,0,50%); color : with;");
     QVector<user>::iterator itt;
-    for (itt = Groupmembers.begin(); itt != Groupmembers.end(); ++itt) {
-
-            QByteArray ba = itt->get_UserName().toLocal8Bit();
-            const char *c_str2 = ba.data();
-            QListWidgetItem* item = new QListWidgetItem;
-            item->setText(c_str2);
+    for (itt = Groupmembers.begin(); itt != Groupmembers.end(); ++itt)
+    {
+            QListWidgetItem* item = setItemsInListWIdget(ui->memberslistwidget , itt->get_UserName());
             item->setForeground(Qt::yellow);
-            ui->memberslistwidget->addItem(item);
             selectedList.push_back(*itt);
     }
 }
@@ -66,16 +63,12 @@ void groupInfo::on_addmemberbtn_clicked()
 {
     ui->userslistwidget->show();
     ui->completebtn->show();
+
     QVector<user> everyBody = maindatabase::read_AllUsers();
     ui->userslistwidget->setStyleSheet("background-color : rgba(0,0,0,50%); color : white;");
-    ui->userslistwidget->setFlow(QListView::LeftToRight);
-    ui->userslistwidget->setGridSize(QSize(200, 30));
-    ui->userslistwidget->setResizeMode(QListView::Adjust);
-    ui->userslistwidget->setViewMode(QListView::ListMode);
-    ui->userslistwidget->setWrapping(true);
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->setSizeConstraint(QLayout::SetMinimumSize);
-    setLayout(layout);
+
+    QVBoxLayout* layout = setQwidgetItemsInListWidget(ui->userslistwidget , 200 , 30);
+
     ui->userslistwidget->clear();
     QVector<user> ::Iterator itt;
     QVector<user> ::Iterator itt1;
@@ -91,18 +84,9 @@ void groupInfo::on_addmemberbtn_clicked()
          }
         if(check == 0)
         {
-            auto item = new QListWidgetItem("", ui->userslistwidget);
-            auto text = new QCheckBox;
-            QByteArray ba = (itt->get_UserName()).toLocal8Bit();
-            const char *c_str2 = ba.data();
-            text->setText(c_str2);
-            text->setStyleSheet("QCheckBox { background-color : rgba(0,0,0,0%); color : yellow; }");
-            text->setMinimumSize(100, 20);
-            text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
-            layout->addWidget(text);
+            QCheckBox* text = writeCheckBox(ui->userslistwidget , layout , itt->get_UserName() );
             cheVec.push_back(text);
             selected.push_back(*itt);
-            ui->userslistwidget->setItemWidget(item, text);
         }
     }
 }
@@ -111,7 +95,6 @@ void groupInfo::on_addmemberbtn_clicked()
 void groupInfo::on_completebtn_clicked()
 {
     Group gr = Group::read_Group(idGroup);
-    qDebug() << idGroup;
     for(int i = 0 ; i < ui->userslistwidget->count() ; i++)
     {
          if(cheVec[i]->isChecked())

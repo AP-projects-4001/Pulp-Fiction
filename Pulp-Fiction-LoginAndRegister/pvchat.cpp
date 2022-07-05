@@ -7,12 +7,27 @@
 #include<QJsonArray>
 pvchat::pvchat(user in_Owner , user in_Addressee)
 {
-    Owner.set_UserName( in_Owner.get_UserName() ) ;
-    Owner.set_ID( in_Owner.get_ID() ) ;
-    Owner.set_PhoneNumber( in_Owner.get_PhoneNumber() ) ;
+    Owner.set_UserName    ( in_Owner.get_UserName() ) ;
+    Owner.set_ID          ( in_Owner.get_ID() ) ;
+    Owner.set_PhoneNumber ( in_Owner.get_PhoneNumber() ) ;
     Addressee.set_UserName( in_Addressee.get_UserName() ) ;
-    Addressee.set_ID( in_Addressee.get_ID() ) ;
+    Addressee.set_ID      ( in_Addressee.get_ID() ) ;
     Addressee.set_PhoneNumber( in_Addressee.get_PhoneNumber() ) ;
+}
+
+pvchat::pvchat(pvchat &copyPv)
+{
+    Owner.set_UserName    ( copyPv.get_Owner().get_UserName() ) ;
+    Owner.set_ID          ( copyPv.get_Owner().get_ID() ) ;
+    Owner.set_PhoneNumber ( copyPv.get_Owner().get_PhoneNumber() ) ;
+    Addressee.set_UserName( copyPv.get_Addressee().get_UserName() ) ;
+    Addressee.set_ID      ( copyPv.get_Addressee().get_ID() ) ;
+    Addressee.set_PhoneNumber( copyPv.get_Addressee().get_PhoneNumber() ) ;
+
+    this->setName      (copyPv.get_Addressee().get_UserName());
+    this->set_Messages (copyPv.get_Messages());
+    this->set_Addressee(copyPv.get_Addressee());
+    this->set_ID       (copyPv.get_ID());
 }
 user pvchat::get_Addressee()
 {

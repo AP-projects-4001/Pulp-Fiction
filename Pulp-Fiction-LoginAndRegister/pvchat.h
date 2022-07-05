@@ -9,6 +9,7 @@ private:
     user Addressee ;
 public:
     pvchat( user in_Owner , user in_Addressee);
+    pvchat( pvchat& copyPv);
     void Make_NewPVChatFile( QString FileName  ) ;
     QString ExtractFileName( int PVChatID ) ;
     user get_Addressee() ;

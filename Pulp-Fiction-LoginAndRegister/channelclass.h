@@ -11,6 +11,7 @@ private:
     QString ChannelName ;
 public:
     channel(user in_Owner , QString in_ChannelName);
+    channel(channel& copyChannel);
     void set_ChannelName(QString in_ChannelName) ;
     void set_Members( QVector<user> in_Members ) ;
     QString get_ChannelName() ;

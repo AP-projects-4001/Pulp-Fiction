@@ -82,9 +82,10 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
             ui->lastnamelineedit->setReadOnly(true);
         }
     }
+
     else
     {
-        if(you.getNameAccessibility() == Nobody)
+        if(you.getNameAccessibility() == General)
         {
             ui->usernamelineedit->show();
             QByteArray ba = you.get_UserName().toLocal8Bit();

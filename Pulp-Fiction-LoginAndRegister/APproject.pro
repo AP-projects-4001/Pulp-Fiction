@@ -12,6 +12,7 @@ SOURCES += \
     channelclass.cpp \
     chat.cpp \
     contacts.cpp \
+    countleesCalledfunctions.cpp \
     createchannel.cpp \
     creategroup.cpp \
     customshadoweffect.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
     channelclass.h \
     chat.h \
     contacts.h \
+    countlessCalledFunctions.h \
     createchannel.h \
     creategroup.h \
     customshadoweffect.h \

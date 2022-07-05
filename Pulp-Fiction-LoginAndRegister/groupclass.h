@@ -10,6 +10,7 @@ private:
     QVector<user> Members ;
 public:
     Group( user in_Owner , QString in_GroupName );
+    Group(Group& copyGroup);
     QString get_GroupName();
     void set_GroupName(QString in_GroupName) ;
     void set_Members( QVector<user> in_Members ) ;

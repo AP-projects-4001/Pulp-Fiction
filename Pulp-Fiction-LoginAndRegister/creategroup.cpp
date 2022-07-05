@@ -1,4 +1,5 @@
 #include "creategroup.h"
+#include "countlessCalledFunctions.h"
 #include "ui_creategroup.h"
 
 creategroup::creategroup(user me ,QWidget *parent) :
@@ -9,6 +10,7 @@ creategroup::creategroup(user me ,QWidget *parent) :
     howAmI = me;
     ui->winstack->setCurrentIndex(0);
     ui->groupname->clear();
+
     // Sets UI and shadow for it
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     CustomShadowEffect *bodyShadow = new CustomShadowEffect();
@@ -19,32 +21,16 @@ creategroup::creategroup(user me ,QWidget *parent) :
 
     write = maindatabase::read_AllUsers();
     ui->userslist->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
-    ui->userslist->setFlow(QListView::LeftToRight);
-    ui->userslist->setGridSize(QSize(200, 30));
-    ui->userslist->setResizeMode(QListView::Adjust);
-    ui->userslist->setViewMode(QListView::ListMode);
-    ui->userslist->setWrapping(true);
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->setSizeConstraint(QLayout::SetMinimumSize);
-    setLayout(layout);
     ui->userslist->clear();
+    QVBoxLayout* layout = setQwidgetItemsInListWidget(ui->userslist , 200 , 30);
 
     QVector<user>::iterator itt;
     for (itt = write.begin(); itt != write.end(); ++itt) {
         if(itt->get_ID() != me.get_ID())
         {
-            auto item = new QListWidgetItem("", ui->userslist);
-            auto text = new QCheckBox;
-            QByteArray ba = (itt->get_UserName()).toLocal8Bit();
-            const char *c_str2 = ba.data();
-            text->setText(c_str2);
-            text->setStyleSheet("QCheckBox { background-color : rgba(0,0,0,0%); color : white; }");
-            text->setMinimumSize(100, 20);
-            text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
-            layout->addWidget(text);
+            QCheckBox* text = writeCheckBox(ui->userslist , layout , itt->get_UserName());
             selected.push_back(*itt);
             cheVec.push_back(text);
-            ui->userslist->setItemWidget(item, text);
         }
     }
     connect(ui->addbtn, &QPushButton::clicked,

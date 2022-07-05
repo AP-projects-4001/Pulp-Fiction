@@ -1,4 +1,5 @@
 #include "channelinfo.h"
+#include "countlessCalledFunctions.h"
 #include "ui_channelinfo.h"
 #include "maindatabase.h"
 #include <QCheckBox>
@@ -23,33 +24,26 @@ channelInfo::channelInfo(user me , QVector<user> member,QVector<user> admin, int
     int participants = member.size() + admin.size();
     ui->paticipantscount->setText(QString::number(participants));
 
-    ui->memberslistwidget->clear();
     if(Members.size() != 0)
     {
-    QVector<user>::iterator itt;
-    for (itt = Members.begin(); itt != Members.end(); ++itt) {
-
-            QByteArray ba = itt->get_UserName().toLocal8Bit();
-            const char *c_str2 = ba.data();
-            QListWidgetItem* item = new QListWidgetItem;
-            item->setText(c_str2);
+        QVector<user>::iterator itt;
+        for (itt = Members.begin(); itt != Members.end(); ++itt)
+        {
+            QListWidgetItem* item = setItemsInListWIdget(ui->memberslistwidget , itt->get_UserName());
             item->setForeground(Qt::yellow);
-            ui->memberslistwidget->addItem(item);
             selectesList.push_back(*itt);
+        }
     }
-    }
-    else ui->memberslistwidget->hide();
-    ui->adminslistwidget->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
-    ui->adminslistwidget->clear();
-    QVector<user>::iterator itt1;
-    for (itt1 = Admins.begin(); itt1 != Admins.end(); ++itt1) {
+    else
+        ui->memberslistwidget->hide();
 
-            QByteArray ba = itt1->get_UserName().toLocal8Bit();
-            const char *c_str2 = ba.data();
-            QListWidgetItem* item = new QListWidgetItem;
-            item->setText(c_str2);
-            item->setForeground(Qt::yellow);
-            ui->adminslistwidget->addItem(item);
+    ui->adminslistwidget->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
+
+    QVector<user>::iterator itt1;
+    for (itt1 = Admins.begin(); itt1 != Admins.end(); ++itt1)
+    {
+        QListWidgetItem* item = setItemsInListWIdget(ui->adminslistwidget , itt1->get_UserName());
+        item->setForeground(Qt::yellow);
             selectesList.push_back(*itt1);
     }
 }
@@ -79,7 +73,6 @@ void channelInfo::on_adminslistwidget_itemClicked(QListWidgetItem *item)
 }
 void channelInfo::on_memberslistwidget_itemClicked(QListWidgetItem *item)
 {
-    qDebug() << "fjjf";
     for(int i = 0; i < ui->memberslistwidget->count(); ++i)
     {
         if(ui->memberslistwidget->item(i) == item)
@@ -94,31 +87,18 @@ void channelInfo::on_addadminbtn_clicked()
 {
         ui->userslistwidget->show();
         ui->completebtn->show();
+
         currMode = AddAdmin;
+
         ui->userslistwidget->setStyleSheet("background-color : rgba(0,0,0,50%); color : white;");
-        ui->userslistwidget->setFlow(QListView::LeftToRight);
-        ui->userslistwidget->setGridSize(QSize(200, 30));
-        ui->userslistwidget->setResizeMode(QListView::Adjust);
-        ui->userslistwidget->setViewMode(QListView::ListMode);
-        ui->userslistwidget->setWrapping(true);
-        QVBoxLayout *layout = new QVBoxLayout;
-        layout->setSizeConstraint(QLayout::SetMinimumSize);
-        setLayout(layout);
-        ui->userslistwidget->clear();
+        QVBoxLayout* layout = setQwidgetItemsInListWidget(ui->userslistwidget , 200 , 30);
+
         QVector<user> ::Iterator itt;
-        for (itt = Members.begin(); itt != Members.end(); ++itt) {
-                auto item = new QListWidgetItem("", ui->userslistwidget);
-                auto text = new QCheckBox;
-                QByteArray ba = (itt->get_UserName()).toLocal8Bit();
-                const char *c_str2 = ba.data();
-                text->setText(c_str2);
-                text->setStyleSheet("QCheckBox { background-color : rgba(0,0,0,0%); color : yellow; }");
-                text->setMinimumSize(100, 20);
-                text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
-                layout->addWidget(text);
-                cheVec.push_back(text);
-                selected.push_back(*itt);
-                ui->userslistwidget->setItemWidget(item, text);
+        for (itt = Members.begin(); itt != Members.end(); ++itt)
+        {
+            QCheckBox* text = writeCheckBox(ui->userslistwidget , layout , itt->get_UserName() );
+            cheVec.push_back(text);
+            selected.push_back(*itt);
 
         }
         ui->completebtn->show();
@@ -129,18 +109,15 @@ void channelInfo::on_addmemberbtn_clicked()
 {
         ui->userslistwidget->show();
         ui->completebtn->show();
+
         currMode = AddMember;
+
         QVector<user> everyBody = maindatabase::read_AllUsers();
+
         ui->userslistwidget->setStyleSheet("background-color : rgba(0,0,0,50%); color : white;");
-        ui->userslistwidget->setFlow(QListView::LeftToRight);
-        ui->userslistwidget->setGridSize(QSize(200, 30));
-        ui->userslistwidget->setResizeMode(QListView::Adjust);
-        ui->userslistwidget->setViewMode(QListView::ListMode);
-        ui->userslistwidget->setWrapping(true);
-        QVBoxLayout *layout = new QVBoxLayout;
-        layout->setSizeConstraint(QLayout::SetMinimumSize);
-        setLayout(layout);
+        QVBoxLayout* layout = setQwidgetItemsInListWidget(ui->userslistwidget , 200 , 30);
         ui->userslistwidget->clear();
+
         QVector<user> ::Iterator itt;
         QVector<user> ::Iterator itt1;
         QVector<user> ::Iterator itt2;
@@ -164,18 +141,9 @@ void channelInfo::on_addmemberbtn_clicked()
              }
             if(check == 0)
             {
-                auto item = new QListWidgetItem("", ui->userslistwidget);
-                auto text = new QCheckBox;
-                QByteArray ba = (itt->get_UserName()).toLocal8Bit();
-                const char *c_str2 = ba.data();
-                text->setText(c_str2);
-                text->setStyleSheet("QCheckBox { background-color : rgba(250,0,0,0%); color : yellow; }");
-                text->setMinimumSize(100, 20);
-                text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
-                layout->addWidget(text);
+                QCheckBox* text = writeCheckBox(ui->userslistwidget , layout , itt->get_UserName() );
                 cheVec.push_back(text);
                 selected.push_back(*itt);
-                ui->userslistwidget->setItemWidget(item, text);
             }
         }
         ui->completebtn->show();

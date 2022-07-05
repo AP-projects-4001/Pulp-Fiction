@@ -11,6 +11,16 @@ Group::Group(user in_Owner , QString in_GroupName)
     Owner = in_Owner ;
     GroupName = in_GroupName ;
 }
+
+Group::Group(Group &copyGroup)
+{
+    Owner     = copyGroup.get_Owner() ;
+    GroupName = copyGroup.get_GroupName();
+    setName     (copyGroup.get_GroupName());
+    set_Members (copyGroup.get_Member());
+    set_Messages(copyGroup.get_Messages());
+    set_ID      (copyGroup.get_ID());
+}
 QString Group::get_GroupName()
 {
     return GroupName ;
