@@ -432,14 +432,26 @@ void homepage::whatIsNew()
         for(int it2 = j2 ; it2 != i2 ; it2++ )
         {
             pvchat obchat = pvchat::read_PVChat(TemPv[it2]);
-            QString s = obchat.get_Addressee().get_UserName();
-            QListWidgetItem *item = setItemsInListWIdget(ui->listofusersgroupschanels , s);
-            list.push_back(item);
+            if(obchat.get_Owner().get_ID() == howAmI.get_ID())
+            {
+                QString s = obchat.get_Addressee().get_UserName();
+                QListWidgetItem *item = setItemsInListWIdget(ui->listofusersgroupschanels , s);
+                list.push_back(item);
 
-            pv = new pvchat(obchat);
+                pv = new pvchat(obchat);
+                pv->setName(obchat.get_Addressee().get_UserName());
+            }
+            else
+            {
+                QString s = obchat.get_Owner().get_UserName();
+                QListWidgetItem *item = setItemsInListWIdget(ui->listofusersgroupschanels , s);
+                list.push_back(item);
+
+                pv = new pvchat(obchat);
+                pv->setName(obchat.get_Owner().get_UserName());
+            }
             vec.push_back(pv);
             StorePv.push_back(TemPv[it2]);
-
         }
         checkThread=1;
     }
@@ -506,6 +518,7 @@ void homepage::on_contactsbtn_clicked()
             }
 
         }
+        qDebug() << 6;
         if(i == contactDialog->radVec.size())
             return;
         int j = maindatabase::Creat_PVChatID();
@@ -527,7 +540,7 @@ void homepage::on_contactsbtn_clicked()
         pv->setName(obchat.get_Addressee().get_UserName());
         vec.push_back(pv);
         StorePv.push_back(obchat.get_ID());
-
+        PVs.push_back(obchat.get_Addressee());
         clicked_list_item(item);
     }
 

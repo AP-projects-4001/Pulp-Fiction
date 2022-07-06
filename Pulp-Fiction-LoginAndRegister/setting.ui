@@ -54,7 +54,7 @@ color: rgb(241, 182, 88);
 }</string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="page">
       <property name="styleSheet">
@@ -188,8 +188,7 @@ border-width: 1px;
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">
-</string>
+            <string notr="true"/>
            </property>
            <property name="text">
             <string/>
@@ -3339,8 +3338,7 @@ color: rgb(85, 255, 255);
            <item>
             <widget class="QLabel" name="searchlabel">
              <property name="styleSheet">
-              <string notr="true">
-</string>
+              <string notr="true"/>
              </property>
              <property name="text">
               <string/>
