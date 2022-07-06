@@ -222,7 +222,7 @@ void homepage::on_Sendbtn_clicked()
        QString dir =  vec[index]->ExtractFileName(vec[index]->get_ID());
        vec[index]->add_Message(mes , dir ) ;
 
-       writeMessages(ui->messageslist , layout , mes );
+       writeMessages(ui->messageslist , layout , mes);
 
        ui->messagelineedit->clear();
        ui->messagelineedit->setFocus(Qt::OtherFocusReason);
@@ -257,8 +257,9 @@ void homepage::vectroToList()
     QVector<QString>::iterator itt;
     for (itt = write.begin(); itt != write.end(); ++itt)
     {
-        writeMessages(ui->messageslist , layout , *itt );
+        writeMessages(ui->messageslist , layout , *itt, 1);
     }
+    ui->messageslist->scrollToBottom();
 }
 
 void homepage::on_actionNew_group_triggered()
@@ -432,7 +433,6 @@ void homepage::whatIsNew()
         {
             pvchat obchat = pvchat::read_PVChat(TemPv[it2]);
             QString s = obchat.get_Addressee().get_UserName();
-
             QListWidgetItem *item = setItemsInListWIdget(ui->listofusersgroupschanels , s);
             list.push_back(item);
 
@@ -517,6 +517,7 @@ void homepage::on_contactsbtn_clicked()
         maindatabase::Push_UserPVChatID(j,contactDialog->radSelcted[i]);
 
         pvchat obchat = pvchat::read_PVChat(j);
+
         QString s = obchat.get_Addressee().get_UserName();
 
         QListWidgetItem *item = setItemsInListWIdget(ui->listofusersgroupschanels , s);

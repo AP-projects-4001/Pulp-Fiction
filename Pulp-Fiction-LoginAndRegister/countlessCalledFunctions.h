@@ -29,18 +29,26 @@ inline QVBoxLayout* setQwidgetItemsInListWidget(QListWidget* list , int w , int 
     list->setLayout(layout);
     return layout;
 }
-inline void writeMessages(QListWidget* list ,QVBoxLayout* layout , QString mes )
+inline void writeMessages(QListWidget* list ,QVBoxLayout* layout , QString mes, int status = 0)
 {
     auto item = new QListWidgetItem("", list);
     auto text = new QTextEdit;
     QByteArray ba = mes.toLocal8Bit();
     const char *c_str2 = ba.data();
     text->setText(c_str2);
-    text->setStyleSheet("QTextEdit "
-                        "{color: black;border-radius: 10px;background-color: rgb(154,123,8);padding-left: 10px;}"
-                        " QTextEdit:hover "
-                        "{background-color: rgb(42, 46, 52);border-style: solid;border-color: rgb(53, 159, 159);"
-                        "border-width: 1px;color: rgb(241, 182, 88);}");
+
+    if(status)
+        text->setStyleSheet("QTextEdit "
+                            "{color: black;border-radius: 10px;background-color: rgb(177,141,9);padding-left: 10px;}"
+                            " QTextEdit:hover "
+                            "{background-color: rgb(42, 46, 52);border-style: solid;border-color: rgb(53, 159, 159);"
+                            "border-width: 1px;color: rgb(241, 182, 88);}");
+    else
+        text->setStyleSheet("QTextEdit "
+                            "{color: black;border-radius: 10px;background-color: rgb(154,123,8);padding-left: 10px;}"
+                            " QTextEdit:hover "
+                            "{background-color: rgb(42, 46, 52);border-style: solid;border-color: rgb(53, 159, 159);"
+                            "border-width: 1px;color: rgb(241, 182, 88);}");
 
     text->setMinimumSize(200, 50);
     text->setReadOnly(true);

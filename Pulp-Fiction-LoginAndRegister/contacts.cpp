@@ -72,19 +72,38 @@ void Contacts::on_newcontact_clicked()
 void Contacts::on_searchcontact_textChanged(const QString &arg1)
 {
     ui->alluserslist->clear();
+    if(arg1 == "")
+    {
+        on_newcontact_clicked();
+        return;
+    }
     write = maindatabase::read_AllUsers();
     ui->alluserslist->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
     QVBoxLayout* layout = setQwidgetItemsInListWidget(ui->alluserslist , 200 , 30);
     ui->alluserslist->clear();
 
     QVector<user>::iterator itt;
-    for (itt = write.begin(); itt != write.end(); ++itt) {
-        if((itt->get_UserName().contains(arg1) || itt->get_PhoneNumber().contains(arg1) || itt->get_EmailAddress().contains(arg1) || itt->get_firstname().contains(arg1)) && itt->get_ID() != howAmI.get_ID())
+    for (itt = write.begin(); itt != write.end(); ++itt)
+    {
+        bool isfriend = false;
+        if(itt->get_ID() != howAmI.get_ID())
         {
+            for(int i = 0; i<howAmI.get_FriendsID().size();i++)
+            {
+                if(howAmI.get_FriendsID()[i] == itt->get_ID())
+                {
+                    isfriend = true;
+                    break;
+                }
+            }
+            if(!isfriend && (itt->get_UserName().contains(arg1) || itt->get_EmailAddress().contains(arg1) || itt->get_PhoneNumber().contains(arg1)))
+            {
+
                 QCheckBox* text = writeCheckBox(ui->alluserslist ,layout , itt->get_UserName());
                 text->setStyleSheet("QCheckBox { background-color : rgba(0,0,0,0%); color : white; }");
                 selected.push_back(*itt);
                 cheVec.push_back(text);
+            }
         }
     }
 }
@@ -136,16 +155,5 @@ void Contacts::showfriendsonlistwidget()
         radVec.push_back(text);
     }
 }
-
-
-//void Contacts::on_startchat_clicked()
-//{
-//    for (int i = 0; i< radVec.size(); i++) {
-//        if(radVec[i]->isChecked())
-//        {
-////             maindatabase::Push_UserFriendID(selected[i].get_ID(), howAmI);
-//        }
-//    }
-//}
 
 
