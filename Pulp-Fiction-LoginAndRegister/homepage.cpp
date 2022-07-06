@@ -6,7 +6,7 @@
 #include "maindatabase.h"
 #include "mythread.h"
 #include <QScrollBar>
-QVector<chat*> vec;
+
 homepage::homepage(user me ,QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::homepage)
@@ -37,13 +37,24 @@ homepage::homepage(user me ,QWidget *parent) :
     for(pvid = StorePv.begin() ; pvid != StorePv.end() ; pvid++)
     {
         pvchat obchat = pvchat::read_PVChat(*pvid);
-        QString s = obchat.get_Addressee().get_UserName();
+        QString s;
+        if(obchat.get_Addressee().get_ID() == howAmI.get_ID())
+        {
+            s = obchat.get_Owner().get_UserName();
+            PVs.push_back(obchat.get_Owner());
+        }
+        else
+        {
+            s = obchat.get_Addressee().get_UserName();
+            PVs.push_back(obchat.get_Addressee());
+        }
 
         QListWidgetItem *item = setItemsInListWIdget(ui->listofusersgroupschanels , s);
         list.push_back(item);
 
-        pv = new pvchat(obchat);
+        pv = new pvchat(obchat , howAmI);
         vec.push_back(pv);
+
     }
 
     StoreGroup = howAmI.get_GroupsID();
@@ -356,7 +367,10 @@ void homepage::on_infobtn_clicked()
     if(currentMode == PvMode)
     {
         pvchat obchat = pvchat::read_PVChat(vec[index]->get_ID());
-        infoPv = new PvInfo(howAmI , obchat.get_Addressee(), this);
+        if(obchat.get_Addressee().get_ID() == howAmI.get_ID())
+            infoPv = new PvInfo(howAmI , obchat.get_Owner(), this);
+        else
+            infoPv = new PvInfo(howAmI , obchat.get_Addressee(), this);
         infoPv->show();
     }
 }
@@ -463,18 +477,19 @@ void homepage::on_contactsbtn_clicked()
 {
     contactDialog = new Contacts(howAmI, this);
     contactDialog->show();
-    int i;
+    int i;   
     if(contactDialog->exec() == QDialog::Accepted)
     {
-        qDebug() << "KGKGKG";
+
         for( i = 0 ; i < contactDialog->getCount() ; i++)
         {
             if(contactDialog->radVec[i]->isChecked())
             {
-                for(int j = 0 ; j < vec.size() ; j++)
+                for(int j = 0 ; j < PVs.size() ; j++)
                 {
-                    if(contactDialog->radSelcted[i].get_ID() == vec[j]->get_ID())
+                    if(contactDialog->radSelcted[i].get_ID() == PVs[j].get_ID())
                     {
+
                         ptr = vec[j];
                         pvchat* ptr3 = dynamic_cast<pvchat*>(ptr);
                         if(ptr3 != nullptr)

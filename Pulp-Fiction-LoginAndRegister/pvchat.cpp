@@ -15,19 +15,38 @@ pvchat::pvchat(user in_Owner , user in_Addressee)
     Addressee.set_PhoneNumber( in_Addressee.get_PhoneNumber() ) ;
 }
 
-pvchat::pvchat(pvchat &copyPv)
+pvchat::pvchat(pvchat &copyPv , user howAmI)
 {
-    Owner.set_UserName    ( copyPv.get_Owner().get_UserName() ) ;
-    Owner.set_ID          ( copyPv.get_Owner().get_ID() ) ;
-    Owner.set_PhoneNumber ( copyPv.get_Owner().get_PhoneNumber() ) ;
-    Addressee.set_UserName( copyPv.get_Addressee().get_UserName() ) ;
-    Addressee.set_ID      ( copyPv.get_Addressee().get_ID() ) ;
-    Addressee.set_PhoneNumber( copyPv.get_Addressee().get_PhoneNumber() ) ;
+    if(howAmI.get_ID() == copyPv.get_Owner().get_ID())
+    {
+        qDebug() << "i am in constructor";
+        Owner.set_UserName    ( copyPv.get_Owner().get_UserName() ) ;
+        Owner.set_ID          ( copyPv.get_Owner().get_ID() ) ;
+        Owner.set_PhoneNumber ( copyPv.get_Owner().get_PhoneNumber() ) ;
+        Addressee.set_UserName( copyPv.get_Addressee().get_UserName() ) ;
+        Addressee.set_ID      ( copyPv.get_Addressee().get_ID() ) ;
+        Addressee.set_PhoneNumber( copyPv.get_Addressee().get_PhoneNumber() ) ;
 
-    this->setName      (copyPv.get_Addressee().get_UserName());
-    this->set_Messages (copyPv.get_Messages());
-    this->set_Addressee(copyPv.get_Addressee());
-    this->set_ID       (copyPv.get_ID());
+        setName      (copyPv.get_Addressee().get_UserName());
+        set_Messages (copyPv.get_Messages());
+        set_Addressee(copyPv.get_Addressee());
+        set_ID       (copyPv.get_ID());
+        qDebug() << getName();
+    }
+    else
+    {
+        Owner.set_UserName    ( copyPv.get_Addressee().get_UserName() ) ;
+        Owner.set_ID          ( copyPv.get_Addressee().get_ID() ) ;
+        Owner.set_PhoneNumber ( copyPv.get_Addressee().get_PhoneNumber() ) ;
+        Addressee.set_UserName( copyPv.get_Owner().get_UserName() ) ;
+        Addressee.set_ID      ( copyPv.get_Owner().get_ID() ) ;
+        Addressee.set_PhoneNumber( copyPv.get_Owner().get_PhoneNumber() ) ;
+
+        setName      (copyPv.get_Owner().get_UserName());
+        set_Messages (copyPv.get_Messages());
+        set_Addressee(copyPv.get_Owner());
+        set_ID       (copyPv.get_ID());
+    }
 }
 user pvchat::get_Addressee()
 {
