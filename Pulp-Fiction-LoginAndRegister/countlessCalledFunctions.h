@@ -1,6 +1,7 @@
 #ifndef COUNTLESSCALLEDFUNCTIONS_H
 #define COUNTLESSCALLEDFUNCTIONS_H
 #include <QTextEdit>
+#include <QRadioButton>
 #include <QVBoxLayout>
 #include <QListWidget>
 #include <QListWidgetItem>
@@ -55,6 +56,20 @@ inline QCheckBox* writeCheckBox(QListWidget* list ,QVBoxLayout* layout , QString
     text->setText(c_str2);
     text->setStyleSheet("QCheckBox { background-color : rgba(0,0,0,0%); color : yellow; }");
     text->setMinimumSize(100, 20);
+    layout->addWidget(text);
+    list->setItemWidget(item, text);
+    return text;
+}
+inline QRadioButton* writeRAdioButton(QListWidget* list ,QVBoxLayout* layout , QString mes)
+{
+    auto item = new QListWidgetItem("", list);
+    auto text = new QRadioButton;
+    QByteArray ba = mes.toLocal8Bit();
+    const char *c_str2 = ba.data();
+    text->setText(c_str2);
+    text->setStyleSheet("QRadioButton { background-color : rgba(0,0,0,0%); color : white; padding-left:10px; padding-top:5px;}");
+    text->setMinimumSize(100, 20);
+    text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
     layout->addWidget(text);
     list->setItemWidget(item, text);
     return text;

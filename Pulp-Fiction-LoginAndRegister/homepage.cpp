@@ -78,7 +78,6 @@ homepage::homepage(user me ,QWidget *parent) :
 
     ui->listofusersgroupschanels->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 
-//    ui->messageslist->setStyleSheet("background-color : rgba(255,0,0,0%); color : white;");
     ui->messageslist->setStyleSheet("QListWidget#messageslist "
                                     "{border-image: url(:/img/img/chatbackground.jpg);color: white;border-radius: 10px;background-color: rgb(42, 46, 52);"
                                     "padding-left: 10px;padding-top: 10px; "
@@ -365,9 +364,11 @@ void homepage::on_infobtn_clicked()
 void homepage::whatIsNew()
 {
     maindatabase::Find_user(howAmI);
+
     QVector<int> TemChannel = howAmI.get_ChannelsID();
     int i1 = TemChannel.size();
     int j1 = StoreChannel.size();
+
     if(i1 > j1)
     {
         for(int it1 = j1 ; it1 != i1 ; it1++ )
@@ -462,46 +463,53 @@ void homepage::on_contactsbtn_clicked()
 {
     contactDialog = new Contacts(howAmI, this);
     contactDialog->show();
+    int i;
+    if(contactDialog->exec() == QDialog::Accepted)
+    {
+        qDebug() << "KGKGKG";
+        for( i = 0 ; i < contactDialog->getCount() ; i++)
+        {
+            if(contactDialog->radVec[i]->isChecked())
+            {
+                for(int j = 0 ; j < vec.size() ; j++)
+                {
+                    if(contactDialog->radSelcted[i].get_ID() == vec[j]->get_ID())
+                    {
+                        ptr = vec[j];
+                        pvchat* ptr3 = dynamic_cast<pvchat*>(ptr);
+                        if(ptr3 != nullptr)
+                        {
+                            clicked_list_item(list[j]);
+                            return;
+                        }
+                    }
+                }
+                break;
+            }
 
-//    if(contactDialog->exec() == QDialog::Accepted)
-//    {
-//        int j = maindatabase::Creat_PVChatID();
-//        QByteArray ba1 = dialog->getName().toLocal8Bit();
-//        const char *c_str21 = ba1.data();
-//        channel gr(howAmI , c_str21);
-//        gr.set_ID(j);
-//        gr.Make_NewChannelFile(gr.ExtractFileName(j));
-//        maindatabase::Add_Channel(gr);
-//        gr.add_Admins(howAmI , gr.ExtractFileName(j));
-//        maindatabase::Push_UserChannelID(j,howAmI);
-//        for(int i = 0 ; i < dialog->getCount() ; i++)
-//        {
-//            if(dialog->cheVec[i]->isChecked())
-//            {
-//                gr.add_Member(dialog->selected[i] , gr.ExtractFileName(j));
-//                maindatabase::Push_UserChannelID(j,dialog->selected[i]);
-//            }
+        }
+        if(i == contactDialog->getCount())
+            return;
+        int j = maindatabase::Creat_PVChatID();
+        pvchat gr(howAmI , contactDialog->radSelcted[i]);
+        gr.set_ID(j);
+        gr.Make_NewPVChatFile(gr.ExtractFileName(j));
+        maindatabase::Add_PVChat(gr);
+        maindatabase::Push_UserPVChatID(j,howAmI);
+        maindatabase::Push_UserPVChatID(j,contactDialog->radSelcted[i]);
 
-//        }
-//        channel obchat = channel::read_channel(j);
-//        QString s = obchat.get_ChannelName();
-//        QByteArray ba = s.toLocal8Bit();
-//        const char *c_str2 = ba.data();
-//        QListWidgetItem* item = new QListWidgetItem;
-//        item->setText(c_str2);
-//        item->setForeground(Qt::white);
-//        ui->listofusersgroupschanels->addItem(item);
-//        list.push_back(item);
-//        channelOB = new channel (obchat.get_Owner() , obchat.get_ChannelName());
-//        channelOB->setName    (obchat.get_ChannelName());
-//        channelOB->set_Members(obchat.get_Members());
-//        channelOB->set_Admins (obchat.get_Admins());
-//        channelOB->set_Messages(obchat.get_Messages());
-//        channelOB->set_ID(obchat.get_ID());
-//        StoreChannel.push_back(obchat.get_ID());
-//        vec.push_back(channelOB);
-//        clicked_list_item(item);
-//    }
+        pvchat obchat = pvchat::read_PVChat(j);
+        QString s = obchat.get_Addressee().get_UserName();
+
+        QListWidgetItem *item = setItemsInListWIdget(ui->listofusersgroupschanels , s);
+        list.push_back(item);
+
+        pv = new pvchat(obchat);
+        vec.push_back(pv);
+        StorePv.push_back(obchat.get_ID());
+
+        clicked_list_item(item);
+    }
 
 }
 void homepage::on_settingbtn_clicked()

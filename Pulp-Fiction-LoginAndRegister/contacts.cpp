@@ -1,7 +1,7 @@
 #include "contacts.h"
 #include "ui_contacts.h"
 #include "QCheckBox"
-
+#include "countlessCalledFunctions.h"
 Contacts::Contacts(user me ,QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Contacts)
@@ -17,6 +17,8 @@ Contacts::Contacts(user me ,QWidget *parent) :
     bodyShadow->setColor(QColor(10, 5, 45, 80));
     ui->winstack->setGraphicsEffect(bodyShadow);
 
+    connect(ui->startchat, &QPushButton::clicked,
+            this, &Contacts::accept);
     showfriendsonlistwidget();
 }
 
@@ -25,47 +27,42 @@ Contacts::~Contacts()
     delete ui;
 }
 
+int Contacts::getCount()
+{
+    return ui->freindslist->count();
+}
+
 void Contacts::on_newcontact_clicked()
 {
     ui->winstack->setCurrentIndex(1);
     write = maindatabase::read_AllUsers();
     ui->alluserslist->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
-    ui->alluserslist->setFlow(QListView::LeftToRight);
-    ui->alluserslist->setGridSize(QSize(200, 30));
-    ui->alluserslist->setResizeMode(QListView::Adjust);
-    ui->alluserslist->setViewMode(QListView::ListMode);
-    ui->alluserslist->setWrapping(true);
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->setSizeConstraint(QLayout::SetMinimumSize);
-    setLayout(layout);
+
+   QVBoxLayout* layout = setQwidgetItemsInListWidget(ui->alluserslist , 200 , 30);
+
     ui->alluserslist->clear();
 
-    bool isfriend = false;
 
     QVector<user>::iterator itt;
     for (itt = write.begin(); itt != write.end(); ++itt) {
+        bool isfriend = false;
         if(itt->get_ID() != howAmI.get_ID())
         {
             for(int i = 0; i<howAmI.get_FriendsID().size();i++)
             {
                 if(howAmI.get_FriendsID()[i] == itt->get_ID())
+                {
                     isfriend = true;
+                    break;
+                }
             }
             if(!isfriend)
             {
 
-                auto item = new QListWidgetItem("", ui->alluserslist);
-                auto text = new QCheckBox;
-                QByteArray ba = (itt->get_UserName()).toLocal8Bit();
-                const char *c_str2 = ba.data();
-                text->setText(c_str2);
+                QCheckBox* text = writeCheckBox(ui->alluserslist ,layout , itt->get_UserName());
                 text->setStyleSheet("QCheckBox { background-color : rgba(0,0,0,0%); color : white; }");
-                text->setMinimumSize(100, 20);
-                text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
-                layout->addWidget(text);
                 selected.push_back(*itt);
                 cheVec.push_back(text);
-                ui->alluserslist->setItemWidget(item, text);
             }
         }
     }
@@ -77,32 +74,17 @@ void Contacts::on_searchcontact_textChanged(const QString &arg1)
     ui->alluserslist->clear();
     write = maindatabase::read_AllUsers();
     ui->alluserslist->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
-    ui->alluserslist->setFlow(QListView::LeftToRight);
-    ui->alluserslist->setGridSize(QSize(200, 30));
-    ui->alluserslist->setResizeMode(QListView::Adjust);
-    ui->alluserslist->setViewMode(QListView::ListMode);
-    ui->alluserslist->setWrapping(true);
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->setSizeConstraint(QLayout::SetMinimumSize);
-    setLayout(layout);
+    QVBoxLayout* layout = setQwidgetItemsInListWidget(ui->alluserslist , 200 , 30);
     ui->alluserslist->clear();
 
     QVector<user>::iterator itt;
     for (itt = write.begin(); itt != write.end(); ++itt) {
         if((itt->get_UserName().contains(arg1) || itt->get_PhoneNumber().contains(arg1) || itt->get_EmailAddress().contains(arg1) || itt->get_firstname().contains(arg1)) && itt->get_ID() != howAmI.get_ID())
         {
-                auto item = new QListWidgetItem("", ui->alluserslist);
-                auto text = new QCheckBox;
-                QByteArray ba = (itt->get_UserName()).toLocal8Bit();
-                const char *c_str2 = ba.data();
-                text->setText(c_str2);
+                QCheckBox* text = writeCheckBox(ui->alluserslist ,layout , itt->get_UserName());
                 text->setStyleSheet("QCheckBox { background-color : rgba(0,0,0,0%); color : white; }");
-                text->setMinimumSize(100, 20);
-                text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
-                layout->addWidget(text);
                 selected.push_back(*itt);
                 cheVec.push_back(text);
-                ui->alluserslist->setItemWidget(item, text);
         }
     }
 }
@@ -132,59 +114,12 @@ void Contacts::on_addbtn_clicked()
 }
 
 
-void Contacts::on_alluserslist_itemClicked(QListWidgetItem *item)
-{
-//    maindatabase::Find_user(howAmI);
-
-//    ui->alluserslist->clear();
-//    write = maindatabase::read_AllUsers();
-//    ui->alluserslist->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
-//    ui->alluserslist->setFlow(QListView::LeftToRight);
-//    ui->alluserslist->setGridSize(QSize(200, 30));
-//    ui->alluserslist->setResizeMode(QListView::Adjust);
-//    ui->alluserslist->setViewMode(QListView::ListMode);
-//    ui->alluserslist->setWrapping(true);
-//    QVBoxLayout *layout = new QVBoxLayout;
-//    layout->setSizeConstraint(QLayout::SetMinimumSize);
-//    setLayout(layout);
-//    ui->alluserslist->clear();
-
-//    QVector<user>::iterator itt;
-//    for (itt = write.begin(); itt != write.end(); ++itt) {
-//        if((itt->get_UserName().contains(arg1) || itt->get_PhoneNumber().contains(arg1) || itt->get_EmailAddress().contains(arg1) || itt->get_firstname().contains(arg1)) && itt->get_ID() != howAmI.get_ID())
-//        {
-//            auto item = new QListWidgetItem("", ui->alluserslist);
-//            auto text = new QCheckBox;
-//            QByteArray ba = (itt->get_UserName()).toLocal8Bit();
-//            const char *c_str2 = ba.data();
-//            text->setText(c_str2);
-//            text->setStyleSheet("QCheckBox { background-color : rgba(0,0,0,0%); color : white; }");
-//            text->setMinimumSize(100, 20);
-//            text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
-//            layout->addWidget(text);
-//            selected.push_back(*itt);
-//            cheVec.push_back(text);
-//            ui->alluserslist->setItemWidget(item, text);
-//        }
-//    }
-}
-
 void Contacts::showfriendsonlistwidget()
 {
-    qDebug() << "In show on list widget";
     maindatabase::Find_user(howAmI);
+    QVBoxLayout* layout = setQwidgetItemsInListWidget(ui->freindslist , 200 , 30);
     ui->freindslist->clear();
     ui->freindslist->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
-    ui->freindslist->setFlow(QListView::LeftToRight);
-    ui->freindslist->setGridSize(QSize(200, 30));
-    ui->freindslist->setResizeMode(QListView::Adjust);
-    ui->freindslist->setViewMode(QListView::ListMode);
-    ui->freindslist->setWrapping(true);
-
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->setSizeConstraint(QLayout::SetMinimumSize);
-    setLayout(layout);
-
 
     QVector<int> friendsids = howAmI.get_FriendsID();
     QVector<user> myfriends;
@@ -194,33 +129,23 @@ void Contacts::showfriendsonlistwidget()
     }
 
 
-    for (int i = 0; i < myfriends.size(); i++) {
-        qDebug() << "In add Qradiobutton on list widget";
-        auto item = new QListWidgetItem("", ui->freindslist);
-        auto text = new QRadioButton;
-        QByteArray ba = (myfriends[i].get_UserName()).toLocal8Bit();
-        qDebug() << "In friends know on list widget";
-        qDebug() << myfriends[i].get_UserName();
-        const char *c_str2 = ba.data();
-        text->setText(c_str2);
-        text->setStyleSheet("QRadioButton { background-color : rgba(0,0,0,0%); color : white; padding-left:10px; padding-top:5px;}");
-        text->setMinimumSize(100, 20);
-        text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
-        layout->addWidget(text);
-        selected.push_back(myfriends[i]);
+    for (int i = 0; i < myfriends.size(); i++)
+    {
+        QRadioButton* text = writeRAdioButton(ui->freindslist , layout , myfriends[i].get_UserName());
+        radSelcted.push_back(myfriends[i]);
         radVec.push_back(text);
-        ui->freindslist->setItemWidget(item, text);
     }
 }
 
 
-void Contacts::on_startchat_clicked()
-{
-    for (int i = 0; i< radVec.size(); i++) {
-        if(radVec[i]->isChecked())
-        {
-//             maindatabase::Push_UserFriendID(selected[i].get_ID(), howAmI);
-        }
-    }
-}
+//void Contacts::on_startchat_clicked()
+//{
+//    for (int i = 0; i< radVec.size(); i++) {
+//        if(radVec[i]->isChecked())
+//        {
+////             maindatabase::Push_UserFriendID(selected[i].get_ID(), howAmI);
+//        }
+//    }
+//}
+
 
