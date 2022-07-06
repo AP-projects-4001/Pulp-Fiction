@@ -531,3 +531,11 @@ void homepage::on_actionExit_triggered()
 
 
 
+
+void homepage::on_graphbtn_clicked()
+{
+    graphd = new graphdialog( howAmI , this ) ;
+    graphd->setModal( true ) ;
+    graphd->exec() ;
+}
+

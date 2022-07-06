@@ -18,7 +18,7 @@
 #include "setting.h"
 #include "contacts.h"
 #include "creategroup.h"
-
+#include "graphdialog.h"
 enum Mode { GroupMode, ChannnelMode, PvMode };
 namespace Ui {
 class homepage;
@@ -67,6 +67,8 @@ private slots:
 
    void on_Sendbtn_clicked();
 
+   void on_graphbtn_clicked();
+
 private:
     Ui::homepage *ui;
     QVector<QListWidgetItem*> list;
@@ -95,7 +97,7 @@ private:
     Setting       * settingDialog;
     Contacts      * contactDialog;
     MyThread      * mythread;
-
+    graphdialog   * graphd ;
     void Display(bool isAd);
     void whatIsNew();
     bool isAdmin(user me);
