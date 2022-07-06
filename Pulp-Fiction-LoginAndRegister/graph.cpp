@@ -193,3 +193,19 @@ QVector<QVector<int>> Graph::Creat_AdjacencyMatrix( int HeadID )
     }
     return AdjMatrix ;
 }
+QVector<QString> Graph::Creat_Guidlist( int HeadID )
+{
+    QJsonArray vertices =  Find_Correspondingvertices( HeadID )  ;
+    QVector<QString> result ;
+    for(int i=0 ; i< vertices.count() ; i++ )
+    {
+        user tmpu ;
+        tmpu = maindatabase::getUserdetails( vertices.at(i).toInt() ) ;
+        if( tmpu.get_UserName() == "" )
+            tmpu.set_UserName("unknown username") ;
+        QString tmpnode = tmpu.get_UserName() +" : " + QString::number(i) ;
+        result.push_back( tmpnode ) ;
+    }
+    return result ;
+}
+

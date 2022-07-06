@@ -16,6 +16,7 @@ SOURCES += \
     creategroup.cpp \
     customshadoweffect.cpp \
     graph.cpp \
+    graphdialog.cpp \
     groupclass.cpp \
     homepage.cpp \
     loginsystem.cpp \
@@ -38,6 +39,7 @@ HEADERS += \
     creategroup.h \
     customshadoweffect.h \
     graph.h \
+    graphdialog.h \
     groupclass.h \
     homepage.h \
     loginsystem.h \
@@ -54,6 +56,7 @@ FORMS += \
     contacts.ui \
     createchannel.ui \
     creategroup.ui \
+    graphdialog.ui \
     homepage.ui \
     loginsystem.ui \
     setting.ui \

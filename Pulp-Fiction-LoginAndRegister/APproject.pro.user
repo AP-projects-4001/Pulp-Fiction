@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
 <<<<<<< HEAD
+<!-- Written by QtCreator 7.0.2, 2022-07-06T21:19:23. -->
+=======
+<<<<<<< HEAD
 <!-- Written by QtCreator 7.0.2, 2022-07-06T20:24:35. -->
 =======
 <<<<<<< HEAD
@@ -9,6 +12,7 @@
 <!-- Written by QtCreator 7.0.2, 2022-07-06T19:07:06. -->
 >>>>>>> d5607ed8437f3ab4bc60b99d0a037140020b9a17
 >>>>>>> 5a4e8b0e86968c7ae88be06302aa7a8bde4300e1
+>>>>>>> 68b7bb55e37db33ad5c701581afac98db6d65115
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -249,14 +253,23 @@
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">APproject2</value>
+<<<<<<< HEAD
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:E:/programing projects/qt/masterbranch/Pulp-Fiction-LoginAndRegister/APproject.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">E:/programing projects/qt/masterbranch/Pulp-Fiction-LoginAndRegister/APproject.pro</value>
+=======
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/tejarat pooya/Pictures/Desktop/Pulp App/Pulp-Fiction-LoginAndRegister/APproject.pro</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/tejarat pooya/Pictures/Desktop/Pulp App/Pulp-Fiction-LoginAndRegister/APproject.pro</value>
+>>>>>>> 68b7bb55e37db33ad5c701581afac98db6d65115
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+<<<<<<< HEAD
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">E:/programing projects/c++/build-APproject-Desktop_Qt_6_4_0_MinGW_64_bit-Debug</value>
+=======
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/tejarat pooya/Pictures/Desktop/AP project/build-APproject-Desktop_Qt_6_2_4_MinGW_64_bit-Debug</value>
+>>>>>>> 68b7bb55e37db33ad5c701581afac98db6d65115
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>
