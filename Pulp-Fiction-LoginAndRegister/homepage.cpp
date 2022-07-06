@@ -480,16 +480,18 @@ void homepage::on_contactsbtn_clicked()
     int i;   
     if(contactDialog->exec() == QDialog::Accepted)
     {
-
-        for( i = 0 ; i < contactDialog->getCount() ; i++)
+        for( i = 0 ; i < contactDialog->radVec.size() ; i++)
         {
+            qDebug() << "1";
             if(contactDialog->radVec[i]->isChecked())
             {
+                qDebug() << 2;
                 for(int j = 0 ; j < PVs.size() ; j++)
                 {
+                    qDebug() << 3 << " " << j;
                     if(contactDialog->radSelcted[i].get_ID() == PVs[j].get_ID())
                     {
-
+                        qDebug() << 4;
                         ptr = vec[j];
                         pvchat* ptr3 = dynamic_cast<pvchat*>(ptr);
                         if(ptr3 != nullptr)
@@ -499,11 +501,12 @@ void homepage::on_contactsbtn_clicked()
                         }
                     }
                 }
+                qDebug() << 5;
                 break;
             }
 
         }
-        if(i == contactDialog->getCount())
+        if(i == contactDialog->radVec.size())
             return;
         int j = maindatabase::Creat_PVChatID();
         pvchat gr(howAmI , contactDialog->radSelcted[i]);
@@ -520,6 +523,7 @@ void homepage::on_contactsbtn_clicked()
         list.push_back(item);
 
         pv = new pvchat(obchat);
+        pv->setName(obchat.get_Addressee().get_UserName());
         vec.push_back(pv);
         StorePv.push_back(obchat.get_ID());
 
