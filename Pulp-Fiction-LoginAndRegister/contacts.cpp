@@ -138,14 +138,3 @@ void Contacts::showfriendsonlistwidget()
 }
 
 
-//void Contacts::on_startchat_clicked()
-//{
-//    for (int i = 0; i< radVec.size(); i++) {
-//        if(radVec[i]->isChecked())
-//        {
-////             maindatabase::Push_UserFriendID(selected[i].get_ID(), howAmI);
-//        }
-//    }
-//}
-
-
