@@ -24,6 +24,7 @@ public:
     QVector<QCheckBox*> cheVec;
     QVector<QRadioButton*> radVec;
     QVector<user> selected;
+    QVector<user> radSelcted;
     int getCount();
 
 private slots:
@@ -36,10 +37,6 @@ private slots:
     void on_backtohomepage2_clicked();
 
     void on_addbtn_clicked();
-
-    void on_alluserslist_itemClicked(QListWidgetItem *item);
-
-    void on_startchat_clicked();
 
 signals:
 

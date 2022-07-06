@@ -75,7 +75,8 @@ private:
     QVector<int> StorePv;
     QVector<int> StoreGroup;
     QVector<int> StoreChannel;
-
+    QVector<chat*> vec;
+    QVector<user> PVs;
 
     int  checkThread = 0;
     int  index = 0;

@@ -396,6 +396,13 @@ void Setting::on_saveeditprivacy_clicked()
 void Setting::on_searchcontact_textChanged(const QString &arg1)
 {
     ui->friendslistwidget->clear();
+    if(arg1 == "")
+    {
+        on_editcontacts_clicked();
+        return;
+    }
+
+
     write = maindatabase::read_AllUsers();
     ui->friendslistwidget->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
     ui->friendslistwidget->setFlow(QListView::LeftToRight);
@@ -408,25 +415,29 @@ void Setting::on_searchcontact_textChanged(const QString &arg1)
     ui->friendslistwidget->setLayout(layout);
     ui->friendslistwidget->clear();
 
-    QVector<user>::iterator itt;
-    for (itt = write.begin(); itt != write.end(); ++itt) {
-        if(itt->get_ID() != howAmI.get_ID() && itt->get_FriendsID().contains(howAmI.get_ID()))
+    QVector<int> friendsids = howAmI.get_FriendsID();
+    QVector<user> myfriends;
+    for(int i = 0; i < friendsids.size(); i++)
+    {
+        myfriends.push_back(maindatabase::getUserdetails(friendsids[i]));
+    }
+
+    for (int i = 0; i < myfriends.size(); i++)
+    {
+        if(myfriends[i].get_UserName().contains(arg1) || myfriends[i].get_EmailAddress().contains(arg1) || myfriends[i].get_PhoneNumber().contains(arg1))
         {
-            if((itt->get_UserName().contains(arg1) || itt->get_PhoneNumber().contains(arg1) || itt->get_EmailAddress().contains(arg1) || itt->get_firstname().contains(arg1)) && itt->get_ID() != howAmI.get_ID())
-            {
-                auto item = new QListWidgetItem("", ui->friendslistwidget);
-                auto text = new QCheckBox;
-                QByteArray ba = (itt->get_UserName()).toLocal8Bit();
-                const char *c_str2 = ba.data();
-                text->setText(c_str2);
-                text->setStyleSheet("QCheckBox { background-color : rgba(0,0,0,0%); color : white; }");
-                text->setMinimumSize(100, 20);
-                text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
-                layout->addWidget(text);
-                selected.push_back(*itt);
-                cheVec.push_back(text);
-                ui->friendslistwidget->setItemWidget(item, text);
-            }
+            auto item = new QListWidgetItem("", ui->friendslistwidget);
+            auto text = new QCheckBox;
+            QByteArray ba = (myfriends[i].get_UserName()).toLocal8Bit();
+            const char *c_str2 = ba.data();
+            text->setText(c_str2);
+            text->setStyleSheet("QCheckBox { background-color : rgba(0,0,0,0%); color : white; padding-left:10px; padding-top:5px;}");
+            text->setMinimumSize(500, 100);
+            text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
+            layout->addWidget(text);
+            selected.push_back(myfriends[i]);
+            cheVec.push_back(text);
+            ui->friendslistwidget->setItemWidget(item, text);
         }
     }
 }
@@ -437,9 +448,6 @@ void Setting::on_deletefriend_clicked()
     for (int i = 0; i< cheVec.size(); i++) {
         if(cheVec[i]->isChecked())
         {
-//            auto item = new QListWidgetItem("", ui->friendslistwidget);
-//            auto text = cheVec[i];
-//            ui->friendslistwidget->setItemWidget(item, text);
             maindatabase::Delete_UserFriendID(selected[i].get_ID(), howAmI);
         }
     }
