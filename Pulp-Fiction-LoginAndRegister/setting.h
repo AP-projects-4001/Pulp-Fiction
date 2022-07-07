@@ -5,6 +5,7 @@
 #include "maindatabase.h"
 #include <QCoreApplication>
 #include "user.h"
+#include "graph.h"
 
 namespace Ui {
 class Setting;
@@ -55,6 +56,10 @@ private slots:
     void on_searchcontact_textChanged(const QString &arg1);
 
     void on_deletefriend_clicked();
+
+    void on_selectallbtneditfriends_clicked();
+
+    void on_selectnonebtneditfriends_clicked();
 
 private:
     Ui::Setting *ui;

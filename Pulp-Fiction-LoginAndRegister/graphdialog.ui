@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>700</width>
-    <height>600</height>
+    <width>650</width>
+    <height>450</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>700</width>
-    <height>600</height>
+    <width>650</width>
+    <height>450</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>700</width>
-    <height>600</height>
+    <width>650</width>
+    <height>450</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -28,20 +28,452 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(59, 63, 70);</string>
   </property>
-  <widget class="QLabel" name="guidlable">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>110</y>
-     <width>281</width>
-     <height>381</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
+  <layout class="QGridLayout" name="gridLayout_3">
+   <item row="0" column="2">
+    <widget class="QStackedWidget" name="winstack">
+     <property name="styleSheet">
+      <string notr="true">QStackedWidget#winstack {
+Padding: 1px;
+Border-radius: 7px;
+Color: #fefefe;
+background-color: rgb(59, 63, 70);
+	border-color: rgb(25, 69, 105);
+border-style: solid;
+ border-width: 2px;
+}
+
+QStackedWidget#winstack:hover {
+background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 2px;
+color: rgb(241, 182, 88);
+	border-color: rgb(45, 135, 135);
+}</string>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="page">
+      <layout class="QGridLayout" name="gridLayout_4">
+       <item row="3" column="0">
+        <widget class="QPushButton" name="backtohomepage">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Back to homepage&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton#backtohomepage {
+color: white;
+border-radius: 5px;
+Background: #933;
+color: #fefefe;
+}
+
+QPushButton#backtohomepage:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: #933;
+}
+
+QPushButton#backtohomepage:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+         </property>
+         <property name="text">
+          <string>Back</string>
+         </property>
+         <property name="icon">
+          <iconset resource="elements.qrc">
+           <normaloff>:/img/img/icons8-back-48.png</normaloff>:/img/img/icons8-back-48.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="guidepic">
+         <property name="minimumSize">
+          <size>
+           <width>350</width>
+           <height>375</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>350</width>
+           <height>380</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel#guidepic {
+	border-image: url(:/graph/img/guid.png);
+Padding: 1px;
+Border-radius: 25px;
+Color: #fefefe;
+	border-color: rgb(45, 135, 135);
+border-style: solid;
+ border-width: 2px;
+}
+
+QLabel#guidepic:hover {
+background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 2px;
+color: rgb(241, 182, 88);
+border-color: rgb(245, 179, 1);
+}
+</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QGroupBox" name="matrix_2">
+           <property name="styleSheet">
+            <string notr="true">QGroupBox#matrix_2 {
+color: white;
+border-radius: 10px;
+	background-color: rgb(59, 63, 70);
+padding-top:10px;
+border-style: none none solid none;
+	border-color: rgb(245, 179, 1);
+ border-width: 3px;
+}
+
+QGroupBox#matrix_2:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+	border-color: rgb(53, 159, 159);
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+</string>
+           </property>
+           <property name="title">
+            <string>Adjacencymatrix</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout">
+            <item row="0" column="0" rowspan="2">
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout">
+                <item>
+                 <spacer name="horizontalSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="copybtn">
+                  <property name="minimumSize">
+                   <size>
+                    <width>20</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="toolTip">
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Copy text&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">
+QPushButton#copybtn {
+border-radius: 5px;
+color: #fefefe;
+	border-color: rgb(25, 69, 105);
+}
+
+QPushButton#copybtn:hover {
+	border-color: rgb(36, 108, 108);
+}
+
+QPushButton#copybtn:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="elements.qrc">
+                    <normaloff>:/img/icons8-copy-64 (1).png</normaloff>:/img/icons8-copy-64 (1).png</iconset>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QTextEdit" name="matrix">
+                <property name="styleSheet">
+                 <string notr="true">QTextEdit#matrix {
+color: white;
+border-radius: 10px;
+	background-color: rgb(42, 46, 52);
+padding-left: 10px;
+padding-top:10px;
+	border-color: rgb(25, 69, 105);
+ border-width: 1px;
+border-style: solid;
+}
+
+QTextEdit#matrix:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+	border-color: rgb(53, 159, 159);
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+</string>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="list">
+           <property name="styleSheet">
+            <string notr="true">QGroupBox#list {
+color: white;
+border-radius: 10px;
+	background-color: rgb(59, 63, 70);
+padding-top:10px;
+border-style: none none solid none;
+	border-color: rgb(245, 179, 1);
+ border-width: 3px;
+}
+
+QGroupBox#list:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+	border-color: rgb(53, 159, 159);
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+
+</string>
+           </property>
+           <property name="title">
+            <string>List of users</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_2">
+            <item row="0" column="0">
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_2">
+                <item>
+                 <spacer name="horizontalSpacer_2">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="copybtn_2">
+                  <property name="minimumSize">
+                   <size>
+                    <width>20</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                  <property name="toolTip">
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Copy text&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">
+QPushButton#copybtn_2 {
+border-radius: 5px;
+color: #fefefe;
+	border-color: rgb(25, 69, 105);
+}
+
+QPushButton#copybtn_2:hover {
+	border-color: rgb(36, 108, 108);
+}
+
+QPushButton#copybtn_2:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="elements.qrc">
+                    <normaloff>:/img/icons8-copy-64 (1).png</normaloff>:/img/icons8-copy-64 (1).png</iconset>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QTextEdit" name="list_2">
+                <property name="styleSheet">
+                 <string notr="true">QTextEdit#list_2 {
+color: white;
+border-radius: 10px;
+	background-color: rgb(42, 46, 52);
+padding-left: 10px;
+padding-top:10px;
+border-style: solid;
+	border-color: rgb(25, 69, 105);
+ border-width: 1px;
+}
+
+QTextEdit#list_2:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+	border-color: rgb(53, 159, 159);
+ border-width: 1px;
+	color: rgb(241, 182, 88);
+}
+</string>
+                </property>
+                <property name="readOnly">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="3" column="1">
+        <widget class="QPushButton" name="opensite">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>185</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Open graphonline.ru page&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::RightToLeft</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">
+QPushButton#opensite {
+color: white;
+border-radius: 5px;
+Background: #393;
+color: #fefefe;
+}
+
+QPushButton#opensite:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: #393;
+}
+
+QPushButton#opensite:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+         </property>
+         <property name="text">
+          <string>Open webpage    </string>
+         </property>
+         <property name="icon">
+          <iconset resource="elements.qrc">
+           <normaloff>:/img/icons8-search-in-browser-64.png</normaloff>:/img/icons8-search-in-browser-64.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>25</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="elements.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -143,7 +143,7 @@ QPushButton#logoutbtn:hover {
 	background-color: rgb(42, 46, 52);
 border-style: solid;
  border-width: 1px;
-	color: rgb(241, 182, 88);
+	color: #933;
 }
 
 QPushButton#logoutbtn:pressed {
@@ -663,7 +663,7 @@ QPushButton#uplButton:hover {
 	background-color: rgb(42, 46, 52);
 border-style: solid;
  border-width: 1px;
-	color: rgb(241, 182, 88);
+	color: rgb(36, 108, 108);
 }
 
 QPushButton#uplButton:pressed {
@@ -3297,7 +3297,7 @@ border-style: solid;
      </widget>
      <widget class="QWidget" name="page_4">
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0">
+       <item row="0" column="0" colspan="2">
         <widget class="QPushButton" name="backbtn_3">
          <property name="minimumSize">
           <size>
@@ -3345,7 +3345,7 @@ border-width: 1px;
          </property>
         </widget>
        </item>
-       <item row="1" column="0">
+       <item row="1" column="0" colspan="2">
         <widget class="QWidget" name="widget_6" native="true">
          <property name="minimumSize">
           <size>
@@ -3387,7 +3387,7 @@ QLabel#editfriendslbl:hover {
          </layout>
         </widget>
        </item>
-       <item row="2" column="0">
+       <item row="2" column="0" rowspan="2" colspan="2">
         <layout class="QVBoxLayout" name="verticalLayout_8">
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_17">
@@ -3444,42 +3444,147 @@ color: rgb(85, 255, 255);
           </layout>
          </item>
          <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_19">
+           <item>
+            <widget class="QPushButton" name="selectallbtneditfriends">
+             <property name="minimumSize">
+              <size>
+               <width>90</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton#selectallbtneditfriends{
+color: white;
+border-radius: 5px;
+	background-color: rgb(25, 69, 105);
+color: #fefefe; 
+}
+
+QPushButton#selectallbtneditfriends:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(37, 103, 156);
+}
+
+QPushButton#selectallbtneditfriends:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+             </property>
+             <property name="text">
+              <string>Select all  </string>
+             </property>
+             <property name="icon">
+              <iconset resource="elements.qrc">
+               <normaloff>:/img/img/icons8-select-all-files-64.png</normaloff>:/img/img/icons8-select-all-files-64.png</iconset>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="selectnonebtneditfriends">
+             <property name="minimumSize">
+              <size>
+               <width>93</width>
+               <height>17</height>
+              </size>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::RightToLeft</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton#selectnonebtneditfriends{
+color: white;
+border-radius: 5px;
+	background-color: rgb(25, 69, 105);
+color: #fefefe; 
+}
+
+QPushButton#selectnonebtneditfriends:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(36, 108, 108);
+}
+
+QPushButton#selectnonebtneditfriends:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+             </property>
+             <property name="text">
+              <string>Select none  </string>
+             </property>
+             <property name="icon">
+              <iconset resource="elements.qrc">
+               <normaloff>:/img/img/icons8-select-none-64.png</normaloff>:/img/img/icons8-select-none-64.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>14</width>
+               <height>14</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
           <layout class="QHBoxLayout" name="horizontalLayout_18">
            <item>
             <widget class="QListWidget" name="friendslistwidget"/>
            </item>
           </layout>
          </item>
-        </layout>
-       </item>
-       <item row="3" column="0">
-        <layout class="QHBoxLayout" name="horizontalLayout_16">
          <item>
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QPushButton" name="deletefriend">
-           <property name="minimumSize">
-            <size>
-             <width>120</width>
-             <height>20</height>
-            </size>
-           </property>
-           <property name="layoutDirection">
-            <enum>Qt::RightToLeft</enum>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton#deletefriend{
+          <layout class="QHBoxLayout" name="horizontalLayout_16">
+           <item>
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="deletefriend">
+             <property name="minimumSize">
+              <size>
+               <width>120</width>
+               <height>20</height>
+              </size>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::RightToLeft</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton#deletefriend{
 color: white;
 border-radius: 5px;
 Background: #933;
@@ -3499,21 +3604,23 @@ border-width: 1px;
 	background-color: rgb(25, 69, 105);
 	color: rgb(85, 255, 255);
 }</string>
-           </property>
-           <property name="text">
-            <string>Delete  </string>
-           </property>
-           <property name="icon">
-            <iconset resource="elements.qrc">
-             <normaloff>:/img/img/icons8-delete-64.png</normaloff>:/img/img/icons8-delete-64.png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>16</width>
-             <height>16</height>
-            </size>
-           </property>
-          </widget>
+             </property>
+             <property name="text">
+              <string>Delete  </string>
+             </property>
+             <property name="icon">
+              <iconset resource="elements.qrc">
+               <normaloff>:/img/img/icons8-delete-64.png</normaloff>:/img/img/icons8-delete-64.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>16</width>
+               <height>16</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
        </item>

@@ -34,13 +34,49 @@
         <file>img/icons8-graph-64.png</file>
         <file>img/icons8-delete-64.png</file>
         <file>img/icons8-close-64 (1).png</file>
+        <file>img/icons8-select-all-files-64.png</file>
+        <file>img/icons8-select-none-64.png</file>
     </qresource>
     <qresource prefix="/">
         <file>img/chatbackground.jpg</file>
         <file>img/icons8-menu-rounded-64.png</file>
         <file>img/icons8-email-send-64.png</file>
+        <file>img/guid.png</file>
+        <file>img/icons8-add-64.png</file>
+        <file>img/icons8-back-48.png</file>
+        <file>img/icons8-cancel-64 (3).png</file>
+        <file>img/icons8-chat-64.ico</file>
+        <file>img/icons8-close-64 (1).png</file>
+        <file>img/icons8-complete-64.png</file>
+        <file>img/icons8-contacts-40.png</file>
+        <file>img/icons8-copy-64 (1).png</file>
+        <file>img/icons8-delete-64.png</file>
+        <file>img/icons8-edit-profile-30.png</file>
+        <file>img/icons8-exit-100.png</file>
+        <file>img/icons8-filter-edit-64.png</file>
+        <file>img/icons8-find-64 (1).png</file>
+        <file>img/icons8-friends-64.png</file>
+        <file>img/icons8-graph-64.png</file>
+        <file>img/icons8-info-64.png</file>
+        <file>img/icons8-login-64.png</file>
+        <file>img/icons8-login-100.png</file>
+        <file>img/icons8-omnichannel-40.png</file>
+        <file>img/icons8-omnichannel-64.png</file>
+        <file>img/icons8-password-64.png</file>
+        <file>img/icons8-password-window-66.png</file>
+        <file>img/icons8-people-40.png</file>
+        <file>img/icons8-register-64.png</file>
+        <file>img/icons8-save-64 (1).png</file>
+        <file>img/icons8-search-in-browser-64.png</file>
+        <file>img/icons8-setting-40.png</file>
+        <file>img/icons8-setting-64 (1).png</file>
+        <file>img/splash.png</file>
+        <file>img/user.png</file>
     </qresource>
     <qresource prefix="/splash">
         <file>img/splash.png</file>
+    </qresource>
+    <qresource prefix="/graph">
+        <file>img/guid.png</file>
     </qresource>
 </RCC>

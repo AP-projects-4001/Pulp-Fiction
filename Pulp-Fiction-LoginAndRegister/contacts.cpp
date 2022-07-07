@@ -137,6 +137,7 @@ void Contacts::on_addbtn_clicked()
              Graph::Update_UserRelation(howAmI) ;
         }
     }
+    Graph::Update_UserRelation(howAmI);
     on_backbtn_clicked();
 }
 
@@ -157,6 +158,5 @@ void Contacts::showfriendsonlistwidget()
         QRadioButton* text = writeRAdioButton(ui->freindslist , layout , myfriends[i].get_UserName());
         radVec.push_back(text);
     }
-
 }
 
