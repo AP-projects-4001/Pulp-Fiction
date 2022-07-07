@@ -70,6 +70,10 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
         {
             showInfo(ui->lastnamelineedit , YOU.get_lastname());
         }
+        if(YOU.getBioAccessibility() != 2)
+        {
+            showInfo(ui->biolineedit , YOU.get_Bio());
+        }
         if(YOU.getPhotoAccessibility() != 2)
         {
             QString picDir = QCoreApplication::applicationDirPath()+"/../"+QString::number(YOU.get_ID())+".png";
@@ -116,6 +120,10 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
         if(YOU.getLastNameAccessibility() == 0)
         {
             showInfo(ui->lastnamelineedit , YOU.get_lastname());
+        }
+        if(YOU.getBioAccessibility() == 0)
+        {
+            showInfo(ui->biolineedit , YOU.get_Bio());
         }
         if(YOU.getPhotoAccessibility() == 0)
         {
