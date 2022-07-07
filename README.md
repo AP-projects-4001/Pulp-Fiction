@@ -42,8 +42,6 @@ Registered users can use these options .
 
 # Installation
 
-# License
-
 # Contacts
 
 ArefehPourmohammadi : arefepourmohammdi@gmail.com
