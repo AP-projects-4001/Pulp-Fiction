@@ -147,7 +147,6 @@ void Contacts::showfriendsonlistwidget()
         myfriends.push_back(maindatabase::getUserdetails(friendsids[i]));
     }
 
-
     for (int i = 0; i < myfriends.size(); i++)
     {
         QRadioButton* text = writeRAdioButton(ui->freindslist , layout , myfriends[i].get_UserName());

@@ -485,13 +485,13 @@ void homepage::on_contactsbtn_clicked()
             qDebug() << "1";
             if(contactDialog->radVec[i]->isChecked())
             {
-                qDebug() << 2;
+                qDebug() << "2";
                 for(int j = 0 ; j < PVs.size() ; j++)
                 {
-                    qDebug() << 3 << " " << j;
+                    qDebug() << "3" << " " << j;
                     if(contactDialog->radSelcted[i].get_ID() == PVs[j].get_ID())
                     {
-                        qDebug() << 4;
+                        qDebug() << "4";
                         ptr = vec[j];
                         pvchat* ptr3 = dynamic_cast<pvchat*>(ptr);
                         if(ptr3 != nullptr)
@@ -501,7 +501,7 @@ void homepage::on_contactsbtn_clicked()
                         }
                     }
                 }
-                qDebug() << 5;
+                qDebug() << "5";
                 break;
             }
 

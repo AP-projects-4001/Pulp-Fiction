@@ -155,6 +155,6 @@ PvInfo::~PvInfo()
 
 void PvInfo::on_backtohomepage_clicked()
 {
-    PvInfo::hide();
+    PvInfo::close();
 }
 
