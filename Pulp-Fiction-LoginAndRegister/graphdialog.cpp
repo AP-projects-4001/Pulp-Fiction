@@ -23,14 +23,14 @@ graphdialog::graphdialog( user me, QWidget *parent) :
     foreach(const QString item, convrted)
     {
         qDebug() << item;
-        ui->matrix->setText(item + "\n");
+        ui->matrix->append(item + "\n");
     }
 
     QVector<QString> graphComponentsguide = mygraph->Creat_Guidlist(howAmI.get_ID());
     foreach(const QString item, graphComponentsguide)
     {
         qDebug() << item;
-        ui->list_2->setText(item + "\n");
+        ui->list_2->append(item + "\n");
     }
 }
 
@@ -41,7 +41,7 @@ graphdialog::~graphdialog()
 
 void graphdialog::on_opensite_clicked()
 {
-    QString link =  "https://graphonline.ru/en/";
+    QString link =  "https://graphonline.ru/en/create_graph_by_matrix";
     QDesktopServices::openUrl(QUrl(link));
 }
 

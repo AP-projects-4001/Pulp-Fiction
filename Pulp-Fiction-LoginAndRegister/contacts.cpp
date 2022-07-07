@@ -134,6 +134,7 @@ void Contacts::on_addbtn_clicked()
              maindatabase::Push_UserFriendID(selected[i].get_ID(), howAmI);
         }
     }
+    maindatabase::Find_user(howAmI);
     Graph::Update_UserRelation(howAmI);
     on_backbtn_clicked();
 }

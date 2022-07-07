@@ -468,6 +468,7 @@ QString Setting::createprofileandstylesheet(QString picDir)
              "border-width: 2px;"
             "color: rgb(241, 182, 88);"
             "border-color: rgb(245, 179, 1);}";
+
     return styleSheet;
 }
 
