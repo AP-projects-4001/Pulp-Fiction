@@ -91,7 +91,7 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
 
             ui->profilepicture->setStyleSheet(styleSheet);
         }
-     }
+    }
 }
 
 
@@ -114,7 +114,6 @@ void PvInfo::showInfo(int check ,bool isFriend , QLineEdit* line , QString info)
     }
     else if(check == 1 && !(isFriend))
         return;
-    qDebug() << "ggjgj";
     line->show();
     QByteArray ba = info.toLocal8Bit();
     const char *c_str2 = ba.data();
