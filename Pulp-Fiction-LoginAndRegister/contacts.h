@@ -40,6 +40,10 @@ private slots:
 
     void on_addbtn_clicked();
 
+    void on_selectallusersbtn_clicked();
+
+    void on_selectnoneusersbtn_clicked();
+
 signals:
 
     void itemsclicked(QListWidgetItem *item);

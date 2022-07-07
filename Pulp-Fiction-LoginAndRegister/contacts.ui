@@ -278,6 +278,113 @@ color: rgb(85, 255, 255);
             </layout>
            </item>
            <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_19">
+             <item>
+              <widget class="QPushButton" name="selectallusersbtn">
+               <property name="minimumSize">
+                <size>
+                 <width>90</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton#selectallusersbtn{
+color: white;
+border-radius: 5px;
+	background-color: rgb(25, 69, 105);
+color: #fefefe; 
+}
+
+QPushButton#selectallusersbtn:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(37, 103, 156);
+}
+
+QPushButton#selectallusersbtn:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+               </property>
+               <property name="text">
+                <string>Select all  </string>
+               </property>
+               <property name="icon">
+                <iconset resource="elements.qrc">
+                 <normaloff>:/img/img/icons8-select-all-files-64.png</normaloff>:/img/img/icons8-select-all-files-64.png</iconset>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_3">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="selectnoneusersbtn">
+               <property name="minimumSize">
+                <size>
+                 <width>93</width>
+                 <height>17</height>
+                </size>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::RightToLeft</enum>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton#selectnoneusersbtn{
+color: white;
+border-radius: 5px;
+	background-color: rgb(25, 69, 105);
+color: #fefefe; 
+}
+
+QPushButton#selectnoneusersbtn:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: rgb(36, 108, 108);
+}
+
+QPushButton#selectnoneusersbtn:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+               </property>
+               <property name="text">
+                <string>Select none  </string>
+               </property>
+               <property name="icon">
+                <iconset resource="elements.qrc">
+                 <normaloff>:/img/img/icons8-select-none-64.png</normaloff>:/img/img/icons8-select-none-64.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>14</width>
+                 <height>14</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
             <widget class="QListWidget" name="alluserslist"/>
            </item>
            <item>

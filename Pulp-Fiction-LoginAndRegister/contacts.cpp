@@ -161,3 +161,22 @@ void Contacts::showfriendsonlistwidget()
     }
 }
 
+
+void Contacts::on_selectallusersbtn_clicked()
+{
+    for (int i = 0; i< cheVec.size(); i++)
+    {
+        cheVec[i]->setChecked(true);
+    }
+}
+
+
+void Contacts::on_selectnoneusersbtn_clicked()
+{
+    for (int i = 0; i< cheVec.size(); i++)
+    {
+        if(cheVec[i]->isChecked())
+            cheVec[i]->setChecked(false);
+    }
+}
+
