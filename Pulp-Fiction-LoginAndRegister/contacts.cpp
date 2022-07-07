@@ -34,6 +34,9 @@ int Contacts::getCount()
 
 void Contacts::on_newcontact_clicked()
 {
+    selected.clear();
+    cheVec.clear();
+    write.clear();
     ui->winstack->setCurrentIndex(1);
     write = maindatabase::read_AllUsers();
     ui->alluserslist->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
@@ -71,6 +74,9 @@ void Contacts::on_newcontact_clicked()
 
 void Contacts::on_searchcontact_textChanged(const QString &arg1)
 {
+    selected.clear();
+    cheVec.clear();
+    write.clear();
     ui->alluserslist->clear();
     if(arg1 == "")
     {
@@ -142,7 +148,6 @@ void Contacts::showfriendsonlistwidget()
     QVector<int> friendsids = howAmI.get_FriendsID();
     myfriends.clear();
     radVec.clear();
-    //QVector<user> myfriends;
     qDebug() << "new one";
     for(int i = 0; i < friendsids.size(); i++)
     {
@@ -152,12 +157,5 @@ void Contacts::showfriendsonlistwidget()
         radVec.push_back(text);
     }
 
-
-//    for (int i = 0; i < myfriends.size(); i++)
-//    {
-
-//        radSelcted.push_back(myfriends[i]);
-//        radVec.push_back(text);
-//    }
 }
 

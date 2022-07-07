@@ -2,12 +2,12 @@
 user::user()
 {
     nameAccessibility = 0 ;
-    phoneAccessibility = General ;
-    photoAccessibility = General ;
-    firstNameAccessibility = General ;
-    lastNameAccessibility = General ;
-    emailAccessibility = General ;
-    BioAccessibility = General ;
+    phoneAccessibility = 0 ;
+    photoAccessibility = 0 ;
+    firstNameAccessibility = 0 ;
+    lastNameAccessibility = 0 ;
+    emailAccessibility = 0 ;
+    BioAccessibility = 0 ;
 }
 void user::set_ID(int in_ID)
 {
@@ -175,73 +175,31 @@ QString user::get_Bio()
 }
 void user::setNameAccessibility( int in_Accessibility )
 {
-    if( in_Accessibility == 1)
-    {
-        nameAccessibility = 1 ;
-        qDebug() << "In set friends user.cpp";
-    }
-    if( in_Accessibility == 2)
-    {
-        nameAccessibility = Nobody ;
-                qDebug() << "In set friends user.cpp" << getNameAccessibility();
-
-    }
-    else
-        nameAccessibility = General ;
+    nameAccessibility = in_Accessibility;
 }
 void user::setPhoneAccessibility( int in_Accessibility )
 {
-    if( in_Accessibility == 1)
-        phoneAccessibility = Friends ;
-    if( in_Accessibility == 2)
-        phoneAccessibility = Nobody ;
-    else
-        phoneAccessibility = General ;
+    phoneAccessibility = in_Accessibility ;
 }
 void user::setPhotoAccessibility( int in_Accessibility )
 {
-    if( in_Accessibility == 1)
-        photoAccessibility = Friends ;
-    if( in_Accessibility == 2)
-        photoAccessibility = Nobody ;
-    else
-        photoAccessibility = General ;
+    photoAccessibility = in_Accessibility;
 }
 void user::setFirstNameAccessibility( int in_Accessibility )
 {
-    if( in_Accessibility == 1)
-        nameAccessibility = Friends ;
-    if( in_Accessibility == 2)
-        nameAccessibility = Nobody ;
-    else
-        nameAccessibility = General ;
+    nameAccessibility = in_Accessibility;
 }
 void user::setLastNameAccessibility( int in_Accessibility )
 {
-    if( in_Accessibility == 1)
-        phoneAccessibility = Friends ;
-    if( in_Accessibility == 2)
-        phoneAccessibility = Nobody ;
-    else
-        phoneAccessibility = General ;
+    phoneAccessibility = in_Accessibility;
 }
 void user::setEmailAccessibility( int in_Accessibility )
 {
-    if( in_Accessibility == 1)
-        photoAccessibility = Friends ;
-    if( in_Accessibility == 2)
-        photoAccessibility = Nobody ;
-    else
-        photoAccessibility = General ;
+    emailAccessibility = in_Accessibility;
 }
 void user::setBioAccessibility( int in_Accessibility )
 {
-    if( in_Accessibility == 1)
-        BioAccessibility = Friends ;
-    if( in_Accessibility == 2)
-        BioAccessibility = Nobody ;
-    else
-        BioAccessibility = General ;
+    BioAccessibility = in_Accessibility;
 }
 int user::getNameAccessibility()
 {

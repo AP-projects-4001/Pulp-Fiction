@@ -4,7 +4,6 @@
 #include<QString>
 #include<QVector>
 #include<QDebug>
-enum Access{ General , Friends , Nobody } ;
 class user
 {
 public:
@@ -12,12 +11,12 @@ public:
 private:
     int ID ;
     int nameAccessibility ;
-    Access phoneAccessibility ;
-    Access photoAccessibility ;
-    Access firstNameAccessibility  ;
-    Access lastNameAccessibility  ;
-    Access emailAccessibility ;
-    Access BioAccessibility ;
+    int phoneAccessibility ;
+    int photoAccessibility ;
+    int firstNameAccessibility  ;
+    int lastNameAccessibility  ;
+    int emailAccessibility ;
+    int BioAccessibility ;
     QString Bio ;
     QString UserName ;
     QString Password ;
@@ -72,13 +71,13 @@ public:
     int getFirstNameAccessibility() ;
     int getLastNameAccessibility() ;
     int getEmailAccessibility() ;
-    void setNameAccessibility( int in_Accessibility ) ;
+    void setNameAccessibility ( int in_Accessibility ) ;
     void setPhoneAccessibility( int in_Accessibility ) ;
     void setPhotoAccessibility( int in_Accessibility ) ;
     void setFirstNameAccessibility(int in_Accessibility) ;
     void setLastNameAccessibility(int in_Accessibility) ;
     void setEmailAccessibility(int in_Accessibility) ;
-    void setBioAccessibility( int in_BioAccessibility ) ;
+    void setBioAccessibility  ( int in_BioAccessibility ) ;
 
 
 };
