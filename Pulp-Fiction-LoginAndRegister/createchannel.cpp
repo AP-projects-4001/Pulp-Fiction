@@ -45,8 +45,11 @@ createchannel::~createchannel()
 
 void createchannel::on_submit_clicked()
 {
-    name = ui->channelname->text();
-    ui->winstack->setCurrentIndex(1);
+    name = ui->channelname->text();    
+    if(name.isEmpty())
+        QMessageBox::warning(this, "invalid name", "please enter a name for your channel");
+    else
+        ui->winstack->setCurrentIndex(1);
 }
 int createchannel::getCount()
 {return ui->userslist->count();}

@@ -125,7 +125,6 @@ void Contacts::on_addbtn_clicked()
     for (int i = 0; i< cheVec.size(); i++) {
         if(cheVec[i]->isChecked())
         {
-            qDebug() << "gjjgjgjg";
              maindatabase::Push_UserFriendID(selected[i].get_ID(), howAmI);
         }
     }

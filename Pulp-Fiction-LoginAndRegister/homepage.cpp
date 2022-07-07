@@ -569,10 +569,6 @@ void homepage::on_actionExit_triggered()
 {
     QApplication::quit();
 }
-
-
-
-
 void homepage::on_graphbtn_clicked()
 {
     graphd = new graphdialog( howAmI , this ) ;
