@@ -50,7 +50,7 @@ color: rgb(241, 182, 88);
 }</string>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="page">
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -133,6 +133,9 @@ border-width: 1px;
 	background-color: rgb(25, 69, 105);
 	color: rgb(85, 255, 255);
 }</string>
+           </property>
+           <property name="text">
+            <string>Enter your group name</string>
            </property>
            <property name="placeholderText">
             <string>Enter your channel name</string>
