@@ -208,4 +208,19 @@ QVector<QString> Graph::Creat_Guidlist( int HeadID )
     }
     return result ;
 }
+QVector<QString> Graph::Convert_MatrixToString( QVector<QVector<int>> in_Matrix )
+{
+    QVector<QString> ans ;
+    for( int i=0 ; i<in_Matrix.count()  ;i++)
+    {
+        QString tmpstr ;
+        tmpstr += QString::number(in_Matrix[i][0]) ;
+        for( int j=1 ; j<in_Matrix[i].count() ; j++ )
+        {
+            tmpstr += "," + QString::number(in_Matrix[i][j])  ;
+        }
+        ans.append( tmpstr ) ;
+    }
+    return ans ;
+}
 
