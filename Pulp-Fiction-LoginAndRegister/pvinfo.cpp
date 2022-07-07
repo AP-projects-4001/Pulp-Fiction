@@ -119,7 +119,7 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
         }
         if(YOU.getBioAccessibility() == 0)
         {
-            showInfo(ui->emaillineedit , YOU.get_Bio());
+            showInfo(ui->biolineedit , YOU.get_Bio());
         }
         if(YOU.getFirstNameAccessibility() == 0)
         {
