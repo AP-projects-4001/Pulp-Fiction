@@ -19,7 +19,6 @@ pvchat::pvchat(pvchat &copyPv , user howAmI)
 {
     if(howAmI.get_ID() == copyPv.get_Owner().get_ID())
     {
-        qDebug() << "i am in constructor";
         Owner.set_UserName    ( copyPv.get_Owner().get_UserName() ) ;
         Owner.set_ID          ( copyPv.get_Owner().get_ID() ) ;
         Owner.set_PhoneNumber ( copyPv.get_Owner().get_PhoneNumber() ) ;
@@ -31,7 +30,6 @@ pvchat::pvchat(pvchat &copyPv , user howAmI)
         set_Messages (copyPv.get_Messages());
         set_Addressee(copyPv.get_Addressee());
         set_ID       (copyPv.get_ID());
-        qDebug() << getName();
     }
     else
     {

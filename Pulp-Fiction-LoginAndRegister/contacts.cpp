@@ -34,6 +34,9 @@ int Contacts::getCount()
 
 void Contacts::on_newcontact_clicked()
 {
+    selected.clear();
+    cheVec.clear();
+    write.clear();
     ui->winstack->setCurrentIndex(1);
     write = maindatabase::read_AllUsers();
     ui->alluserslist->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
@@ -71,6 +74,9 @@ void Contacts::on_newcontact_clicked()
 
 void Contacts::on_searchcontact_textChanged(const QString &arg1)
 {
+    selected.clear();
+    cheVec.clear();
+    write.clear();
     ui->alluserslist->clear();
     if(arg1 == "")
     {
