@@ -40,9 +40,13 @@ Registered users can use these options .
 
 •	Friendship relations with other users .
 
-# Installation
+# Threading
 
-# License
+• Create a thread that manage gettin new messages .
+
+• This thread also check if user added in a new pv , group or channel , add that chat to the list of users chats.
+
+# Installation
 
 # Contacts
 
