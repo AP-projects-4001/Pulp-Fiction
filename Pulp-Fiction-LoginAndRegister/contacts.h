@@ -7,6 +7,7 @@
 #include "customshadoweffect.h"
 #include <QListWidgetItem>
 #include <QRadioButton>
+#include "graph.h"
 
 namespace Ui {
 class Contacts;

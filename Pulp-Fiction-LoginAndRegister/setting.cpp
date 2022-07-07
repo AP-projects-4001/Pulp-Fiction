@@ -447,6 +447,7 @@ void Setting::on_deletefriend_clicked()
         }
     }
     maindatabase::Find_user(howAmI);
+    Graph::Update_UserRelation(howAmI);
     on_backbtn_clicked();
 }
 

@@ -5,6 +5,7 @@
 #include "maindatabase.h"
 #include <QCoreApplication>
 #include "user.h"
+#include "graph.h"
 
 namespace Ui {
 class Setting;
