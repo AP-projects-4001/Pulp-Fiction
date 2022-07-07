@@ -31,17 +31,84 @@
   <layout class="QGridLayout" name="gridLayout_3">
    <item row="0" column="2">
     <widget class="QStackedWidget" name="winstack">
+     <property name="styleSheet">
+      <string notr="true">QStackedWidget#winstack {
+Padding: 1px;
+Border-radius: 7px;
+Color: #fefefe;
+background-color: rgb(59, 63, 70);
+	border-color: rgb(25, 69, 105);
+border-style: solid;
+ border-width: 2px;
+}
+
+QStackedWidget#winstack:hover {
+background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 2px;
+color: rgb(241, 182, 88);
+	border-color: rgb(45, 135, 135);
+}</string>
+     </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
      <widget class="QWidget" name="page">
       <layout class="QGridLayout" name="gridLayout_4">
+       <item row="3" column="0">
+        <widget class="QPushButton" name="backtohomepage">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>30</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Back to homepage&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton#backtohomepage {
+color: white;
+border-radius: 5px;
+Background: #933;
+color: #fefefe;
+}
+
+QPushButton#backtohomepage:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: #933;
+}
+
+QPushButton#backtohomepage:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+         </property>
+         <property name="text">
+          <string>Back</string>
+         </property>
+         <property name="icon">
+          <iconset resource="elements.qrc">
+           <normaloff>:/img/img/icons8-back-48.png</normaloff>:/img/img/icons8-back-48.png</iconset>
+         </property>
+        </widget>
+       </item>
        <item row="0" column="0">
         <widget class="QLabel" name="guidepic">
          <property name="minimumSize">
           <size>
            <width>350</width>
-           <height>380</height>
+           <height>375</height>
           </size>
          </property>
          <property name="maximumSize">
@@ -328,55 +395,7 @@ border-style: solid;
          </item>
         </layout>
        </item>
-       <item row="1" column="0">
-        <widget class="QPushButton" name="backtohomepage">
-         <property name="minimumSize">
-          <size>
-           <width>50</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>30</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Back to homepage&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton#backtohomepage {
-color: white;
-border-radius: 5px;
-Background: #933;
-color: #fefefe;
-}
-
-QPushButton#backtohomepage:hover {
-	background-color: rgb(42, 46, 52);
-border-style: solid;
- border-width: 1px;
-	color: #933;
-}
-
-QPushButton#backtohomepage:pressed {
-border-style: solid;
-border-width: 1px;
-	background-color: rgb(25, 69, 105);
-	color: rgb(85, 255, 255);
-}</string>
-         </property>
-         <property name="text">
-          <string>Back</string>
-         </property>
-         <property name="icon">
-          <iconset resource="elements.qrc">
-           <normaloff>:/img/img/icons8-back-48.png</normaloff>:/img/img/icons8-back-48.png</iconset>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
+       <item row="3" column="1">
         <widget class="QPushButton" name="opensite">
          <property name="minimumSize">
           <size>
@@ -433,6 +452,19 @@ border-width: 1px;
           </size>
          </property>
         </widget>
+       </item>
+       <item row="2" column="0">
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </widget>
