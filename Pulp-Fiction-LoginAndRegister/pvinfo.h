@@ -2,6 +2,7 @@
 #define PVINFO_H
 
 #include <QDialog>
+#include <QLineEdit>
 #include "user.h"
 #include "customshadoweffect.h"
 namespace Ui {
@@ -23,6 +24,7 @@ private:
     Ui::PvInfo *ui;
     user Me;
     user You;
+    void showInfo(int check, bool isFriend, QLineEdit *line, QString info);
 };
 
 #endif // PVINFO_H

@@ -2,21 +2,13 @@
 #include "ui_pvinfo.h"
 #include "user.h"
 #include "maindatabase.h"
-void showInfo(QLineEdit* line , QString info)
-{
-    line->show();
-    QByteArray ba = info.toLocal8Bit();
-    const char *c_str2 = ba.data();
-    line->setText(c_str2);
-    line->setReadOnly(true);
-}
+#include <QLineEdit>
 PvInfo::PvInfo(user me , user you , QWidget *parent) :
     QDialog(parent),
     ui(new Ui::PvInfo)
 {
 
     ui->setupUi(this);
-
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     CustomShadowEffect *bodyShadow = new CustomShadowEffect();
     bodyShadow->setBlurRadius(20.0);
@@ -48,37 +40,37 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
             break;
         }
     }
-    if(isFriend)
+    qDebug() << "gjgjjg";
+    this->showInfo(YOU.getNameAccessibility() ,isFriend , ui->usernamelineedit , YOU.get_UserName());
+    this->showInfo(YOU.getPhoneAccessibility() ,isFriend , ui->phonenumberlineedit , YOU.get_PhoneNumber());
+    showInfo(YOU.getBioAccessibility() ,isFriend , ui->biolineedit , YOU.get_Bio());
+    showInfo(YOU.getEmailAccessibility() ,isFriend , ui->emaillineedit , YOU.get_EmailAddress());
+    showInfo(YOU.getFirstNameAccessibility() ,isFriend , ui->firstnamelineedit , YOU.get_firstname());
+    showInfo(YOU.getLastNameAccessibility() ,isFriend , ui->lastnamelineedit , YOU.get_lastname());
+
+    if(YOU.getPhotoAccessibility() != 2)
     {
-        if(YOU.getNameAccessibility() != 2)
+        if(YOU.getPhotoAccessibility() == 1 && isFriend)
         {
-            showInfo(ui->usernamelineedit , YOU.get_UserName());
-        }
-        if(YOU.getPhoneAccessibility() != 2)
-        {
-            showInfo(ui->phonenumberlineedit , YOU.get_PhoneNumber());
-        }
-        if(YOU.getBioAccessibility() != 2)
-        {
-            showInfo(ui->emaillineedit , YOU.get_Bio());
-        }
-        if(YOU.getEmailAccessibility() != 2)
-        {
-            showInfo(ui->emaillineedit , YOU.get_EmailAddress());
-        }
-        if(YOU.getFirstNameAccessibility() != 2)
-        {
-            showInfo(ui->firstnamelineedit , YOU.get_firstname());
-        }
-        if(YOU.getLastNameAccessibility() != 2)
-        {
-            showInfo(ui->lastnamelineedit , YOU.get_lastname());
-        }
-        if(YOU.getBioAccessibility() != 2)
-        {
-            showInfo(ui->biolineedit , YOU.get_Bio());
-        }
-        if(YOU.getPhotoAccessibility() != 2)
+            QString picDir = QCoreApplication::applicationDirPath()+"/../"+QString::number(YOU.get_ID())+".png";
+            QString borderpic = "border-image: url(" + picDir + ");";
+            QString styleSheet = "QLabel{" + borderpic +
+                    "Padding: 1px;"
+                    "Border-radius: 55px;"
+                    "Color: #fefefe;"
+                        "border-color: rgb(45, 135, 135);"
+                    "border-style: solid;"
+                     "border-width: 2px;}"
+
+                    "QLabel:hover {"
+                    "background-color: rgb(42, 46, 52);"
+                    "border-style: solid;"
+                     "border-width: 2px;"
+                    "color: rgb(241, 182, 88);"
+                    "border-color: rgb(245, 179, 1);}";
+
+            ui->profilepicture->setStyleSheet(styleSheet);
+        }else if(YOU.getPhotoAccessibility() == 0)
         {
             QString picDir = QCoreApplication::applicationDirPath()+"/../"+QString::number(YOU.get_ID())+".png";
             QString borderpic = "border-image: url(" + picDir + ");";
@@ -99,63 +91,10 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
 
             ui->profilepicture->setStyleSheet(styleSheet);
         }
-    }
-
-    else
-    {
-
-        if(YOU.getNameAccessibility() == 0)
-        {
-            showInfo(ui->usernamelineedit , YOU.get_UserName());
-        }
-        if(YOU.getPhoneAccessibility() == 0)
-        {
-            showInfo(ui->phonenumberlineedit , YOU.get_PhoneNumber());
-        }
-
-        if(YOU.getEmailAccessibility() == 0)
-        {
-            showInfo(ui->emaillineedit , YOU.get_EmailAddress());
-        }
-        if(YOU.getBioAccessibility() == 0)
-        {
-            showInfo(ui->emaillineedit , YOU.get_Bio());
-        }
-        if(YOU.getFirstNameAccessibility() == 0)
-        {
-            showInfo(ui->firstnamelineedit , YOU.get_firstname());
-        }
-        if(YOU.getLastNameAccessibility() == 0)
-        {
-            showInfo(ui->lastnamelineedit , YOU.get_lastname());
-        }
-        if(YOU.getBioAccessibility() == 0)
-        {
-            showInfo(ui->biolineedit , YOU.get_Bio());
-        }
-        if(YOU.getPhotoAccessibility() == 0)
-        {
-            QString picDir = QCoreApplication::applicationDirPath()+"/../"+QString::number(YOU.get_ID())+".png";
-            QString borderpic = "border-image: url(" + picDir + ");";
-            QString styleSheet = "QLabel{" + borderpic +
-                    "Padding: 1px;"
-                    "Border-radius: 55px;"
-                    "Color: #fefefe;"
-                        "border-color: rgb(45, 135, 135);"
-                    "border-style: solid;"
-                     "border-width: 2px;}"
-
-                    "QLabel:hover {"
-                    "background-color: rgb(42, 46, 52);"
-                    "border-style: solid;"
-                     "border-width: 2px;"
-                    "color: rgb(241, 182, 88);"
-                    "border-color: rgb(245, 179, 1);}";
-
-            ui->profilepicture->setStyleSheet(styleSheet);
-        }
-    }
+     }
 }
+
+
 
 PvInfo::~PvInfo()
 {
@@ -167,3 +106,20 @@ void PvInfo::on_backtohomepage_clicked()
     PvInfo::close();
 }
 
+void PvInfo::showInfo(int check ,bool isFriend , QLineEdit* line , QString info)
+{
+    if(check == 2)
+    {
+        return;
+    }
+    else if(check == 1 && !(isFriend))
+        return;
+    qDebug() << "ggjgj";
+    line->show();
+    QByteArray ba = info.toLocal8Bit();
+    const char *c_str2 = ba.data();
+    line->setText(c_str2);
+    line->setReadOnly(true);
+
+
+}
