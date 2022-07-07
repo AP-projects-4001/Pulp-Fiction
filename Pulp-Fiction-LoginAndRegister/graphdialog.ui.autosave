@@ -76,7 +76,7 @@ border-color: rgb(245, 179, 1);
         <string>Ajancymatrix</string>
        </property>
        <layout class="QGridLayout" name="gridLayout">
-        <item row="0" column="0">
+        <item row="0" column="0" rowspan="2">
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout">
@@ -95,8 +95,40 @@ border-color: rgb(245, 179, 1);
             </item>
             <item>
              <widget class="QPushButton" name="copybtn">
+              <property name="minimumSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="toolTip">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Copy text&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">
+QPushButton#copybtn {
+border-radius: 5px;
+color: #fefefe;
+	border-color: rgb(25, 69, 105);
+}
+
+QPushButton#copybtn:hover {
+	border-color: rgb(36, 108, 108);
+}
+
+QPushButton#copybtn:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+              </property>
               <property name="text">
-               <string>Copy</string>
+               <string/>
+              </property>
+              <property name="icon">
+               <iconset resource="elements.qrc">
+                <normaloff>:/img/icons8-copy-64 (1).png</normaloff>:/img/icons8-copy-64 (1).png</iconset>
               </property>
              </widget>
             </item>
@@ -123,13 +155,6 @@ border-color: rgb(245, 179, 1);
       </widget>
      </item>
     </layout>
-   </item>
-   <item row="1" column="1">
-    <widget class="QPushButton" name="opensite">
-     <property name="text">
-      <string>Open webpage</string>
-     </property>
-    </widget>
    </item>
    <item row="2" column="0">
     <widget class="QPushButton" name="backtohomepage">
@@ -160,7 +185,7 @@ QPushButton#backtohomepage:hover {
 	background-color: rgb(42, 46, 52);
 border-style: solid;
  border-width: 1px;
-	color: rgb(241, 182, 88);
+	color: #933;
 }
 
 QPushButton#backtohomepage:pressed {
@@ -176,6 +201,64 @@ border-width: 1px;
      <property name="icon">
       <iconset resource="elements.qrc">
        <normaloff>:/img/img/icons8-back-48.png</normaloff>:/img/img/icons8-back-48.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QPushButton" name="opensite">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>185</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Open graphonline.ru page&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::RightToLeft</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+QPushButton#opensite {
+color: white;
+border-radius: 5px;
+Background: #393;
+color: #fefefe;
+}
+
+QPushButton#opensite:hover {
+	background-color: rgb(42, 46, 52);
+border-style: solid;
+ border-width: 1px;
+	color: #393;
+}
+
+QPushButton#opensite:pressed {
+border-style: solid;
+border-width: 1px;
+	background-color: rgb(25, 69, 105);
+	color: rgb(85, 255, 255);
+}</string>
+     </property>
+     <property name="text">
+      <string>Open webpage    </string>
+     </property>
+     <property name="icon">
+      <iconset resource="elements.qrc">
+       <normaloff>:/img/icons8-search-in-browser-64.png</normaloff>:/img/icons8-search-in-browser-64.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>30</width>
+       <height>25</height>
+      </size>
      </property>
     </widget>
    </item>

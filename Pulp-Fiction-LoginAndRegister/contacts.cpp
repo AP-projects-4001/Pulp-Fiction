@@ -142,7 +142,6 @@ void Contacts::showfriendsonlistwidget()
     QVector<int> friendsids = howAmI.get_FriendsID();
     myfriends.clear();
     radVec.clear();
-    //QVector<user> myfriends;
     qDebug() << "new one";
     for(int i = 0; i < friendsids.size(); i++)
     {
@@ -151,13 +150,5 @@ void Contacts::showfriendsonlistwidget()
         QRadioButton* text = writeRAdioButton(ui->freindslist , layout , myfriends[i].get_UserName());
         radVec.push_back(text);
     }
-
-
-//    for (int i = 0; i < myfriends.size(); i++)
-//    {
-
-//        radSelcted.push_back(myfriends[i]);
-//        radVec.push_back(text);
-//    }
 }
 
