@@ -57,6 +57,10 @@ private slots:
 
     void on_deletefriend_clicked();
 
+    void on_selectallbtneditfriends_clicked();
+
+    void on_selectnonebtneditfriends_clicked();
+
 private:
     Ui::Setting *ui;
     user howAmI;

@@ -471,3 +471,24 @@ QString Setting::createprofileandstylesheet(QString picDir)
     return styleSheet;
 }
 
+
+void Setting::on_selectallbtneditfriends_clicked()
+{
+    for (int i = 0; i< cheVec.size(); i++)
+    {
+        cheVec[i]->setChecked(true);
+
+    }
+}
+
+
+void Setting::on_selectnonebtneditfriends_clicked()
+{
+    for (int i = 0; i< cheVec.size(); i++)
+    {
+        if(cheVec[i]->isChecked())
+            cheVec[i]->setChecked(false);
+
+    }
+}
+
