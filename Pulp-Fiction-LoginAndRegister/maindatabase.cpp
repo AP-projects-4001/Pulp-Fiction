@@ -908,6 +908,7 @@ void maindatabase::Modify_UserAAccessibility( user in_user )
             QJsonObject Newuser ;
             Newuser = UsersArray.at(i).toObject() ;
             Newuser["nameAccessibility"] = in_user.getNameAccessibility() ;
+            qDebug() << "Set to only friends in maindatabase" << in_user.getNameAccessibility();
             Newuser["phoneAccessibility"] = in_user.getPhoneAccessibility() ;
             Newuser["photoAccessibility"] = in_user.getPhotoAccessibility() ;
             Newuser["firstNameAccessibility"] = in_user.getFirstNameAccessibility() ;

@@ -3,6 +3,7 @@
 #include "customshadoweffect.h"
 #include <QMessageBox>
 #include <QFileDialog>
+#include "countlessCalledFunctions.h"
 
 Setting::Setting(user me ,QWidget *parent) :
     QDialog(parent),
@@ -79,7 +80,6 @@ void Setting::on_backbtn_clicked()
 void Setting::on_editprivacy_clicked()
 {
     ui->winstack->setCurrentIndex(2);
-
 
     ui->showusername_2->setCurrentIndex(howAmI.getNameAccessibility());
     ui->showpicture_2->setCurrentIndex(howAmI.getPhotoAccessibility());
@@ -249,17 +249,18 @@ void Setting::on_editcontacts_clicked()
     ui->winstack->setCurrentIndex(3);
 
     ui->friendslistwidget->clear();
-    write = maindatabase::read_AllUsers();
     ui->friendslistwidget->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
     ui->friendslistwidget->setFlow(QListView::LeftToRight);
     ui->friendslistwidget->setGridSize(QSize(200, 30));
     ui->friendslistwidget->setResizeMode(QListView::Adjust);
     ui->friendslistwidget->setViewMode(QListView::ListMode);
     ui->friendslistwidget->setWrapping(true);
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->setSizeConstraint(QLayout::SetMinimumSize);
-    setLayout(layout);
-    ui->friendslistwidget->clear();
+    maindatabase::Find_user(howAmI);
+    QVBoxLayout* layout = setQwidgetItemsInListWidget(ui->friendslistwidget , 200 , 30);
+    ui->friendslistwidget->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
+    QVBoxLayout *vLayout = new QVBoxLayout;
+    ui->friendslistwidget->setLayout(vLayout);
+
 
     QVector<int> friendsids = howAmI.get_FriendsID();
     QVector<user> myfriends;
@@ -270,18 +271,11 @@ void Setting::on_editcontacts_clicked()
 
     for (int i = 0; i < myfriends.size(); i++)
     {
-        auto item = new QListWidgetItem("", ui->friendslistwidget);
-        auto text = new QCheckBox;
-        QByteArray ba = (myfriends[i].get_UserName()).toLocal8Bit();
-        const char *c_str2 = ba.data();
-        text->setText(c_str2);
-        text->setStyleSheet("QCheckBox { background-color : rgba(0,0,0,0%); color : white; padding-left:10px; padding-top:5px;}");
-        text->setMinimumSize(500, 100);
-        text->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
-        layout->addWidget(text);
+        QCheckBox* text = writeCheckBox(ui->friendslistwidget ,layout ,myfriends[i].get_UserName());
+        text->setStyleSheet("QCheckBox { background-color : rgba(0,0,0,0%); color : white; }");
         selected.push_back(myfriends[i]);
+        ui->friendslistwidget->setCurrentRow(i);
         cheVec.push_back(text);
-        ui->friendslistwidget->setItemWidget(item, text);
     }
 }
 
@@ -319,6 +313,7 @@ void Setting::on_saveeditprivacy_clicked()
     switch (ui->showusername_2->currentIndex()) {
     case 1:
         howAmI.setNameAccessibility(1);
+        qDebug() << "In set friends setting" << howAmI.getNameAccessibility();
         break;
     case 2:
         howAmI.setNameAccessibility(2);

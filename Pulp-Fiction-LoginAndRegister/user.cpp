@@ -1,7 +1,7 @@
 #include "user.h"
 user::user()
 {
-    nameAccessibility = General ;
+    nameAccessibility = 0 ;
     phoneAccessibility = General ;
     photoAccessibility = General ;
     firstNameAccessibility = General ;
@@ -176,9 +176,16 @@ QString user::get_Bio()
 void user::setNameAccessibility( int in_Accessibility )
 {
     if( in_Accessibility == 1)
-        nameAccessibility = Friends ;
+    {
+        nameAccessibility = 1 ;
+        qDebug() << "In set friends user.cpp";
+    }
     if( in_Accessibility == 2)
+    {
         nameAccessibility = Nobody ;
+                qDebug() << "In set friends user.cpp" << getNameAccessibility();
+
+    }
     else
         nameAccessibility = General ;
 }

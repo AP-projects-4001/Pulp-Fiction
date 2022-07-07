@@ -1,6 +1,7 @@
 #include "creategroup.h"
 #include "countlessCalledFunctions.h"
 #include "ui_creategroup.h"
+#include <QMessageBox>
 
 creategroup::creategroup(user me ,QWidget *parent) :
     QDialog(parent),
@@ -45,7 +46,10 @@ creategroup::~creategroup()
 void creategroup::on_submit_clicked()
 {
     name = ui->groupname->text();
-    ui->winstack->setCurrentIndex(1);
+    if(name.isEmpty())
+        QMessageBox::warning(this, "invalid name", "please enter a name for your group");
+    else
+        ui->winstack->setCurrentIndex(1);
 }
 int creategroup::getCount()
 {return ui->userslist->count();}

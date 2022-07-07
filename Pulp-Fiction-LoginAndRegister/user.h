@@ -11,7 +11,7 @@ public:
     user();
 private:
     int ID ;
-    Access nameAccessibility ;
+    int nameAccessibility ;
     Access phoneAccessibility ;
     Access photoAccessibility ;
     Access firstNameAccessibility  ;
