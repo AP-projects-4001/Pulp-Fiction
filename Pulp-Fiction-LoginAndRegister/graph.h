@@ -21,7 +21,7 @@ public:
     static bool Check_Uniqueness( QJsonArray Base , QJsonArray Examined ) ;
     static QVector<QVector<int>> Creat_AdjacencyMatrix( int HeadID ) ;
     static QVector<QString> Creat_Guidlist( int HeadID )  ;
-
+    static QVector<QString> Convert_MatrixToString( QVector<QVector<int>> in_Matrix ) ;
 
 };
 
