@@ -19,21 +19,7 @@ createchannel::createchannel(user me ,QWidget *parent) :
     bodyShadow->setColor(QColor(10, 5, 45, 80));
     ui->winstack->setGraphicsEffect(bodyShadow);
 
-    write = maindatabase::read_AllUsers();
-    for(int i = 0 ; i < write.count() ; i++)
-    ui->userslist->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
-    QVBoxLayout* layout = setQwidgetItemsInListWidget(ui->userslist , 200 , 30);
-    ui->userslist->clear();
-
-    QVector<user>::iterator itt;
-    for (itt = write.begin(); itt != write.end(); ++itt) {
-        if(itt->get_ID() != me.get_ID())
-        {
-            QCheckBox* text = writeCheckBox(ui->userslist , layout , itt->get_UserName());
-            selected.push_back(*itt);
-            cheVec.push_back(text);
-        }
-    }
+    setChecks();
     connect(ui->addbtn, &QPushButton::clicked,
             this, &createchannel::accept);
 }
@@ -49,7 +35,10 @@ void createchannel::on_submit_clicked()
     if(name.isEmpty())
         QMessageBox::warning(this, "invalid name", "please enter a name for your channel");
     else
+    {
         ui->winstack->setCurrentIndex(1);
+        setChecks();
+    }
 }
 int createchannel::getCount()
 {return ui->userslist->count();}
@@ -63,4 +52,24 @@ void createchannel::on_backbtn_3_clicked()
 {
     createchannel::hide();
 }
+void createchannel::setChecks()
+{
+    write.clear();
+    selected.clear();
+    cheVec.clear();
+    write = maindatabase::read_AllUsers();
+    for(int i = 0 ; i < write.count() ; i++)
+    ui->userslist->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
+    QVBoxLayout* layout = setQwidgetItemsInListWidget(ui->userslist , 200 , 30);
+    ui->userslist->clear();
 
+    QVector<user>::iterator itt;
+    for (itt = write.begin(); itt != write.end(); ++itt) {
+        if(itt->get_ID() != howAmI.get_ID())
+        {
+            QCheckBox* text = writeCheckBox(ui->userslist , layout , itt->get_UserName());
+            selected.push_back(*itt);
+            cheVec.push_back(text);
+        }
+    }
+}

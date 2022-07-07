@@ -63,7 +63,8 @@ void groupInfo::on_addmemberbtn_clicked()
 {
     ui->userslistwidget->show();
     ui->completebtn->show();
-
+    cheVec.clear();
+    selected.clear();
     QVector<user> everyBody = maindatabase::read_AllUsers();
     ui->userslistwidget->setStyleSheet("background-color : rgba(0,0,0,50%); color : white;");
 

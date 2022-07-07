@@ -85,7 +85,11 @@ void channelInfo::on_memberslistwidget_itemClicked(QListWidgetItem *item)
 
 void channelInfo::on_addadminbtn_clicked()
 {
+        cheVec.clear();
+        selected.clear();
+
         ui->userslistwidget->show();
+        ui->userslistwidget->clear();
         ui->completebtn->show();
         ui->addmemberbtn->hide();
 
@@ -108,9 +112,12 @@ void channelInfo::on_addadminbtn_clicked()
 
 void channelInfo::on_addmemberbtn_clicked()
 {
+        cheVec.clear();
+        selected.clear();
+
         ui->userslistwidget->show();
         ui->completebtn->show();
-        ui->addmemberbtn->hide();
+        ui->addadminbtn->hide();
 
         currMode = AddMember;
 
