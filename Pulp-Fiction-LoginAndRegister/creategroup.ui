@@ -134,6 +134,9 @@ border-width: 1px;
 	color: rgb(85, 255, 255);
 }</string>
            </property>
+           <property name="text">
+            <string>Enter your group name</string>
+           </property>
            <property name="placeholderText">
             <string>Enter your group name .......</string>
            </property>
