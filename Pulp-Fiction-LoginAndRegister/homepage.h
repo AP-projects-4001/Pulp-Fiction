@@ -75,6 +75,7 @@ private:
     QVector<int> StorePv;
     QVector<int> StoreGroup;
     QVector<int> StoreChannel;
+    QVector<int> StorePos;
     QVector<chat*> vec;
     QVector<user> PVs;
 
