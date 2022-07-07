@@ -40,7 +40,6 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
             break;
         }
     }
-    qDebug() << "gjgjjg";
     this->showInfo(YOU.getNameAccessibility() ,isFriend , ui->usernamelineedit , YOU.get_UserName());
     this->showInfo(YOU.getPhoneAccessibility() ,isFriend , ui->phonenumberlineedit , YOU.get_PhoneNumber());
     showInfo(YOU.getBioAccessibility() ,isFriend , ui->biolineedit , YOU.get_Bio());
@@ -119,6 +118,4 @@ void PvInfo::showInfo(int check ,bool isFriend , QLineEdit* line , QString info)
     const char *c_str2 = ba.data();
     line->setText(c_str2);
     line->setReadOnly(true);
-
-
 }
