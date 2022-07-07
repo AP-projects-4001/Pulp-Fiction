@@ -302,7 +302,6 @@ void Setting::on_saveeditprivacy_clicked()
     {
     case 1:
         howAmI.setPhotoAccessibility(1);
-        qDebug() << "In only friends privacy";
         break;
     case 2:
         howAmI.setPhotoAccessibility(2);
@@ -383,7 +382,7 @@ void Setting::on_saveeditprivacy_clicked()
         howAmI.setBioAccessibility(0);
         break;
     }
-
+    maindatabase::Find_user(howAmI);
     maindatabase::Modify_UserAAccessibility(howAmI);
     on_backbtn_2_clicked();
 }
