@@ -23,9 +23,7 @@ LoginSystem::LoginSystem(QWidget *parent) :
 
     QShortcut *returnShortcut = new QShortcut(QKeySequence("Return"), ui->winStack);
     QObject::connect(returnShortcut, SIGNAL(activated()), ui->loginButton, SLOT(click()));
-
-    qDebug() << QCoreApplication::applicationDirPath();
-
+    qDebug() << "Address of build directory is : " << QCoreApplication::applicationDirPath();
     ui->passwordBox->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
     ui->passwordRegister->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
     QIntValidator* intValidator = new QIntValidator;
@@ -53,8 +51,6 @@ void LoginSystem::on_loginButton_clicked()
         qDebug() << "First name is" <<inneruser.get_firstname();
         hmpg = new homepage(inneruser);
         hmpg->show();
-//        Setting *settingdialog = new Setting(inneruser, this);
-//        settingdialog->show();
     }
     else
     {
