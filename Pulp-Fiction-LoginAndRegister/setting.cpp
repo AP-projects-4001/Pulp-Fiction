@@ -44,6 +44,7 @@ void Setting::on_editprofile_clicked()
     ui->winstack->setCurrentIndex(1);
     ui->Status->clear();
 
+    // Phone number should be int. I sets it here.
     QIntValidator* intValidator = new QIntValidator;
     ui->phoneeditprofile->setValidator(intValidator);
 
@@ -59,8 +60,7 @@ void Setting::on_editprofile_clicked()
     ui->lastnameeditprofile->setText(howAmI.get_lastname());
     ui->phoneeditprofile->setText(howAmI.get_PhoneNumber());
     ui->emaileditprofile->setText(howAmI.get_EmailAddress());
-    QDate Date = QDate::fromString(howAmI.get_BirthDate(),"M/d/yyyy");
-    qDebug() << Date;
+    QDate Date = QDate::fromString(howAmI.get_BirthDate(),"M/d/yyyy"); //Receiving date with specific format
     ui->birthdateeditprofile->setDate(Date);
 }
 
@@ -298,7 +298,8 @@ void Setting::on_uplButton_clicked()
 
 void Setting::on_saveeditprivacy_clicked()
 {
-    switch (ui->showpicture_2->currentIndex()) {
+    switch (ui->showpicture_2->currentIndex())
+    {
     case 1:
         howAmI.setPhotoAccessibility(1);
         qDebug() << "In only friends privacy";
@@ -310,10 +311,10 @@ void Setting::on_saveeditprivacy_clicked()
         break;
     }
 
-    switch (ui->showusername_2->currentIndex()) {
+    switch (ui->showusername_2->currentIndex())
+    {
     case 1:
         howAmI.setNameAccessibility(1);
-        qDebug() << "In set friends setting" << howAmI.getNameAccessibility();
         break;
     case 2:
         howAmI.setNameAccessibility(2);
@@ -478,7 +479,6 @@ void Setting::on_selectallbtneditfriends_clicked()
     for (int i = 0; i< cheVec.size(); i++)
     {
         cheVec[i]->setChecked(true);
-
     }
 }
 
@@ -489,7 +489,6 @@ void Setting::on_selectnonebtneditfriends_clicked()
     {
         if(cheVec[i]->isChecked())
             cheVec[i]->setChecked(false);
-
     }
 }
 
