@@ -58,6 +58,7 @@ void Contacts::on_newcontact_clicked()
             }
             if(!isfriend)
             {
+
                 QCheckBox* text = writeCheckBox(ui->alluserslist ,layout , itt->get_UserName());
                 text->setStyleSheet("QCheckBox { background-color : rgba(0,0,0,0%); color : white; }");
                 selected.push_back(*itt);
@@ -139,18 +140,24 @@ void Contacts::showfriendsonlistwidget()
     ui->freindslist->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
 
     QVector<int> friendsids = howAmI.get_FriendsID();
-    QVector<user> myfriends;
+    myfriends.clear();
+    radVec.clear();
+    //QVector<user> myfriends;
+    qDebug() << "new one";
     for(int i = 0; i < friendsids.size(); i++)
     {
         myfriends.push_back(maindatabase::getUserdetails(friendsids[i]));
-    }
-
-    for (int i = 0; i < myfriends.size(); i++)
-    {
+        qDebug() << myfriends[i].get_UserName();
         QRadioButton* text = writeRAdioButton(ui->freindslist , layout , myfriends[i].get_UserName());
-        radSelcted.push_back(myfriends[i]);
         radVec.push_back(text);
     }
-}
 
+
+//    for (int i = 0; i < myfriends.size(); i++)
+//    {
+
+//        radSelcted.push_back(myfriends[i]);
+//        radVec.push_back(text);
+//    }
+}
 

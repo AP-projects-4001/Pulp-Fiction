@@ -25,6 +25,7 @@ public:
     QVector<QRadioButton*> radVec;
     QVector<user> selected;
     QVector<user> radSelcted;
+    QVector<user> myfriends;
     int getCount();
 
 private slots:

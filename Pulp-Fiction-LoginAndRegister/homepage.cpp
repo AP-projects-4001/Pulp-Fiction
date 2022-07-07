@@ -459,7 +459,6 @@ void homepage::whatIsNew()
 void homepage::getMessage()
 {
     whatIsNew();
-
     if(checkThread == 0)
         return;
 
@@ -489,21 +488,17 @@ void homepage::on_contactsbtn_clicked()
 {
     contactDialog = new Contacts(howAmI, this);
     contactDialog->show();
-    int i;   
+    int i;
     if(contactDialog->exec() == QDialog::Accepted)
     {
         for( i = 0 ; i < contactDialog->radVec.size() ; i++)
         {
-            qDebug() << "1";
             if(contactDialog->radVec[i]->isChecked())
             {
-                qDebug() << "2";
                 for(int j = 0 ; j < PVs.size() ; j++)
                 {
-                    qDebug() << "3" << " " << j;
-                    if(contactDialog->radSelcted[i].get_ID() == PVs[j].get_ID())
+                    if(contactDialog->myfriends[i].get_ID() == PVs[j].get_ID())
                     {
-                        qDebug() << "4";
                         ptr = vec[j];
                         pvchat* ptr3 = dynamic_cast<pvchat*>(ptr);
                         if(ptr3 != nullptr)
@@ -513,7 +508,6 @@ void homepage::on_contactsbtn_clicked()
                         }
                     }
                 }
-                qDebug() << "5";
                 break;
             }
 
@@ -522,12 +516,12 @@ void homepage::on_contactsbtn_clicked()
         if(i == contactDialog->radVec.size())
             return;
         int j = maindatabase::Creat_PVChatID();
-        pvchat gr(howAmI , contactDialog->radSelcted[i]);
+        pvchat gr(howAmI , contactDialog->myfriends[i]);
         gr.set_ID(j);
         gr.Make_NewPVChatFile(gr.ExtractFileName(j));
         maindatabase::Add_PVChat(gr);
         maindatabase::Push_UserPVChatID(j,howAmI);
-        maindatabase::Push_UserPVChatID(j,contactDialog->radSelcted[i]);
+        maindatabase::Push_UserPVChatID(j,contactDialog->myfriends[i]);
 
         pvchat obchat = pvchat::read_PVChat(j);
 
@@ -575,4 +569,3 @@ void homepage::on_graphbtn_clicked()
     graphd->setModal( true ) ;
     graphd->exec() ;
 }
-

@@ -143,6 +143,7 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
                      "border-width: 2px;"
                     "color: rgb(241, 182, 88);"
                     "border-color: rgb(245, 179, 1);}";
+
             ui->profilepicture->setStyleSheet(styleSheet);
         }
     }
