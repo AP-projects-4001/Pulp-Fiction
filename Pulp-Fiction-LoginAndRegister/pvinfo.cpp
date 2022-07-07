@@ -2,6 +2,14 @@
 #include "ui_pvinfo.h"
 #include "user.h"
 #include "maindatabase.h"
+void showInfo(QLineEdit* line , QString info)
+{
+    line->show();
+    QByteArray ba = info.toLocal8Bit();
+    const char *c_str2 = ba.data();
+    line->setText(c_str2);
+    line->setReadOnly(true);
+}
 PvInfo::PvInfo(user me , user you , QWidget *parent) :
     QDialog(parent),
     ui(new Ui::PvInfo)
@@ -16,8 +24,6 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
     bodyShadow->setColor(QColor(10, 5, 45, 80));
     ui->winstack->setGraphicsEffect(bodyShadow);
 
-
-
     ui->usernamelineedit->setReadOnly(true);
     ui->biolineedit->setReadOnly(true);
     ui->firstnamelineedit->setReadOnly(true);
@@ -31,12 +37,10 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
     ui->lastnamelineedit->hide();
     ui->emaillineedit->hide();
 
-    maindatabase::Find_user(you);
-    qDebug() << "in pv info";
-    qDebug() << you.getBioAccessibility();
+    user YOU = maindatabase::getUserdetails(you.get_ID());
     bool isFriend = false;
     QVector<int> :: iterator it;
-    for(it = you.get_FriendsID().begin() ; it != you.get_FriendsID().end() ; it++)
+    for(it = YOU.get_FriendsID().begin() ; it != YOU.get_FriendsID().end() ; it++)
     {
         if(*it == me.get_ID())
         {
@@ -45,99 +49,77 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
         }
     }
     if(isFriend)
-        qDebug() << "isfriend";
-    if(isFriend)
     {
-        if(you.getNameAccessibility() != 2)
+        if(YOU.getNameAccessibility() != 2)
         {
-            ui->usernamelineedit->show();
-            QByteArray ba = you.get_UserName().toLocal8Bit();
-            const char *c_str2 = ba.data();
-            ui->usernamelineedit->setText(c_str2);
-            ui->usernamelineedit->setReadOnly(true);
+            showInfo(ui->usernamelineedit , YOU.get_UserName());
         }
-        if(you.getPhoneAccessibility() != 2)
+        if(YOU.getPhoneAccessibility() != 2)
         {
-            ui->phonenumberlineedit->show();
-            QByteArray ba = you.get_PhoneNumber().toLocal8Bit();
-            const char *c_str2 = ba.data();
-            ui->phonenumberlineedit->setText(c_str2);
-            ui->phonenumberlineedit->setReadOnly(true);
+            showInfo(ui->phonenumberlineedit , YOU.get_PhoneNumber());
         }
-        if(you.getEmailAccessibility() != 2)
+        if(YOU.getEmailAccessibility() != 2)
         {
-            ui->emaillineedit->show();
-            QByteArray ba = you.get_EmailAddress().toLocal8Bit();
-            const char *c_str2 = ba.data();
-            ui->emaillineedit->setText(c_str2);
-            ui->emaillineedit->setReadOnly(true);
+            showInfo(ui->emaillineedit , YOU.get_EmailAddress());
         }
-        if(you.getFirstNameAccessibility() != 2)
+        if(YOU.getFirstNameAccessibility() != 2)
         {
-            ui->firstnamelineedit->show();
-            QByteArray ba = you.get_firstname().toLocal8Bit();
-            const char *c_str2 = ba.data();
-            ui->firstnamelineedit->setText(c_str2);
-            ui->firstnamelineedit->setReadOnly(true);
+            showInfo(ui->firstnamelineedit , YOU.get_firstname());
         }
-        if(you.getLastNameAccessibility() != 2)
+        if(YOU.getLastNameAccessibility() != 2)
         {
-            ui->lastnamelineedit->show();
-            QByteArray ba = you.get_lastname().toLocal8Bit();
-            const char *c_str2 = ba.data();
-            ui->lastnamelineedit->setText(c_str2);
-            ui->lastnamelineedit->setReadOnly(true);
+            showInfo(ui->lastnamelineedit , YOU.get_lastname());
+        }
+        if(YOU.getPhotoAccessibility() != 2)
+        {
+            QString picDir = QCoreApplication::applicationDirPath()+"/../"+QString::number(YOU.get_ID())+".png";
+            QString borderpic = "border-image: url(" + picDir + ");";
+            QString styleSheet = "QLabel{" + borderpic +
+                    "Padding: 1px;"
+                    "Border-radius: 55px;"
+                    "Color: #fefefe;"
+                        "border-color: rgb(45, 135, 135);"
+                    "border-style: solid;"
+                     "border-width: 2px;}"
+
+                    "QLabel:hover {"
+                    "background-color: rgb(42, 46, 52);"
+                    "border-style: solid;"
+                     "border-width: 2px;"
+                    "color: rgb(241, 182, 88);"
+                    "border-color: rgb(245, 179, 1);}";
+
+            ui->profilepicture->setStyleSheet(styleSheet);
         }
     }
 
     else
     {
 
-        if(you.getNameAccessibility() == 0)
+        if(YOU.getNameAccessibility() == 0)
         {
-            ui->usernamelineedit->show();
-            QByteArray ba = you.get_UserName().toLocal8Bit();
-            const char *c_str2 = ba.data();
-            ui->usernamelineedit->setText(c_str2);
-            ui->usernamelineedit->setReadOnly(true);
+            showInfo(ui->usernamelineedit , YOU.get_UserName());
         }
-        if(you.getPhoneAccessibility() == 0)
+        if(YOU.getPhoneAccessibility() == 0)
         {
-            ui->phonenumberlineedit->show();
-            QByteArray ba = you.get_PhoneNumber().toLocal8Bit();
-            const char *c_str2 = ba.data();
-            ui->phonenumberlineedit->setText(c_str2);
-            ui->phonenumberlineedit->setReadOnly(true);
+            showInfo(ui->phonenumberlineedit , YOU.get_PhoneNumber());
         }
 
-        if(you.getEmailAccessibility() == 0)
+        if(YOU.getEmailAccessibility() == 0)
         {
-            ui->emaillineedit->show();
-            qDebug( )<< "you.you.getEmailAccessibility()()" << ' ' <<you.get_EmailAddress();
-            QByteArray ba = you.get_EmailAddress().toLocal8Bit();
-            const char *c_str2 = ba.data();
-            ui->emaillineedit->setText(c_str2);
-            ui->emaillineedit->setReadOnly(true);
+            showInfo(ui->emaillineedit , YOU.get_EmailAddress());
         }
-        if(you.getFirstNameAccessibility() == 0)
+        if(YOU.getFirstNameAccessibility() == 0)
         {
-            ui->firstnamelineedit->show();
-            QByteArray ba = you.get_firstname().toLocal8Bit();
-            const char *c_str2 = ba.data();
-            ui->firstnamelineedit->setText(c_str2);
-            ui->firstnamelineedit->setReadOnly(true);
+            showInfo(ui->firstnamelineedit , YOU.get_firstname());
         }
-        if(you.getLastNameAccessibility() == 0)
+        if(YOU.getLastNameAccessibility() == 0)
         {
-            ui->lastnamelineedit->show();
-            QByteArray ba = you.get_lastname().toLocal8Bit();
-            const char *c_str2 = ba.data();
-            ui->lastnamelineedit->setText(c_str2);
-            ui->lastnamelineedit->setReadOnly(true);
+            showInfo(ui->lastnamelineedit , YOU.get_lastname());
         }
-        if(you.getPhotoAccessibility() == 0)
+        if(YOU.getPhotoAccessibility() == 0)
         {
-            QString picDir = QCoreApplication::applicationDirPath()+"/../"+QString::number(you.get_ID())+".png";
+            QString picDir = QCoreApplication::applicationDirPath()+"/../"+QString::number(YOU.get_ID())+".png";
             QString borderpic = "border-image: url(" + picDir + ");";
             QString styleSheet = "QLabel{" + borderpic +
                     "Padding: 1px;"

@@ -2,6 +2,7 @@
 #include "ui_contacts.h"
 #include "QCheckBox"
 #include "countlessCalledFunctions.h"
+#include "graph.h"
 Contacts::Contacts(user me ,QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Contacts)
@@ -132,6 +133,8 @@ void Contacts::on_addbtn_clicked()
         if(cheVec[i]->isChecked())
         {
              maindatabase::Push_UserFriendID(selected[i].get_ID(), howAmI);
+             howAmI.add_FriendID(selected[i].get_ID());
+             Graph::Update_UserRelation(howAmI) ;
         }
     }
     on_backbtn_clicked();
@@ -148,11 +151,9 @@ void Contacts::showfriendsonlistwidget()
     QVector<int> friendsids = howAmI.get_FriendsID();
     myfriends.clear();
     radVec.clear();
-    qDebug() << "new one";
     for(int i = 0; i < friendsids.size(); i++)
     {
         myfriends.push_back(maindatabase::getUserdetails(friendsids[i]));
-        qDebug() << myfriends[i].get_UserName();
         QRadioButton* text = writeRAdioButton(ui->freindslist , layout , myfriends[i].get_UserName());
         radVec.push_back(text);
     }

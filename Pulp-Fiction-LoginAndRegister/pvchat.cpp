@@ -106,12 +106,15 @@ pvchat pvchat::read_PVChat( int in_ID )
     ReadObj  = JsonDoc.object() ;
     OwnerObj = ReadObj["Owner"].toObject() ;
     AddresseeObj = ReadObj["Addressee"].toObject() ;
+
     tmpOwner.set_ID( OwnerObj.value("ID").toInt() ) ;
     tmpOwner.set_UserName( OwnerObj.value("UserName").toString() ) ;
     tmpOwner.set_PhoneNumber( OwnerObj.value("PhoneNumber").toString() ) ;
+
     tmpAddressee.set_ID( AddresseeObj.value("ID").toInt() ) ;
     tmpAddressee.set_UserName( AddresseeObj["UserName"].toString() ) ;
-    tmpAddressee.set_PhoneNumber( AddresseeObj.value("PhoneNumber").toString() ) ;
+    tmpAddressee.set_PhoneNumber( AddresseeObj.value("PhoneNumber").toString() ) ;  
+
     QJsonArray MessagesArr = ReadObj["Messages"].toArray() ;
     QVector<QString> tmpmess ;
     for( int i=0 ; i<MessagesArr.count() ; i++)
