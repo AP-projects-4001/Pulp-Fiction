@@ -133,7 +133,7 @@ homepage::homepage(user me ,QWidget *parent) :
 
 
     layout = setQwidgetItemsInListWidget( ui->messageslist , 600 , 70);
-    this->setLayout(layout);
+//    this->setLayout(layout);
 
     mythread = new MyThread(this);
     connect(mythread , SIGNAL(NumberChange()) , this , SLOT(getMessage()));

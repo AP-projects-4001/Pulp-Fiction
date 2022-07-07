@@ -58,6 +58,10 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
         {
             showInfo(ui->phonenumberlineedit , YOU.get_PhoneNumber());
         }
+        if(YOU.getBioAccessibility() != 2)
+        {
+            showInfo(ui->emaillineedit , YOU.get_Bio());
+        }
         if(YOU.getEmailAccessibility() != 2)
         {
             showInfo(ui->emaillineedit , YOU.get_EmailAddress());
@@ -108,6 +112,10 @@ PvInfo::PvInfo(user me , user you , QWidget *parent) :
         if(YOU.getEmailAccessibility() == 0)
         {
             showInfo(ui->emaillineedit , YOU.get_EmailAddress());
+        }
+        if(YOU.getBioAccessibility() == 0)
+        {
+            showInfo(ui->emaillineedit , YOU.get_Bio());
         }
         if(YOU.getFirstNameAccessibility() == 0)
         {

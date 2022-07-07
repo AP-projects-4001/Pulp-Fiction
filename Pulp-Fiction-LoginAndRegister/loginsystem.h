@@ -34,8 +34,6 @@ private slots:
 
     void on_regButton_clicked();
 
-    void on_winStack_currentChanged(int arg1);
-
     void on_uplButton_clicked();
 
     void on_checkBox_showpass_stateChanged(int arg1);

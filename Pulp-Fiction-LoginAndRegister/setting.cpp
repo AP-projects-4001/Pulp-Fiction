@@ -307,6 +307,7 @@ void Setting::on_saveeditprivacy_clicked()
         howAmI.setPhotoAccessibility(2);
         break;
     default:
+        howAmI.setPhotoAccessibility(0);
         break;
     }
 
@@ -382,7 +383,6 @@ void Setting::on_saveeditprivacy_clicked()
         howAmI.setBioAccessibility(0);
         break;
     }
-    maindatabase::Find_user(howAmI);
     maindatabase::Modify_UserAAccessibility(howAmI);
     on_backbtn_2_clicked();
 }
@@ -396,7 +396,6 @@ void Setting::on_searchcontact_textChanged(const QString &arg1)
         on_editcontacts_clicked();
         return;
     }
-
 
     write = maindatabase::read_AllUsers();
     ui->friendslistwidget->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");

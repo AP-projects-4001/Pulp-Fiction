@@ -404,8 +404,8 @@ border-width: 1px;
          </property>
          <property name="maximumSize">
           <size>
-           <width>30</width>
-           <height>16777215</height>
+           <width>50</width>
+           <height>20</height>
           </size>
          </property>
          <property name="toolTip">
@@ -472,7 +472,7 @@ border-width: 1px;
             <property name="maximumSize">
              <size>
               <width>50</width>
-              <height>30</height>
+              <height>20</height>
              </size>
             </property>
             <property name="toolTip">
@@ -2697,7 +2697,7 @@ border-style: solid;
             <property name="maximumSize">
              <size>
               <width>50</width>
-              <height>30</height>
+              <height>20</height>
              </size>
             </property>
             <property name="toolTip">
@@ -3308,7 +3308,7 @@ border-style: solid;
          <property name="maximumSize">
           <size>
            <width>50</width>
-           <height>30</height>
+           <height>20</height>
           </size>
          </property>
          <property name="toolTip">
@@ -3553,7 +3553,11 @@ border-width: 1px;
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_18">
            <item>
-            <widget class="QListWidget" name="friendslistwidget"/>
+            <widget class="QListWidget" name="friendslistwidget">
+             <property name="layoutMode">
+              <enum>QListView::Batched</enum>
+             </property>
+            </widget>
            </item>
           </layout>
          </item>

@@ -187,11 +187,11 @@ void user::setPhotoAccessibility( int in_Accessibility )
 }
 void user::setFirstNameAccessibility( int in_Accessibility )
 {
-    nameAccessibility = in_Accessibility;
+    firstNameAccessibility = in_Accessibility;
 }
 void user::setLastNameAccessibility( int in_Accessibility )
 {
-    phoneAccessibility = in_Accessibility;
+    lastNameAccessibility = in_Accessibility;
 }
 void user::setEmailAccessibility( int in_Accessibility )
 {
@@ -215,15 +215,15 @@ int user::getPhotoAccessibility()
 }
 int user::getFirstNameAccessibility()
 {
-    return nameAccessibility ;
+    return firstNameAccessibility ;
 }
 int user::getLastNameAccessibility()
 {
-    return phoneAccessibility;
+    return lastNameAccessibility;
 }
 int user::getEmailAccessibility()
 {
-    return photoAccessibility;
+    return emailAccessibility;
 }
 int user::getBioAccessibility()
 {
