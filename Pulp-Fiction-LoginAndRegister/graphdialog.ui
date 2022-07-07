@@ -168,7 +168,7 @@ border-style: solid;
 </string>
            </property>
            <property name="title">
-            <string>Ajancymatrix</string>
+            <string>Adjacencymatrix</string>
            </property>
            <layout class="QGridLayout" name="gridLayout">
             <item row="0" column="0" rowspan="2">
