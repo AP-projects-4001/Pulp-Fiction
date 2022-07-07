@@ -37,6 +37,7 @@ private:
     user howAmI;
     QString name;
 
+    void setChecks();
 };
 
 #endif // CREATEGROUP_H

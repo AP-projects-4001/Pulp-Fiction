@@ -19,21 +19,8 @@ creategroup::creategroup(user me ,QWidget *parent) :
     bodyShadow->setDistance(4.0);
     bodyShadow->setColor(QColor(10, 5, 45, 80));
     ui->winstack->setGraphicsEffect(bodyShadow);
+    setChecks();
 
-    write = maindatabase::read_AllUsers();
-    ui->userslist->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
-    ui->userslist->clear();
-    QVBoxLayout* layout = setQwidgetItemsInListWidget(ui->userslist , 200 , 30);
-
-    QVector<user>::iterator itt;
-    for (itt = write.begin(); itt != write.end(); ++itt) {
-        if(itt->get_ID() != me.get_ID())
-        {
-            QCheckBox* text = writeCheckBox(ui->userslist , layout , itt->get_UserName());
-            selected.push_back(*itt);
-            cheVec.push_back(text);
-        }
-    }
     connect(ui->addbtn, &QPushButton::clicked,
             this, &creategroup::accept);
 }
@@ -49,7 +36,10 @@ void creategroup::on_submit_clicked()
     if(name.isEmpty())
         QMessageBox::warning(this, "invalid name", "please enter a name for your group");
     else
+    {
         ui->winstack->setCurrentIndex(1);
+        setChecks();
+    }
 }
 int creategroup::getCount()
 {return ui->userslist->count();}
@@ -62,4 +52,24 @@ void creategroup::on_backbtn_5_clicked()
 void creategroup::on_backbtn_3_clicked()
 {
     creategroup::hide();
+}
+void creategroup::setChecks()
+{
+    write.clear();
+    selected.clear();
+    cheVec.clear();
+    write = maindatabase::read_AllUsers();
+    ui->userslist->setStyleSheet("background-color : rgba(0,0,0,50%); color : black;");
+    ui->userslist->clear();
+    QVBoxLayout* layout = setQwidgetItemsInListWidget(ui->userslist , 200 , 30);
+
+    QVector<user>::iterator itt;
+    for (itt = write.begin(); itt != write.end(); ++itt) {
+        if(itt->get_ID() != howAmI.get_ID())
+        {
+            QCheckBox* text = writeCheckBox(ui->userslist , layout , itt->get_UserName());
+            selected.push_back(*itt);
+            cheVec.push_back(text);
+        }
+    }
 }

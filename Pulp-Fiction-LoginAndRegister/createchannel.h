@@ -30,10 +30,12 @@ private slots:
 
     void on_backbtn_3_clicked();
 
+
 private:
     Ui::createchannel *ui;
     user howAmI;
     QString name;
+    void setChecks();
 
 };
 

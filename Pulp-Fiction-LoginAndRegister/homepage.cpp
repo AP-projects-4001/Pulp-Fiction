@@ -55,8 +55,6 @@ homepage::homepage(user me ,QWidget *parent) :
         pv = new pvchat(obchat , howAmI);
         vec.push_back(pv);
         StorePos.push_back(vec.size()-1);
-        qDebug() << StorePos[StorePos.size()-1] << vec.size();
-        qDebug() << PVs.size() << StorePos.size();
 
     }
 
@@ -457,8 +455,6 @@ void homepage::whatIsNew()
             StorePv.push_back(TemPv[it2]);
             PVs.push_back(obchat.get_Owner());
             StorePos.push_back(vec.size()-1);
-            qDebug() << StorePos[StorePos.size()-1] << vec.size();
-            qDebug() << PVs.size() << StorePos.size();
         }
         checkThread=1;
     }
@@ -504,8 +500,6 @@ void homepage::on_contactsbtn_clicked()
             {
                 for(int j = 0 ; j < PVs.size() ; j++)
                 {
-                    qDebug() << PVs[j].get_ID();
-                    qDebug() << contactDialog->myfriends[i].get_ID();
                     if(contactDialog->myfriends[i].get_ID() == PVs[j].get_ID())
                     {
                         ptr = vec[StorePos[j]];
@@ -544,8 +538,6 @@ void homepage::on_contactsbtn_clicked()
         StorePv.push_back(obchat.get_ID());
         PVs.push_back(obchat.get_Addressee());
         StorePos.push_back(vec.size()-1);
-        qDebug() << StorePos[StorePos.size()-1] << vec.size();
-        qDebug() << PVs.size() << StorePos.size();
         clicked_list_item(item);
     }
 
