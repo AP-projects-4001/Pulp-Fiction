@@ -452,6 +452,7 @@ void homepage::whatIsNew()
             }
             vec.push_back(pv);
             StorePv.push_back(TemPv[it2]);
+            PVs.push_back(obchat.get_Owner());
         }
         checkThread=1;
     }
