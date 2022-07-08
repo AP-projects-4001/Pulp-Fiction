@@ -203,7 +203,7 @@ QVector<QString> Graph::Creat_Guidlist( int HeadID )
         tmpu = maindatabase::getUserdetails( vertices.at(i).toInt() ) ;
         if( tmpu.get_UserName() == "" )
             tmpu.set_UserName("unknown username") ;
-        QString tmpnode = tmpu.get_UserName() +" : " + QString::number(i) ;
+        QString tmpnode = tmpu.get_UserName() +" : " + QString::number(i+1) ;
         result.push_back( tmpnode ) ;
     }
     return result ;
