@@ -6,6 +6,7 @@
 #include<QJsonObject>
 #include<QJsonArray>
 #include<QJsonValue>
+#include<QMessageBox>
 channel::channel(user in_Owner , QString in_ChannelName)
 {
     Owner = in_Owner ;
@@ -48,7 +49,9 @@ void channel::Make_NewChannelFile( QString FileName  )
     QFile ChannelFile(FileName) ;
     if( !ChannelFile.open(QFile::WriteOnly ) )
     {
-        qDebug() << "Error in making newFile " ;//
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
         return ;
     }
     QJsonParseError JsonParseError ;
@@ -73,7 +76,9 @@ void channel::add_Member(user &in_Member , QString FileName)
     QFile ChFile( FileName ) ;
     if( !ChFile.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
        return ;
     }
     QJsonObject NewMember ;
@@ -100,7 +105,9 @@ channel channel::read_channel( int in_ID )
     QFile CFile( FileName ) ;
     if ( !CFile.open(QIODevice::ReadOnly) )
     {
-        qDebug() << "File open error";
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
         return Cobj ;
         //////////////////////
     }
@@ -153,7 +160,9 @@ void channel::add_Admins(user &in_Admin , QString FileName)
     QFile ChFile( FileName ) ;
     if( !ChFile.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
        return ;
     }
     QJsonObject NewAdmin ;
@@ -195,7 +204,9 @@ void channel::delete_Member(user &in_Member , QString FileName)
     QFile ChFile( FileName ) ;
     if( !ChFile.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+       QMessageBox messageBox;
+       messageBox.critical(0,"Error","There is a problem in opening file!");
+       messageBox.setFixedSize(500,200);
        return ;
     }
     QJsonParseError JsonParseError ;

@@ -6,6 +6,7 @@
 #include<QJsonObject>
 #include<QJsonArray>
 #include<QJsonValue>
+#include<QMessageBox>
 Group::Group(user in_Owner , QString in_GroupName)
 {
     Owner = in_Owner ;
@@ -39,7 +40,9 @@ void Group::add_Member(user &in_Member , QString FileName)
     QFile GFile( FileName ) ;
     if( !GFile.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
        return ;
     }
     QJsonObject NewMember ;
@@ -72,7 +75,9 @@ void Group::Make_NewGroupFile( QString FileName  )
     QFile GroupFile(FileName) ;
     if( !GroupFile.open(QFile::WriteOnly ) )
     {
-        qDebug() << "Error in making newFile " ;//
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
         return ;
     }
     QJsonParseError JsonParseError ;
@@ -99,9 +104,10 @@ Group Group::read_Group( int in_ID )
     QFile CFile( FileName ) ;
     if ( !CFile.open(QIODevice::ReadOnly) )
     {
-        qDebug() << "File open error";
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
         return Gobj ;
-        //////////////////////
     }
     QJsonObject ReadObj , OwnerObj;
     QJsonParseError JsonParseError ;
@@ -150,7 +156,9 @@ void Group::delete_Member(user &in_Member , QString FileName)
     QFile GFile( FileName ) ;
     if( !GFile.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+       QMessageBox messageBox;
+       messageBox.critical(0,"Error","There is a problem in opening file!");
+       messageBox.setFixedSize(500,200);
        return ;
     }
     QJsonParseError JsonParseError ;

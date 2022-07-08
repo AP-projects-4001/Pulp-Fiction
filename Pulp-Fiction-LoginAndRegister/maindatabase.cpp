@@ -7,12 +7,15 @@
 #include "user.h"
 #include "groupclass.h"
 #include "QJsonParseError"
+#include<QMessageBox>
 maindatabase::maindatabase()
 {
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadWrite) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
     }
     Db.close();
 }
@@ -21,7 +24,6 @@ void maindatabase::Add_user(user in_user)
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadWrite) )
     {
-       qDebug() << "File open error";
        QMessageBox messageBox;
        messageBox.critical(0,"Error","There is a problem in opening file");
        messageBox.setFixedSize(500,200);
@@ -89,7 +91,9 @@ bool maindatabase::Check_username(QString in_username)
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+       QMessageBox messageBox;
+       messageBox.critical(0,"Error","There is a problem in opening file!");
+       messageBox.setFixedSize(500,200);
        return false;
     }
     QJsonParseError JsonParseError ;
@@ -111,7 +115,9 @@ bool maindatabase::Check_PhoneNumber(QString in_PhoneNumber)
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+       QMessageBox messageBox;
+       messageBox.critical(0,"Error","There is a problem in opening file!");
+       messageBox.setFixedSize(500,200);
        return false;
     }
     QJsonParseError JsonParseError ;
@@ -133,7 +139,9 @@ bool maindatabase::Check_EmailAddress(QString in_EmailAddress)
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
        return false;
     }
     QJsonParseError JsonParseError ;
@@ -155,7 +163,9 @@ bool maindatabase::Check_PVChat(user FirstUser , user SecondUser )
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
        return false;
     }
     QJsonParseError JsonParseError ;
@@ -178,8 +188,10 @@ bool maindatabase::Find_user( user &in_user)
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
-      return false ;
+       QMessageBox messageBox;
+       messageBox.critical(0,"Error","There is a problem in opening file!");
+       messageBox.setFixedSize(500,200);
+       return false ;
     }
     QJsonParseError JsonParseError ;
     QJsonDocument JsonDoc = QJsonDocument::fromJson(Db.readAll(), &JsonParseError) ;
@@ -238,7 +250,9 @@ bool maindatabase::Find_user( user &in_user)
 
         }
     }
-    qDebug() << " not found current user" ;
+    QMessageBox messageBox;
+    messageBox.critical(0,"Error","Not found current user!");
+    messageBox.setFixedSize(500,200);
     return false ;
 }
 int maindatabase::Creat_ID()
@@ -246,8 +260,10 @@ int maindatabase::Creat_ID()
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
-       return 0;////
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
+       return 0;
     }
     QJsonParseError JsonParseError ;
     QJsonDocument JsonDoc = QJsonDocument::fromJson(Db.readAll(), &JsonParseError) ;
@@ -261,8 +277,10 @@ int maindatabase::Creat_PVChatID()
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
-       return 0;////
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
+       return 0;
     }
     QJsonParseError JsonParseError ;
     QJsonDocument JsonDoc = QJsonDocument::fromJson(Db.readAll(), &JsonParseError) ;
@@ -276,7 +294,9 @@ int maindatabase::Creat_GroupID()
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
        return 0;////
     }
     QJsonParseError JsonParseError ;
@@ -291,7 +311,9 @@ int maindatabase::Creat_ChannelID()
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
        return 0;////
     }
     QJsonParseError JsonParseError ;
@@ -306,7 +328,9 @@ void maindatabase::Add_PVChat(pvchat in_PVChat )
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadWrite) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
        return ;
     }
     QJsonObject NewPVChat ;
@@ -330,7 +354,9 @@ void maindatabase::Add_Group(Group in_Group)
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadWrite) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
        return ;
     }
     QJsonObject NewGroup ;
@@ -353,7 +379,9 @@ void maindatabase::Add_Channel( channel in_Channel )
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadWrite) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
        return ;
     }
     QJsonObject NewChannel ;
@@ -376,7 +404,9 @@ void maindatabase::Push_UserPVChatID(int in_PVChatID , user in_user )
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
        return  ;
     }
     QJsonParseError JsonParseError ;
@@ -411,7 +441,9 @@ void maindatabase::Push_UserGroupID(int in_GroupID , user in_user)
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
        return  ;
     }
     QJsonParseError JsonParseError ;
@@ -446,7 +478,9 @@ void maindatabase::Push_UserChannelID(int in_ChannelID , user in_user)
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
        return  ;
     }
     QJsonParseError JsonParseError ;
@@ -481,7 +515,9 @@ void maindatabase::Push_UserFriendID(int in_FriendID , user in_user)
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
        return  ;
     }
     QJsonParseError JsonParseError ;
@@ -517,7 +553,9 @@ QVector<user> maindatabase::read_AllUsers()
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
        return  Usersvector;
     }
     QJsonParseError JsonParseError ;
@@ -588,7 +626,9 @@ user maindatabase::getUserdetails(int userid)
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
        return  mainUser;
     }
     QJsonParseError JsonParseError ;
@@ -659,7 +699,9 @@ void maindatabase::Delete_UserFriendID(int in_FriendID , user &in_user)
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+       QMessageBox messageBox;
+       messageBox.critical(0,"Error","There is a problem in opening file!");
+       messageBox.setFixedSize(500,200);
        return  ;
     }
     QJsonParseError JsonParseError ;
@@ -701,7 +743,9 @@ void maindatabase::Delete_UserChannelID(int in_ChannelID , user &in_user )
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
        return  ;
     }
     QJsonParseError JsonParseError ;
@@ -743,7 +787,9 @@ void maindatabase::Delete_UserPVChatID(int in_PVChatID , user in_user )
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
        return  ;
     }
     QJsonParseError JsonParseError ;
@@ -785,7 +831,9 @@ void maindatabase::Delete_UserGroupID(int in_GroupID , user in_user)
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
        return  ;
     }
     QJsonParseError JsonParseError ;
@@ -826,7 +874,9 @@ void maindatabase::Modify_UserDetails( user in_user )
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
        return  ;
     }
     QJsonParseError JsonParseError ;
@@ -865,7 +915,9 @@ bool maindatabase::userpasswordForforgot(user in_user, QString &pass)
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
       return false ;
     }
     QJsonParseError JsonParseError ;
@@ -882,7 +934,9 @@ bool maindatabase::userpasswordForforgot(user in_user, QString &pass)
 
         }
     }
-    qDebug() << " Not found current user" ;
+    QMessageBox messageBox;
+    messageBox.critical(0,"Error"," Not found current user");
+    messageBox.setFixedSize(500,200);
     return false ;
 
 }
@@ -891,7 +945,9 @@ void maindatabase::Modify_UserAAccessibility( user in_user )
     QFile Db( "MainDatabase.json" ) ;
     if( !Db.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
        return  ;
     }
     QJsonParseError JsonParseError ;

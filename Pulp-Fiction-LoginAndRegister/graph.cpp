@@ -4,7 +4,9 @@ Graph::Graph()
     QFile F( "Relations.json" ) ;
     if( !F.open(QIODevice::ReadWrite) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+       QMessageBox messageBox;
+       messageBox.critical(0,"Error","There is a problem in opening file!");
+       messageBox.setFixedSize(500,200);
     }
     F.close();
 }
@@ -33,7 +35,10 @@ void Graph::Update_UserRelation( user in_user )
     QFile RF( "Relations.json" ) ;
     if( !RF.open(QIODevice::ReadOnly) )
     {
-        qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
+        return ;
     }
     QJsonParseError JsonParseError ;
     QJsonDocument JsonDoc = QJsonDocument::fromJson(RF.readAll(), &JsonParseError) ;
@@ -72,7 +77,9 @@ QJsonArray Graph::Find_Correspondingvertices( int  HeadID )
     QFile F( "Relations.json" ) ;
     if( !F.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
     }
     QJsonParseError JsonParseError ;
     QJsonDocument JsonDoc = QJsonDocument::fromJson(F.readAll(), &JsonParseError) ;
@@ -109,7 +116,9 @@ QJsonArray Graph::Make_EdgesArray( int HeadID )
     QFile F( "Relations.json" ) ;
     if( !F.open(QIODevice::ReadWrite) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
     }
     QJsonParseError JsonParseError ;
     QJsonDocument JsonDoc = QJsonDocument::fromJson(F.readAll(), &JsonParseError) ;
@@ -184,7 +193,6 @@ QVector<QVector<int>> Graph::Creat_AdjacencyMatrix( int HeadID )
     QJsonArray Vertices = Find_Correspondingvertices( HeadID ) ;
     QVector<QVector<int>> AdjMatrix = Make_MatrixTable( Vertices.count() ) ;
     QJsonArray Edges = Virtualization( Make_EdgesArray(HeadID) , Vertices ) ;
-    qDebug() << Edges.count() ;
     for(int i=0 ; i<Edges.count() ; i++)
     {
         int x = Edges[i][0].toInt() ;
@@ -203,7 +211,7 @@ QVector<QString> Graph::Creat_Guidlist( int HeadID )
         tmpu = maindatabase::getUserdetails( vertices.at(i).toInt() ) ;
         if( tmpu.get_UserName() == "" )
             tmpu.set_UserName("unknown username") ;
-        QString tmpnode = tmpu.get_UserName() +" : " + QString::number(i) ;
+        QString tmpnode = tmpu.get_UserName() +" : " + QString::number(i+1) ;
         result.push_back( tmpnode ) ;
     }
     return result ;

@@ -22,14 +22,13 @@ graphdialog::graphdialog( user me, QWidget *parent) :
     QVector<QString> convrted = mygraph->Convert_MatrixToString(graphComponents);
     foreach(const QString item, convrted)
     {
-        qDebug() << item;
         ui->matrix->append(item + "\n");
     }
 
     QVector<QString> graphComponentsguide = mygraph->Creat_Guidlist(howAmI.get_ID());
     foreach(const QString item, graphComponentsguide)
     {
-        qDebug() << item;
+
         ui->list_2->append(item + "\n");
     }
 }

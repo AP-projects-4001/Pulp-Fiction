@@ -5,6 +5,7 @@
 #include <QJsonParseError>
 #include<QJsonObject>
 #include<QJsonArray>
+#include<QMessageBox>
 pvchat::pvchat(user in_Owner , user in_Addressee)
 {
     Owner.set_UserName    ( in_Owner.get_UserName() ) ;
@@ -60,7 +61,9 @@ void pvchat::Make_NewPVChatFile( QString FileName )
     QFile PVChatFile(FileName) ;
     if( !PVChatFile.open(QFile::WriteOnly ) )
     {
-        qDebug() << "Error in making newFile " ;//
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
         return ;
     }
     QJsonParseError JsonParseError ;
@@ -94,10 +97,10 @@ pvchat pvchat::read_PVChat( int in_ID )
     QFile CFile( FileName ) ;
     if ( !CFile.open(QIODevice::ReadOnly) )
     {
-        qDebug() << "File open error";
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","There is a problem in opening file!");
+        messageBox.setFixedSize(500,200);
         return tmppvobj ;
-
-        //////////////////////
     }
     QJsonObject ReadObj , OwnerObj , AddresseeObj;
     QJsonParseError JsonParseError ;

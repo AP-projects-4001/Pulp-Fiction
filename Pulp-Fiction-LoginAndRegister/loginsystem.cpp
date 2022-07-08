@@ -250,7 +250,6 @@ void LoginSystem::on_backButton_clicked()
 void LoginSystem::on_uplButton_clicked()
 {
     this->picName = QFileDialog::getOpenFileName(this, tr("Open Image"), "/", tr("Image Files (*.png)"));
-    qDebug() << picName;
     ui->rpLabel->setText("<img src=\"file:///"+this->picName+"\" alt=\"Image read error!\" height=\"110\" width=\"110\" />");
 
 }

@@ -4,6 +4,7 @@
 #include<QJsonParseError>
 #include<QJsonObject>
 #include<QJsonArray>
+#include <QMessageBox>
 chat::chat()
 {
 
@@ -37,7 +38,9 @@ void chat::add_Message(QString in_Message , QString FileName)
     QFile CFile( FileName ) ;
     if( !CFile.open(QIODevice::ReadOnly) )
     {
-       qDebug() << "File open error";//temp// error dialog should be open here
+       QMessageBox messageBox;
+       messageBox.critical(0,"Error","There is a problem in opening file!");
+       messageBox.setFixedSize(500,200);
        return ;
     }
     QJsonParseError JsonParsError ;
